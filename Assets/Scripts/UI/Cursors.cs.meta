@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6fe6d5428eac37948aebafef1ece8010
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - basic: {fileID: 2800000, guid: 225b6f4282dff7a4fac3122f5a137499, type: 3}
+  - pointer: {fileID: 2800000, guid: 0934af740f77d8a4494b81680797afbf, type: 3}
+  - doorway: {fileID: 2800000, guid: e0e7f01ed68a1db4591eef680f6580a0, type: 3}
+  - sword: {fileID: 2800000, guid: ded4095a286706e4b983b2220667739d, type: 3}
+  - mine: {fileID: 2800000, guid: 722e8397357c5304f822c783ede5e3ca, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

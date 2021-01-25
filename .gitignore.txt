@@ -3,6 +3,7 @@
 *.db
 
 # Unity3D auto-generated folders
+/[Ll]ibrary/
 [Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/

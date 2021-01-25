@@ -1,0 +1,450 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2055967693065275261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5362721830224759181}
+  - component: {fileID: 2993936383749541156}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5362721830224759181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055967693065275261}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2223779495634536670}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2993936383749541156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055967693065275261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5013082355065751251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2223779495634536670}
+  - component: {fileID: 6024379192229597686}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2223779495634536670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013082355065751251}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5362721830224759181}
+  m_Father: {fileID: 1231793951244390866}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &6024379192229597686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013082355065751251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_StandbyUpdate: 2
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 40
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    LensShift: {x: 0, y: 0}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+  m_LegacyBlendHint: 0
+  m_ComponentOwner: {fileID: 5362721830224759181}
+--- !u!1 &5866173440803298780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231793951244390866}
+  - component: {fileID: 1384788102999669110}
+  - component: {fileID: 1687622601434996809}
+  - component: {fileID: 7761129809058700166}
+  - component: {fileID: -6281840144472239566}
+  - component: {fileID: -8495665087483145272}
+  - component: {fileID: 9108281440562823343}
+  - component: {fileID: 8998301145578507441}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231793951244390866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2223779495634536670}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384788102999669110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
+--- !u!114 &1687622601434996809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24230ac3073c4ec41b12a594d350b190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  cameraTransform: {fileID: 2223779495634536670}
+  buildingBlockLayer:
+    serializedVersion: 2
+    m_Bits: 1281
+  buildings:
+  - {fileID: 6000717676924823953, guid: 1cef360d3ce1aba44ae72d23cbe78737, type: 3}
+  - {fileID: 2042867125702451865, guid: 9333dfe01eb570941bc4b1040d0c3ed8, type: 3}
+  - {fileID: 3913763247415680005, guid: dbbcdad9d64305a42ae6d43e2378f59f, type: 3}
+  - {fileID: 1789016701406642976, guid: 3d92d6fb156c714448b5224877d00f15, type: 3}
+  - {fileID: 2042867125702451865, guid: 9b3205bad6dd10841aa33fae4b0a3dbc, type: 3}
+  - {fileID: 783899096999530452, guid: 8003ed558040d544091cefed2587955b, type: 3}
+  - {fileID: 2042867125702451865, guid: 322370a132a3ee2478294be742637556, type: 3}
+  - {fileID: 783899096999530452, guid: 14eb40d7ecbf0344281f7a08b2dcd236, type: 3}
+  - {fileID: 2042867125702451865, guid: b1872dbd38090bd4695afe6a8d96a318, type: 3}
+  - {fileID: 2042867125702451865, guid: 336c3b3675f4bde4793a611e09882a9a, type: 3}
+  - {fileID: 3753088275934236593, guid: afe59ffbceac5a840854b7548f962b68, type: 3}
+  - {fileID: 4750378815598376602, guid: c773bc219d914004eb9d4e979b06dc3b, type: 3}
+  - {fileID: 4935380239225447750, guid: 8a18acafb19e43246849087886f14c7a, type: 3}
+  units:
+  - {fileID: 5775123849031141255, guid: 70e4f6a3ccec78a4da8661fd11c9c3b7, type: 3}
+  - {fileID: 5775123849031141255, guid: 25f87b013e079da40888d0c5bf64785a, type: 3}
+  - {fileID: 5775123849031141255, guid: 87c11ed24f697084181201f50569af23, type: 3}
+  - {fileID: 5791604877373787076, guid: f1d6a2ac8ed6d2f4fb6b9c24c9c7fede, type: 3}
+  - {fileID: 5791604877373787076, guid: 90ca0e50d2057cb4cb7d2608f492a525, type: 3}
+  - {fileID: 5791604877373787076, guid: 6d2f8b1175860d140a13c2ddf11b197b, type: 3}
+  - {fileID: 5775123849031141255, guid: 9eeffcbc3c0a36640a91c9100d8a4532, type: 3}
+  spells:
+  - {fileID: 7020274916808498030, guid: f5ad640e1baa07045b1133afde7009e5, type: 3}
+  buildingRangeLimit: 35
+  playerAudio: {fileID: -6281840144472239566}
+  maxAllowablePopulation: 400
+  numberOfPlayers: 4
+  gold: 100000
+  maxGold: 100000
+  iron: 100000
+  maxIron: 100000
+  steel: 100000
+  maxSteel: 100000
+  skymetal: 100000
+  maxSkymetal: 100000
+  wood: 100000
+  maxWood: 100000
+  stone: 100000
+  maxStone: 100000
+  food: 100000
+  maxFood: 100000
+  population: 0
+  maxPopulation: 0
+  displayName: 
+  UI: {fileID: 0}
+  myUnits: []
+  myActiveUnits: []
+--- !u!114 &7761129809058700166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c67b2f48aad78e499957a64415f8daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  playerCameraTransform: {fileID: 2223779495634536670}
+  speed: 25
+  screenBorderThickness: 10
+  screenXLimits: {x: -150, y: 150}
+  screenZLimits: {x: -150, y: 150}
+  panSpeed: 0.2
+  minHeight: 10
+  maxHeight: 60
+--- !u!82 &-6281840144472239566
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-8495665087483145272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe6d5428eac37948aebafef1ece8010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: 2800000, guid: 225b6f4282dff7a4fac3122f5a137499, type: 3}
+  pointer: {fileID: 2800000, guid: 0934af740f77d8a4494b81680797afbf, type: 3}
+  doorway: {fileID: 2800000, guid: e0e7f01ed68a1db4591eef680f6580a0, type: 3}
+  sword: {fileID: 2800000, guid: ded4095a286706e4b983b2220667739d, type: 3}
+  mine: {fileID: 2800000, guid: 722e8397357c5304f822c783ede5e3ca, type: 3}
+--- !u!114 &9108281440562823343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb44e81e140dd6d47baca3b9a929602d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workerUnlocked: 0
+  archerUnlocked: 0
+  swordsmanUnlocked: 0
+  footmanUnlocked: 0
+  outriderUnlocked: 0
+  knightUnlocked: 0
+--- !u!114 &8998301145578507441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5866173440803298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d1f5881d9316741bc749e68ff00e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  isComputerAI: 0
+  pooledAmount: 25
+  arrow: {fileID: 9000752032217256737, guid: ab7bece30ed10aa4ea13ff16d7b680ee, type: 3}
+  pickaxe: {fileID: 9000752032217256737, guid: 26db4eeb16d3cb64ca3956c782b76b04, type: 3}
+  sword: {fileID: 9000752032217256737, guid: 43f73f030d5ac5c449108cc647442aaf, type: 3}
+  fireball: {fileID: 9000752032217256737, guid: aa7a18c1417df174d848de745ace8210, type: 3}
+  click: {fileID: 174694338955601326, guid: 5ee0c76d88457714da374c1207930206, type: 3}
+  worker: {fileID: 2865781408668503874, guid: 70e4f6a3ccec78a4da8661fd11c9c3b7, type: 3}
+  swordsman: {fileID: 2865781408668503874, guid: 25f87b013e079da40888d0c5bf64785a, type: 3}
+  footman: {fileID: 2865781408668503874, guid: 87c11ed24f697084181201f50569af23, type: 3}
+  archer: {fileID: 2864281083983250177, guid: f1d6a2ac8ed6d2f4fb6b9c24c9c7fede, type: 3}
+  outrider: {fileID: 2864281083983250177, guid: 90ca0e50d2057cb4cb7d2608f492a525, type: 3}
+  knight: {fileID: 2864281083983250177, guid: 6d2f8b1175860d140a13c2ddf11b197b, type: 3}
+  wizard: {fileID: 2865781408668503874, guid: 9eeffcbc3c0a36640a91c9100d8a4532, type: 3}
+  house: {fileID: 2094437964871786188, guid: 8003ed558040d544091cefed2587955b, type: 3}
+  townHall: {fileID: 2423062872186588445, guid: dbbcdad9d64305a42ae6d43e2378f59f, type: 3}
+  farm: {fileID: 840397401372963713, guid: 322370a132a3ee2478294be742637556, type: 3}
+  barracks: {fileID: 1090949860598469176, guid: 3d92d6fb156c714448b5224877d00f15, type: 3}
+  stables: {fileID: 2094437964871786188, guid: 14eb40d7ecbf0344281f7a08b2dcd236, type: 3}
+  blacksmith: {fileID: 840397401372963713, guid: b1872dbd38090bd4695afe6a8d96a318, type: 3}
+  lumberYard: {fileID: 840397401372963713, guid: 336c3b3675f4bde4793a611e09882a9a, type: 3}
+  market: {fileID: 840397401372963713, guid: 9333dfe01eb570941bc4b1040d0c3ed8, type: 3}
+  watchTower: {fileID: 2586664664986295977, guid: afe59ffbceac5a840854b7548f962b68, type: 3}
+  woodWall: {fileID: 6205032801623238530, guid: c773bc219d914004eb9d4e979b06dc3b, type: 3}
+  wizardTower: {fileID: 6020738782002525278, guid: 8a18acafb19e43246849087886f14c7a, type: 3}
+  arrows: []
+  pickaxes: []
+  swords: []
+  fireballs: []
+  clicks: []
+  workers: []
+  swordsmen: []
+  footmen: []
+  archers: []
+  outriders: []
+  knights: []
+  wizards: []
+  houses: []
+  townHalls: []
+  farms: []
+  barracksList: []
+  stablesList: []
+  blacksmiths: []
+  lumberYards: []
+  markets: []
+  watchTowers: []
+  woodWalls: []
+  wizardTowers: []

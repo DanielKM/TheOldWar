@@ -127,7 +127,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 0
-  animator: {fileID: 0}
+  animator: {fileID: 8986803610916618542}
 --- !u!114 &1478114499171259781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  anim: {fileID: 0}
+  anim: {fileID: 8986803610916618542}
 --- !u!114 &1855620799963148264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitAnimation: {fileID: 1478114499171259781}
   task: 0
 --- !u!114 &7613782934236125723
 MonoBehaviour:
@@ -191,7 +192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189938140738451642, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: colorRenderers.Array.size
-      value: 33
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 189938140738451642, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: colorRenderers.Array.data[0]
@@ -397,6 +398,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.631
       objectReference: {fileID: 0}
+    - target: {fileID: 2493916615118452864, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: 1855620799963148264}
     - target: {fileID: 2493916615118452864, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: maxHealth
       value: 100
@@ -698,6 +703,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e63c7930a1c7ac84e8be1e02dbe0dbaf, type: 3}
+--- !u!95 &8986803610916618542 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7153411807019429681, guid: e63c7930a1c7ac84e8be1e02dbe0dbaf, type: 3}
+  m_PrefabInstance: {fileID: 2301775255478758943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5264330455666038540
 PrefabInstance:
   m_ObjectHideFlags: 0

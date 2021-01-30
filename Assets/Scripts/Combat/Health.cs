@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Health : NetworkBehaviour
 {
+    [Header("References")]
+    [SerializeField]  UnitTask unitTask = null;
+
+    [Header("Settings")]
     [SerializeField] public int maxHealth = 100;
     private UnitSelectionHandler unitSelection = null;
 
@@ -13,6 +17,7 @@ public class Health : NetworkBehaviour
     public int currentHealth = 100;
 
     public event Action ServerOnDie;
+    public event Action ServerOnInjured;
     public event Action<int, int> ClientOnHealthUpdated;
     private Unit unit = null;
     private UnitInformation unitInformation = null;
@@ -33,11 +38,13 @@ public class Health : NetworkBehaviour
         currentHealth = maxHealth;
 
         UnitBase.ServerOnPlayerDie += ServerHandlePlayerDie;
+        ServerOnInjured += ServerHandleUnitInjured;
     }
 
     public override void OnStopServer()
     {
         UnitBase.ServerOnPlayerDie -= ServerHandlePlayerDie;
+        ServerOnInjured -= ServerHandleUnitInjured;
     }
 
     [Server]
@@ -59,8 +66,16 @@ public class Health : NetworkBehaviour
 
         if(currentHealth > 0) { return; }
 
+        ServerOnInjured?.Invoke();
         ServerOnDie?.Invoke();
     }
+
+    [Server]
+    public void ServerHandleUnitInjured()
+    {
+        unitTask.SetTask(ActionList.Injured);
+    }
+
     
     [Server]
     private float CheckArmourModifiers()

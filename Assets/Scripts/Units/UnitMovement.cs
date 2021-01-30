@@ -7,22 +7,20 @@ using UnityEngine.InputSystem;
 public class UnitMovement : NetworkBehaviour 
 {
     [Header("References")]
-    [SerializeField] private UnitAnimation unitAnimation = null;
     [SerializeField] private UnitInformation unitInformation = null;
     private UnitSelectionHandler unitSelection = null;
     private Unit unit = null;
-
-    [Header("Settings")]
-    
-    [SerializeField] private NavMeshAgent agent = null;
-    [SerializeField] private Targeter targeter = null;
-    [SerializeField] private UnitTask unitTask;
-    [SerializeField] private float chaseRange = 10;
-    [SerializeField] private float dropoffRange = 5;
-
     [SerializeField] public AudioSource unitAudio;
     [SerializeField] public AudioClip unitMovingClip;
     [SerializeField] public AudioClip unitMovingSoundClip;
+    [SerializeField] private NavMeshAgent agent = null;
+    [SerializeField] private Targeter targeter = null;
+    [SerializeField] private UnitTask unitTask;
+
+    [Header("Settings")]
+    [SerializeField] private float chaseRange = 10;
+    [SerializeField] private float dropoffRange = 5;
+
 
     // private Animator anim;
     RTSPlayer player = null;
@@ -70,8 +68,6 @@ public class UnitMovement : NetworkBehaviour
                     if(unitTask.GetTask() != ActionList.Delivering && gameObject.GetComponent<ResourceGatherer>() != null) 
                     {
                         unitTask.SetUnitTask(ActionList.Delivering);
-
-                        unitAnimation.SetAnimation(ActionList.Delivering); 
                     }
 
                     if((target.transform.position - transform.position).sqrMagnitude <= dropoffRange * dropoffRange) 
@@ -106,9 +102,10 @@ public class UnitMovement : NetworkBehaviour
 
         if(!agent.hasPath) 
         { 
-            unitTask.SetUnitTask(ActionList.Idle);
-
-            unitAnimation.SetAnimation(ActionList.Idle);
+            if(unitTask.GetTask() != ActionList.Idle)
+            {
+                unitTask.SetUnitTask(ActionList.Idle);
+            }
 
             return; 
         }
@@ -116,8 +113,6 @@ public class UnitMovement : NetworkBehaviour
         if(unitTask.GetTask() != ActionList.Moving) 
         {
             unitTask.SetUnitTask(ActionList.Moving);
-            
-            unitAnimation.SetAnimation(ActionList.Moving);
         }
         
         float velocity = agent.velocity.magnitude/agent.speed;
@@ -129,8 +124,6 @@ public class UnitMovement : NetworkBehaviour
         if(unitTask.GetTask() != ActionList.Idle) 
         {
             unitTask.SetUnitTask(ActionList.Idle);
-
-            unitAnimation.SetAnimation(ActionList.Idle); 
         }
     }
 

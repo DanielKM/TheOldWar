@@ -7,8 +7,19 @@ using UnityEngine.Events;
 
 public class Unit : NetworkBehaviour
 {
+    [Header("References")]
+    [SerializeField] private Health health = null;
+    [SerializeField] private UnitMovement unitMovement = null;
+    [SerializeField] private UnitInformation unitInformation = null;
+    [SerializeField] private Targeter targeter = null;
+    [SerializeField] public AudioSource unitAudio;
+    [SerializeField] public AudioClip unitReportingClip;
+    [SerializeField] public AudioClip unitSelectedClip;
+    [SerializeField] private SphereCollider unitEnemyDetectionSphereCollider;
+    public Sprite unitIcon;
+    
+    [Header("Settings")]
     [SerializeField] private int id = -1;
-
     [SerializeField] private int gold = 0;
     [SerializeField] private int iron = 0;
     [SerializeField] private int steel = 0;
@@ -17,23 +28,13 @@ public class Unit : NetworkBehaviour
     [SerializeField] private int stone = 0;
     [SerializeField] private int food = 0;
     [SerializeField] private int population = 0;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent onSelected = null;
+    [SerializeField] private UnityEvent onDeselected = null;
     
     [TextArea]
     public string description;
-
-    [SerializeField] private Health health = null;
-    [SerializeField] private UnitMovement unitMovement = null;
-    [SerializeField] private UnitInformation unitInformation = null;
-    [SerializeField] private Targeter targeter = null;
-    [SerializeField] private UnityEvent onSelected = null;
-    [SerializeField] private UnityEvent onDeselected = null;
-
-    [SerializeField] public AudioSource unitAudio;
-    [SerializeField] public AudioClip unitReportingClip;
-    [SerializeField] public AudioClip unitSelectedClip;
-    [SerializeField] private SphereCollider unitEnemyDetectionSphereCollider;
-    
-    public Sprite unitIcon;
 
     public static event Action<Unit> ServerOnUnitSpawned;
     public static event Action<Unit> ServerOnUnitDespawned;
@@ -126,14 +127,16 @@ public class Unit : NetworkBehaviour
 
         unitInformation.owner.myActiveUnits.Remove(this);
 
+        unitInformation.owner.SetResources(unitInformation.owner.SubtractPrice(refundPrice));
+        
+
+
         // if(unitInformation.owner == null) 
         // { 
         //     gameObject.SetActive(false);
             
         //     return;
         // }
-
-        unitInformation.owner.SetResources(unitInformation.owner.SubtractPrice(refundPrice));
 
         // gameObject.SetActive(false);
         NetworkServer.Destroy(gameObject);

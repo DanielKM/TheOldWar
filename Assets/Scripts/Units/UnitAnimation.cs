@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class UnitAnimation : NetworkBehaviour
 {
+    [Header("References")]
     [SerializeField]
     private Animator anim;
     private NavMeshAgent agent;
@@ -32,12 +33,15 @@ public class UnitAnimation : NetworkBehaviour
         } else if (task == ActionList.Attacking) 
         {
             anim.SetBool("isFiring", false);
-        } else if (task == ActionList.Fighting) 
+        } else if (task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting) 
         {
             anim.SetBool("isFiring", true);
-        } else if (task == ActionList.Delivering || task == ActionList.Gathering ) 
+        } else if (task == ActionList.Delivering || task == ActionList.Gathering || task == ActionList.Construction ) 
         {
             anim.SetBool("isFiring", false);
+        } else if (task == ActionList.Injured || task == ActionList.Dead ) 
+        {
+            anim.SetBool("isInjured", true);
         }
     }
 

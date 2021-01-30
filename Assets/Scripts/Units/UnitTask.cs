@@ -14,13 +14,18 @@ public class UnitTask : NetworkBehaviour
 
     private UnitSelectionHandler unitSelection = null;
 
+
+    [Header("References")]
+    [SerializeField]
+    private UnitAnimation unitAnimation = null;
+    
+    [Header("Settings")]
     [SyncVar(hook=nameof(HandleDisplayTaskUpdated))]
     [SerializeField]
     private ActionList task = ActionList.Idle;
-    
+
     private void Start()
     {
-        // unitAnimation = GetComponent<UnitAnimation>();
         unitSelection = GameObject.Find("UnitHandlers").GetComponent<UnitSelectionHandler>();
     }
 
@@ -37,6 +42,8 @@ public class UnitTask : NetworkBehaviour
         Unit unit = gameObject.GetComponent<Unit>();
         
         task = newTask;        
+
+        unitAnimation.SetAnimation(newTask);
 
         if(unit.GetComponent<UnitInformation>().selected == false) { return; }
 
@@ -56,7 +63,6 @@ public class UnitTask : NetworkBehaviour
     [ClientRpc]
     public void SetUnitTask(ActionList newTask)
     {   
-        // networkAnimator.animator.SetBool("isWalking", true);
         CmdSetTask(newTask);
     }
 

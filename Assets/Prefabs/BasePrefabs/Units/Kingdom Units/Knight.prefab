@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitAnimation: {fileID: 7119546544310416835}
   task: 0
 --- !u!114 &1952588226956744476
 MonoBehaviour:

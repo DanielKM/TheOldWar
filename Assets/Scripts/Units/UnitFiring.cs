@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class UnitFiring : NetworkBehaviour
 {
+    [Header("References")]
     [SerializeField] private Targeter targeter = null;
     [SerializeField] private GameObject projectilePrefab = null;
     [SerializeField] private Transform projectileSpawnPoint = null;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioSource unitAudioSource;
+
+    [Header("Settings")]
     [SerializeField] private float fireRange = 5f;
     [SerializeField] private float fireRate = 1f;
     [SerializeField] private float rotationSpeed = 20f;
-    [SerializeField] AudioClip attackSound;
-    [SerializeField] AudioSource unitAudioSource;
 
     private UnitInformation unitInformation;
     private PooledGameobjects pooledGameobjects;
@@ -36,7 +39,6 @@ public class UnitFiring : NetworkBehaviour
 
     void CheckForProjectileLists()
     {
-
         if(projectilePrefab.name + "(Clone)" == pooledGameobjects.arrows[0].name) 
         {
             projectiles = pooledGameobjects.arrows;
@@ -69,7 +71,7 @@ public class UnitFiring : NetworkBehaviour
 
         if (target.gameObject.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
         { 
-            if(unitTask.GetTask() != ActionList.Gathering) 
+            if(unitTask.GetTask() != ActionList.Gathering && unitTask.GetTask() != ActionList.Harvesting) 
             {
                 unitTask.SetTask(ActionList.Gathering);    
             }
@@ -89,7 +91,7 @@ public class UnitFiring : NetworkBehaviour
         {
             if (target.gameObject.TryGetComponent<Foundation>(out Foundation foundation)) 
             { 
-                if(unitTask.GetTask() != ActionList.Construction) 
+                if(unitTask.GetTask() != ActionList.Construction && unitTask.GetTask() != ActionList.Building) 
                 {
                     unitTask.SetTask(ActionList.Construction);    
                 }
@@ -98,8 +100,7 @@ public class UnitFiring : NetworkBehaviour
 
         if(!CanFireAtTarget()) { return; }
 
-        if(unitTask.GetTask() != ActionList.Fighting && unitTask.GetTask() != ActionList.Building) { 
-            
+        if(unitTask.GetTask() != ActionList.Fighting && unitTask.GetTask() != ActionList.Building && unitTask.GetTask() != ActionList.Harvesting) { 
             // if(pooledGameobjects.isComputerAI) { CheckForProjectileLists(); } 
             if(unitTask.GetTask() == ActionList.Gathering)
             {   
@@ -122,16 +123,12 @@ public class UnitFiring : NetworkBehaviour
 
         if(Time.time > (1/fireRate) + lastFireTime) 
         {
-            gameObject.GetComponent<UnitAnimation>().SetAnimation(ActionList.Attacking);
-
             FireProjectile(target);
         }
     }
     
     private void FireProjectile(Targetable target)
     {
-        gameObject.GetComponent<UnitAnimation>().SetAnimation(ActionList.Fighting);
-
         Quaternion projectileRotation = 
             Quaternion.LookRotation(target.GetAimAtPoint().position - projectileSpawnPoint.position);
 

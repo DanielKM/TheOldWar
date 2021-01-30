@@ -12,5 +12,7 @@ public enum ActionList
     Fighting,
     Delivering,
     Harvesting,
-    Construction
+    Construction,
+    Injured,
+    Dead
 }

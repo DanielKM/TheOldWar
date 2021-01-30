@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitAnimation: {fileID: 2267158405068367372}
   task: 0
 --- !u!1001 &536117859605317610
 PrefabInstance:

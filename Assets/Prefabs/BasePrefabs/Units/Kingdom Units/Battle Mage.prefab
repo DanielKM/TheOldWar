@@ -127,7 +127,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 0
-  animator: {fileID: 0}
+  animator: {fileID: 6425267563514817853}
 --- !u!114 &-5494602784072790624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  anim: {fileID: 0}
+  anim: {fileID: 6425267563514817853}
 --- !u!114 &3269931612645664802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitAnimation: {fileID: 2267158405068367372}
   task: 0
 --- !u!1001 &536117859605317610
 PrefabInstance:
@@ -630,6 +631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9e31112c5eb294582d2991b212ed6f, type: 3}
+--- !u!95 &6425267563514817853 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1281829314528817425, guid: 9a9e31112c5eb294582d2991b212ed6f, type: 3}
+  m_PrefabInstance: {fileID: 5252000041686522924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8016513614287971524
 PrefabInstance:
   m_ObjectHideFlags: 0

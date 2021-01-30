@@ -69,6 +69,7 @@ public class UnitFiring : NetworkBehaviour
 
         UnitTask unitTask = gameObject.GetComponent<UnitTask>();
 
+        // Check for resource target
         if (target.gameObject.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
         { 
             if(unitTask.GetTask() != ActionList.Gathering && unitTask.GetTask() != ActionList.Harvesting) 
@@ -87,6 +88,7 @@ public class UnitFiring : NetworkBehaviour
             }
         }
 
+        // Check for building target
         if(gameObject.GetComponent<ResourceGatherer>()) 
         {
             if (target.gameObject.TryGetComponent<Foundation>(out Foundation foundation)) 
@@ -96,6 +98,17 @@ public class UnitFiring : NetworkBehaviour
                     unitTask.SetTask(ActionList.Construction);    
                 }
             }
+        }
+
+        // Set as enemy and attack if not resource or building
+        if(unitTask.GetTask() != ActionList.Construction 
+        && unitTask.GetTask() != ActionList.Gathering 
+        && unitTask.GetTask() != ActionList.Attacking
+        && unitTask.GetTask() != ActionList.Building
+        && unitTask.GetTask() != ActionList.Harvesting
+        && unitTask.GetTask() != ActionList.Fighting)
+        {
+            unitTask.SetTask(ActionList.Attacking);    
         }
 
         if(!CanFireAtTarget()) { return; }
@@ -112,7 +125,6 @@ public class UnitFiring : NetworkBehaviour
             {
                 unitTask.SetUnitTask(ActionList.Building); 
             }
-            
         }
         
         Quaternion targetRotation = 

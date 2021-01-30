@@ -283,6 +283,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2493916615118452864, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: 1855620799963148264}
+    - target: {fileID: 2493916615118452864, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}

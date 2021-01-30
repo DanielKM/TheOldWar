@@ -60,10 +60,13 @@ public class EnemyDetection : MonoBehaviour
                         if(colliders[i].gameObject.GetComponent<Health>().currentHealth <= 0) { continue; }
 
                         float sqrDistanceToCenter = (center - colliders[i].transform.position).sqrMagnitude;
+                        
                         if (sqrDistanceToCenter < minSqrDistance)
                         {
                             minSqrDistance = sqrDistanceToCenter;
+
                             nearestCollider = colliders[i];
+
                             targeter.CmdSetTarget(nearestCollider.gameObject);
                         }
                     } 

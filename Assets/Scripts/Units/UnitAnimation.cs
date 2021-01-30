@@ -22,7 +22,7 @@ public class UnitAnimation : NetworkBehaviour
     [ServerCallback]
     public void SetAnimation(ActionList task)
     {   
-        if(task == ActionList.Moving) 
+        if(task == ActionList.Moving || task == ActionList.Attacking || task == ActionList.Gathering || task == ActionList.Delivering || task == ActionList.Construction) 
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isFiring", false);
@@ -30,15 +30,10 @@ public class UnitAnimation : NetworkBehaviour
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", false);
-        } else if (task == ActionList.Attacking) 
-        {
-            anim.SetBool("isFiring", false);
         } else if (task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting) 
         {
+            anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", true);
-        } else if (task == ActionList.Delivering || task == ActionList.Gathering || task == ActionList.Construction ) 
-        {
-            anim.SetBool("isFiring", false);
         } else if (task == ActionList.Injured || task == ActionList.Dead ) 
         {
             anim.SetBool("isInjured", true);

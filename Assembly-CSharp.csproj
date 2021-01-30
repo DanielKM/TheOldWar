@@ -106,6 +106,8 @@
      <Compile Include="Assets\Scripts\UI\Buttons\SpellButton.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
+     <Compile Include="Assets\Scripts\Research\Technology.cs" />
+     <Compile Include="Assets\Scripts\Game\Computer AI\ComputerAI.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Stones.shader" />

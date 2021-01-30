@@ -158,7 +158,7 @@ MonoBehaviour:
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
-  unitName: Merlin Emirin
+  unitName: Arukon
   unitType: 6
   unitRank: 0
   unitKills: 0
@@ -204,7 +204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 189938140738451642, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: colorRenderers.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 189938140738451642, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: colorRenderers.Array.data[0]
@@ -310,6 +310,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.221
       objectReference: {fileID: 0}
+    - target: {fileID: 2493916615118452864, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: 3269931612645664802}
     - target: {fileID: 3055597640258567001, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5

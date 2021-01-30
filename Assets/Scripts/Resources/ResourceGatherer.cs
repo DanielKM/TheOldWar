@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class ResourceGatherer : NetworkBehaviour
 {
+    [Header("References")]
+    [SerializeField]
+    private Unit unit = null;
+
+    [Header("Settings")]
     public Resource[] allowedResources;
     public Resource heldResourcesType;
     public int maxHeldResources;
@@ -33,6 +38,8 @@ public class ResourceGatherer : NetworkBehaviour
         if(heldResources <= 0) { heldResources = 0; }
 
         if(gameObject.GetComponent<UnitInformation>().selected == false) { return; }
+
+        if(unit != unitSelection.SelectedUnits[0]) { return; }
         
         unitSelection.UpdateUnitPanel(gameObject.GetComponent<Unit>());
     }

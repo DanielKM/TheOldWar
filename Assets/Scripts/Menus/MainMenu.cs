@@ -59,6 +59,11 @@ public class MainMenu : MonoBehaviour
         SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         if(NetworkServer.active) { return; }

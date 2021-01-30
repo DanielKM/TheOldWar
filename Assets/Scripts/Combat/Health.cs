@@ -73,9 +73,11 @@ public class Health : NetworkBehaviour
         if(gameObject.TryGetComponent<Unit>(out Unit unit)) 
         {
             // For units
+            Debug.Log("Unit injured");
             ServerOnInjured?.Invoke();
         } else {
             // For buildings
+            Debug.Log("Unit died");
             ServerOnDie?.Invoke();
         }
     }

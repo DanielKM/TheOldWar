@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class UnitInformation : NetworkBehaviour
 {
+    [Header("References")]
     public RTSPlayer owner = null;
     RTSPlayer player = null;
     Cursors cursors = null;
+    
+    [Header("Settings")]
     public bool selected = false;
-
     public int unitEnergy = 100;
     public int MaxUnitEnergy = 100;
-
     public string unitName = "Harold Barkeye";
     public UnitType unitType = UnitType.Worker;
     public UnitRank unitRank = UnitRank.Recruit;
     public int unitKills = 0;
-
     public WeaponType unitWeapon = WeaponType.Pickaxe;
     public ArmourType unitArmour = ArmourType.None;
     

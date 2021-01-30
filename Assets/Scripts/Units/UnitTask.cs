@@ -47,6 +47,8 @@ public class UnitTask : NetworkBehaviour
 
         if(unit.GetComponent<UnitInformation>().selected == false) { return; }
 
+        if(unit != unitSelection.SelectedUnits[0]) { return; }
+
         unitSelection.UpdateUnitPanel(unit);
     }
 

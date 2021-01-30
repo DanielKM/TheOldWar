@@ -71,8 +71,8 @@ public class UnitCommandGiver : NetworkBehaviour
 
         firstUnitMovement.unitAudio.Play();
 
-        // CreateBoxFormation(hit, unitSelectionHandler.SelectedUnits);
-        CmdCreateBoxFormation(new Vector3(hit.point.x, hit.point.y, hit.point.z));
+        CreateBoxFormation(hit, unitSelectionHandler.SelectedUnits);
+        // CmdCreateBoxFormation(new Vector3(hit.point.x, hit.point.y, hit.point.z));
 
         // foreach(Unit unit in unitSelectionHandler.SelectedUnits) 
         // {

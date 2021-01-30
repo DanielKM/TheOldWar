@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unit: {fileID: 5775123849031141255}
   allowedResources: 01000000020000000300000004000000050000000600000007000000
   heldResourcesType: 0
   maxHeldResources: 100
@@ -200,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  task: 0
   unitAnimation: {fileID: 2267158405068367372}
+  task: 0
 --- !u!1001 &536117859605317610
 PrefabInstance:
   m_ObjectHideFlags: 0

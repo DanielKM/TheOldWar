@@ -379,6 +379,10 @@ PrefabInstance:
       value: 0.631
       objectReference: {fileID: 0}
     - target: {fileID: 2493916615118452864, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: 553880260965288818}
+    - target: {fileID: 2493916615118452864, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
@@ -542,6 +546,10 @@ PrefabInstance:
       propertyPath: unitMovingClip
       value: 
       objectReference: {fileID: 8300000, guid: abe388a29fd72704a89b52b0ab3a0b79, type: 3}
+    - target: {fileID: 8223338813761973548, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: unitInformation
+      value: 
+      objectReference: {fileID: 1952588226956744476}
     - target: {fileID: 8223338813761973548, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitMovingSoundClip
       value: 

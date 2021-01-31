@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Technology
 {
@@ -12,6 +13,7 @@ public class Technology
     public List<ResourceAmount> resourceCosts;
     public List<RequiredTech> techRequirements;
 
+    [SerializeField]
     private int researchedTurns;
     public int requiredResearchTurns;
 
@@ -38,14 +40,25 @@ public class Technology
             }
         }
     }
+
+    private void CheckRequirements(Technology tech)
+    {
+        if(availabilityState == AvailabilityState.Locked)
+        {
+            RequiredTech requiredTech = techRequirements.FirstOrDefault(rt=>rt.techName == tech.techName);
+            if(requiredTech != null && !requiredTech.completed)
+            {
+                requiredTech.completed = true;
+                if(!techRequirements.Any(t=>t.completed == false))
+                {
+                    Unlock();
+                }
+            }
+        }
+    }
 }
 
-public class ResourceAmount
-{
-    public string resourceName;
-    public int resourceAmount;
-}
-
+[System.Serializable]
 public class RequiredTech
 {
     public string techName;

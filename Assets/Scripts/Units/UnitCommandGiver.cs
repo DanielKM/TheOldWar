@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class UnitCommandGiver : NetworkBehaviour
 {
     [SerializeField] private UnitSelectionHandler unitSelectionHandler = null;
+    [SerializeField] private BuildingPlacementHandler buildingPlacementHandler = null;
     [SerializeField] private LayerMask layerMask = new LayerMask();
 
     private Camera mainCamera;
@@ -72,12 +73,6 @@ public class UnitCommandGiver : NetworkBehaviour
         firstUnitMovement.unitAudio.Play();
 
         CreateBoxFormation(hit, unitSelectionHandler.SelectedUnits);
-        // CmdCreateBoxFormation(new Vector3(hit.point.x, hit.point.y, hit.point.z));
-
-        // foreach(Unit unit in unitSelectionHandler.SelectedUnits) 
-        // {
-        //     unit.GetUnitMovement().CmdMove(hit.point);
-        // }
     }
 
     private void TryTarget(Targetable target)
@@ -189,13 +184,20 @@ public class UnitCommandGiver : NetworkBehaviour
         } 		
     }
 
-    [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdCreateBoxFormation(Vector3 rayCastPoint) {
+        Debug.Log(rayCastPoint);
         float row = 0.0f;
         float rowOffset = 1.2f;
         int counter = 0;
+
+        UnitSelectionHandler unitSelectionHandler = GameObject.Find("UnitHandlers").GetComponent<UnitSelectionHandler>();
+
         List<Unit> formationList = unitSelectionHandler.SelectedUnits;
 
+        Debug.Log(formationList.Count);
+
+        Debug.Log(rayCastPoint);
         if(formationList.Count == 1) { 
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
                 formationList[iteration].GetUnitMovement().ServerMove(new Vector3(rayCastPoint.x, rayCastPoint.y, rayCastPoint.z));           
@@ -271,4 +273,5 @@ public class UnitCommandGiver : NetworkBehaviour
             }
         } 		
     }
+
 }

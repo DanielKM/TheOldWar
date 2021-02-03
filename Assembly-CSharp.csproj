@@ -51,7 +51,7 @@
      <Compile Include="Assets\Scripts\Combat\Targeter.cs" />
      <Compile Include="Assets\Scripts\Networking\RTSPlayer.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\ExplodePartManager.cs" />
-     <Compile Include="Assets\Testing.cs" />
+     <Compile Include="Assets\Scripts\Game\Testing.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\DomeShield.cs" />
      <Compile Include="Assets\Scripts\Units\UnitAnimation.cs" />
      <Compile Include="Assets\Scripts\Units\Unit.cs" />
@@ -59,11 +59,12 @@
      <Compile Include="Assets\Scripts\Cameras\CameraController.cs" />
      <Compile Include="Assets\Scripts\Units\UnitFiring.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\Firestorm.cs" />
+     <Compile Include="Assets\Scripts\Research\Technology.cs" />
      <Compile Include="Assets\Scripts\Units\UnitSelectionHandler.cs" />
      <Compile Include="Assets\Scripts\UI\UnitButton.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitType.cs" />
-     <Compile Include="Assets\ConstructionDuty.cs" />
+     <Compile Include="Assets\Scripts\Units\ConstructionDuty.cs" />
      <Compile Include="Assets\Scripts\Buildings\UnitBase.cs" />
      <Compile Include="Assets\Scripts\Menus\JoinLobbyMenu.cs" />
      <Compile Include="Assets\Scripts\Buildings\UnitSpawner.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Scripts\Combat\Targetable.cs" />
      <Compile Include="Assets\Scripts\Buildings\BuildingButton.cs" />
      <Compile Include="Assets\Scripts\Combat\Spell.cs" />
+     <Compile Include="Assets\Scripts\Game\Computer AI\ComputerAI.cs" />
      <Compile Include="Assets\Scripts\Cameras\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\Networking\RTSNetworkManager.cs" />
      <Compile Include="Assets\Scripts\Cameras\Minimap.cs" />
@@ -106,9 +108,9 @@
      <Compile Include="Assets\Scripts\UI\Buttons\SpellButton.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
-     <Compile Include="Assets\Scripts\Research\Technology.cs" />
-     <Compile Include="Assets\Scripts\Game\Computer AI\ComputerAI.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\Resources.cs" />
+     <Compile Include="Assets\Scripts\Game\Computer AI\PlayerAI.cs" />
+     <Compile Include="Assets\Scripts\Game\Computer AI\UnitAI.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Stones.shader" />

@@ -266,7 +266,7 @@ public class PooledGameobjects : NetworkBehaviour
     {
         if(SceneManager.GetActiveScene().name.StartsWith("Scene_Map")) 
         {              
-            if (Input.GetMouseButtonDown(1)) 
+            if (Input.GetMouseButtonUp(1)) 
             {
                 mainCamera = Camera.main;
                 AddClick();

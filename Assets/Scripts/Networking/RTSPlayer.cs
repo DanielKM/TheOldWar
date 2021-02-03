@@ -7,15 +7,17 @@ using UnityEngine;
 
 public class RTSPlayer : NetworkBehaviour
 {
+    [Header("References")]
     [SerializeField] private Transform cameraTransform = null;
     [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
-    [SerializeField] private Building[] buildings = new Building[0];
-    [SerializeField] private Unit[] units = new Unit[0];
-    [SerializeField] private Spell[] spells = new Spell[0];
+    public UIController UI = null;
 
-    [SerializeField] private float buildingRangeLimit = 25;
     [SerializeField] private AudioSource playerAudio;
     
+    [Header("Settings")]
+    [SerializeField] private bool isComputerAI = false;
+    [SerializeField] private float buildingRangeLimit = 25;
+
     [SerializeField] private int maxAllowablePopulation = 400;
     public int numberOfPlayers = 4;
 
@@ -85,15 +87,17 @@ public class RTSPlayer : NetworkBehaviour
 
     public static event Action ClientOnInfoUpdated;
     public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
-    public UIController UI = null;
-    
+    private GameobjectLists gameObjectLists;
     private Color teamColor = new Color();
     private List<Building> myBuildings = new List<Building>();
     private List<Building> myActiveBuildings = new List<Building>();
 
+    [Header("Lists")]
+    [SerializeField] private Building[] buildings = new Building[0];
+    [SerializeField] private Unit[] units = new Unit[0];
+    [SerializeField] private Spell[] spells = new Spell[0];
     public List<Unit> myUnits = new List<Unit>();
     public List<Unit> myActiveUnits = new List<Unit>();
-
 
     public string GetDisplayName() 
     {
@@ -197,13 +201,36 @@ public class RTSPlayer : NetworkBehaviour
         return false;
     }
 
-    void Update()
+    public void Start()
     {
-        if(gameObject.GetComponent<PooledGameobjects>().isComputerAI) 
-        {
-            // Debug.Log(myActiveUnits.Count);
+        if(isComputerAI) 
+        {   
+            GetAllMyActiveUnits();
         }
     }
+
+    private void GetAllMyActiveUnits() 
+    {
+        gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
+
+        List<Unit> startingUnits = gameObjectLists.units;
+
+        foreach(Unit startingUnit in startingUnits)
+        {
+            myActiveUnits.Add(startingUnit);
+        }
+                        
+        // List<Unit> allUnits = gameObjectLists.GetAllActiveUnitGameobjects();
+
+        // foreach(Unit unit in allUnits)
+        // {
+        //     if(unit.GetComponent<UnitInformation>().owner == this)
+        //     {
+        //         myActiveUnits.Add(unit);
+        //     }
+        // }
+    }
+
 
     #region Server
 
@@ -276,7 +303,7 @@ public class RTSPlayer : NetworkBehaviour
 
         ((RTSNetworkManager)NetworkManager.singleton).StartGame();
     }
-
+    
     [Command]
     public void CmdTryPlaceBuilding(int buildingId, Vector3 point, Quaternion rotation)
     {

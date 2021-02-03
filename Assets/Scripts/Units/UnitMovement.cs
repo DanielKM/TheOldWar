@@ -100,6 +100,13 @@ public class UnitMovement : NetworkBehaviour
             return;
         } 
 
+        if(unitTask.GetTask() == ActionList.Building) 
+        {
+            unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.Construction);    
+            
+            unit.GetTargeter().CmdSetFoundationTarget();
+        }
+
         if(!agent.hasPath) 
         { 
             if(unitTask.GetTask() != ActionList.Idle)

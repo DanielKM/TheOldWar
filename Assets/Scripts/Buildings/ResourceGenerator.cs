@@ -36,6 +36,7 @@ public class ResourceGenerator : NetworkBehaviour
         player = gameObject.GetComponent<UnitInformation>().owner;
         if(onSpawnResource)
         {
+            // ISSUE FIND REF
             Dictionary<Resource, int> newResourceDictionary = player.GetResources();
             for(int i=0; i<resourceTypes.Length; i++) 
             {
@@ -45,6 +46,7 @@ public class ResourceGenerator : NetworkBehaviour
         }
         if(onSpawnMaxResource)
         {
+            // Also no reference
             Dictionary<Resource, int> newResourceDictionary = player.GetMaxResources();
             for(int i=0; i<maxResourceTypes.Length; i++) 
             { 

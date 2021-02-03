@@ -87,6 +87,8 @@ public class UnitSelectionHandler : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Q)) 
         {
+            Debug.Log("Q pressed");
+
             SelectAllVisibleUnits();
             
             // gameObject.GetComponent<GameobjectLists>().AllUnitsAttack();
@@ -102,10 +104,12 @@ public class UnitSelectionHandler : MonoBehaviour
         // ADD OWNERS/TEAMS
         for(int i = 0; i < sceneRenderers.Length; i++) {
             if(IsVisible(sceneRenderers[i])) {
-                if (sceneRenderers[i].transform.parent) {
-                    if (sceneRenderers[i].transform.parent.gameObject) {
-                        if(sceneRenderers[i].transform.parent.gameObject.GetComponent<UnitInformation>()) {
-                            if(sceneRenderers[i].transform.parent.gameObject.GetComponent<UnitInformation>().owner == player) {
+                Transform parent = sceneRenderers[i].transform.parent;
+                if (parent) {
+                    GameObject parentGameObject = parent.gameObject;
+                    if (parentGameObject) {
+                        if(parentGameObject.GetComponent<UnitInformation>()) {
+                            if(parentGameObject.GetComponent<UnitInformation>().owner == player) {
                                 visibleRenderers.Add(sceneRenderers[i]);
                             }
                         }
@@ -128,6 +132,7 @@ public class UnitSelectionHandler : MonoBehaviour
         Renderer[] sceneRenderers = FindObjectsOfType<Renderer>();
         visibleRenderers.Clear();
         
+            Debug.Log("in function");
         // ADD OWNERS/TEAMS
         for(int i = 0; i < sceneRenderers.Length; i++) {
             if(IsVisible(sceneRenderers[i])) {
@@ -142,6 +147,8 @@ public class UnitSelectionHandler : MonoBehaviour
                 }
             }
         }
+        Debug.Log("Visible renderers: " + visibleRenderers.Count);
+        // counts as 0
 
         foreach( Renderer renderer in visibleRenderers) {
             GameObject doubleClickSelection = renderer.transform.parent.gameObject;

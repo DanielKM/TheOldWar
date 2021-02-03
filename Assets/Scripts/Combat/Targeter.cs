@@ -84,8 +84,6 @@ public class Targeter : NetworkBehaviour
         float closestDistance = Mathf.Infinity;
         Vector3 position = transform.position;
 
-        resourceTarget = target;
-
         ClearTarget(); 
 
         foreach(Building building in player.GetMyBuildings())

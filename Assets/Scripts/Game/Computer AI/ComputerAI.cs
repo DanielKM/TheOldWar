@@ -1,28 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using System.Linq;
 
 public class ComputerAI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float checkRate = 1.0f;
+
+    public float closeDistance = 50.0f;
+
+    public float farDistance = 100.0f;
+
+    private RTSPlayer player;
+
+    private GameobjectLists gameObjectLists;
+
+    public Unit closestEnemyUnit = null;
+
+    private List<Unit> myActiveUnits;
+
+    void Awake()
     {
-       
+        player = GetComponent<RTSPlayer>();
+
+        gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
     }
 
-    // Update is called once per frame
-    public void Update()
+    void Start()
     {
-        RunAI();
+        InvokeRepeating("RunAI", 0.0f, checkRate);
     }
 
     public void RunAI()
     {
-        int enemyInformation = CheckEnemyInformation(); // 0-9 + 0-9
+        string enemyInformation = CheckEnemyInformation(); // 0-9 + 0-9
         // 0-1 = no info
         // 2-5 = enemy far
         // 6-9 = enemy close
@@ -31,11 +43,12 @@ public class ComputerAI : MonoBehaviour
         // 2-5 = moderate
         // 6-9 = strong
 
-        int armyInformation = CheckArmyComposition(); // 0-9
+        string armyInformation = CheckArmyComposition(); // 0-9
         // 0-1 = weak
         // 2-5 = moderate
         // 6-9 = strong
 
+        // Get all buildings - next steps
         int baseInformation = CheckBaseSize(); // 0-9
         // 0-1 = weak
         // 2-5 = moderate
@@ -46,12 +59,11 @@ public class ComputerAI : MonoBehaviour
         // 2-5 = moderate
         // 6-9 = strong
 
-        int inputData = enemyInformation + armyInformation + baseInformation + resourceInformation;
+        string inputData = enemyInformation + armyInformation + baseInformation + resourceInformation;
 
         string strategy = SelectOverallStrategy(inputData);
        
         AssignTasks(strategy);
-
     }
 
     private int CheckResources()
@@ -64,17 +76,102 @@ public class ComputerAI : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    private int CheckArmyComposition()
+    private string CheckArmyComposition()
     {
-        throw new NotImplementedException();
+        string armyPowerLevel = "0";
+
+        if(myActiveUnits.Count > 90) { armyPowerLevel = "9"; }
+        else if (myActiveUnits.Count > 80) { armyPowerLevel = "8"; }
+        else if (myActiveUnits.Count > 70) { armyPowerLevel = "7"; }
+        else if (myActiveUnits.Count > 60) { armyPowerLevel = "6"; }
+        else if (myActiveUnits.Count > 50) { armyPowerLevel = "5"; }
+        else if (myActiveUnits.Count > 40) { armyPowerLevel = "4"; }
+        else if (myActiveUnits.Count > 30) { armyPowerLevel = "3"; }
+        else if (myActiveUnits.Count > 20) { armyPowerLevel = "2"; }
+        else if (myActiveUnits.Count > 10) { armyPowerLevel = "1"; }
+        else { armyPowerLevel = "0"; }
+
+        return armyPowerLevel;
     }
 
-    private int CheckEnemyInformation()
+    private string CheckEnemyInformation()
     {
-        throw new NotImplementedException();
+        string enemyInformationCode = "00";
+
+        float minDistance = 10000f;
+
+        string proximity = "0";
+        string count = "0";
+        
+        myActiveUnits = player.GetMyActiveUnits();
+        
+        List<Unit> enemyActiveUnits = gameObjectLists.GetAllActiveUnitGameobjects().Except(myActiveUnits).ToList();
+
+        if(enemyActiveUnits.Count == 0 ) { enemyInformationCode = "00"; } else {
+
+            foreach (Unit friendly in myActiveUnits) 
+            {
+                if(friendly == null) { continue; }
+
+                Unit thisUnitClosestEnemy = GetClosestEnemy(friendly.GetComponent<Targeter>(), enemyActiveUnits);
+
+                float dist = Vector3.Distance(thisUnitClosestEnemy.transform.position, friendly.transform.position);
+
+                if(dist < minDistance) 
+                { 
+                    minDistance = dist; 
+                    closestEnemyUnit = thisUnitClosestEnemy;
+                }
+            }     
+        }
+
+        if(minDistance < 30) { proximity = "9"; }
+        else if (minDistance < 40) { proximity = "8"; }
+        else if (minDistance < 50) { proximity = "7"; }
+        else if (minDistance < 60) { proximity = "6"; }
+        else if (minDistance < 70) { proximity = "5"; }
+        else if (minDistance < 80) { proximity = "4"; }
+        else if (minDistance < 90) { proximity = "3"; }
+        else if (minDistance < 100) { proximity = "2"; }
+        else if (minDistance < 110) { proximity = "1"; }
+        else { proximity = "0"; }
+
+        if(enemyActiveUnits.Count > 90) { proximity = "9"; }
+        else if (enemyActiveUnits.Count > 80) { proximity = "8"; }
+        else if (enemyActiveUnits.Count > 70) { proximity = "7"; }
+        else if (enemyActiveUnits.Count > 60) { proximity = "6"; }
+        else if (enemyActiveUnits.Count > 50) { proximity = "5"; }
+        else if (enemyActiveUnits.Count > 40) { proximity = "4"; }
+        else if (enemyActiveUnits.Count > 30) { proximity = "3"; }
+        else if (enemyActiveUnits.Count > 20) { proximity = "2"; }
+        else if (enemyActiveUnits.Count > 10) { proximity = "1"; }
+        else { proximity = "0"; }
+
+        enemyInformationCode = proximity + count + "";
+
+        return enemyInformationCode;
     }
 
-    public string SelectOverallStrategy(int input)
+
+    Unit GetClosestEnemy(Targeter targeter, List<Unit> enemies)
+    {
+        Unit tMin = null;
+        float minDist = 300;
+        Vector3 currentPos = targeter.transform.position;
+        foreach (Unit enemy in enemies)
+        {
+            float dist = Vector3.Distance(enemy.transform.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = enemy;
+                minDist = dist;
+            }
+        }
+
+        return tMin;
+    }
+
+    public string SelectOverallStrategy(string input)
     {
         switch(input)
         {

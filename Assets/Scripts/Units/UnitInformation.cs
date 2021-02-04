@@ -21,13 +21,16 @@ public class UnitInformation : NetworkBehaviour
     public WeaponType unitWeapon = WeaponType.Pickaxe;
     public ArmourType unitArmour = ArmourType.None;
     
-    private void Start()
+    private void Awake()
     {
-        cursors = GameObject.Find("UnitHandlers").GetComponent<Cursors>();
-        
         if(connectionToClient == null ) { return; }
         
         player = connectionToClient.identity.GetComponent<RTSPlayer>();
+    }
+
+    public void Start()
+    {
+        cursors = GameObject.Find("UnitHandlers").GetComponent<Cursors>();
     }
 
     private void OnMouseEnter()
@@ -35,12 +38,15 @@ public class UnitInformation : NetworkBehaviour
         if(gameObject.layer == 14) 
         { 
             Cursor.SetCursor(cursors.mine, new Vector2(0, 0), CursorMode.Auto);
-        } else if(owner != player) 
-        {
-            Cursor.SetCursor(cursors.sword, new Vector2(0, 0), CursorMode.Auto);
-        } else 
+        } else if (hasAuthority && gameObject.GetComponent<Foundation>() != null) {
+            Cursor.SetCursor(cursors.mine, new Vector2(0, 0), CursorMode.Auto);
+        }
+        else if(hasAuthority) 
         {
             Cursor.SetCursor(cursors.pointer, new Vector2(0, 0), CursorMode.Auto);
+        } else 
+        {
+            Cursor.SetCursor(cursors.sword, new Vector2(0, 0), CursorMode.Auto);
         }
     }
 

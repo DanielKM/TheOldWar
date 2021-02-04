@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class UnitCommandGiver : NetworkBehaviour
 {
     [SerializeField] private UnitSelectionHandler unitSelectionHandler = null;
-    [SerializeField] private BuildingPlacementHandler buildingPlacementHandler = null;
     [SerializeField] private LayerMask layerMask = new LayerMask();
 
     private Camera mainCamera;

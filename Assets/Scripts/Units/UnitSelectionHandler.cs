@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -87,8 +84,6 @@ public class UnitSelectionHandler : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Q)) 
         {
-            Debug.Log("Q pressed");
-
             SelectAllVisibleUnits();
             
             // gameObject.GetComponent<GameobjectLists>().AllUnitsAttack();
@@ -132,7 +127,6 @@ public class UnitSelectionHandler : MonoBehaviour
         Renderer[] sceneRenderers = FindObjectsOfType<Renderer>();
         visibleRenderers.Clear();
         
-            Debug.Log("in function");
         // ADD OWNERS/TEAMS
         for(int i = 0; i < sceneRenderers.Length; i++) {
             if(IsVisible(sceneRenderers[i])) {

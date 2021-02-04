@@ -67,14 +67,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5013082355065751251}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5362721830224759181}
   m_Father: {fileID: 1231793951244390866}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &6024379192229597686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +182,29 @@ MonoBehaviour:
   buildingBlockLayer:
     serializedVersion: 2
     m_Bits: 1281
+  UI: {fileID: 0}
+  playerAudio: {fileID: -6281840144472239566}
+  isComputerAI: 0
+  buildingRangeLimit: 35
+  maxAllowablePopulation: 400
+  numberOfPlayers: 4
+  gold: 100000
+  maxGold: 100000
+  iron: 100000
+  maxIron: 100000
+  steel: 100000
+  maxSteel: 100000
+  skymetal: 100000
+  maxSkymetal: 100000
+  wood: 100000
+  maxWood: 100000
+  stone: 100000
+  maxStone: 100000
+  food: 100000
+  maxFood: 100000
+  population: 0
+  maxPopulation: 0
+  displayName: 
   buildings:
   - {fileID: 6000717676924823953, guid: 1cef360d3ce1aba44ae72d23cbe78737, type: 3}
   - {fileID: 2042867125702451865, guid: 9333dfe01eb570941bc4b1040d0c3ed8, type: 3}
@@ -206,28 +229,6 @@ MonoBehaviour:
   - {fileID: 5775123849031141255, guid: 9eeffcbc3c0a36640a91c9100d8a4532, type: 3}
   spells:
   - {fileID: 7020274916808498030, guid: f5ad640e1baa07045b1133afde7009e5, type: 3}
-  buildingRangeLimit: 35
-  playerAudio: {fileID: -6281840144472239566}
-  maxAllowablePopulation: 400
-  numberOfPlayers: 4
-  gold: 100000
-  maxGold: 100000
-  iron: 100000
-  maxIron: 100000
-  steel: 100000
-  maxSteel: 100000
-  skymetal: 100000
-  maxSkymetal: 100000
-  wood: 100000
-  maxWood: 100000
-  stone: 100000
-  maxStone: 100000
-  food: 100000
-  maxFood: 100000
-  population: 0
-  maxPopulation: 0
-  displayName: 
-  UI: {fileID: 0}
   myUnits: []
   myActiveUnits: []
 --- !u!114 &7761129809058700166

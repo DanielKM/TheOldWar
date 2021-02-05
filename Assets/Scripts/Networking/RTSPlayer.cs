@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class RTSPlayer : NetworkBehaviour
 {
+    #region Variables
+
     [Header("References")]
     [SerializeField] private Transform cameraTransform = null;
     [SerializeField] private LayerMask buildingBlockLayer = new LayerMask();
@@ -99,6 +101,10 @@ public class RTSPlayer : NetworkBehaviour
     public List<Unit> myUnits = new List<Unit>();
     public List<Unit> myActiveUnits = new List<Unit>();
 
+    #endregion
+
+    #region GETTERS
+
     public string GetDisplayName() 
     {
         return displayName;
@@ -179,6 +185,10 @@ public class RTSPlayer : NetworkBehaviour
         return spells;
     }
 
+    #endregion
+
+    #region Local Functions
+
     public bool CanPlaceBuilding(BoxCollider buildingCollider, Vector3 point)
     {        
         if(Physics.CheckBox(
@@ -231,6 +241,7 @@ public class RTSPlayer : NetworkBehaviour
         // }
     }
 
+    #endregion
 
     #region Server
 

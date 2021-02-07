@@ -424,7 +424,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitEnemyDetectionSphereCollider
       value: 
-      objectReference: {fileID: 7978530216823987149}
+      objectReference: {fileID: 0}
     - target: {fileID: 6726776002628796271, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -638,19 +638,15 @@ PrefabInstance:
       objectReference: {fileID: 5775123849031141255}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: detectionRadius
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: unitLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
---- !u!135 &7978530216823987149 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
-  m_PrefabInstance: {fileID: 3475042587102804439}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8334578761031323134
 PrefabInstance:
   m_ObjectHideFlags: 0

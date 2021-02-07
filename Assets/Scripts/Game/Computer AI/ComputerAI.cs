@@ -48,6 +48,7 @@ public class ComputerAI : MonoBehaviour
         // 2-5 = moderate
         // 6-9 = strong
 
+        return;
         // Get all buildings - next steps
         int baseInformation = CheckBaseSize(); // 0-9
         // 0-1 = weak

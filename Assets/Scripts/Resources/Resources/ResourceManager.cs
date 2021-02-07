@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Resources : MonoBehaviour
+public class ResourceManager : MonoBehaviour
 {
 
     public enum ResourceTypes { Gold, Iron, Steel, Skymetal, Wood, Stone, Food, Population }
     public List<ResourceAmount> resourceAmounts;
 
-    public static Resources Instance { get; private set; }
+    public static ResourceManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class Resources : MonoBehaviour
 [System.Serializable]
 public class ResourceAmount
 {
-    public Resources.ResourceTypes resourceType;
+    public ResourceManager.ResourceTypes resourceType;
     public int resourceAmount;
 }
 

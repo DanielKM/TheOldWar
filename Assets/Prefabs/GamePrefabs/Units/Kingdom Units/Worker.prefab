@@ -221,7 +221,7 @@ MonoBehaviour:
   absoluteOffset: 0
   offset: {x: 0, y: 0}
   boxSize: {x: 5, y: 5}
-  circleRadius: 10
+  circleRadius: 5
   innerRadius: 1
   angle: 180
   texture: {fileID: 0}

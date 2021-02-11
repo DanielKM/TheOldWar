@@ -136,6 +136,41 @@ MonoBehaviour:
   unitKills: 0
   unitWeapon: 2
   unitArmour: 2
+--- !u!114 &2174921461295601055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864281083983250177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b130f358dcb26548b2ff0923d496dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  brightness: 1
+  shapeType: 0
+  absoluteOffset: 0
+  offset: {x: 0, y: 0}
+  boxSize: {x: 5, y: 5}
+  circleRadius: 10
+  innerRadius: 1
+  angle: 180
+  texture: {fileID: 0}
+  rotateToForward: 0
+  mesh: {fileID: 0}
+  lineOfSightMask:
+    serializedVersion: 2
+    m_Bits: 0
+  lineOfSightRaycastCount: 100
+  lineOfSightPenetration: 0
+  lineOfSightRaycastAngle: 360
+  lineOfSightRaycastOffset: 0
+  lineOfSightSeeOutsideRange: 0
+  multithreading: 0
+  cellBased: 0
+  snapToPixelCenter: 0
 --- !u!114 &2719923465349452713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,7 +528,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitEnemyDetectionSphereCollider
       value: 
-      objectReference: {fileID: 4204653042321039186}
+      objectReference: {fileID: 0}
     - target: {fileID: 6726776002628796271, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -723,16 +758,12 @@ PrefabInstance:
       objectReference: {fileID: 5791604877373787076}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: detectionRadius
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: unitLayer.m_Bits
       value: 1024
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
---- !u!135 &4204653042321039186 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
-  m_PrefabInstance: {fileID: 7266935739581070664}
-  m_PrefabAsset: {fileID: 0}

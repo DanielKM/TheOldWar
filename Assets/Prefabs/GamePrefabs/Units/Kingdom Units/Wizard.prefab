@@ -128,6 +128,41 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 9193457155557560420}
+--- !u!114 &-6538691208659969259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865781408668503874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b130f358dcb26548b2ff0923d496dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  brightness: 1
+  shapeType: 0
+  absoluteOffset: 0
+  offset: {x: 0, y: 0}
+  boxSize: {x: 5, y: 5}
+  circleRadius: 10
+  innerRadius: 1
+  angle: 180
+  texture: {fileID: 0}
+  rotateToForward: 0
+  mesh: {fileID: 0}
+  lineOfSightMask:
+    serializedVersion: 2
+    m_Bits: 0
+  lineOfSightRaycastCount: 100
+  lineOfSightPenetration: 0
+  lineOfSightRaycastAngle: 360
+  lineOfSightRaycastOffset: 0
+  lineOfSightSeeOutsideRange: 0
+  multithreading: 0
+  cellBased: 0
+  snapToPixelCenter: 0
 --- !u!114 &-5494602784072790624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitEnemyDetectionSphereCollider
       value: 
-      objectReference: {fileID: 3585105611650090718}
+      objectReference: {fileID: 0}
     - target: {fileID: 6726776002628796271, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -708,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6057660896396749821, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: unit
@@ -720,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: detectionRadius
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: unitLayer.m_Bits
@@ -734,10 +769,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
---- !u!135 &3585105611650090718 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
-  m_PrefabInstance: {fileID: 8016513614287971524}
-  m_PrefabAsset: {fileID: 0}

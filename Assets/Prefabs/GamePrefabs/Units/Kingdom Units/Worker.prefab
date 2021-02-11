@@ -221,7 +221,7 @@ MonoBehaviour:
   absoluteOffset: 0
   offset: {x: 0, y: 0}
   boxSize: {x: 5, y: 5}
-  circleRadius: 10
+  circleRadius: 5
   innerRadius: 1
   angle: 180
   texture: {fileID: 0}
@@ -437,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitEnemyDetectionSphereCollider
       value: 
-      objectReference: {fileID: 3585105611650090718}
+      objectReference: {fileID: 0}
     - target: {fileID: 6726776002628796271, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -760,10 +760,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
---- !u!135 &3585105611650090718 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 6809647315601482266, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
-  m_PrefabInstance: {fileID: 8016513614287971524}
-  m_PrefabAsset: {fileID: 0}

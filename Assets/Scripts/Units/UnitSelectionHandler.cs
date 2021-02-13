@@ -154,6 +154,7 @@ public class UnitSelectionHandler : MonoBehaviour
 
     bool IsVisible(Renderer renderer) {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        Debug.Log(planes);
         return (GeometryUtility.TestPlanesAABB(planes, renderer.bounds)) ? true : false;
     }
 

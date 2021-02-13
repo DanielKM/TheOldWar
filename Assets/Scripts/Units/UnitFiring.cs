@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class UnitFiring : NetworkBehaviour
 {
@@ -22,11 +23,16 @@ public class UnitFiring : NetworkBehaviour
     private List<GameObject> projectiles;
 
     private float lastFireTime;
+    ResourceGatherer gatherer;
+    NavMeshAgent agent;
 
     private void Start()
     {
         // Setting clones
         unitInformation = gameObject.GetComponent<UnitInformation>();
+        gatherer = gameObject.GetComponent<ResourceGatherer>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
+
         if(unitInformation.owner != null)
         {
             pooledGameobjects = unitInformation.owner.gameObject.GetComponent<PooledGameobjects>();
@@ -77,9 +83,9 @@ public class UnitFiring : NetworkBehaviour
                 unitTask.SetTask(ActionList.Gathering);    
             }
 
-            if(gameObject.GetComponent<ResourceGatherer>()) 
+            if(gatherer) 
             {
-                if(gameObject.GetComponent<ResourceGatherer>().heldResources == gameObject.GetComponent<ResourceGatherer>().maxHeldResources) 
+                if(gatherer.heldResources == gatherer.maxHeldResources) 
                 {
                     targeter.TargetClosestDropOff();
 
@@ -89,7 +95,7 @@ public class UnitFiring : NetworkBehaviour
         }
 
         // Check for building target
-        if(gameObject.GetComponent<ResourceGatherer>()) 
+        if(gatherer) 
         {
             if (target.gameObject.TryGetComponent<Foundation>(out Foundation foundation)) 
             { 
@@ -134,7 +140,9 @@ public class UnitFiring : NetworkBehaviour
             Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         if(Time.time > (1/fireRate) + lastFireTime) 
-        {
+        {   
+            agent.ResetPath();
+
             FireProjectile(target);
         }
     }

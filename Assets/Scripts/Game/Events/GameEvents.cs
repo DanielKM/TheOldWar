@@ -9,5 +9,6 @@ public enum GameEvents
     Vortex,
     Blizzard,
     MeteorShower,
-    Night
+    Night,
+    RaiseDead
 }

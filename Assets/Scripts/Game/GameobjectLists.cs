@@ -9,7 +9,7 @@ public class GameobjectLists : MonoBehaviour
     public List<GameObject> players = new List<GameObject>();
     public List<Unit> units = new List<Unit>();
     public List<Building> buildings = new List<Building>();
-
+    public List<ResourceNode> resourceNodes = new List<ResourceNode>();
   
     public List<GameObject> GetAllActivePlayerGameobjects() 
     {
@@ -24,6 +24,11 @@ public class GameobjectLists : MonoBehaviour
     public List<Building> GetAllActiveBuildingGameobjects() 
     {
         return buildings;
+    }
+
+    public List<ResourceNode> GetAllActiveResourceNodes() 
+    {
+        return resourceNodes;
     }
 
     public void AllUnitsAttack()

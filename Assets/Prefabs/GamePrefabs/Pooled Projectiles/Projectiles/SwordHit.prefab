@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -8792282672548325585}
   m_Layer: 9
   m_Name: SwordHit
-  m_TagString: Untagged
+  m_TagString: GameObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

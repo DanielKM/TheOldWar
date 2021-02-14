@@ -10,10 +10,14 @@ public class Targeter : NetworkBehaviour
     public Targetable target;
     public Targetable resourceTarget;
     RTSPlayer player = null;
+    private GameobjectLists gameObjectLists;
+
 
     public void Start()
     {        
         player = connectionToClient != null ? connectionToClient.identity.GetComponent<RTSPlayer>() : null;
+
+        gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
     }
 
     public Targetable GetTarget()
@@ -107,6 +111,71 @@ public class Targeter : NetworkBehaviour
     }
 
     [Server]
+    public void TargetClosestResource(int resourceID) 
+    {
+        target = GetClosestResource(resourceID);
+    }
+
+    public Targetable GetClosestResource(int resourceID)
+    {
+        Targetable closestResourceNode = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 position = transform.position;
+
+        ClearTarget(); 
+
+        foreach(ResourceNode node in gameObjectLists.GetAllActiveResourceNodes())
+        {
+            if(node.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
+            {
+                int nodeID = GetResourceID(resourceNode.GetResourceType());
+
+                if(nodeID != resourceID) { continue; }
+
+                Vector3 direction = node.transform.position - position;
+
+                float distance = direction.sqrMagnitude;
+
+                if(distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    
+                    closestResourceNode = node.GetComponent<Targetable>();
+                }
+            }
+        }
+
+        return closestResourceNode;
+    }
+    
+    private int GetResourceID(Resource selectedResource)
+    {
+        switch (selectedResource)
+        {
+            case Resource.Gold:
+                return 0;
+            case Resource.Iron:
+                return 1;
+            case Resource.Steel:
+                return 2;
+            case Resource.Skymetal:
+                return 3;
+            case Resource.Wood:
+                return 4;
+            case Resource.Stone:
+                return 5;
+            case Resource.Food:
+                return 6;
+            case Resource.Population:
+                return 7;
+            default:
+                break;
+        }
+
+        return 0;
+    }
+
+    [Server]
     public void ClearTarget() 
     {
         target = null;
@@ -146,6 +215,12 @@ public class Targeter : NetworkBehaviour
     public void CmdSetFoundationTarget() 
     {
         TargetClosestFoundation();
+    }
+
+    [Command(ignoreAuthority = true)]
+    public void CmdSetClosestResourceTarget(int targetResource) 
+    {
+        TargetClosestResource(targetResource);
     }
 
     [Command(ignoreAuthority = true)]

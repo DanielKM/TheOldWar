@@ -14,5 +14,6 @@ public enum ActionList
     Harvesting,
     Construction,
     Injured,
-    Dead
+    Dead,
+    Repairing
 }

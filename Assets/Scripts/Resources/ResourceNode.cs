@@ -18,6 +18,13 @@ public class ResourceNode : NetworkBehaviour
         return resource;
     }
 
+    public void Start()
+    {
+        GameObject x = GameObject.Find("UnitHandlers");
+        
+        x.GetComponent<GameobjectLists>().resourceNodes.Add(this);
+    }
+
     [Server]
     public void TakeResources(int resourceAmount) 
     {

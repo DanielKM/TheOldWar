@@ -70,7 +70,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1229746346022014, guid: 9e7ed63f4b3f73c4bbff044aa634f611, type: 3}
       propertyPath: m_Name
-      value: Lamp
+      value: Lamp Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229746346022014, guid: 9e7ed63f4b3f73c4bbff044aa634f611, type: 3}
+      propertyPath: m_TagString
+      value: GameObject
       objectReference: {fileID: 0}
     - target: {fileID: 4209734744870844, guid: 9e7ed63f4b3f73c4bbff044aa634f611, type: 3}
       propertyPath: m_RootOrder

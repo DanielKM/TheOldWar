@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour
     public CanvasGroup WorkerPanel;
     public CanvasGroup BasicBuildingsPanel;
     public CanvasGroup AdvancedBuildingsPanel;
-    public CanvasGroup ResourcesBuildingPanel;
+    public CanvasGroup FortificationBuildingPanel;
     public CanvasGroup FootmanPanel;
     public CanvasGroup WizardPanel;
 
@@ -130,7 +130,7 @@ public class UIController : MonoBehaviour
         WorkerPanel = GameObject.Find("WorkerPanel").GetComponent<CanvasGroup>();
         BasicBuildingsPanel = GameObject.Find("BasicBuildingsPanel").GetComponent<CanvasGroup>();
         AdvancedBuildingsPanel = GameObject.Find("AdvancedBuildingsPanel").GetComponent<CanvasGroup>();
-        ResourcesBuildingPanel = GameObject.Find("ResourcesBuildingsPanel").GetComponent<CanvasGroup>();
+        FortificationBuildingPanel = GameObject.Find("FortificationBuildingsPanel").GetComponent<CanvasGroup>();
         FootmanPanel = GameObject.Find("FootmanPanel").GetComponent<CanvasGroup>();
         WizardPanel = GameObject.Find("WizardPanel").GetComponent<CanvasGroup>();
                 
@@ -370,9 +370,9 @@ public class UIController : MonoBehaviour
         AdvancedBuildingsPanel.alpha = 0;
         AdvancedBuildingsPanel.blocksRaycasts = false;
         AdvancedBuildingsPanel.interactable = false;
-        ResourcesBuildingPanel.alpha = 0;
-        ResourcesBuildingPanel.blocksRaycasts = false;
-        ResourcesBuildingPanel.interactable = false;
+        FortificationBuildingPanel.alpha = 0;
+        FortificationBuildingPanel.blocksRaycasts = false;
+        FortificationBuildingPanel.interactable = false;
 
         // FOOTMAN PANELS
         FootmanPanel.alpha = 0;
@@ -608,7 +608,7 @@ public class UIController : MonoBehaviour
     }
 
     // On Worker clicking advanced buildings
-    public void WorkerResourcesBuildings() {
+    public void WorkerFortificationBuildings() {
         CloseAllPanels();
 
         UnitPanel.alpha = 1;
@@ -616,9 +616,9 @@ public class UIController : MonoBehaviour
         UnitPanel.interactable = true;
 
         panelOpen = 1;        
-        ResourcesBuildingPanel.alpha = 1;
-        ResourcesBuildingPanel.blocksRaycasts = true;
-        ResourcesBuildingPanel.interactable = true;
+        FortificationBuildingPanel.alpha = 1;
+        FortificationBuildingPanel.blocksRaycasts = true;
+        FortificationBuildingPanel.interactable = true;
     }
 
     public void FighterSelect() {

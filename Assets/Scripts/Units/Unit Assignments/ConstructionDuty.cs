@@ -16,6 +16,7 @@ public class ConstructionDuty : MonoBehaviour, IPointerDownHandler
             if(unit.gameObject.TryGetComponent<ResourceGatherer>(out ResourceGatherer gatherer)) 
             {
                 unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.Construction);    
+                
                 unit.GetTargeter().CmdSetFoundationTarget();
             }
         }

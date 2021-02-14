@@ -61,7 +61,7 @@ public class UnitAnimation : NetworkBehaviour
             } else {
                 anim.SetBool("hasBag", true);
             }
-        } else {
+        } else if(isGatherer && gatherer.heldResources <= 0) {
             anim.SetBool("hasBag", false);
             anim.SetBool("hasWood", false);
         }

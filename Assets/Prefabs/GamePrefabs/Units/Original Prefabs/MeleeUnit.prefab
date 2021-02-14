@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 189938140738451642}
   m_Layer: 10
   m_Name: MeleeUnit
-  m_TagString: Untagged
+  m_TagString: GameObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,17 +130,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  animator: {fileID: 0}
-  unitAnimation: {fileID: 0}
-  movementSpeed: 5
+  unitInformation: {fileID: 0}
+  unitAudio: {fileID: 0}
+  unitMovingClip: {fileID: 0}
+  unitMovingSoundClip: {fileID: 0}
   agent: {fileID: 1802643545501853162}
   targeter: {fileID: 3709605437394889039}
   unitTask: {fileID: 0}
   chaseRange: 10
   dropoffRange: 5
-  unitAudio: {fileID: 0}
-  unitMovingClip: {fileID: 0}
-  unitMovingSoundClip: {fileID: 0}
 --- !u!114 &6293200833163542637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +153,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  health: {fileID: 2493916615118452864}
+  unitMovement: {fileID: 8223338813761973548}
+  unitInformation: {fileID: 0}
+  targeter: {fileID: 3709605437394889039}
+  unitAudio: {fileID: 0}
+  unitReportingClip: {fileID: 0}
+  unitSelectedClip: {fileID: 0}
+  unitEnemyDetectionSphereCollider: {fileID: 0}
+  unitIcon: {fileID: 0}
   id: -1
   gold: 0
   iron: 0
@@ -164,11 +171,6 @@ MonoBehaviour:
   stone: 0
   food: 0
   population: 0
-  description: 
-  health: {fileID: 2493916615118452864}
-  unitMovement: {fileID: 8223338813761973548}
-  unitInformation: {fileID: 0}
-  targeter: {fileID: 3709605437394889039}
   onSelected:
     m_PersistentCalls:
       m_Calls:
@@ -199,11 +201,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  unitAudio: {fileID: 0}
-  unitReportingClip: {fileID: 0}
-  unitSelectedClip: {fileID: 0}
-  unitEnemyDetectionSphereCollider: {fileID: 0}
-  unitIcon: {fileID: 0}
+  description: 
 --- !u!114 &-8921910510574608724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,13 +248,14 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   targeter: {fileID: 3709605437394889039}
+  animator: {fileID: 0}
   projectilePrefab: {fileID: 9000752032217256737, guid: 43f73f030d5ac5c449108cc647442aaf, type: 3}
   projectileSpawnPoint: {fileID: 2447331268037016435}
+  attackSound: {fileID: 0}
+  unitAudioSource: {fileID: 0}
   fireRange: 11
   fireRate: 1
   rotationSpeed: 20
-  attackSound: {fileID: 0}
-  unitAudioSource: {fileID: 0}
 --- !u!114 &2493916615118452864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitTask: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
 --- !u!114 &6784487624098304181

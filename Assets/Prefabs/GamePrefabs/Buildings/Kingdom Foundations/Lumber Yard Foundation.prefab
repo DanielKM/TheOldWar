@@ -709,6 +709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lumber Yard Foundation
       objectReference: {fileID: 0}
+    - target: {fileID: 7334693466157814942, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
+      propertyPath: m_TagString
+      value: Foundation
+      objectReference: {fileID: 0}
     - target: {fileID: 7952421290289034285, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: maxHealth
       value: 200

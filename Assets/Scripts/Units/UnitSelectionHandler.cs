@@ -2,6 +2,7 @@
 using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UnitSelectionHandler : MonoBehaviour
@@ -154,12 +155,16 @@ public class UnitSelectionHandler : MonoBehaviour
 
     bool IsVisible(Renderer renderer) {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        Debug.Log(planes);
         return (GeometryUtility.TestPlanesAABB(planes, renderer.bounds)) ? true : false;
     }
 
     private void StartSelectionArea() 
-    {
+    {       
+        if(EventSystem.current.currentSelectedGameObject != null) 
+        {
+            if (EventSystem.current.currentSelectedGameObject.CompareTag( "UI" )) { return; }
+        }
+
         if(!Keyboard.current.leftShiftKey.isPressed) 
         {
             foreach(Unit selectedUnit in SelectedUnits) 

@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Town Hall Foundation
       objectReference: {fileID: 0}
+    - target: {fileID: 3561053919881560799, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
+      propertyPath: m_TagString
+      value: Foundation
+      objectReference: {fileID: 0}
     - target: {fileID: 4250793812472160876, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: maxHealth
       value: 1000

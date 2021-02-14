@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7412666883222851681}
   m_Layer: 13
   m_Name: EnemyDetection
-  m_TagString: Untagged
+  m_TagString: GameObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   unit: {fileID: 0}
+  period: 2
+  detectionRadius: 10
+  unitLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!135 &7412666883222851681
 SphereCollider:
   m_ObjectHideFlags: 0

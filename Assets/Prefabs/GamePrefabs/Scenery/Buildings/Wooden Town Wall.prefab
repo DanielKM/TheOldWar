@@ -255,8 +255,8 @@ GameObject:
   - component: {fileID: 7715237428952881374}
   - component: {fileID: 5441823946446545597}
   m_Layer: 0
-  m_Name: Wooden Wall
-  m_TagString: Untagged
+  m_Name: Wooden Town Wall
+  m_TagString: GameObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

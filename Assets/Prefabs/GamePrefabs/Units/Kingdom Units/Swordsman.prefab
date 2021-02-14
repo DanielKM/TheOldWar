@@ -321,6 +321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Swordsman
       objectReference: {fileID: 0}
+    - target: {fileID: 2357037763642935464, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: m_TagString
+      value: GameObject
+      objectReference: {fileID: 0}
     - target: {fileID: 2447331268037016435, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5

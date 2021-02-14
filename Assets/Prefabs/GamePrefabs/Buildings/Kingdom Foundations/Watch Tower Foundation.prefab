@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: -8290765685659209828}
   m_Layer: 0
   m_Name: Watch Tower Foundation
-  m_TagString: Untagged
+  m_TagString: Foundation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

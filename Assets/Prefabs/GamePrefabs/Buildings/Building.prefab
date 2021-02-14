@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8351038951672181166}
   m_Layer: 0
   m_Name: Building
-  m_TagString: Untagged
+  m_TagString: GameObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  unitTask: {fileID: 0}
   maxHealth: 100
+  currentHealth: 100
 --- !u!114 &4636535365497632322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +129,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  health: {fileID: 0}
   buildingPreview: {fileID: 0}
   icon: {fileID: 0}
   id: -1
-  price: 100
+  gold: 0
+  iron: 0
+  steel: 0
+  skymetal: 0
+  wood: 0
+  stone: 0
+  food: 0
+  population: 0
+  description: 
+  foundation: {fileID: 0}
+  UI: {fileID: 0}
 --- !u!114 &8351038951672181166
 MonoBehaviour:
   m_ObjectHideFlags: 0

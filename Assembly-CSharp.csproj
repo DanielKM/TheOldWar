@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\Game\Testing.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\DomeShield.cs" />
      <Compile Include="Assets\Scripts\Units\UnitAnimation.cs" />
+     <Compile Include="Assets\Scripts\Game\Events\GameEvents.cs" />
      <Compile Include="Assets\Scripts\Units\Unit.cs" />
      <Compile Include="Assets\Scripts\Units\UnitProjectile.cs" />
      <Compile Include="Assets\Scripts\Cameras\CameraController.cs" />
@@ -77,7 +78,7 @@
      <Compile Include="Assets\Scripts\UI\UnitButton.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitType.cs" />
-     <Compile Include="Assets\Scripts\Units\ConstructionDuty.cs" />
+     <Compile Include="Assets\Scripts\Units\Unit Assignments\ConstructionDuty.cs" />
      <Compile Include="Assets\Scripts\Buildings\UnitBase.cs" />
      <Compile Include="Assets\Scripts\Menus\JoinLobbyMenu.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\Utils\bl_TriggerLoad.cs" />
@@ -154,7 +155,8 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Game\Events\GameEvents.cs" />
+     <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
+     <Compile Include="Assets\Scripts\Units\Unit Assignments\GathererDuty.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.shader" />

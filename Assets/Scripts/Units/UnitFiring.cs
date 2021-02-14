@@ -113,7 +113,8 @@ public class UnitFiring : NetworkBehaviour
         && unitTask.GetTask() != ActionList.Attacking
         && unitTask.GetTask() != ActionList.Building
         && unitTask.GetTask() != ActionList.Harvesting
-        && unitTask.GetTask() != ActionList.Fighting)
+        && unitTask.GetTask() != ActionList.Fighting
+        && unitTask.GetTask() != ActionList.Delivering)
         {
             unitTask.SetTask(ActionList.Attacking);    
         }

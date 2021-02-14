@@ -143,6 +143,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   unit: {fileID: 5775123849031141255}
+  bag: {fileID: 2412049349749583091}
+  wood: {fileID: 2412049349749583093}
   allowedResources: 01000000020000000300000004000000050000000600000007000000
   heldResourcesType: 0
   maxHeldResources: 100
@@ -686,6 +688,16 @@ PrefabInstance:
 --- !u!95 &2412049349742190401 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8136913503580439949, guid: cdbe91a91060b1e4eb4bd0b52d578091, type: 3}
+  m_PrefabInstance: {fileID: 5878690250085472972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2412049349749583091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8136913503570933311, guid: cdbe91a91060b1e4eb4bd0b52d578091, type: 3}
+  m_PrefabInstance: {fileID: 5878690250085472972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2412049349749583093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8136913503570933305, guid: cdbe91a91060b1e4eb4bd0b52d578091, type: 3}
   m_PrefabInstance: {fileID: 5878690250085472972}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &2412049349746467209 stripped

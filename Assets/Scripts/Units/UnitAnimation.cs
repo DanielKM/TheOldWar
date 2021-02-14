@@ -10,11 +10,23 @@ public class UnitAnimation : NetworkBehaviour
     [SerializeField]
     private Animator anim;
     private NavMeshAgent agent;
+    private ResourceGatherer gatherer;
+
+    private bool isGatherer = false;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        if(gameObject.TryGetComponent<ResourceGatherer>(out ResourceGatherer unitGatherer)) 
+        {   
+            isGatherer = true;
+            gatherer = GetComponent<ResourceGatherer>();
+        }
+        else 
+        {
+            isGatherer = false;
+        }
     }
 
     #region Client
@@ -39,6 +51,19 @@ public class UnitAnimation : NetworkBehaviour
             anim.SetBool("isInjured", true);
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", false);
+        }
+
+        if(isGatherer && gatherer.heldResources > 0)
+        {
+            if(gatherer.heldResourcesType == Resource.Wood)
+            {
+                anim.SetBool("hasWood", true);
+            } else {
+                anim.SetBool("hasBag", true);
+            }
+        } else {
+            anim.SetBool("hasBag", false);
+            anim.SetBool("hasWood", false);
         }
     }
 

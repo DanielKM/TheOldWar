@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 898b1ab49271f00498df0027879cb21a
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 20101
   internalIDToNameTable:
   - first:
       1: 100000
@@ -155,7 +155,7 @@ ModelImporter:
     second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -186,15 +186,15 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
@@ -276,11 +276,13 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -290,6 +292,9 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -302,7 +307,6 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
-  copyAvatar: 1
   humanDescription:
     serializedVersion: 3
     human:
@@ -595,20 +599,17 @@ ModelImporter:
     - name: WK_Shield_A
       parentName: L_shield_container
       position: {x: -0.000000048446655, y: -0.000000024223327, z: -0.00000009689331}
-      rotation: {x: -0.00000011920925, y: 0.00000011222447, z: -0.00000003143215,
-        w: 1}
+      rotation: {x: -0.00000011920925, y: 0.00000011222447, z: -0.00000003143215, w: 1}
       scale: {x: 0.9999991, y: 1.0000002, z: 1.0000006}
     - name: WK_Shield_B
       parentName: L_shield_container
       position: {x: -0, y: 0, z: -0.00000009689331}
-      rotation: {x: -0.00000014901158, y: 0.0000000339933, z: 0.0000000072177606,
-        w: 1}
+      rotation: {x: -0.00000014901158, y: 0.0000000339933, z: 0.0000000072177606, w: 1}
       scale: {x: 0.9999992, y: 1.0000001, z: 1.0000008}
     - name: WK_Shield_C
       parentName: L_shield_container
       position: {x: 0.000000048446655, y: 0.000000024223327, z: -0.00000009689331}
-      rotation: {x: -0.0000001043081, y: 0.00000007217756, z: -0.000000033993295,
-        w: 1}
+      rotation: {x: -0.0000001043081, y: 0.00000007217756, z: -0.000000033993295, w: 1}
       scale: {x: 0.9999992, y: 1.0000002, z: 1.0000006}
     - name: WK_Shield_D
       parentName: L_shield_container
@@ -658,50 +659,42 @@ ModelImporter:
     - name: WK_weapon_axe_A
       parentName: R_hand_container
       position: {x: -0, y: 0.00000038757324, z: -0.000000048446655}
-      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828,
-        w: 1}
+      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828, w: 1}
       scale: {x: 4.395926, y: 4.395926, z: 4.395927}
     - name: WK_weapon_axe_B
       parentName: R_hand_container
       position: {x: -0, y: 0.00000038757324, z: -0.00000019378662}
-      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828,
-        w: 1}
+      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828, w: 1}
       scale: {x: 4.395926, y: 4.395926, z: 4.395927}
     - name: WK_weapon_hammer_A
       parentName: R_hand_container
       position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828,
-        w: 1}
+      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828, w: 1}
       scale: {x: 4.395926, y: 4.395926, z: 4.395927}
     - name: WK_weapon_hammer_B
       parentName: R_hand_container
       position: {x: -0.000000048446655, y: 0.00000038757324, z: 0.0000003391266}
-      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828,
-        w: 1}
+      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828, w: 1}
       scale: {x: 4.395926, y: 4.395926, z: 4.395927}
     - name: WK_weapon_pick
       parentName: R_hand_container
       position: {x: -0.000000048446655, y: 0, z: 0}
-      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828,
-        w: 1}
+      rotation: {x: 0.000000027118125, y: -0.00000007118509, z: -0.000000016948828, w: 1}
       scale: {x: 4.395926, y: 4.395926, z: 4.395927}
     - name: WK_weapon_spear
       parentName: R_hand_container
       position: {x: -0, y: 0, z: 0.00000038757324}
-      rotation: {x: -0.00000002711813, y: -0.00000003389766, z: -0.000000105082755,
-        w: 1}
+      rotation: {x: -0.00000002711813, y: -0.00000003389766, z: -0.000000105082755, w: 1}
       scale: {x: 4.3959255, y: 4.395926, z: 4.395927}
     - name: WK_weapon_sword_A
       parentName: R_hand_container
       position: {x: -0.00000014533997, y: 0, z: 0.0000007751465}
-      rotation: {x: -0.00000002711813, y: -0.00000003389766, z: -0.000000105082755,
-        w: 1}
+      rotation: {x: -0.00000002711813, y: -0.00000003389766, z: -0.000000105082755, w: 1}
       scale: {x: 4.3959255, y: 4.395926, z: 4.395927}
     - name: WK_weapon_sword_B
       parentName: R_hand_container
       position: {x: -0, y: 0, z: 0}
-      rotation: {x: -0.00000002711813, y: -0.00000003389766, z: -0.000000105082755,
-        w: 1}
+      rotation: {x: -0.00000002711813, y: -0.00000003389766, z: -0.000000105082755, w: 1}
       scale: {x: 4.3959255, y: 4.395926, z: 4.395927}
     - name: Bone_bag
       parentName: Bip001 Spine
@@ -860,10 +853,11 @@ ModelImporter:
     hasTranslationDoF: 1
     hasExtraRoot: 0
     skeletonHasParents: 0
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 635180035812f964db1d9529cbb170f2,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 635180035812f964db1d9529cbb170f2, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

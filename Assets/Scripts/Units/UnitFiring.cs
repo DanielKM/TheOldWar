@@ -8,6 +8,7 @@ public class UnitFiring : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private Targeter targeter = null;
+    [SerializeField] private Animator animator = null;
     [SerializeField] private GameObject projectilePrefab = null;
     [SerializeField] private Transform projectileSpawnPoint = null;
     [SerializeField] AudioClip attackSound;
@@ -139,16 +140,32 @@ public class UnitFiring : NetworkBehaviour
         transform.rotation = 
             Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        if(Time.time > (1/fireRate) + lastFireTime) 
+        if(Time.time > (fireRate) + lastFireTime + 0.02) 
         {   
             agent.ResetPath();
 
-            FireProjectile(target);
+            StartCoroutine(FireProjectile(target));
         }
     }
     
-    private void FireProjectile(Targetable target)
+    private IEnumerator FireProjectile(Targetable target)
     {
+        lastFireTime = Time.time;
+
+        // animator.SetBool("isFiring", true);
+        //Check attackSpeed & make animation follow this speed
+        animator.speed = 1/fireRate;
+
+        yield return new WaitForSeconds(fireRate);
+
+        float attackFrequency = 1/fireRate;
+
+        //Start animation  
+        // if( animator.GetCurrentAnimatorSatateInfo(Layer).IsName("yourAttackAnimation"))
+        // {
+        //    animator.speed = animSpeed;
+        // }
+
         Quaternion projectileRotation = 
             Quaternion.LookRotation(target.GetAimAtPoint().position - projectileSpawnPoint.position);
 
@@ -165,7 +182,6 @@ public class UnitFiring : NetworkBehaviour
 
         unitAudioSource.clip = attackSound;
         unitAudioSource.Play();
-        lastFireTime = Time.time;
 
         // // Pooled Projectiles
         // for(int i = 0; i<projectiles.Count; i++)

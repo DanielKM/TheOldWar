@@ -37,6 +37,8 @@ public class UnitAnimation : NetworkBehaviour
         } else if (task == ActionList.Injured || task == ActionList.Dead ) 
         {
             anim.SetBool("isInjured", true);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isFiring", false);
         }
     }
 

@@ -446,6 +446,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6957308045157887166, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2184105862981132267}
+    - target: {fileID: 6957308045157887166, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: fireRange
       value: 2
       objectReference: {fileID: 0}

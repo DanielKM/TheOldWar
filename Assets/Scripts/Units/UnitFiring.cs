@@ -152,37 +152,32 @@ public class UnitFiring : NetworkBehaviour
     private IEnumerator FireProjectile(Targetable target)
     {
         lastFireTime = Time.time;
-
-        // animator.SetBool("isFiring", true);
-        //Check attackSpeed & make animation follow this speed
         animator.speed = 1/fireRate;
 
         yield return new WaitForSeconds(fireRate);
 
         float attackFrequency = 1/fireRate;
 
-        //Start animation  
-        // if( animator.GetCurrentAnimatorSatateInfo(Layer).IsName("yourAttackAnimation"))
-        // {
-        //    animator.speed = animSpeed;
-        // }
+        if(target.GetAimAtPoint())
+        {
+            Quaternion projectileRotation = 
+                Quaternion.LookRotation(target.GetAimAtPoint().position - projectileSpawnPoint.position);
 
-        Quaternion projectileRotation = 
-            Quaternion.LookRotation(target.GetAimAtPoint().position - projectileSpawnPoint.position);
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileRotation);
 
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileRotation);
+            NetworkServer.Spawn(projectile, connectionToClient);
 
-        NetworkServer.Spawn(projectile, connectionToClient);
+            UnitProjectile projectileAttributes = projectile.GetComponent<UnitProjectile>();
+            float damageModifier = CheckWeaponDamageModifiers();
 
-        UnitProjectile projectileAttributes = projectile.GetComponent<UnitProjectile>();
-        float damageModifier = CheckWeaponDamageModifiers();
+            projectileAttributes.damageToDeal = projectileAttributes.savedDamage;
+            projectileAttributes.damageToDeal = projectileAttributes.damageToDeal * damageModifier;
+            projectileAttributes.projectileFirer = this;
 
-        projectileAttributes.damageToDeal = projectileAttributes.savedDamage;
-        projectileAttributes.damageToDeal = projectileAttributes.damageToDeal * damageModifier;
-        projectileAttributes.projectileFirer = this;
+            unitAudioSource.clip = attackSound;
+            unitAudioSource.Play();
+        }
 
-        unitAudioSource.clip = attackSound;
-        unitAudioSource.Play();
 
         // // Pooled Projectiles
         // for(int i = 0; i<projectiles.Count; i++)

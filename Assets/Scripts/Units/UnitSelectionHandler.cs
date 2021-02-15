@@ -18,7 +18,7 @@ public class UnitSelectionHandler : MonoBehaviour
     public RTSPlayer player;
     private Camera mainCamera;
 
-    public List<Unit> SelectedUnits { get; } = new List<Unit>();
+    public List<Unit> SelectedUnits { get; set; } = new List<Unit>();
 
     // Control groups
     public List<Unit> controlGroup1;
@@ -69,6 +69,15 @@ public class UnitSelectionHandler : MonoBehaviour
             {
                 player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
             }
+        }
+        
+        if(EventSystem.current.currentSelectedGameObject != null) 
+        {
+            if (EventSystem.current.currentSelectedGameObject.CompareTag( "UI" )) { return; }
+
+            if (EventSystem.current.currentSelectedGameObject.CompareTag( "Building" )) { return; }
+
+            if (EventSystem.current.currentSelectedGameObject.CompareTag( "Foundation" )) { return; }
         }
         
         if(Mouse.current.leftButton.wasPressedThisFrame) 
@@ -142,8 +151,6 @@ public class UnitSelectionHandler : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Visible renderers: " + visibleRenderers.Count);
-        // counts as 0
 
         foreach( Renderer renderer in visibleRenderers) {
             GameObject doubleClickSelection = renderer.transform.parent.gameObject;
@@ -160,11 +167,6 @@ public class UnitSelectionHandler : MonoBehaviour
 
     private void StartSelectionArea() 
     {       
-        if(EventSystem.current.currentSelectedGameObject != null) 
-        {
-            if (EventSystem.current.currentSelectedGameObject.CompareTag( "UI" )) { return; }
-        }
-
         if(!Keyboard.current.leftShiftKey.isPressed) 
         {
             foreach(Unit selectedUnit in SelectedUnits) 

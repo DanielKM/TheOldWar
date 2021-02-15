@@ -31,6 +31,8 @@ public class UIController : MonoBehaviour
     public CanvasGroup BasicBuildingsPanel;
     public CanvasGroup AdvancedBuildingsPanel;
     public CanvasGroup FortificationBuildingPanel;
+
+    public CanvasGroup GatherPanel;
     public CanvasGroup FootmanPanel;
     public CanvasGroup WizardPanel;
 
@@ -131,6 +133,7 @@ public class UIController : MonoBehaviour
         BasicBuildingsPanel = GameObject.Find("BasicBuildingsPanel").GetComponent<CanvasGroup>();
         AdvancedBuildingsPanel = GameObject.Find("AdvancedBuildingsPanel").GetComponent<CanvasGroup>();
         FortificationBuildingPanel = GameObject.Find("FortificationBuildingsPanel").GetComponent<CanvasGroup>();
+        GatherPanel = GameObject.Find("GatherPanel").GetComponent<CanvasGroup>();
         FootmanPanel = GameObject.Find("FootmanPanel").GetComponent<CanvasGroup>();
         WizardPanel = GameObject.Find("WizardPanel").GetComponent<CanvasGroup>();
                 
@@ -373,6 +376,9 @@ public class UIController : MonoBehaviour
         FortificationBuildingPanel.alpha = 0;
         FortificationBuildingPanel.blocksRaycasts = false;
         FortificationBuildingPanel.interactable = false;
+        GatherPanel.alpha = 0;
+        GatherPanel.blocksRaycasts = false;
+        GatherPanel.interactable = false;
 
         // FOOTMAN PANELS
         FootmanPanel.alpha = 0;
@@ -619,6 +625,20 @@ public class UIController : MonoBehaviour
         FortificationBuildingPanel.alpha = 1;
         FortificationBuildingPanel.blocksRaycasts = true;
         FortificationBuildingPanel.interactable = true;
+    }
+
+    // On Worker clicking advanced buildings
+    public void WorkerGatherPanelOpen() {
+        CloseAllPanels();
+
+        UnitPanel.alpha = 1;
+        UnitPanel.blocksRaycasts = true;
+        UnitPanel.interactable = true;
+
+        panelOpen = 1;        
+        GatherPanel.alpha = 1;
+        GatherPanel.blocksRaycasts = true;
+        GatherPanel.interactable = true;
     }
 
     public void FighterSelect() {

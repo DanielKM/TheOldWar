@@ -11,10 +11,13 @@ public class Buttons : MonoBehaviour
     public Button workerBasicBuildingButton;
     public Button workerAdvancedBuildingButton;
     public Button workerFortificationsButton;
+    public Button workerGatherButton;
     public Button workerClearDeadButton;
+
     public Button workerBasicBackButton;
     public Button workerAdvancedBackButton;
     public Button workerFortificationsBackButton;
+    public Button workerGatherBackButton;
 
     // Barracks buttons
     public Button barracksButtonOne;
@@ -40,10 +43,12 @@ public class Buttons : MonoBehaviour
         workerBasicBuildingButton.onClick.AddListener(delegate{UI.WorkerBasicBuildings();});
         workerAdvancedBuildingButton.onClick.AddListener(delegate{UI.WorkerAdvancedBuildings();});
         workerFortificationsButton.onClick.AddListener(delegate{UI.WorkerFortificationBuildings();});
+        workerGatherButton.onClick.AddListener(delegate{UI.WorkerGatherPanelOpen();});
 
         workerBasicBackButton.onClick.AddListener(delegate{UI.WorkerSelect();});
         workerAdvancedBackButton.onClick.AddListener(delegate{UI.WorkerSelect();});
         workerFortificationsBackButton.onClick.AddListener(delegate{UI.WorkerSelect();});
+        workerGatherBackButton.onClick.AddListener(delegate{UI.WorkerSelect();});
     }
 
     public void UpdateSelectedBuilding()

@@ -27,16 +27,25 @@ public sealed class ExplodePartManager : MonoBehaviour
 		m_explodeParts = GetComponentsInChildren<ExplodePart>(true);
 	}
 
+	public void Explode()
+	{
+ 		m_currentDirection = m_currentDirection == AnimationDirection.Forward ?
+			AnimationDirection.Reverse : AnimationDirection.Forward;
+
+		StopCoroutine("PlayExplodeAnimation");
+		StartCoroutine("PlayExplodeAnimation");
+	}
+
 	private void Update()
 	{
-		if (Input.GetKeyUp(m_key))
-		{
-			m_currentDirection = m_currentDirection == AnimationDirection.Forward ?
-				AnimationDirection.Reverse : AnimationDirection.Forward;
+		// if (Input.GetKeyUp(m_key))
+		// {
+		// 	m_currentDirection = m_currentDirection == AnimationDirection.Forward ?
+		// 		AnimationDirection.Reverse : AnimationDirection.Forward;
 
-			StopCoroutine("PlayExplodeAnimation");
-			StartCoroutine("PlayExplodeAnimation");
-		}
+		// 	StopCoroutine("PlayExplodeAnimation");
+		// 	StartCoroutine("PlayExplodeAnimation");
+		// }
 	}
 	#endregion //Unity core events.
 

@@ -128,19 +128,22 @@ public class Targeter : NetworkBehaviour
         {
             if(node.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
             {
-                int nodeID = GetResourceID(resourceNode.GetResourceType());
-
-                if(nodeID != resourceID) { continue; }
-
-                Vector3 direction = node.transform.position - position;
-
-                float distance = direction.sqrMagnitude;
-
-                if(distance < closestDistance)
+                if(resourceNode.enabled) 
                 {
-                    closestDistance = distance;
-                    
-                    closestResourceNode = node.GetComponent<Targetable>();
+                    int nodeID = GetResourceID(resourceNode.GetResourceType());
+
+                    if(nodeID != resourceID) { continue; }
+
+                    Vector3 direction = node.transform.position - position;
+
+                    float distance = direction.sqrMagnitude;
+
+                    if(distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        
+                        closestResourceNode = node.GetComponent<Targetable>();
+                    }
                 }
             }
         }
@@ -171,7 +174,6 @@ public class Targeter : NetworkBehaviour
             default:
                 break;
         }
-
         return 0;
     }
 

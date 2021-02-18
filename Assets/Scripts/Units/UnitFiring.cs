@@ -70,8 +70,19 @@ public class UnitFiring : NetworkBehaviour
 
         if (target.gameObject.GetComponent<Health>().currentHealth <= 0) 
         { 
-            targeter.ClearTarget(); 
-            return;
+            if(!gameObject.TryGetComponent<Huntable>(out Huntable hunt)) 
+            { 
+                if(hunt != null) { 
+                    targeter.ClearTarget(); 
+
+                    return;
+                }
+            } else {
+                targeter.ClearTarget(); 
+
+                return;
+            }
+
         }
 
         UnitTask unitTask = gameObject.GetComponent<UnitTask>();
@@ -79,18 +90,22 @@ public class UnitFiring : NetworkBehaviour
         // Check for resource target
         if (target.gameObject.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
         { 
-            if(unitTask.GetTask() != ActionList.Gathering && unitTask.GetTask() != ActionList.Harvesting) 
+            
+            if(resourceNode.enabled) 
             {
-                unitTask.SetTask(ActionList.Gathering);    
-            }
-
-            if(gatherer) 
-            {
-                if(gatherer.heldResources == gatherer.maxHeldResources) 
+                if(unitTask.GetTask() != ActionList.Gathering && unitTask.GetTask() != ActionList.Harvesting) 
                 {
-                    targeter.TargetClosestDropOff();
+                    unitTask.SetTask(ActionList.Gathering);    
+                }
 
-                    return;
+                if(gatherer) 
+                {
+                    if(gatherer.heldResources == gatherer.maxHeldResources) 
+                    {
+                        targeter.TargetClosestDropOff();
+
+                        return;
+                    }
                 }
             }
         }

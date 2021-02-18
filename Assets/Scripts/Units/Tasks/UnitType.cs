@@ -45,4 +45,8 @@ public enum UnitType
     WatchTowerFoundation,
     WoodWallFoundation,
     WizardTowerFoundation,
+    // NEUTRAL
+    KingBoar,
+
+
 }

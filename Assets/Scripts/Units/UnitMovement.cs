@@ -147,6 +147,8 @@ public class UnitMovement : NetworkBehaviour
 
         if(!NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, NavMesh.AllAreas)) { return; }
 
+        if(!agent.enabled) { return; }
+         
         agent.SetDestination(hit.position);
     }
 

@@ -89,8 +89,20 @@ public class Health : NetworkBehaviour
         gameObject.GetComponent<UnitFiring>().enabled = false;
         gameObject.GetComponent<Targeter>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
         gameObject.GetComponent<UnitMovement>().enabled = false;
+
+        if(gameObject.TryGetComponent<Huntable>(out Huntable huntable))  
+        {
+            ResourceNode spawnedNode = gameObject.AddComponent<ResourceNode>();
+            spawnedNode.resource = Resource.Food;
+            spawnedNode.heldResources = 1000;
+            spawnedNode.health = gameObject.GetComponent<Health>();
+            spawnedNode.enabled = true;
+
+            return;
+        }
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+
         // enemy detection off
     }
     

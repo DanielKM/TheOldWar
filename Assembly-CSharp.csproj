@@ -48,9 +48,10 @@
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\UI\bl_LoadingScreenUI.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarBlur.cs" />
      <Compile Include="Assets\Scripts\UI\Cursors.cs" />
-     <Compile Include="Assets\Scripts\Units\SpellCaster.cs" />
+     <Compile Include="Assets\Scripts\Units\Type AddOns\SpellCaster.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\ExplodePart.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarFogFill.cs" />
+     <Compile Include="Assets\Scripts\Units\Unit Assignments\GathererDuty.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Example\Script\bl_LoadingScreenExample.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.cs" />
      <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
@@ -122,6 +123,7 @@
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\ReorderableList\Attributes\ReorderableLovattoAttribute.cs" />
      <Compile Include="Assets\Scripts\Game\SpellHandler.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarDrawerHardware.cs" />
+     <Compile Include="Assets\Creep.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourceTypes\Resource.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\Utils\bl_ButtonSceneLoad.cs" />
      <Compile Include="Assets\Scripts\Units\UnitTask.cs" />
@@ -136,11 +138,13 @@
      <Compile Include="Assets\Scripts\Units\UnitMovement.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarMinimap.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\PPSv2\FogOfWarTestPPSv2.cs" />
+     <Compile Include="Assets\Imported\Animal pack deluxe\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\Main\bl_SceneLoaderManager.cs" />
      <Compile Include="Assets\Scripts\Buildings\Foundation.cs" />
      <Compile Include="Assets\Scripts\Units\Spells\SpellList.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\TreeSwinger.cs" />
      <Compile Include="Assets\Scripts\Inputs\Controls.cs" />
+     <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
      <Compile Include="Assets\Scripts\Research\TechTree.cs" />
      <Compile Include="Assets\Scripts\Units\UnitCommandGiver.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarMap.cs" />
@@ -155,8 +159,8 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
-     <Compile Include="Assets\Scripts\Units\Unit Assignments\GathererDuty.cs" />
+     <Compile Include="Assets\Huntable.cs" />
+     <Compile Include="Assets\Scripts\Units\Type AddOns\TreeFall.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.shader" />

@@ -48,7 +48,7 @@ public class UnitProjectile : NetworkBehaviour
             {
                 // FOR RESOURCES
                 if(projectileFirer.gameObject.GetComponent<UnitInformation>().unitType == UnitType.Worker &&
-                other.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
+                other.TryGetComponent<ResourceNode>(out ResourceNode resourceNode) && resourceNode.enabled) 
                 { 
                     projectileFirer.gameObject.GetComponent<ResourceGatherer>().AddResources(10, resourceNode.GetResourceType());
 

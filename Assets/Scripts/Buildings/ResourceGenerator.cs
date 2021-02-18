@@ -34,25 +34,29 @@ public class ResourceGenerator : NetworkBehaviour
     public void Start()
     {
         player = gameObject.GetComponent<UnitInformation>().owner;
-        if(onSpawnResource)
+
+        if(player)
         {
-            // ISSUE FIND REF
-            Dictionary<Resource, int> newResourceDictionary = player.GetResources();
-            for(int i=0; i<resourceTypes.Length; i++) 
+            if(onSpawnResource)
             {
-                newResourceDictionary[resourceTypes[i]] += resourcesPerInterval;
+                // ISSUE FIND REF
+                Dictionary<Resource, int> newResourceDictionary = player.GetResources();
+                for(int i=0; i<resourceTypes.Length; i++) 
+                {
+                    newResourceDictionary[resourceTypes[i]] += resourcesPerInterval;
+                }
+                player.SetResources(newResourceDictionary);
             }
-            player.SetResources(newResourceDictionary);
-        }
-        if(onSpawnMaxResource)
-        {
-            // Also no reference
-            Dictionary<Resource, int> newResourceDictionary = player.GetMaxResources();
-            for(int i=0; i<maxResourceTypes.Length; i++) 
-            { 
-                newResourceDictionary[maxResourceTypes[i]] += maxResourcesPerInterval;
+            if(onSpawnMaxResource)
+            {
+                // Also no reference
+                Dictionary<Resource, int> newResourceDictionary = player.GetMaxResources();
+                for(int i=0; i<maxResourceTypes.Length; i++) 
+                { 
+                    newResourceDictionary[maxResourceTypes[i]] += maxResourcesPerInterval;
+                }
+                player.SetMaxResources(newResourceDictionary);
             }
-            player.SetMaxResources(newResourceDictionary);
         }
     }
 
@@ -64,6 +68,33 @@ public class ResourceGenerator : NetworkBehaviour
     [ServerCallback]
     private void Update()
     {
+        if(!player) 
+        {
+            player = gameObject.GetComponent<UnitInformation>().owner;
+
+            
+            if(onSpawnResource)
+            {
+                // ISSUE FIND REF
+                Dictionary<Resource, int> newResourceDictionary = player.GetResources();
+                for(int i=0; i<resourceTypes.Length; i++) 
+                {
+                    newResourceDictionary[resourceTypes[i]] += resourcesPerInterval;
+                }
+                player.SetResources(newResourceDictionary);
+            }
+            if(onSpawnMaxResource)
+            {
+                // Also no reference
+                Dictionary<Resource, int> newResourceDictionary = player.GetMaxResources();
+                for(int i=0; i<maxResourceTypes.Length; i++) 
+                { 
+                    newResourceDictionary[maxResourceTypes[i]] += maxResourcesPerInterval;
+                }
+                player.SetMaxResources(newResourceDictionary);
+            }
+        }
+
         if(!onSpawnResource)
         {
             timer -= Time.deltaTime;

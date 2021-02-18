@@ -9,9 +9,10 @@ public class ResourceNode : NetworkBehaviour
 {
     public Resource resource = Resource.None;
     public int heldResources;
+    GameObject unitHandlers;
 
     [SerializeField]
-    private Health health;
+    public Health health;
     
     public Resource GetResourceType()
     {
@@ -20,9 +21,9 @@ public class ResourceNode : NetworkBehaviour
 
     public void Start()
     {
-        GameObject x = GameObject.Find("UnitHandlers");
+        unitHandlers = GameObject.Find("UnitHandlers");
         
-        x.GetComponent<GameobjectLists>().resourceNodes.Add(this);
+        unitHandlers.GetComponent<GameobjectLists>().resourceNodes.Add(this);
     }
 
     [Server]
@@ -34,8 +35,17 @@ public class ResourceNode : NetworkBehaviour
 
         heldResources = heldResources <= 0 ? 0 : heldResources;
 
+        if(heldResources <= 6000 && gameObject.TryGetComponent<TreeFall>(out TreeFall treefall)) 
+        { 
+            treefall.ExplodeTree();
+        }
+
         if(heldResources > 0) { return; }
 
-        health.DealDamage(10000);
+        unitHandlers.GetComponent<GameobjectLists>().resourceNodes.Remove(this);
+
+        NetworkServer.Destroy(gameObject);
+
+        Destroy(gameObject);
     }
 }

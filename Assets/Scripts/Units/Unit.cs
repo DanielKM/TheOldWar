@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class Unit : NetworkBehaviour
@@ -13,8 +14,10 @@ public class Unit : NetworkBehaviour
     [SerializeField] private UnitInformation unitInformation = null;
     [SerializeField] private Targeter targeter = null;
     [SerializeField] public AudioSource unitAudio;
+    [SerializeField] private UnitTask unitTask;
     [SerializeField] public AudioClip unitReportingClip;
     [SerializeField] public AudioClip unitSelectedClip;
+    [SerializeField] public GameObject corpseSkeleton;
     [SerializeField] private SphereCollider unitEnemyDetectionSphereCollider;
     public Sprite unitIcon;
     
@@ -85,6 +88,8 @@ public class Unit : NetworkBehaviour
 
         health.ServerOnDie += ServerHandleDie;
 
+        health.ServerOnInjured += ServerHandleUnitInjured;
+
         if(unitInformation.owner != null)
         {
             GameObject x = GameObject.Find("UnitHandlers");
@@ -100,6 +105,8 @@ public class Unit : NetworkBehaviour
         ServerOnUnitDespawned?.Invoke(this);
         
         health.ServerOnDie -= ServerHandleDie;
+        
+        health.ServerOnInjured -= ServerHandleUnitInjured;
     }
 
     [Server]
@@ -139,9 +146,56 @@ public class Unit : NetworkBehaviour
         // }
 
         // gameObject.SetActive(false);
+
+        if(corpseSkeleton)
+        {
+            GameObject skeleton = Instantiate(corpseSkeleton, this.transform.position, this.transform.rotation);
+
+            skeleton.GetComponent<UnitTask>().SetTask(ActionList.Injured);
+
+            NetworkServer.Spawn(skeleton, connectionToClient);
+        }
+
         NetworkServer.Destroy(gameObject);
 
         Destroy(gameObject);
+    }
+
+    [Server]
+    public void ServerHandleUnitInjured()
+    {
+        unitTask.SetTask(ActionList.Injured);
+
+        gameObject.GetComponent<UnitFiring>().enabled = false;
+        gameObject.GetComponent<Targeter>().enabled = false;
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        gameObject.GetComponent<UnitMovement>().enabled = false;
+
+        if(gameObject.TryGetComponent<Huntable>(out Huntable huntable))  
+        {
+            ResourceNode spawnedNode = gameObject.AddComponent<ResourceNode>();
+            spawnedNode.resource = Resource.Food;
+            spawnedNode.heldResources = 1000;
+            spawnedNode.health = gameObject.GetComponent<Health>();
+            spawnedNode.enabled = true;
+
+            return;
+        }
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        System.Random r = new System.Random();
+        int timeToDie = r.Next(0, 120);
+
+        StartCoroutine(Decay(timeToDie));
+        // enemy detection off
+    }
+
+    [Server]
+    public IEnumerator Decay(int timeToDeath)
+    {
+        yield return new WaitForSeconds(timeToDeath);
+
+        health.ServerDie();
     }
     
     #endregion

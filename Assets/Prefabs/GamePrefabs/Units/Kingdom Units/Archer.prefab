@@ -390,6 +390,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 25b5acfad985f424b895526dc9e83800, type: 3}
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: -5368217867380570065}
+    - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitAudio
       value: 
       objectReference: {fileID: 3659657274414282538}
@@ -402,6 +406,10 @@ PrefabInstance:
       value: "The Archer is the primary ranged unit of the Kingdom. \nRequires Lumber
         Yard."
       objectReference: {fileID: 0}
+    - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: corpseSkeleton
+      value: 
+      objectReference: {fileID: 2864281083983250177, guid: c10bd9362bb68e842a9b9eb80c60f194, type: 3}
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitInformation
       value: 

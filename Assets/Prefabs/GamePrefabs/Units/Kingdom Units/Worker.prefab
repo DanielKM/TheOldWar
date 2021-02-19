@@ -406,6 +406,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 1f0fa3795ead58949beec803ce5dd640, type: 3}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: 3269931612645664802}
+    - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitAudio
       value: 
       objectReference: {fileID: -7908261325409360190}
@@ -426,6 +430,10 @@ PrefabInstance:
       propertyPath: unitAnimation
       value: 
       objectReference: {fileID: 2267158405068367372}
+    - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: corpseSkeleton
+      value: 
+      objectReference: {fileID: 2864281083983250177, guid: c10bd9362bb68e842a9b9eb80c60f194, type: 3}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 

@@ -158,8 +158,10 @@ MonoBehaviour:
   unitInformation: {fileID: 0}
   targeter: {fileID: 3709605437394889039}
   unitAudio: {fileID: 0}
+  unitTask: {fileID: 0}
   unitReportingClip: {fileID: 0}
   unitSelectedClip: {fileID: 0}
+  corpseSkeleton: {fileID: 2864281083983250177, guid: c10bd9362bb68e842a9b9eb80c60f194, type: 3}
   unitEnemyDetectionSphereCollider: {fileID: 0}
   unitIcon: {fileID: 0}
   id: -1
@@ -270,7 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  unitTask: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
 --- !u!114 &6784487624098304181

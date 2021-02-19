@@ -482,6 +482,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ef3211a10a017a4468501a5cf13e29ad, type: 3}
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: unitTask
+      value: 
+      objectReference: {fileID: 553880260965288818}
+    - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitAudio
       value: 
       objectReference: {fileID: -6952107760926791354}

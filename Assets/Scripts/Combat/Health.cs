@@ -8,7 +8,6 @@ using UnityEngine.AI;
 public class Health : NetworkBehaviour
 {
     [Header("References")]
-    [SerializeField]  UnitTask unitTask = null;
     private UnitSelectionHandler unitSelection = null;
 
     [Header("Settings")]
@@ -40,15 +39,11 @@ public class Health : NetworkBehaviour
         currentHealth = maxHealth;
 
         UnitBase.ServerOnPlayerDie += ServerHandlePlayerDie;
-
-        ServerOnInjured += ServerHandleUnitInjured;
     }
 
     public override void OnStopServer()
     {
         UnitBase.ServerOnPlayerDie -= ServerHandlePlayerDie;
-
-        ServerOnInjured -= ServerHandleUnitInjured;
     }
 
     [Server]
@@ -78,32 +73,14 @@ public class Health : NetworkBehaviour
         } else {
             // For buildings
             Debug.Log("Unit died");
-            ServerOnDie?.Invoke();
+            ServerDie();
         }
     }
 
     [Server]
-    public void ServerHandleUnitInjured()
+    public void ServerDie()
     {
-        unitTask.SetTask(ActionList.Injured);
-        gameObject.GetComponent<UnitFiring>().enabled = false;
-        gameObject.GetComponent<Targeter>().enabled = false;
-        gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        gameObject.GetComponent<UnitMovement>().enabled = false;
-
-        if(gameObject.TryGetComponent<Huntable>(out Huntable huntable))  
-        {
-            ResourceNode spawnedNode = gameObject.AddComponent<ResourceNode>();
-            spawnedNode.resource = Resource.Food;
-            spawnedNode.heldResources = 1000;
-            spawnedNode.health = gameObject.GetComponent<Health>();
-            spawnedNode.enabled = true;
-
-            return;
-        }
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-
-        // enemy detection off
+        ServerOnDie?.Invoke();
     }
     
     [Server]

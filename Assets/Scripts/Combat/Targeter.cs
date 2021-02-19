@@ -151,7 +151,7 @@ public class Targeter : NetworkBehaviour
         return closestResourceNode;
     }
     
-    private int GetResourceID(Resource selectedResource)
+    public int GetResourceID(Resource selectedResource)
     {
         switch (selectedResource)
         {

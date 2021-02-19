@@ -13,6 +13,7 @@ public class UnitFiring : NetworkBehaviour
     [SerializeField] private Transform projectileSpawnPoint = null;
     [SerializeField] AudioClip attackSound;
     [SerializeField] AudioSource unitAudioSource;
+    UnitTask unitTask = null;
 
     [Header("Settings")]
     [SerializeField] private float fireRange = 5f;
@@ -33,6 +34,7 @@ public class UnitFiring : NetworkBehaviour
         unitInformation = gameObject.GetComponent<UnitInformation>();
         gatherer = gameObject.GetComponent<ResourceGatherer>();
         agent = gameObject.GetComponent<NavMeshAgent>();
+        unitTask = gameObject.GetComponent<UnitTask>();
 
         if(unitInformation.owner != null)
         {
@@ -66,7 +68,19 @@ public class UnitFiring : NetworkBehaviour
     {
         Targetable target = targeter.GetTarget();
 
-        if(target == null) { return; }
+
+        if(target == null) {
+            var actuallyNull = object.ReferenceEquals(target, null);
+            if(actuallyNull) { return; }
+            else if (unitTask.GetTask() == ActionList.Harvesting)
+            {
+                target = targeter.GetClosestResource(targeter.GetResourceID(gatherer.heldResourcesType));
+                targeter.CmdSetTarget(target.gameObject);
+
+                return;
+            }
+        }
+
 
         if (target.gameObject.GetComponent<Health>().currentHealth <= 0) 
         { 
@@ -84,8 +98,6 @@ public class UnitFiring : NetworkBehaviour
             }
 
         }
-
-        UnitTask unitTask = gameObject.GetComponent<UnitTask>();
 
         // Check for resource target
         if (target.gameObject.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 

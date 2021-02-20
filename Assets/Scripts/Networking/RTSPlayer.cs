@@ -15,6 +15,7 @@ public class RTSPlayer : NetworkBehaviour
     public UIController UI = null;
 
     [SerializeField] private AudioSource playerAudio;
+    [SerializeField] public GameObject spawnPoint;
     
     [Header("Settings")]
     [SerializeField] private bool isComputerAI = false;
@@ -219,7 +220,7 @@ public class RTSPlayer : NetworkBehaviour
         }
     }
 
-    private void GetAllMyActiveUnits() 
+    public void GetAllMyActiveUnits() 
     {
         gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
 
@@ -229,6 +230,8 @@ public class RTSPlayer : NetworkBehaviour
         {
             myActiveUnits.Add(startingUnit);
         }
+
+        gameObjectLists.players.Add(this.gameObject);
                         
         // List<Unit> allUnits = gameObjectLists.GetAllActiveUnitGameobjects();
 

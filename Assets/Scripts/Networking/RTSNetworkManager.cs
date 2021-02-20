@@ -9,6 +9,7 @@ public class RTSNetworkManager : NetworkManager
 {
     [SerializeField] private GameObject unitBasePrefab = null;
     [SerializeField] private GameOverHandler gameOverHandlerPrefab = null;
+    public GameobjectLists gameObjectLists;
 
     public static event Action ClientOnConnected;
     public static event Action ClientOnDisconnected;
@@ -78,9 +79,12 @@ public class RTSNetworkManager : NetworkManager
 
             NetworkServer.Spawn(gameOverHandlerInstance.gameObject);
 
+            gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
+
             foreach(RTSPlayer player in Players) 
             {
-                Vector3 startPos = GetStartPosition().position;
+                Transform startTransform = GetStartPosition();
+                Vector3 startPos = startTransform.position;
 
                 GameObject baseInstance = Instantiate(
                     unitBasePrefab, 
@@ -91,7 +95,11 @@ public class RTSNetworkManager : NetworkManager
                 
                 Vector3 baseOffset = new Vector3(0.0f, 0.0f, 20f);
                 player.gameObject.transform.position = startPos - baseOffset;
+                Debug.Log(startTransform.gameObject);
+                player.spawnPoint = startTransform.gameObject;
+
                 NetworkServer.Spawn(baseInstance, player.connectionToClient);
+                gameObjectLists.players.Add(player.gameObject);
             }
         }
     }

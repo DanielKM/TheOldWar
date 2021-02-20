@@ -13,6 +13,9 @@ public class UnitProjectile : NetworkBehaviour
     [SerializeField] private float launchForce = 10f;
 
     public UnitFiring projectileFirer = null;
+    UnitType firerUnitType;
+    ResourceGatherer resourceGatherer;
+    RTSPlayer owner = null;
 
     // void OnEnable()
     // {        
@@ -25,6 +28,15 @@ public class UnitProjectile : NetworkBehaviour
     {
         rb.velocity = transform.forward * launchForce;
 
+        firerUnitType = projectileFirer.gameObject.GetComponent<UnitInformation>().unitType;
+
+        if(firerUnitType == UnitType.Worker)
+        {
+            resourceGatherer = projectileFirer.gameObject.GetComponent<ResourceGatherer>();
+        }
+
+        owner = projectileFirer.gameObject.GetComponent<UnitInformation>().owner;
+
         Invoke(nameof(DestroySelf), destroyAfterSeconds);
     }
 
@@ -33,8 +45,11 @@ public class UnitProjectile : NetworkBehaviour
     {
         if(other.TryGetComponent<NetworkIdentity>(out NetworkIdentity networkIdentity))
         {
+            Debug.Log(networkIdentity);
+            Debug.Log(networkIdentity.connectionToClient);
+            Debug.Log(connectionToClient);
             // FOR CONSTRUCTION
-            if(projectileFirer.gameObject.GetComponent<UnitInformation>().unitType == UnitType.Worker &&
+            if(firerUnitType == UnitType.Worker &&
             other.TryGetComponent<Foundation>(out Foundation foundation)) 
             { 
                 foundation.SetProgress(5);
@@ -42,15 +57,18 @@ public class UnitProjectile : NetworkBehaviour
                 return;
             };
 
-            if(networkIdentity.connectionToClient == connectionToClient) { return; }
+            if(owner == other.gameObject.GetComponent<UnitInformation>().owner) { return; }
+            // if(networkIdentity.connectionToClient == connectionToClient) { return; }
+
+            // if(gam)
 
             if(other.TryGetComponent<Health>(out Health health)) 
             {
                 // FOR RESOURCES
-                if(projectileFirer.gameObject.GetComponent<UnitInformation>().unitType == UnitType.Worker &&
+                if(firerUnitType == UnitType.Worker &&
                 other.TryGetComponent<ResourceNode>(out ResourceNode resourceNode) && resourceNode.enabled) 
                 { 
-                    projectileFirer.gameObject.GetComponent<ResourceGatherer>().AddResources(10, resourceNode.GetResourceType());
+                    resourceGatherer.AddResources(10, resourceNode.GetResourceType());
 
                     resourceNode.TakeResources(10);
 

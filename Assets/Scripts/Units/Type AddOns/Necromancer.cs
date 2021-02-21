@@ -6,15 +6,34 @@ using UnityEngine.AI;
 
 public class Necromancer : MonoBehaviour
 {
+    [Header("References")]
     GameObject EventHandler;
     DayNightCycle DayNight;
     UnitTask unitTask;
     GameobjectLists gameobjectLists;
-
     public GameObject skeleton;
+    [SerializeField]
+    private GameObject raiseDeadSpell;
+    [SerializeField]
+    private GameObject raiseDeadCaster;
 
+    [Header("Settings")]
     public bool raisingDead = false;
     private Vector3 spawnPosition;
+    
+    public LayerMask layerMask;
+    
+    [SerializeField]
+    Unit unit = null;
+    Targeter targeter = null;
+    UnitInformation unitInformation = null;
+    UnitCommandGiver unitCommandGiver = null;
+    Necromancer necromancer = null;
+
+    public float period = 2f;
+    private float checkTime = 0f;
+    public float detectionRadius = 10;
+    public LayerMask unitLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +45,16 @@ public class Necromancer : MonoBehaviour
         unitTask = gameObject.GetComponent<UnitTask>();
 
         gameobjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();  
+
+        unit = gameObject.GetComponent<Unit>();
+
+        targeter = unit.GetTargeter();
+
+        unitInformation = gameObject.GetComponent<UnitInformation>();
+
+        necromancer = gameObject.GetComponent<Necromancer>();
+
+        unitCommandGiver = GameObject.Find("UnitHandlers").GetComponent<UnitCommandGiver>();
     }
 
     // Update is called once per frame
@@ -33,32 +62,56 @@ public class Necromancer : MonoBehaviour
     {
         if(DayNight.time >= 14400 && DayNight.time <= 16000 ) {
             if(unitTask.GetTask() != ActionList.Dead) {
-                if(!raisingDead) {
-                    StartCoroutine(RaiseDead(DayNight.days));
-                }          
+                TryRaiseDead(DayNight.days + 1, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f), null);    
             }
         }
+        
+        AttemptToDetectCorpses();
     }
 
-    IEnumerator RaiseDead(int number) {
+    public void TryRaiseDead(int count, Vector3 spawnPos, GameObject corpse)
+    {
+        if(!raisingDead) {
+            StartCoroutine(RaiseDead(count, spawnPos, corpse));
+        }      
+    }
+
+    IEnumerator RaiseDead(int number, Vector3 spawnPos, GameObject corpse) {
         raisingDead = true;
+
+        unitTask.SetTask(ActionList.CastingAOE);
+
+        if(corpse) { 
+            GameObject spellToCast = Instantiate(raiseDeadSpell, corpse.transform.position, corpse.transform.rotation);
+
+            NetworkServer.Spawn(spellToCast);
+        }
+        GameObject casterEffects = Instantiate(raiseDeadCaster, gameObject.transform.position, gameObject.transform.rotation);
+
+        NetworkServer.Spawn(casterEffects);
+
         yield return new WaitForSeconds(10);
-        spawnPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f);
         
         RTSPlayer owner = gameObject.GetComponent<UnitInformation>().owner;
 
         GameObject closestPlayerSpawnPoint = GetClosestEnemyPlayer(owner, gameObject, gameobjectLists.GetAllActivePlayerGameobjects());
 
         // loadedTransforms[0] = TownCenter;
-        for(int i=0; i<number + 1; i++) {
+        for(int i=0; i<number; i++) {
             // skeleton.GetComponent<NPCController>().waypoints = loadedTransforms;
-            GameObject raisedSkeleton = Instantiate(skeleton, spawnPosition, Quaternion.identity);  
+            GameObject raisedSkeleton = Instantiate(skeleton, spawnPos, Quaternion.identity);  
 
             raisedSkeleton.GetComponent<UnitInformation>().owner = owner;
 
             NetworkServer.Spawn(raisedSkeleton);
 
             raisedSkeleton.GetComponent<NavMeshAgent>().SetDestination(closestPlayerSpawnPoint.transform.position);
+
+            if(corpse) { 
+                NetworkServer.Destroy(corpse);
+
+                Destroy(corpse);
+            }
 
             raisingDead = false;
         }
@@ -86,5 +139,36 @@ public class Necromancer : MonoBehaviour
         }
 
         return tMin;
+    }
+
+    void AttemptToDetectCorpses()
+    {
+        if(Time.time > checkTime) 
+        {
+            checkTime = Time.time + period;
+
+            Vector3 center = unit.gameObject.transform.position;
+
+            Collider[] colliders = Physics.OverlapSphere(center, detectionRadius,  1 << 15);
+
+            Collider nearestCollider = null;
+            float minSqrDistance = Mathf.Infinity;
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                float sqrDistanceToCenter = (center - colliders[i].transform.position).sqrMagnitude;
+                
+                if (sqrDistanceToCenter < minSqrDistance)
+                {
+                    minSqrDistance = sqrDistanceToCenter;
+
+                    nearestCollider = colliders[i];
+                }
+            }
+
+            if(nearestCollider) 
+            {
+                TryRaiseDead(1, nearestCollider.transform.position, nearestCollider.gameObject);
+            }
+        }
     }
 }

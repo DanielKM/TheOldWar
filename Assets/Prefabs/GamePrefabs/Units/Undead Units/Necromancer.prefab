@@ -125,7 +125,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 2864281083983250177, guid: deefdcf21c79dda4c92d6aa3d6c166e1, type: 3}
+  raiseDeadSpell: {fileID: 1753200176847573973, guid: 8895c8a421f2765469aefd7da97540cf, type: 3}
+  raiseDeadCaster: {fileID: 1753200176847573973, guid: 86d20736b804aaf4987dfaa2414740dd, type: 3}
   raisingDead: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  unit: {fileID: 5791604877373787076}
+  period: 2
+  detectionRadius: 20
+  unitLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!114 &-5717046812229423270
 MonoBehaviour:
   m_ObjectHideFlags: 0

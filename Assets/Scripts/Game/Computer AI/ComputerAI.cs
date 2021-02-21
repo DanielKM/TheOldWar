@@ -6,19 +6,17 @@ using System.Linq;
 
 public class ComputerAI : MonoBehaviour
 {
+    [Header("References")]
+    private RTSPlayer player;
+    private GameobjectLists gameObjectLists;
+    public Unit closestEnemyUnit = null;
+    private List<Unit> myActiveUnits;
+    
+    [Header("Settings")]
     public float checkRate = 1.0f;
-
     public float closeDistance = 50.0f;
-
     public float farDistance = 100.0f;
 
-    private RTSPlayer player;
-
-    private GameobjectLists gameObjectLists;
-
-    public Unit closestEnemyUnit = null;
-
-    private List<Unit> myActiveUnits;
 
     void Awake()
     {

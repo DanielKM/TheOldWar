@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameobjectLists : MonoBehaviour
 {
+    [Header("References")]
     public List<GameObject> players = new List<GameObject>();
     public List<Unit> units = new List<Unit>();
     public List<Building> buildings = new List<Building>();

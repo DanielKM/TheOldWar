@@ -42,6 +42,10 @@ public class UnitAnimation : NetworkBehaviour
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", false);
+            if(gameObject.TryGetComponent<Necromancer>(out Necromancer necro))
+            {
+                anim.SetBool("isCastingAOE", false);
+            }
         } else if (task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting) 
         {
             anim.SetBool("isWalking", false);
@@ -51,6 +55,9 @@ public class UnitAnimation : NetworkBehaviour
             anim.SetBool("isInjured", true);
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", false);
+        } else if (task == ActionList.CastingAOE)
+        {
+            anim.SetBool("isCastingAOE", true);
         }
 
         if(isGatherer && gatherer.heldResources > 0)

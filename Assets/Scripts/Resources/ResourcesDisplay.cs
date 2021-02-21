@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ResourcesDisplay : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject goldText = null;
     [SerializeField] private GameObject ironText = null;
     [SerializeField] private GameObject steelText = null;

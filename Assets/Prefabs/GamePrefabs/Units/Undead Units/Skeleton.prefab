@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 6957308045157887166, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: attackSound
       value: 
-      objectReference: {fileID: 8300000, guid: 73bc896cee4fe1c45a7471633317f470, type: 3}
+      objectReference: {fileID: 8300000, guid: 69add5e984a7f9141ba9acb703145413, type: 3}
     - target: {fileID: 6957308045157887166, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: rotationSpeed
       value: 360
@@ -409,7 +409,7 @@ PrefabInstance:
     - target: {fileID: 6957308045157887166, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 9000752032217256737, guid: 43f73f030d5ac5c449108cc647442aaf, type: 3}
+      objectReference: {fileID: 9000752032217256737, guid: a39769279f2f56b4daa9ae7e272538ff, type: 3}
     - target: {fileID: 7269614472074241819, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Enabled
       value: 0

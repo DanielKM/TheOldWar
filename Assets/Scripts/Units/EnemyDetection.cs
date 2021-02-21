@@ -14,6 +14,7 @@ public class EnemyDetection : MonoBehaviour
     Targeter targeter = null;
     UnitInformation unitInformation = null;
     UnitCommandGiver unitCommandGiver = null;
+    Necromancer necromancer = null;
 
     public float period = 2f;
     private float checkTime = 0f;
@@ -25,6 +26,8 @@ public class EnemyDetection : MonoBehaviour
         targeter = unit.GetTargeter();
 
         unitInformation = unit.GetComponent<UnitInformation>();
+
+        necromancer = unit.GetComponent<Necromancer>();
 
         unitCommandGiver = GameObject.Find("UnitHandlers").GetComponent<UnitCommandGiver>();
     }

@@ -68,7 +68,6 @@ public class UnitFiring : NetworkBehaviour
     {
         Targetable target = targeter.GetTarget();
 
-
         if(target == null) {
             var actuallyNull = object.ReferenceEquals(target, null);
             if(actuallyNull) { return; }
@@ -86,17 +85,9 @@ public class UnitFiring : NetworkBehaviour
         { 
             if(!gameObject.TryGetComponent<Huntable>(out Huntable hunt)) 
             { 
-                if(hunt != null) { 
                     targeter.ClearTarget(); 
-
                     return;
-                }
-            } else {
-                targeter.ClearTarget(); 
-
-                return;
-            }
-
+            } 
         }
 
         // Check for resource target

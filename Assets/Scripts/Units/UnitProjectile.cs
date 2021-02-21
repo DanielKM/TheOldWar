@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class UnitProjectile : NetworkBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private Rigidbody rb = null;
     [SerializeField] public float damageToDeal = 2.0f;
     [SerializeField] public float savedDamage = 2.0f;
@@ -45,9 +46,6 @@ public class UnitProjectile : NetworkBehaviour
     {
         if(other.TryGetComponent<NetworkIdentity>(out NetworkIdentity networkIdentity))
         {
-            Debug.Log(networkIdentity);
-            Debug.Log(networkIdentity.connectionToClient);
-            Debug.Log(connectionToClient);
             // FOR CONSTRUCTION
             if(firerUnitType == UnitType.Worker &&
             other.TryGetComponent<Foundation>(out Foundation foundation)) 

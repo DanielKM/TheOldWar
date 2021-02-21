@@ -95,7 +95,6 @@ public class RTSNetworkManager : NetworkManager
                 
                 Vector3 baseOffset = new Vector3(0.0f, 0.0f, 20f);
                 player.gameObject.transform.position = startPos - baseOffset;
-                Debug.Log(startTransform.gameObject);
                 player.spawnPoint = startTransform.gameObject;
 
                 NetworkServer.Spawn(baseInstance, player.connectionToClient);

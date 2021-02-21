@@ -37,7 +37,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -183,6 +183,18 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 3747430333395506484}
+--- !u!114 &8892800100125043100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864281083983250177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1443a5558ead71e40a0af366c4e4e014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &507245549430180777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,15 +264,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2252914488686904993, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Size.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2252914488686904993, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Size.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2252914488686904993, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Size.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2252914488686904993, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Enabled
@@ -272,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2252914488686904993, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Center.y
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2252914488686904993, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Center.z
@@ -382,6 +394,10 @@ PrefabInstance:
       propertyPath: unitAudio
       value: 
       objectReference: {fileID: 4996499384581569872}
+    - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: corpseSkeleton
+      value: 
+      objectReference: {fileID: 2864281083983250177}
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitInformation
       value: 

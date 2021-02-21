@@ -77,9 +77,43 @@ public class Targeter : NetworkBehaviour
     }
 
     [Server]
+    public void TargetClosestCorpse() 
+    {
+        target = GetClosestCorpse();
+    }
+
+    [Server]
     public void TargetClosestFoundation() 
     {
         target = GetClosestFoundation();
+    }
+
+    public Targetable GetClosestCorpse()
+    {
+        Targetable closestCorpse = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 position = transform.position;
+
+        ClearTarget(); 
+
+        foreach(Unit unit in gameObjectLists.GetAllActiveUnitGameobjects())
+        {
+            if(unit.TryGetComponent<Corpse>(out Corpse corpse)) 
+            {
+                Vector3 direction = unit.transform.position - position;
+
+                float distance = direction.sqrMagnitude;
+
+                if(distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    
+                    closestCorpse = unit.GetComponent<Targetable>();
+                }
+            }
+        }
+
+        return closestCorpse;
     }
 
     public Targetable GetClosestFoundation()
@@ -211,6 +245,12 @@ public class Targeter : NetworkBehaviour
         if(!targetGameObject.TryGetComponent<Targetable>(out Targetable newTarget)) { return; }
 
         target = newTarget;
+    }
+
+    [Command(ignoreAuthority = true)]
+    public void CmdSetCorpseTarget() 
+    {
+        TargetClosestCorpse();
     }
 
     [Command(ignoreAuthority = true)]

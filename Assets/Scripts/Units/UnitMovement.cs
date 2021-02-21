@@ -107,9 +107,16 @@ public class UnitMovement : NetworkBehaviour
             unit.GetTargeter().CmdSetFoundationTarget();
         }
 
+        if(unitTask.GetTask() == ActionList.Destroying || unitTask.GetTask() == ActionList.ClearingDead) 
+        {
+            unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.ClearingDead);    
+
+            unit.GetTargeter().CmdSetCorpseTarget();
+        }
+
         if(!agent.hasPath) 
         { 
-            if(unitTask.GetTask() != ActionList.Idle)
+            if(unitTask.GetTask() != ActionList.Idle && unitTask.GetTask() != ActionList.CastingAOE)
             {
                 unitTask.SetUnitTask(ActionList.Idle);
             }
@@ -128,7 +135,7 @@ public class UnitMovement : NetworkBehaviour
 
         agent.ResetPath();
 
-        if(unitTask.GetTask() != ActionList.Idle) 
+        if(unitTask.GetTask() != ActionList.Idle && unitTask.GetTask() != ActionList.CastingAOE) 
         {
             unitTask.SetUnitTask(ActionList.Idle);
         }

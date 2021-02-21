@@ -70,30 +70,33 @@ public class UnitFiring : NetworkBehaviour
 
         if(target == null) {
             var actuallyNull = object.ReferenceEquals(target, null);
-            if(actuallyNull) { return; }
+            if(actuallyNull) { 
+                return; 
+            }
             else if (unitTask.GetTask() == ActionList.Harvesting)
             {
                 target = targeter.GetClosestResource(targeter.GetResourceID(gatherer.heldResourcesType));
+
                 targeter.CmdSetTarget(target.gameObject);
 
                 return;
+            } else {
+                return; 
             }
         }
 
-
         if (target.gameObject.GetComponent<Health>().currentHealth <= 0) 
         { 
-            if(!gameObject.TryGetComponent<Huntable>(out Huntable hunt)) 
-            { 
-                    targeter.ClearTarget(); 
-                    return;
-            } 
+            if(!gatherer) 
+            {
+                targeter.ClearTarget(); 
+                return;
+            }
         }
 
         // Check for resource target
         if (target.gameObject.TryGetComponent<ResourceNode>(out ResourceNode resourceNode)) 
         { 
-            
             if(resourceNode.enabled) 
             {
                 if(unitTask.GetTask() != ActionList.Gathering && unitTask.GetTask() != ActionList.Harvesting) 
@@ -123,6 +126,13 @@ public class UnitFiring : NetworkBehaviour
                     unitTask.SetTask(ActionList.Construction);    
                 }
             }
+            if (target.gameObject.TryGetComponent<Corpse>(out Corpse corpse)) 
+            { 
+                if(unitTask.GetTask() != ActionList.ClearingDead && unitTask.GetTask() != ActionList.Destroying) 
+                {
+                    unitTask.SetTask(ActionList.ClearingDead);    
+                }
+            }
         }
 
         // Set as enemy and attack if not resource or building
@@ -132,14 +142,16 @@ public class UnitFiring : NetworkBehaviour
         && unitTask.GetTask() != ActionList.Building
         && unitTask.GetTask() != ActionList.Harvesting
         && unitTask.GetTask() != ActionList.Fighting
-        && unitTask.GetTask() != ActionList.Delivering)
+        && unitTask.GetTask() != ActionList.Delivering
+        && unitTask.GetTask() != ActionList.ClearingDead
+        && unitTask.GetTask() != ActionList.Destroying)
         {
             unitTask.SetTask(ActionList.Attacking);    
         }
 
         if(!CanFireAtTarget()) { return; }
 
-        if(unitTask.GetTask() != ActionList.Fighting && unitTask.GetTask() != ActionList.Building && unitTask.GetTask() != ActionList.Harvesting) { 
+        if(unitTask.GetTask() != ActionList.Fighting && unitTask.GetTask() != ActionList.Building && unitTask.GetTask() != ActionList.Harvesting && unitTask.GetTask() != ActionList.Destroying) { 
             // if(pooledGameobjects.isComputerAI) { CheckForProjectileLists(); } 
             if(unitTask.GetTask() == ActionList.Gathering)
             {   
@@ -150,6 +162,9 @@ public class UnitFiring : NetworkBehaviour
             } else if (unitTask.GetTask() == ActionList.Construction)
             {
                 unitTask.SetUnitTask(ActionList.Building); 
+            } else if (unitTask.GetTask() == ActionList.ClearingDead)
+            {
+                unitTask.SetUnitTask(ActionList.Destroying); 
             }
         }
         

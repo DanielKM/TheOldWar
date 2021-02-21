@@ -73,6 +73,17 @@ public class UnitProjectile : NetworkBehaviour
                     return;
                 };
 
+                // FOR RESOURCES
+                if(firerUnitType == UnitType.Worker &&
+                other.TryGetComponent<Corpse>(out Corpse corpse)) 
+                { 
+                    NetworkServer.Destroy(corpse.gameObject);
+
+                    Destroy(corpse.gameObject);
+
+                    return;
+                };
+
                 // FOR ENEMIES
                 health.DealDamage( (int)Math.Ceiling(damageToDeal));
             }

@@ -70,10 +70,13 @@ public class EnemyDetection : MonoBehaviour
 
                             nearestCollider = colliders[i];
 
-                            targeter.CmdSetTarget(nearestCollider.gameObject);
                         }
                     } 
                 }
+            }
+            if(nearestCollider) 
+            {
+                targeter.CmdSetTarget(nearestCollider.gameObject);
             }
         }
     }

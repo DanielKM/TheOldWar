@@ -34,7 +34,7 @@ public class UnitAnimation : NetworkBehaviour
     [ServerCallback]
     public void SetAnimation(ActionList task)
     {   
-        if(task == ActionList.Moving || task == ActionList.Attacking || task == ActionList.Gathering || task == ActionList.Delivering || task == ActionList.Construction) 
+        if(task == ActionList.ClearingDead || task == ActionList.Moving || task == ActionList.Attacking || task == ActionList.Gathering || task == ActionList.Delivering || task == ActionList.Construction) 
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isFiring", false);
@@ -46,7 +46,7 @@ public class UnitAnimation : NetworkBehaviour
             {
                 anim.SetBool("isCastingAOE", false);
             }
-        } else if (task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting) 
+        } else if (task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting || task == ActionList.Destroying) 
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", true);

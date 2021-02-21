@@ -23935,13 +23935,14 @@ GameObject:
   - component: {fileID: 8365639836175353982}
   - component: {fileID: 8365639836175353981}
   - component: {fileID: 8365639836175353980}
+  - component: {fileID: 8972912595557240238}
   m_Layer: 5
   m_Name: ClearDeadButton
   m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8365639836175353979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24070,6 +24071,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &8972912595557240238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365639836175353978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d7abb268ac99c4fb867a85d9f9d4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8365639836190655362
 GameObject:
   m_ObjectHideFlags: 0

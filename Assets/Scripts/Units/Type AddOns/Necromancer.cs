@@ -60,9 +60,11 @@ public class Necromancer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(unitTask.GetTask() == ActionList.Dead) { return; }
+
         if(DayNight.time >= 14400 && DayNight.time <= 16000 ) {
             if(unitTask.GetTask() != ActionList.Dead) {
-                TryRaiseDead(DayNight.days + 1, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f), null);    
+                TryRaiseDead(DayNight.days + 1, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f), gameObject);    
             }
         }
         
@@ -81,12 +83,14 @@ public class Necromancer : MonoBehaviour
 
         unitTask.SetTask(ActionList.CastingAOE);
 
-        if(corpse) { 
+        if(corpse != gameObject) { 
             GameObject spellToCast = Instantiate(raiseDeadSpell, corpse.transform.position, corpse.transform.rotation);
 
             NetworkServer.Spawn(spellToCast);
         }
         GameObject casterEffects = Instantiate(raiseDeadCaster, gameObject.transform.position, gameObject.transform.rotation);
+
+        casterEffects.transform.parent = gameObject.transform;
 
         NetworkServer.Spawn(casterEffects);
 
@@ -107,7 +111,7 @@ public class Necromancer : MonoBehaviour
 
             raisedSkeleton.GetComponent<NavMeshAgent>().SetDestination(closestPlayerSpawnPoint.transform.position);
 
-            if(corpse) { 
+            if(corpse != gameObject) { 
                 NetworkServer.Destroy(corpse);
 
                 Destroy(corpse);

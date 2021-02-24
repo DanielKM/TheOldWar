@@ -49,6 +49,7 @@
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarBlur.cs" />
      <Compile Include="Assets\Scripts\UI\Cursors.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\SpellCaster.cs" />
+     <Compile Include="Assets\Scripts\Units\Unit Assignments\ClearDeadDuty.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\ExplodePart.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarFogFill.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\GathererDuty.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\ReorderableList\ReorderableArray.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarUnit.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\Firestorm.cs" />
+     <Compile Include="Assets\Scripts\Units\Type AddOns\Corpse.cs" />
      <Compile Include="Assets\Scripts\Research\Technology.cs" />
      <Compile Include="Assets\Scripts\Units\UnitSelectionHandler.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test3D\FogOfWar3DMinimapIcon.cs" />
@@ -152,6 +154,7 @@
      <Compile Include="Assets\Scripts\Units\UnitCommandGiver.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarMap.cs" />
      <Compile Include="Assets\Scripts\Game\Computer AI\UnitAI.cs" />
+     <Compile Include="Assets\Scripts\Combat\Spells\SpellEffect.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Structures\bl_SceneLoaderInfo.cs" />
      <Compile Include="Assets\Scripts\Lighting\DayNightCycle.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarShape.cs" />
@@ -162,9 +165,7 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Combat\Spells\SpellEffect.cs" />
-     <Compile Include="Assets\Scripts\Units\Unit Assignments\ClearDeadDuty.cs" />
-     <Compile Include="Assets\Scripts\Units\Type AddOns\Corpse.cs" />
+     <Compile Include="Assets\Scripts\Units\Type AddOns\Champion.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.shader" />

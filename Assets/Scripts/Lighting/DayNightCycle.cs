@@ -72,7 +72,8 @@ public class DayNightCycle : MonoBehaviour
     public void CreateEvent()
     {
         if(time >= nextEventTime && days == nextEventDay) {
-            GameEvents chosenEvent = ChooseEvent();
+            // GameEvents chosenEvent = ChooseEvent();
+            GameEvents chosenEvent = GameEvents.MeteorShower;
             lastEventTime = time;
             lastEventDay = days;
             SetNextEventTime();
@@ -114,5 +115,11 @@ public class DayNightCycle : MonoBehaviour
     public void InitiateEvent(GameEvents chosenEvent)
     {
         Debug.Log("INITIATING " + chosenEvent);
+        switch(chosenEvent) 
+        {
+            case GameEvents.MeteorShower:
+            
+            return;
+        }
     }
 }

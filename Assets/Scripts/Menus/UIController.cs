@@ -9,8 +9,11 @@ using System.Linq;
 public class UIController : MonoBehaviour
 {
     // PLAYER
+    [Header("Player References")]
     public GameObject player;
     public GameObject team;
+    
+    [Header("Menu References")]
     public GameObject saveMenu;
     public GameObject loadMenu;
     // ResourceManager RM;
@@ -25,7 +28,11 @@ public class UIController : MonoBehaviour
     // 1 - unit panel
     // 2 - building panel
 
-    // UNIT PANELS
+    [Header("Instability Reference")]
+    public EventCycle eventCycle;
+    public Slider instabilityBarSlider;
+
+    [Header("Unit Panel")]
     public CanvasGroup UnitPanel;
     public CanvasGroup WorkerPanel;
     public CanvasGroup BasicBuildingsPanel;
@@ -42,7 +49,7 @@ public class UIController : MonoBehaviour
     public CanvasGroup armour4;
     public CanvasGroup armour5;
 
-    // INDIVIDUAL UNIT FIELDS
+    [Header("Unit Fields")]
     public GameObject unitIcon;
 
     public Slider unitHealthBar;
@@ -64,7 +71,17 @@ public class UIController : MonoBehaviour
 
     public int unitResourceHeld;
 
-    // INDIVIDUAL BUILDING FIELDS
+    [Header("Building Panel")]
+    public CanvasGroup BuildingPanel;
+    public CanvasGroup BuildingActionPanel;
+    public CanvasGroup BuildingProgressPanel;
+    public CanvasGroup BlacksmithActionPanel;
+    public CanvasGroup LumberYardActionPanel;
+    public CanvasGroup BarracksActionPanel;
+    public CanvasGroup WizardTowerActionPanel;
+    public CanvasGroup TrainingProgressPanel;
+
+    [Header("Building Fields")]
     public GameObject buildingIcon;
 
     public Slider buildingHealthBar;
@@ -86,22 +103,12 @@ public class UIController : MonoBehaviour
 
     public int buildingResourceHeld;
 
-    // BUILDING PANELS
-    public CanvasGroup BuildingPanel;
-    public CanvasGroup BuildingActionPanel;
-    public CanvasGroup BuildingProgressPanel;
-    public CanvasGroup BlacksmithActionPanel;
-    public CanvasGroup LumberYardActionPanel;
-    public CanvasGroup BarracksActionPanel;
-    public CanvasGroup WizardTowerActionPanel;
-    public CanvasGroup TrainingProgressPanel;
-
-    // TOOLTIPS
+    [Header("Tooltips")]
     public CanvasGroup unitCostPanel;
     public TMP_Text unitCostText;
     public TMP_Text unitDescriptionText;
 
-    // NOTIFICATION PANELS
+    [Header("Notifications")]
     public CanvasGroup noResourcesText;
     public CanvasGroup rotationText;
     public CanvasGroup placementText;
@@ -111,6 +118,16 @@ public class UIController : MonoBehaviour
     public CanvasGroup patrolText;
 
     public bool pointerExitedButton = true;
+
+    void Awake()
+    {
+        eventCycle.ClientOnInstabilityUpdated += HandleInstabilityUpdated;
+    }
+
+    private void HandleInstabilityUpdated(int currentInstability, int maxInstability)
+    {
+        instabilityBarSlider.value = (float)currentInstability/maxInstability * 100;
+    }
 
     // Start is called before the first frame update
     void Start()

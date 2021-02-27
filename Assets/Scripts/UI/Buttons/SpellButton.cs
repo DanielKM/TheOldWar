@@ -14,6 +14,8 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private Image iconImage = null;
     private SpellHandler spellHandler = null;
     private UnitSelectionHandler unitSelection = null;
+    GameObject EventHandler;
+    EventCycle EventCycle;
     
     private Camera mainCamera;
     private RTSPlayer player;
@@ -27,6 +29,9 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         
         mainCamera = Camera.main;
 
+        EventHandler = GameObject.Find("EventHandler");
+
+        EventCycle = EventHandler.GetComponent<EventCycle>();
         // iconImage.sprite = spell.GetIcon();
 
         // buildingCollider = building.GetComponent<BoxCollider>();
@@ -53,7 +58,6 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
         unitSelection = GameObject.Find("UnitHandlers").GetComponent<UnitSelectionHandler>();
         
-
         spellHandler.spellToCast = SpellList.DomeShield;
 
         spellHandler.player = player;
@@ -63,6 +67,11 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             if(unit.gameObject.TryGetComponent<SpellCaster>(out SpellCaster caster)) 
             { 
                 player.CmdCastSpell(unit.gameObject.transform.position);
+                
+                if(EventCycle.instability <= 100) 
+                { 
+                    EventCycle.instability += 1;
+                }
             }
         }
     }

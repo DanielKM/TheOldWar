@@ -13,8 +13,6 @@ public class UnitTask : NetworkBehaviour
     // private UnitAnimation unitAnimation;
 
     private UnitSelectionHandler unitSelection = null;
-
-
     [Header("References")]
     [SerializeField]
     private UnitAnimation unitAnimation = null;

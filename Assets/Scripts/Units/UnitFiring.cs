@@ -166,6 +166,7 @@ public class UnitFiring : NetworkBehaviour
             {
                 unitTask.SetUnitTask(ActionList.Destroying); 
             }
+            agent.ResetPath();
         }
         
         Quaternion targetRotation = 

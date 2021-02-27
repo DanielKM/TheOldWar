@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Mirror;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Health : NetworkBehaviour
 {
@@ -12,7 +9,6 @@ public class Health : NetworkBehaviour
 
     [Header("Settings")]
     [SerializeField] public int maxHealth = 100;
-
     [SyncVar(hook = nameof(HandleHealthUpdated))]
     public int currentHealth = 100;
 

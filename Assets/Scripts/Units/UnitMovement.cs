@@ -1,4 +1,4 @@
-﻿using Mirror;
+using Mirror;
 using UnityEngine.AI;
 using UnityEngine;
 using System.Collections.Generic;
@@ -20,7 +20,6 @@ public class UnitMovement : NetworkBehaviour
     [Header("Settings")]
     [SerializeField] private float chaseRange = 10;
     [SerializeField] private float dropoffRange = 5;
-
 
     // private Animator anim;
     RTSPlayer player = null;
@@ -95,7 +94,7 @@ public class UnitMovement : NetworkBehaviour
             else if (agent.hasPath)
             {
                 agent.ResetPath();
-            }
+            } 
 
             return;
         } 
@@ -129,7 +128,7 @@ public class UnitMovement : NetworkBehaviour
             unitTask.SetUnitTask(ActionList.Moving);
         }
         
-        float velocity = agent.velocity.magnitude/agent.speed;
+        // float velocity = agent.velocity.magnitude/agent.speed;
 
         if(agent.remainingDistance > agent.stoppingDistance) { return; }
 
@@ -155,7 +154,7 @@ public class UnitMovement : NetworkBehaviour
         if(!NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, NavMesh.AllAreas)) { return; }
 
         if(!agent.enabled) { return; }
-         
+        
         agent.SetDestination(hit.position);
     }
 

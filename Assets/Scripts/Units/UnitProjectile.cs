@@ -66,6 +66,11 @@ public class UnitProjectile : NetworkBehaviour
                 if(firerUnitType == UnitType.Worker &&
                 other.TryGetComponent<ResourceNode>(out ResourceNode resourceNode) && resourceNode.enabled) 
                 { 
+                    if(resourceGatherer.heldResourcesType != resourceNode.GetResourceType())
+                    {
+                        resourceGatherer.heldResources = 0;
+                    }
+
                     resourceGatherer.AddResources(10, resourceNode.GetResourceType());
 
                     resourceNode.TakeResources(10);

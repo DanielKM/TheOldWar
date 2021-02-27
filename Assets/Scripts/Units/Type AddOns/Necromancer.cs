@@ -8,7 +8,7 @@ public class Necromancer : MonoBehaviour
 {
     [Header("References")]
     GameObject EventHandler;
-    DayNightCycle DayNight;
+    EventCycle EventCycle;
     UnitTask unitTask;
     GameobjectLists gameobjectLists;
     public GameObject skeleton;
@@ -40,7 +40,7 @@ public class Necromancer : MonoBehaviour
     {
         EventHandler = GameObject.Find("EventHandler");
 
-        DayNight = EventHandler.GetComponent<DayNightCycle>();
+        EventCycle = EventHandler.GetComponent<EventCycle>();
 
         unitTask = gameObject.GetComponent<UnitTask>();
 
@@ -62,9 +62,9 @@ public class Necromancer : MonoBehaviour
     {
         if(unitTask.GetTask() == ActionList.Dead) { return; }
 
-        if(DayNight.time >= 14400 && DayNight.time <= 16000 ) {
+        if(EventCycle.time >= 14400 && EventCycle.time <= 16000 ) {
             if(unitTask.GetTask() != ActionList.Dead) {
-                TryRaiseDead(DayNight.days + 1, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f), gameObject);    
+                TryRaiseDead(EventCycle.days + 1, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f), gameObject);    
             }
         }
         

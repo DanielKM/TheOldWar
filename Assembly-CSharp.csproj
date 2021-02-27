@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\UI\UnitButton.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitType.cs" />
+     <Compile Include="Assets\Scripts\Units\Type AddOns\Champion.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\ConstructionDuty.cs" />
      <Compile Include="Assets\Scripts\Buildings\UnitBase.cs" />
      <Compile Include="Assets\Scripts\Menus\JoinLobbyMenu.cs" />
@@ -156,7 +157,7 @@
      <Compile Include="Assets\Scripts\Game\Computer AI\UnitAI.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\SpellEffect.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Structures\bl_SceneLoaderInfo.cs" />
-     <Compile Include="Assets\Scripts\Lighting\DayNightCycle.cs" />
+     <Compile Include="Assets\Scripts\Lighting\EventCycle.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarShape.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarUtils.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitRank.cs" />
@@ -165,7 +166,6 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Units\Type AddOns\Champion.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.shader" />

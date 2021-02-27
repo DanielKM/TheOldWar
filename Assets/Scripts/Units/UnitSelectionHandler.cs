@@ -7,15 +7,15 @@ using UnityEngine.UI;
 
 public class UnitSelectionHandler : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private RectTransform unitSelectionArea = null;
-
     [SerializeField] private LayerMask layerMask = new LayerMask();
     [SerializeField] private UIController UI = null;
+    public RTSPlayer player;
     
+    [Header("Settings")]
     private Vector2 startPosition;
     private Vector2 endPosition;
-
-    public RTSPlayer player;
     private Camera mainCamera;
 
     public List<Unit> SelectedUnits { get; set; } = new List<Unit>();

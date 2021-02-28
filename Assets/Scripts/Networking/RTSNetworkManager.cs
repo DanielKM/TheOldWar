@@ -43,13 +43,14 @@ public class RTSNetworkManager : NetworkManager
         isGameInProgress = false;
     }
 
-    public void StartGame()
+    public void StartGame(string sceneName)
     {
         if(Players.Count <1 ) { return; }
 
         isGameInProgress = true;
 
-        ServerChangeScene("Scene_Map_01");
+        // ServerChangeScene("Scene_Map_01");
+        ServerChangeScene(sceneName);
     }
 
     public override void OnServerAddPlayer(NetworkConnection conn)

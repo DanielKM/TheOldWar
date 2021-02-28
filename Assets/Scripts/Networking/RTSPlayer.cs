@@ -315,7 +315,7 @@ public class RTSPlayer : NetworkBehaviour
     {
         if(!isPartyOwner) { return; }
 
-        ((RTSNetworkManager)NetworkManager.singleton).StartGame();
+        ((RTSNetworkManager)NetworkManager.singleton).StartGame("Loading");
     }
     
     [Command]

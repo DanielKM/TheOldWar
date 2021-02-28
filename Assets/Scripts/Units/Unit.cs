@@ -18,7 +18,6 @@ public class Unit : NetworkBehaviour
     [SerializeField] public AudioClip unitReportingClip;
     [SerializeField] public AudioClip unitSelectedClip;
     [SerializeField] public GameObject corpseSkeleton;
-    [SerializeField] private SphereCollider unitEnemyDetectionSphereCollider;
     public Sprite unitIcon;
     
     [Header("Settings")]
@@ -285,17 +284,6 @@ public class Unit : NetworkBehaviour
         onDeselected?.Invoke();
         
         unitInformation.selected = false;
-    }
-
-    public IEnumerator CycleSphereColliders()
-    {
-        bool collidersEnabled = GetTargeter().target == null ? true : false;
-
-        unitEnemyDetectionSphereCollider.enabled = false;
-        yield return new WaitForSecondsRealtime(1f);
-        unitEnemyDetectionSphereCollider.enabled = collidersEnabled;
-        yield return new WaitForSecondsRealtime(0.01f);
-        StartCoroutine(CycleSphereColliders());
     }
 
     #endregion

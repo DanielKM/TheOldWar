@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderStepController.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarChunkManager.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarTeam.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarDrawer.cs" />
@@ -50,11 +51,14 @@
      <Compile Include="Assets\Scripts\UI\Cursors.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\SpellCaster.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\ClearDeadDuty.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\ScrollController.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\ExplodePart.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\BinarySliderController.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarFogFill.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\GathererDuty.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Example\Script\bl_LoadingScreenExample.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Window\NationPickController.cs" />
      <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Enum\LoadingType.cs" />
@@ -70,6 +74,7 @@
      <Compile Include="Assets\Scripts\Units\Unit.cs" />
      <Compile Include="Assets\Scripts\Units\UnitProjectile.cs" />
      <Compile Include="Assets\Scripts\Cameras\CameraController.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\HighlightToggle.cs" />
      <Compile Include="Assets\Scripts\Units\UnitFiring.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\ReorderableList\ReorderableArray.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarUnit.cs" />
@@ -80,6 +85,7 @@
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test3D\FogOfWar3DMinimapIcon.cs" />
      <Compile Include="Assets\Scripts\UI\UnitButton.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\EventTriggerInvoker.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitType.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\Champion.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\ConstructionDuty.cs" />
@@ -104,8 +110,11 @@
      <Compile Include="Assets\Scripts\Buildings\BuildingButton.cs" />
      <Compile Include="Assets\Scripts\Combat\Spell.cs" />
      <Compile Include="Assets\Scripts\Game\Computer AI\ComputerAI.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Window\AnimatedWindowController.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarDrawerSoftware.cs" />
      <Compile Include="Assets\Scripts\Game\Computer AI\PlayerAI.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Domain\Nation.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\Transform\TransformInRect.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test2D\FogOfWar2DSimpleAnimator.cs" />
      <Compile Include="Assets\Scripts\Cameras\FaceCamera.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\URP\FogOfWarURPFeature.cs" />
@@ -114,7 +123,9 @@
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\Main\bl_SceneLoader.cs" />
      <Compile Include="Assets\Scripts\Cameras\Minimap.cs" />
      <Compile Include="Assets\Scripts\Buildings\Building.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Window\WindowController.cs" />
      <Compile Include="Assets\Scripts\Menus\UIController.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Window\PopupWindowController.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\HideInFog.cs" />
      <Compile Include="Assets\Scripts\Menus\LobbyMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourceGatherer.cs" />
@@ -139,6 +150,7 @@
      <Compile Include="Assets\Scripts\Units\Tasks\WeaponType.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\TreeFall.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\URP\FogOfWarTestURP.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderValueController.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourcesDisplay.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarThreadPool.cs" />
      <Compile Include="Assets\Scripts\Units\UnitMovement.cs" />
@@ -150,14 +162,18 @@
      <Compile Include="Assets\Scripts\Units\Spells\SpellList.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\TreeSwinger.cs" />
      <Compile Include="Assets\Scripts\Inputs\Controls.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\ExitButtonController.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
      <Compile Include="Assets\Scripts\Research\TechTree.cs" />
      <Compile Include="Assets\Scripts\Units\UnitCommandGiver.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Domain\NationProperties.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarMap.cs" />
      <Compile Include="Assets\Scripts\Game\Computer AI\UnitAI.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\SpellEffect.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Structures\bl_SceneLoaderInfo.cs" />
      <Compile Include="Assets\Scripts\Lighting\EventCycle.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderPercentController.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\ResourceBarController.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarShape.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarUtils.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitRank.cs" />
@@ -166,9 +182,12 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
+     <Compile Include="Assets\Scripts\UI\SceneLoading.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
+     <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.shader" />
+     <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Blur.shader" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Stones.shader" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Ground_Blending.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -769,6 +788,9 @@
     <Reference Include="Cinemachine">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
@@ -814,8 +836,32 @@
     <Reference Include="Unity.Searcher.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
@@ -829,11 +875,20 @@
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

@@ -105,8 +105,8 @@ public class UIController : MonoBehaviour
 
     [Header("Tooltips")]
     public CanvasGroup unitCostPanel;
-    public TMP_Text unitCostText;
-    public TMP_Text unitDescriptionText;
+    public Text unitCostText;
+    public Text unitDescriptionText;
 
     [Header("Notifications")]
     public CanvasGroup noResourcesText;
@@ -484,7 +484,7 @@ public class UIController : MonoBehaviour
                     } else {
                         color = green;
                     }
-                    descriptionText += price.ElementAt(i).Key + " - " + color + price.ElementAt(i).Value * -1 + "</color>" + "\n";
+                    descriptionText += price.ElementAt(i).Key  + color + price.ElementAt(i).Value * -1 + "</color>" + "\n";
                 }
             } else {
                 if(price.ElementAt(i).Value < 0) 
@@ -494,7 +494,7 @@ public class UIController : MonoBehaviour
                     } else {
                         color = green;
                     }
-                    descriptionText += price.ElementAt(i).Key + " - " + color + price.ElementAt(i).Value + "</color>" + "\n";
+                    descriptionText += price.ElementAt(i).Key  + color + price.ElementAt(i).Value + "</color>" + "\n";
                 }
             }
         }

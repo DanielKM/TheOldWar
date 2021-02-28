@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using kcp2k;
+using System.Collections;
+using UnityEngine.UI;
 
 namespace Mirror
 {
@@ -817,6 +819,7 @@ namespace Mirror
 
             loadingSceneAsync = SceneManager.LoadSceneAsync(newSceneName);
 
+            Debug.Log(loadingSceneAsync.progress);
             // ServerChangeScene can be called when stopping the server
             // when this happens the server is not active so does not need to tell clients about the change
             if (NetworkServer.active)
@@ -827,7 +830,33 @@ namespace Mirror
 
             startPositionIndex = 0;
             startPositions.Clear();
+            // }
         }
+        
+        // IEnumerator LoadAsyncOperation(string newSceneName, Image progressBar)
+        // {
+        //     AsyncOperation gameLevel = SceneManager.LoadSceneAsync(newSceneName);
+
+        //     // while(gameLevel.progress < 1)
+        //     // {
+        //     //     float progress = Mathf.Clamp01(gameLevel.progress / .9f);
+                
+        //     //     progressBar.fillAmount = progress;
+
+        //     //     yield return null;
+        //     // }
+        //         // ServerChangeScene can be called when stopping the server
+        //         // when this happens the server is not active so does not need to tell clients about the change
+        //         if (NetworkServer.active)
+        //         {
+        //             // notify all clients about the new scene
+        //             NetworkServer.SendToAll(new SceneMessage { sceneName = newSceneName });
+        //         }
+
+        //         startPositionIndex = 0;
+        //         startPositions.Clear();
+        //         yield return null;
+        // }
 
         // This is only set in ClientChangeScene below...never on server.
         // We need to check this in OnClientSceneChanged called from FinishLoadSceneClientOnly

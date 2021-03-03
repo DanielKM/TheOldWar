@@ -37,17 +37,10 @@ public class UIController : MonoBehaviour
     public CanvasGroup WorkerPanel;
     public CanvasGroup BasicBuildingsPanel;
     public CanvasGroup AdvancedBuildingsPanel;
-    public CanvasGroup FortificationBuildingPanel;
 
     public CanvasGroup GatherPanel;
     public CanvasGroup FootmanPanel;
     public CanvasGroup WizardPanel;
-
-    public CanvasGroup armour1;
-    public CanvasGroup armour2;
-    public CanvasGroup armour3;
-    public CanvasGroup armour4;
-    public CanvasGroup armour5;
 
     [Header("Unit Fields")]
     public GameObject unitIcon;
@@ -74,12 +67,10 @@ public class UIController : MonoBehaviour
     [Header("Building Panel")]
     public CanvasGroup BuildingPanel;
     public CanvasGroup BuildingActionPanel;
-    public CanvasGroup BuildingProgressPanel;
     public CanvasGroup BlacksmithActionPanel;
     public CanvasGroup LumberYardActionPanel;
     public CanvasGroup BarracksActionPanel;
     public CanvasGroup WizardTowerActionPanel;
-    public CanvasGroup TrainingProgressPanel;
 
     [Header("Building Fields")]
     public GameObject buildingIcon;
@@ -107,16 +98,6 @@ public class UIController : MonoBehaviour
     public CanvasGroup unitCostPanel;
     public Text unitCostText;
     public Text unitDescriptionText;
-
-    [Header("Notifications")]
-    public CanvasGroup noResourcesText;
-    public CanvasGroup rotationText;
-    public CanvasGroup placementText;
-    
-    public CanvasGroup attackMovingText;
-    public CanvasGroup movingText;
-    public CanvasGroup patrolText;
-
     public bool pointerExitedButton = true;
 
     void Awake()
@@ -149,40 +130,16 @@ public class UIController : MonoBehaviour
         WorkerPanel = GameObject.Find("WorkerPanel").GetComponent<CanvasGroup>();
         BasicBuildingsPanel = GameObject.Find("BasicBuildingsPanel").GetComponent<CanvasGroup>();
         AdvancedBuildingsPanel = GameObject.Find("AdvancedBuildingsPanel").GetComponent<CanvasGroup>();
-        FortificationBuildingPanel = GameObject.Find("FortificationBuildingsPanel").GetComponent<CanvasGroup>();
         GatherPanel = GameObject.Find("GatherPanel").GetComponent<CanvasGroup>();
         FootmanPanel = GameObject.Find("FootmanPanel").GetComponent<CanvasGroup>();
         WizardPanel = GameObject.Find("WizardPanel").GetComponent<CanvasGroup>();
                 
-        BuildingPanel = GameObject.Find("BuildingPanel").GetComponent<CanvasGroup>();
         BlacksmithActionPanel = GameObject.Find("BlacksmithActionPanel").GetComponent<CanvasGroup>();
         LumberYardActionPanel = GameObject.Find("LumberYardActionPanel").GetComponent<CanvasGroup>();
         BarracksActionPanel = GameObject.Find("BarracksActionPanel").GetComponent<CanvasGroup>();
         WizardTowerActionPanel = GameObject.Find("WizardTowerActionPanel").GetComponent<CanvasGroup>();
 
-        TrainingProgressPanel = GameObject.Find("TrainingProgressPanel").GetComponent<CanvasGroup>();
-        BuildingProgressPanel = GameObject.Find("BuildingProgressPanel").GetComponent<CanvasGroup>();
         BuildingActionPanel = GameObject.Find("BuildingActions").GetComponent<CanvasGroup>();
-
-        armour1 = GameObject.Find("Armour1").GetComponent<CanvasGroup>();
-        armour2 = GameObject.Find("Armour2").GetComponent<CanvasGroup>();
-        armour3 = GameObject.Find("Armour3").GetComponent<CanvasGroup>();
-        armour4 = GameObject.Find("Armour4").GetComponent<CanvasGroup>();
-        armour5 = GameObject.Find("Armour5").GetComponent<CanvasGroup>();
-
-        noResourcesText = GameObject.Find("No Resources Panel").GetComponent<CanvasGroup>();
-        rotationText = GameObject.Find("Rotation Text").GetComponent<CanvasGroup>();
-        placementText = GameObject.Find("Placement Text").GetComponent<CanvasGroup>();
-
-        attackMovingText = GameObject.Find("Attack Move Text").GetComponent<CanvasGroup>();
-        movingText = GameObject.Find("Normal Move Text").GetComponent<CanvasGroup>();
-        patrolText = GameObject.Find("Patrol Move Text").GetComponent<CanvasGroup>();
-
-        // patrolText = GameObject.Find("Patrol Move Text").GetComponent<CanvasGroup>();
-        // team = GameObject.Find("Faction");
-        // player = GameObject.Find("Game").GetComponent<SaveLoad>().loadedPlayer;
-        // RM = team.GetComponent<ResourceManager>();
-        // IM = player.GetComponent<InputManager>();
     }
 
     public void BuildingSelect(UnitType buildingType)
@@ -222,8 +179,6 @@ public class UIController : MonoBehaviour
         } else {
             resourcetext = "Not Enough " + resource;
         }
-
-        StartCoroutine(ShowNoResourcesPanel(resourcetext));
     }
 
     public void UnitSelect(UnitType unitType)
@@ -390,9 +345,6 @@ public class UIController : MonoBehaviour
         AdvancedBuildingsPanel.alpha = 0;
         AdvancedBuildingsPanel.blocksRaycasts = false;
         AdvancedBuildingsPanel.interactable = false;
-        FortificationBuildingPanel.alpha = 0;
-        FortificationBuildingPanel.blocksRaycasts = false;
-        FortificationBuildingPanel.interactable = false;
         GatherPanel.alpha = 0;
         GatherPanel.blocksRaycasts = false;
         GatherPanel.interactable = false;
@@ -414,9 +366,6 @@ public class UIController : MonoBehaviour
         BuildingActionPanel.alpha = 0;
         BuildingActionPanel.blocksRaycasts = false;
         BuildingActionPanel.interactable = false;
-        BuildingProgressPanel.alpha = 0;
-        BuildingProgressPanel.blocksRaycasts = false;
-        BuildingProgressPanel.interactable = false;
 
         // BLACKSMITH
         BlacksmithActionPanel.alpha = 0;
@@ -438,15 +387,8 @@ public class UIController : MonoBehaviour
         WizardTowerActionPanel.blocksRaycasts = false;
         WizardTowerActionPanel.interactable = false;
 
-        // TRAINING
-        TrainingProgressPanel.alpha = 0;
-        TrainingProgressPanel.blocksRaycasts = false;
-        TrainingProgressPanel.interactable = false;
-
         // NOTIFICATIONS/TOOLTIPS
         CloseUnitCostPanel();
-        CloseNoResourcesText();
-        NoModeText();
 
         panelOpen = 0;        
     }
@@ -521,73 +463,6 @@ public class UIController : MonoBehaviour
         yield break;
     }
 
-    // NOTIFICATIONS TEXT
-    public void CloseNoResourcesText() {
-        noResourcesText.alpha = 0;
-        noResourcesText.blocksRaycasts = false;
-        noResourcesText.interactable = false;
-    }
-
-    public void OpenNoResourcesText(string text) {
-        noResourcesText.alpha = 1;
-        noResourcesText.blocksRaycasts = true;
-        noResourcesText.interactable = true;
-        noResourcesText.GetComponentInChildren<Text>().text = text;
-    }
-
-    public void RotationModeText() {
-        rotationText.alpha = 1;
-        rotationText.blocksRaycasts = true;
-        rotationText.interactable = true;
-    }
-
-    public void PlacementModeText() {
-        placementText.alpha = 1;
-        placementText.blocksRaycasts = true;
-        placementText.interactable = true;
-    }
-
-    public void AttackMovementText() {
-        attackMovingText.alpha = 1;
-        attackMovingText.blocksRaycasts = true;
-        attackMovingText.interactable = true;
-    }
-
-    public void StandardMovementText() {
-        movingText.alpha = 1;
-        movingText.blocksRaycasts = true;
-        movingText.interactable = true;
-    }
-
-    public void PatrolMovementText() {
-        patrolText.alpha = 1;
-        patrolText.blocksRaycasts = true;
-        patrolText.interactable = true;
-    }
-
-    public void NoModeText() {
-        rotationText.alpha = 0;
-        rotationText.blocksRaycasts = false;
-        rotationText.interactable = false;
-
-        placementText.alpha = 0;
-        placementText.blocksRaycasts = false;
-        placementText.interactable = false;
-
-        attackMovingText.alpha = 0;
-        attackMovingText.blocksRaycasts = false;
-        attackMovingText.interactable = false;
-
-        movingText.alpha = 0;
-        movingText.blocksRaycasts = false;
-        movingText.interactable = false;
-
-        patrolText.alpha = 0;
-        patrolText.blocksRaycasts = false;
-        patrolText.interactable = false;
-    }
-
-
     // On worker selection
     public void WorkerSelect() {
         CloseAllPanels();
@@ -628,20 +503,6 @@ public class UIController : MonoBehaviour
         AdvancedBuildingsPanel.alpha = 1;
         AdvancedBuildingsPanel.blocksRaycasts = true;
         AdvancedBuildingsPanel.interactable = true;
-    }
-
-    // On Worker clicking advanced buildings
-    public void WorkerFortificationBuildings() {
-        CloseAllPanels();
-
-        UnitPanel.alpha = 1;
-        UnitPanel.blocksRaycasts = true;
-        UnitPanel.interactable = true;
-
-        panelOpen = 1;        
-        FortificationBuildingPanel.alpha = 1;
-        FortificationBuildingPanel.blocksRaycasts = true;
-        FortificationBuildingPanel.interactable = true;
     }
 
     // On Worker clicking advanced buildings
@@ -717,7 +578,6 @@ public class UIController : MonoBehaviour
         BuildingActionPanel.alpha = 1;
         BuildingActionPanel.blocksRaycasts = true;
         BuildingActionPanel.interactable = true;
-        CloseTrainingProgressPanel();
         panelOpen = 2;
     }
 
@@ -731,7 +591,6 @@ public class UIController : MonoBehaviour
         BuildingActionPanel.blocksRaycasts = true;
         BuildingActionPanel.interactable = true;
 
-        OpenTrainingProgressPanel();
         panelOpen = 2;
     }
 
@@ -757,7 +616,6 @@ public class UIController : MonoBehaviour
         BuildingPanel.blocksRaycasts = true;
         BuildingPanel.interactable = true;
 
-        OpenBuildingProgressPanel();
         panelOpen = 2;
     }
 
@@ -786,7 +644,6 @@ public class UIController : MonoBehaviour
         BarracksActionPanel.alpha = 1;
         BarracksActionPanel.blocksRaycasts = true;
         BarracksActionPanel.interactable = true;
-        CloseTrainingProgressPanel();
         panelOpen = 2;
     }
 
@@ -800,7 +657,6 @@ public class UIController : MonoBehaviour
         BarracksActionPanel.alpha = 1;
         BarracksActionPanel.blocksRaycasts = true;
         BarracksActionPanel.interactable = true;
-        OpenTrainingProgressPanel();
         panelOpen = 2;
     }
 
@@ -815,7 +671,6 @@ public class UIController : MonoBehaviour
         WizardTowerActionPanel.alpha = 1;
         WizardTowerActionPanel.blocksRaycasts = true;
         WizardTowerActionPanel.interactable = true;
-        CloseTrainingProgressPanel();
         panelOpen = 2;
     }
 
@@ -860,33 +715,7 @@ public class UIController : MonoBehaviour
         BuildingPanel.blocksRaycasts = true;
         BuildingPanel.interactable = true;
         
-        OpenBuildingProgressPanel();
         panelOpen = 2;
-    }
-
-    public void OpenBuildingProgressPanel(){
-        BuildingProgressPanel.alpha = 1;
-        BuildingProgressPanel.blocksRaycasts = true;
-        BuildingProgressPanel.interactable = true;
-    }
-
-    public void OpenTrainingProgressPanel(){
-        TrainingProgressPanel.alpha = 1;
-        TrainingProgressPanel.blocksRaycasts = true;
-        TrainingProgressPanel.interactable = true;
-    }
-
-    public void CloseTrainingProgressPanel(){
-        TrainingProgressPanel.alpha = 0;
-        TrainingProgressPanel.blocksRaycasts = false;
-        TrainingProgressPanel.interactable = false;
-    }
-
-    IEnumerator ShowNoResourcesPanel(string text)
-    {
-        OpenNoResourcesText(text);
-        yield return new WaitForSecondsRealtime(3);
-        CloseNoResourcesText();
     }
 }
 

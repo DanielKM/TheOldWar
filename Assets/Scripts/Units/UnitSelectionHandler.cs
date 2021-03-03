@@ -70,18 +70,16 @@ public class UnitSelectionHandler : MonoBehaviour
                 player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
             }
         }
-        
-        if(EventSystem.current.currentSelectedGameObject != null) 
+
+        PointerEventData mouse1 = EventSystem.current.gameObject.GetComponent<CustomStandaloneInputModule>().GetLastPointerEventDataPublic(-1);
+
+        if(mouse1.pointerPress) 
         {
-            if (EventSystem.current.currentSelectedGameObject.CompareTag( "UI" )) { return; }
-
-            if (EventSystem.current.currentSelectedGameObject.CompareTag( "Building" )) { return; }
-
-            if (EventSystem.current.currentSelectedGameObject.CompareTag( "Foundation" )) { return; }
+            if (mouse1.pointerPress.CompareTag( "UI" )) { return; }
         }
-        
+
         if(Mouse.current.leftButton.wasPressedThisFrame) 
-        {
+        {        
             StartSelectionArea();
         }
         else if(Mouse.current.leftButton.wasReleasedThisFrame) 
@@ -101,7 +99,7 @@ public class UnitSelectionHandler : MonoBehaviour
 
         ActivateControlGroups();
     }
-    
+        
     private void SelectVisibleUnitsOfSameType(Unit unit)
     {
         Renderer[] sceneRenderers = FindObjectsOfType<Renderer>();
@@ -166,7 +164,7 @@ public class UnitSelectionHandler : MonoBehaviour
     }
 
     private void StartSelectionArea() 
-    {       
+    {    
         if(!Keyboard.current.leftShiftKey.isPressed) 
         {
             foreach(Unit selectedUnit in SelectedUnits) 
@@ -195,7 +193,6 @@ public class UnitSelectionHandler : MonoBehaviour
         unitSelectionArea.sizeDelta = new Vector2(Mathf.Abs(areaWidth), Mathf.Abs(areaHeight));
         unitSelectionArea.anchoredPosition = startPosition + 
         new Vector2(areaWidth/2, areaHeight/2);
-
     }
 
     private void ClearSelectionArea()

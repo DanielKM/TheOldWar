@@ -164,6 +164,7 @@
      <Compile Include="Assets\Scripts\Inputs\Controls.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\ExitButtonController.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
+     <Compile Include="Assets\Scripts\UI\SceneLoading.cs" />
      <Compile Include="Assets\Scripts\Research\TechTree.cs" />
      <Compile Include="Assets\Scripts\Units\UnitCommandGiver.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Domain\NationProperties.cs" />
@@ -182,7 +183,7 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\UI\SceneLoading.cs" />
+     <Compile Include="Assets\CustomStandaloneInputModule.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

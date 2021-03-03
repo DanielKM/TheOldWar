@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Mirror;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class UnitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -17,6 +12,7 @@ public class UnitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void Start()
     {
         UI = GameObject.Find("UI").GetComponent<UIController>();
+
         player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
     }
 

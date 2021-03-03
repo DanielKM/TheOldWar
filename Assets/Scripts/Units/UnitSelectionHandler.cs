@@ -172,7 +172,7 @@ public class UnitSelectionHandler : MonoBehaviour
                 selectedUnit.Deselect();
             }
 
-            // UI.CloseAllPanels();
+            UI.CloseAllPanels();
             SelectedUnits.Clear();
         }
 

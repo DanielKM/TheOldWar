@@ -16,12 +16,11 @@ public class UIController : MonoBehaviour
     [Header("Menu References")]
     public GameObject saveMenu;
     public GameObject loadMenu;
+    public GameObject pauseMenu;
+    public GameObject optionMenu;
     // ResourceManager RM;
     // InputManager IM;
     // BuildingButtonController BBC;
-
-    // GAME MENU
-    public CanvasGroup GameMenuPanel;
 
     public int panelOpen = 0;
     // 0 - no panel
@@ -116,16 +115,17 @@ public class UIController : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if(currentScene.name != "Main Menu") {
             FindAllPanels();
-            CloseGameMenuPanel();
             CloseAllPanels();
+            CloseMenuPanels();
         }
     }
     
     public void FindAllPanels() {
-        GameMenuPanel = GameObject.Find("GameMenu").GetComponent<CanvasGroup>();
-
         saveMenu = GameObject.Find("SaveMenu");
-        loadMenu = GameObject.Find("loadMenu");
+        loadMenu = GameObject.Find("LoadMenu");
+        pauseMenu = GameObject.Find("PauseMenu");
+        optionMenu = GameObject.Find("OptionsMenu");
+
         UnitPanel = GameObject.Find("UnitPanel").GetComponent<CanvasGroup>();
         WorkerPanel = GameObject.Find("WorkerPanel").GetComponent<CanvasGroup>();
         BasicBuildingsPanel = GameObject.Find("BasicBuildingsPanel").GetComponent<CanvasGroup>();
@@ -140,6 +140,18 @@ public class UIController : MonoBehaviour
         WizardTowerActionPanel = GameObject.Find("WizardTowerActionPanel").GetComponent<CanvasGroup>();
 
         BuildingActionPanel = GameObject.Find("BuildingActions").GetComponent<CanvasGroup>();
+    }
+
+    public void CloseMenuPanels()
+    {
+        // Menu panels
+        saveMenu.SetActive(false);
+
+        loadMenu.SetActive(false);
+
+        pauseMenu.SetActive(false);
+
+        optionMenu.SetActive(false);
     }
 
     public void BuildingSelect(UnitType buildingType)
@@ -313,20 +325,6 @@ public class UIController : MonoBehaviour
         {
             Destroy(go);
         }
-    }
-
-    public void OpenGameMenuPanel()
-    {
-        GameMenuPanel.alpha = 1;
-        GameMenuPanel.blocksRaycasts = true;
-        GameMenuPanel.interactable = true;
-    }
-
-    public void CloseGameMenuPanel()
-    {
-        GameMenuPanel.alpha = 0;
-        GameMenuPanel.blocksRaycasts = false;
-        GameMenuPanel.interactable = false;
     }
 
     public void CloseAllPanels() {

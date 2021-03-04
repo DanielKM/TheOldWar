@@ -5,12 +5,13 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenu;
+    UIController UI;
     // public GameObject pauseMenuUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+        UI = gameObject.GetComponent<UIController>();
     }
 
     void Update()
@@ -30,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        pauseMenu.SetActive(false);
         GameIsPaused = false;
         // Time.timeScale = 1f;
     }
@@ -38,7 +39,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     public void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenu.SetActive(true);
         GameIsPaused = true;
         // Time.timeScale = 0f;
     }

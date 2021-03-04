@@ -173,6 +173,7 @@ public class UnitSelectionHandler : MonoBehaviour
             }
 
             UI.CloseAllPanels();
+            
             SelectedUnits.Clear();
         }
 

@@ -60,7 +60,7 @@ public class Necromancer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(unitTask.GetTask() == ActionList.Dead) { return; }
+        if(unitTask.GetTask() == ActionList.Dead || unitTask.GetTask() == ActionList.Injured) { return; }
 
         if(EventCycle.time >= 14400 && EventCycle.time <= 16000 ) {
             if(unitTask.GetTask() != ActionList.Dead) {

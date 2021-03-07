@@ -47,18 +47,27 @@ public class UnitProjectile : NetworkBehaviour
         if(other.TryGetComponent<NetworkIdentity>(out NetworkIdentity networkIdentity))
         {
             // FOR CONSTRUCTION
-            if(firerUnitType == UnitType.Worker &&
-            other.TryGetComponent<Foundation>(out Foundation foundation)) 
+            if(firerUnitType == UnitType.Worker && other.TryGetComponent<Foundation>(out Foundation foundation)) 
             { 
                 foundation.SetProgress(5);
 
                 return;
             };
 
+            // FOR RESOURCES
+            if(firerUnitType == UnitType.Worker && other.TryGetComponent<Building>(out Building building)) 
+            { 
+                Health buildingHealth = other.GetComponent<Health>();
+                if(buildingHealth.currentHealth < buildingHealth.maxHealth)
+                {
+                    buildingHealth.CmdHealDamage(10);
+                }
+
+                return;
+            };
+
             if(owner == other.gameObject.GetComponent<UnitInformation>().owner) { return; }
             // if(networkIdentity.connectionToClient == connectionToClient) { return; }
-
-            // if(gam)
 
             if(other.TryGetComponent<Health>(out Health health)) 
             {

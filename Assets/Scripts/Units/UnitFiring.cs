@@ -133,6 +133,20 @@ public class UnitFiring : NetworkBehaviour
                     unitTask.SetTask(ActionList.ClearingDead);    
                 }
             }
+            if (target.gameObject.TryGetComponent<Building>(out Building building)) 
+            { 
+                if(unitTask.GetTask() == ActionList.Repairing || unitTask.GetTask() == ActionList.RepairDuty) 
+                {
+                    if(target.GetComponent<Health>().currentHealth >= target.GetComponent<Health>().maxHealth)
+                    {
+                        targeter.ClearTarget();
+
+                        targeter.TargetClosestRepairBuilding();
+
+                        return;
+                    }
+                }
+            }
         }
 
         // Set as enemy and attack if not resource or building
@@ -144,7 +158,9 @@ public class UnitFiring : NetworkBehaviour
         && unitTask.GetTask() != ActionList.Fighting
         && unitTask.GetTask() != ActionList.Delivering
         && unitTask.GetTask() != ActionList.ClearingDead
-        && unitTask.GetTask() != ActionList.Destroying)
+        && unitTask.GetTask() != ActionList.Destroying
+        && unitTask.GetTask() != ActionList.Repairing
+        && unitTask.GetTask() != ActionList.RepairDuty)
         {
             unitTask.SetTask(ActionList.Attacking);    
         }
@@ -165,6 +181,9 @@ public class UnitFiring : NetworkBehaviour
             } else if (unitTask.GetTask() == ActionList.ClearingDead)
             {
                 unitTask.SetUnitTask(ActionList.Destroying); 
+            } else if (unitTask.GetTask() == ActionList.RepairDuty)
+            {
+                unitTask.SetUnitTask(ActionList.Repairing); 
             }
             agent.ResetPath();
         }

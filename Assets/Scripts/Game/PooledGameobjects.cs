@@ -31,6 +31,7 @@ public class PooledGameobjects : NetworkBehaviour
     public GameObject outrider;
     public GameObject knight;
     public GameObject wizard;
+    public GameObject healer;
 
     [Header("Buildings")]
     // Individual Buildings
@@ -45,6 +46,7 @@ public class PooledGameobjects : NetworkBehaviour
     public GameObject watchTower;
     public GameObject woodWall;
     public GameObject wizardTower;
+    public GameObject hospital;
 
     [Header("Projectiles")]
     [Header("Lists")]
@@ -63,6 +65,7 @@ public class PooledGameobjects : NetworkBehaviour
     public List<GameObject> outriders;
     public List<GameObject> knights;
     public List<GameObject> wizards;
+    public List<GameObject> healers;
 
     [Header("Buildings")]
     // Building lists
@@ -77,6 +80,7 @@ public class PooledGameobjects : NetworkBehaviour
     public List<GameObject> watchTowers;
     public List<GameObject> woodWalls;
     public List<GameObject> wizardTowers;
+    public List<GameObject> hospitals;
 
     void Start() 
     {
@@ -158,6 +162,8 @@ public class PooledGameobjects : NetworkBehaviour
 
         ServerAddItemInHierarchy("Wizard Towers", pooledBuildings);
 
+        ServerAddItemInHierarchy("Hospitals", pooledBuildings);
+
         #endregion
 
         #region Units
@@ -179,6 +185,8 @@ public class PooledGameobjects : NetworkBehaviour
         ServerAddItemInHierarchy("Knights", pooledUnits);
 
         ServerAddItemInHierarchy("Wizards", pooledUnits);
+
+        ServerAddItemInHierarchy("Healers", pooledUnits);
 
         #endregion
         for(int i = 0; i < pooledAmount; i++)
@@ -213,6 +221,8 @@ public class PooledGameobjects : NetworkBehaviour
 
             SpawnGameObject(wizard, wizards, "Wizards");
 
+            SpawnGameObject(healer, healers, "Healers");
+
             #endregion
 
             #region Building Spawning
@@ -240,6 +250,8 @@ public class PooledGameobjects : NetworkBehaviour
                 SpawnGameObject(woodWall, woodWalls, "Wood Walls");
 
                 SpawnGameObject(wizardTower, wizardTowers, "Wizard Towers");
+
+                SpawnGameObject(hospital, hospitals, "Hospitals");
             }
             
             #endregion

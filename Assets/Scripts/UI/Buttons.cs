@@ -26,6 +26,7 @@ public class Buttons : MonoBehaviour
     public Button barracksTrainWizard;
 
     public Button wizardTowerButton1;
+    public Button hospitalButton1;
 
     public Building building;
     public Unit unit;
@@ -58,5 +59,6 @@ public class Buttons : MonoBehaviour
         barracksTrainWizard.onClick.AddListener(delegate{building.GetComponent<UnitSpawner>().CmdSpawnUnit(7);});
 
         wizardTowerButton1.onClick.AddListener(delegate{building.GetComponent<UnitSpawner>().CmdSpawnUnit(7);});
+        hospitalButton1.onClick.AddListener(delegate{building.GetComponent<UnitSpawner>().CmdSpawnUnit(8);});
     }
 }

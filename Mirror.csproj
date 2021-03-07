@@ -404,6 +404,9 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="TutorialWizardLoadingScreen">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Loading Screen/Content/Scripts/Internal/Editor/TutorialWizardLoadingScreen.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.CecilX">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
     </Reference>

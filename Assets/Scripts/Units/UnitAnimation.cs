@@ -34,19 +34,24 @@ public class UnitAnimation : NetworkBehaviour
     [ServerCallback]
     public void SetAnimation(ActionList task)
     {   
-        if(task == ActionList.ClearingDead || task == ActionList.Moving || task == ActionList.Attacking || task == ActionList.Gathering || task == ActionList.Delivering || task == ActionList.Construction) 
+        if(task == ActionList.RepairDuty || task == ActionList.ClearingDead || task == ActionList.Moving || task == ActionList.Attacking || task == ActionList.Gathering || task == ActionList.Delivering || task == ActionList.Construction) 
         {
             anim.SetBool("isWalking", true);
             anim.SetBool("isFiring", false);
         } else if (task == ActionList.Idle) 
         {
+            anim.SetBool("isInjured", false);
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", false);
             if(gameObject.TryGetComponent<Necromancer>(out Necromancer necro))
             {
                 anim.SetBool("isCastingAOE", false);
             }
-        } else if (task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting || task == ActionList.Destroying) 
+            if(gameObject.TryGetComponent<Healer>(out Healer healer))
+            {
+                anim.SetBool("isCastingAOE", false);
+            }
+        } else if (task == ActionList.Repairing || task == ActionList.Fighting || task == ActionList.Building || task == ActionList.Harvesting || task == ActionList.Destroying) 
         {
             anim.SetBool("isWalking", false);
             anim.SetBool("isFiring", true);

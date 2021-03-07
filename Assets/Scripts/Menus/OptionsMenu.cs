@@ -14,9 +14,15 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField]
     private Slider globalSlider;
 
+    void Start()
+    {
+        musicSlider.value = mainMusic.volume*100;
+        globalSlider.value = AudioListener.volume*100;
+    }
+
     void Update()
     {
-        mainMusic.volume = musicSlider.value;
-        AudioListener.volume = globalSlider.value;
+        mainMusic.volume = musicSlider.value/100;
+        AudioListener.volume = globalSlider.value/100;
     }
 }

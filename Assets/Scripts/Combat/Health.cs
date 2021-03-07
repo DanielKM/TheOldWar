@@ -14,6 +14,7 @@ public class Health : NetworkBehaviour
 
     public event Action ServerOnDie;
     public event Action ServerOnInjured;
+    public event Action ServerOnHealed;
 
     public event Action<int, int> ClientOnHealthUpdated;
     private Unit unit = null;
@@ -74,6 +75,23 @@ public class Health : NetworkBehaviour
     }
 
     [Server]
+    public void HealDamage(int healAmount) 
+    {
+        currentHealth = currentHealth + healAmount;
+
+        if (currentHealth > maxHealth) { currentHealth = maxHealth; }
+
+        // if(currentHealth > 0) { return; }
+
+        if(gameObject.TryGetComponent<Unit>(out Unit unit)) 
+        {
+            // For units
+            Debug.Log("Unit Healed");
+            ServerOnHealed?.Invoke();
+        }
+    }
+
+    [Server]
     public void ServerDie()
     {
         ServerOnDie?.Invoke();
@@ -114,6 +132,12 @@ public class Health : NetworkBehaviour
     #endregion
 
     #region Client
+
+    [Command] 
+    public void CmdHealDamage(int healAmount) 
+    {
+        HealDamage(healAmount);
+    }
 
     private void HandleHealthUpdated(int oldHealth, int newHealth)
     {

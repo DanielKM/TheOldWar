@@ -18,6 +18,7 @@ public class Unit : NetworkBehaviour
     [SerializeField] public AudioClip unitReportingClip;
     [SerializeField] public AudioClip unitSelectedClip;
     [SerializeField] public GameObject corpseSkeleton;
+    [SerializeField] public Vector3 boxColliderSize;
     public Sprite unitIcon;
     
     [Header("Settings")]
@@ -89,6 +90,10 @@ public class Unit : NetworkBehaviour
 
         health.ServerOnInjured += ServerHandleUnitInjured;
 
+        health.ServerOnHealed += ServerHandleUnitHealed;
+
+        boxColliderSize = new Vector3(gameObject.GetComponent<BoxCollider>().size.x, gameObject.GetComponent<BoxCollider>().size.y, gameObject.GetComponent<BoxCollider>().size.z);
+
         if(unitInformation.owner != null)
         {
             GameObject x = GameObject.Find("UnitHandlers");
@@ -106,6 +111,8 @@ public class Unit : NetworkBehaviour
         health.ServerOnDie -= ServerHandleDie;
         
         health.ServerOnInjured -= ServerHandleUnitInjured;
+
+        health.ServerOnHealed -= ServerHandleUnitHealed;
     }
 
     [Server]
@@ -135,8 +142,6 @@ public class Unit : NetworkBehaviour
 
         unitInformation.owner.SetResources(unitInformation.owner.SubtractPrice(refundPrice));
         
-
-
         // if(unitInformation.owner == null) 
         // { 
         //     gameObject.SetActive(false);
@@ -169,6 +174,7 @@ public class Unit : NetworkBehaviour
         gameObject.GetComponent<Targeter>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
         gameObject.GetComponent<UnitMovement>().enabled = false;
+        gameObject.GetComponent<Targeter>().ClearTarget();
 
         if(gameObject.TryGetComponent<Huntable>(out Huntable huntable))  
         {
@@ -180,7 +186,8 @@ public class Unit : NetworkBehaviour
 
             return;
         }
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        gameObject.GetComponent<BoxCollider>().size = new Vector3(0, 0, 0);
 
         System.Random r = new System.Random();
         int timeToDie = r.Next(0, 120);
@@ -190,11 +197,30 @@ public class Unit : NetworkBehaviour
     }
 
     [Server]
+    public void ServerHandleUnitHealed()
+    {
+        Debug.Log("Healed!");
+
+        unitTask.SetTask(ActionList.Idle);
+
+        gameObject.GetComponent<UnitFiring>().enabled = true;
+        gameObject.GetComponent<Targeter>().enabled = true;
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        gameObject.GetComponent<UnitMovement>().enabled = true;
+        gameObject.GetComponent<BoxCollider>().size = new Vector3(boxColliderSize.x, boxColliderSize.y, boxColliderSize.z);
+
+        gameObject.GetComponent<UnitFiring>().enabled = true;
+    }
+
+    [Server]
     public IEnumerator Decay(int timeToDeath)
     {
         yield return new WaitForSeconds(timeToDeath);
 
-        health.ServerDie();
+        if(unitTask.GetTask() == ActionList.Injured) 
+        {
+            health.ServerDie();
+        }
     }
     
     #endregion

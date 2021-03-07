@@ -15,8 +15,9 @@ public enum ActionList
     Construction,
     Injured,
     Dead,
-    Repairing,
+    RepairDuty,
     CastingAOE,
     ClearingDead,
-    Destroying
+    Destroying,
+    Repairing
 }

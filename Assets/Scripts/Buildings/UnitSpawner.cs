@@ -90,6 +90,10 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
                 unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().wizard, unitSpawnPoint.position,unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().wizards;
                 break;
+            case UnitType.Healer:
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().healer, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().wizards;
+                break;
             default: 
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().workers;
                 break;

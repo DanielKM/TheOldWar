@@ -70,6 +70,7 @@ public class UIController : MonoBehaviour
     public CanvasGroup LumberYardActionPanel;
     public CanvasGroup BarracksActionPanel;
     public CanvasGroup WizardTowerActionPanel;
+    public CanvasGroup HospitalActionPanel;
 
     [Header("Building Fields")]
     public GameObject buildingIcon;
@@ -138,6 +139,7 @@ public class UIController : MonoBehaviour
         LumberYardActionPanel = GameObject.Find("LumberYardActionPanel").GetComponent<CanvasGroup>();
         BarracksActionPanel = GameObject.Find("BarracksActionPanel").GetComponent<CanvasGroup>();
         WizardTowerActionPanel = GameObject.Find("WizardTowerActionPanel").GetComponent<CanvasGroup>();
+        HospitalActionPanel = GameObject.Find("HospitalActionPanel").GetComponent<CanvasGroup>();
 
         BuildingActionPanel = GameObject.Find("BuildingActions").GetComponent<CanvasGroup>();
     }
@@ -175,6 +177,9 @@ public class UIController : MonoBehaviour
                 break;
             case UnitType.WizardTower:
                 WizardTowerSelect();
+                break;
+            case UnitType.Hospital:
+                HospitalSelect();
                 break;
             default:
                 HouseSelect();
@@ -384,6 +389,11 @@ public class UIController : MonoBehaviour
         WizardTowerActionPanel.alpha = 0;
         WizardTowerActionPanel.blocksRaycasts = false;
         WizardTowerActionPanel.interactable = false;
+
+        // Wizard tower
+        HospitalActionPanel.alpha = 0;
+        HospitalActionPanel.blocksRaycasts = false;
+        HospitalActionPanel.interactable = false;
 
         // NOTIFICATIONS/TOOLTIPS
         CloseUnitCostPanel();
@@ -669,6 +679,20 @@ public class UIController : MonoBehaviour
         WizardTowerActionPanel.alpha = 1;
         WizardTowerActionPanel.blocksRaycasts = true;
         WizardTowerActionPanel.interactable = true;
+        panelOpen = 2;
+    }
+
+    // On town hall selection
+    public void HospitalSelect() {
+        CloseAllPanels();
+
+        BuildingPanel.alpha = 1;
+        BuildingPanel.blocksRaycasts = true;
+        BuildingPanel.interactable = true;
+
+        HospitalActionPanel.alpha = 1;
+        HospitalActionPanel.blocksRaycasts = true;
+        HospitalActionPanel.interactable = true;
         panelOpen = 2;
     }
 

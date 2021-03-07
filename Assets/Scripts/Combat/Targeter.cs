@@ -12,7 +12,6 @@ public class Targeter : NetworkBehaviour
     RTSPlayer player = null;
     private GameobjectLists gameObjectLists;
 
-
     public void Start()
     {        
         player = connectionToClient != null ? connectionToClient.identity.GetComponent<RTSPlayer>() : null;
@@ -145,9 +144,46 @@ public class Targeter : NetworkBehaviour
     }
 
     [Server]
+    public void TargetClosestRepairBuilding() 
+    {
+        target = GetClosestDamagedBuilding();
+    }
+
+    [Server]
     public void TargetClosestResource(int resourceID) 
     {
         target = GetClosestResource(resourceID);
+    }
+
+    public Targetable GetClosestDamagedBuilding()
+    {
+        Targetable closestDamagedBuilding = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 position = transform.position;
+
+        ClearTarget(); 
+
+        foreach(Building building in player.GetMyBuildings())
+        {
+            if(building.TryGetComponent<Health>(out Health health)) 
+            {
+                if(health.currentHealth < health.maxHealth) 
+                {
+                    Vector3 direction = building.transform.position - position;
+
+                    float distance = direction.sqrMagnitude;
+
+                    if(distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        
+                        closestDamagedBuilding = building.GetComponent<Targetable>();
+                    }
+                }
+            }
+        }
+
+        return closestDamagedBuilding;
     }
 
     public Targetable GetClosestResource(int resourceID)
@@ -257,6 +293,12 @@ public class Targeter : NetworkBehaviour
     public void CmdSetFoundationTarget() 
     {
         TargetClosestFoundation();
+    }
+
+    [Command(ignoreAuthority = true)]
+    public void CmdSetRepairTarget() 
+    {
+        TargetClosestRepairBuilding();
     }
 
     [Command(ignoreAuthority = true)]

@@ -92,8 +92,8 @@ public class RTSPlayer : NetworkBehaviour
     public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
     private GameobjectLists gameObjectLists;
     private Color teamColor = new Color();
-    private List<Building> myBuildings = new List<Building>();
-    private List<Building> myActiveBuildings = new List<Building>();
+    public List<Building> myBuildings = new List<Building>();
+    public List<Building> myActiveBuildings = new List<Building>();
 
     [Header("Lists")]
     [SerializeField] private Building[] buildings = new Building[0];

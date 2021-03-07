@@ -47,6 +47,7 @@ public enum UnitType
     WizardTowerFoundation,
     // NEUTRAL
     KingBoar,
-
-
+    Hospital,
+    Healer,
+    HospitalFoundation
 }

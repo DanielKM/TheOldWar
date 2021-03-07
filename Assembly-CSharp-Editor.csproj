@@ -36,15 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\ExplodePartEditor.cs" />
-     <Compile Include="Assets\Imported\FogOfWar\Core\Editor\FogOfWarChunkManagerEditor.cs" />
-     <Compile Include="Assets\Imported\FogOfWar\Core\Editor\FogOfWarTeamEditor.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\ReorderableList\Editor\ReorderableDrawer.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\bl_LoadingScreenStartUp.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\bl_SceneLoaderEditor.cs" />
+     <Compile Include="Assets\Editor\ExplodePartEditor.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\bl_LoadingScreenWelcome.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\ReorderableList\Editor\ReorderableList.cs" />
+     <Compile Include="Assets\Imported\FogOfWar\Core\Editor\FogOfWarChunkManagerEditor.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\LoadingScreenDocumentation.cs" />
+     <Compile Include="Assets\Imported\FogOfWar\Core\Editor\FogOfWarTeamEditor.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -240,6 +240,9 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.14f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="TutorialWizardLoadingScreen">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Loading Screen/Content/Scripts/Internal/Editor/TutorialWizardLoadingScreen.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.CecilX">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
     </Reference>
@@ -254,9 +257,6 @@
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/PackageCache/com.unity.render-pipelines.core@8.2.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
-    <Reference Include="TutorialWizardLoadingScreen">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Loading Screen/Content/Scripts/Internal/Editor/TutorialWizardLoadingScreen.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -609,6 +609,9 @@
     <Reference Include="Cinemachine">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
@@ -654,8 +657,32 @@
     <Reference Include="Unity.Searcher.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Triangle.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
@@ -669,11 +696,20 @@
     <Reference Include="Unity.ShaderGraph.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -687,6 +723,10 @@
     <ProjectReference Include="Mirror.Weaver.csproj">
       <Project>{b460aeac-a295-7efa-4fa7-c491ccc36c45}</Project>
       <Name>Mirror.Weaver</Name>
+    </ProjectReference>
+    <ProjectReference Include="LoadingScreen.Misc.csproj">
+      <Project>{d45e29ba-1e9f-555d-d3b0-307fed3f14cb}</Project>
+      <Name>LoadingScreen.Misc</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Authenticators.csproj">
       <Project>{8f08c81f-14b7-5768-f956-7fe1ba8cd4f8}</Project>
@@ -739,10 +779,6 @@
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{9a4c3a67-56ec-7fd1-1abd-7fc266133176}</Project>
       <Name>SimpleWebTransport</Name>
-    </ProjectReference>
-    <ProjectReference Include="LoadingScreen.Misc.csproj">
-      <Project>{d45e29ba-1e9f-555d-d3b0-307fed3f14cb}</Project>
-      <Name>LoadingScreen.Misc</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

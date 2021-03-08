@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using Steamworks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -57,11 +58,18 @@ public class RTSNetworkManager : NetworkManager
     {
         base.OnServerAddPlayer(conn);
 
+        CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(MainMenu.LobbyId, numPlayers - 1);
+        
         RTSPlayer player = conn.identity.GetComponent<RTSPlayer>();
+
+        PlayerInfoDisplay playerInfoDisplay = conn.identity.GetComponent<PlayerInfoDisplay>();
+
+        playerInfoDisplay.SetSteamId(steamId.m_SteamID);
 
         Players.Add(player);
 
-        player.SetDisplayName($"Player {Players.Count}");
+        // player.SetDisplayName($"Player {Players.Count}");
+        // player.SetDisplayName(player.getstea);
 
         player.SetTeamColor(new Color(
             UnityEngine.Random.Range(0f, 1f),

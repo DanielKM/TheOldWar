@@ -9,7 +9,7 @@ public class JoinLobbyMenu : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject landingPagePanel = null;
-    [SerializeField] private TMP_InputField addressInput = null;
+    [SerializeField] private InputField addressInput = null;
     [SerializeField] private Button joinButton = null;
 
     private void OnEnable()

@@ -35,12 +35,14 @@ public class LobbyMenu : MonoBehaviour
 
     public void ClientHandleInfoUpdated()
     {
+        Debug.Log("Lobby menu info updated");
+
         List<RTSPlayer> players = ((RTSNetworkManager)NetworkManager.singleton).Players;
 
-        // CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
-        //     MainMenu.LobbyId, 
-        //     players.Count
-        // );
+        CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
+            MainMenu.LobbyId, 
+            players.Count
+        );
 
         for(int i = 0; i < players.Count; i++)
         {

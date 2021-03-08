@@ -250,6 +250,14 @@ public class RTSPlayer : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        if(isServer) 
+        {
+            Debug.Log("SERVER!");
+        } else 
+        {
+            Debug.Log("CLIENT");
+        }
+
         Unit.ServerOnUnitSpawned += ServerHandleUnitSpawned;
         Unit.ServerOnUnitDespawned += ServerHandleUnitDespawned;
         Building.ServerOnBuildingSpawned += ServerHandleBuildingSpawned;

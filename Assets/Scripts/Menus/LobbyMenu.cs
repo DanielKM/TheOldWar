@@ -19,6 +19,8 @@ public class LobbyMenu : MonoBehaviour
         RTSNetworkManager.ClientOnConnected += HandleClientConnected;
         RTSPlayer.AuthorityOnPartyOwnerStateUpdated += AuthorityHandlePartyOwnerStateUpdated;
         RTSPlayer.ClientOnInfoUpdated += ClientHandleInfoUpdated;
+
+        CheckForPlayersAndUpdateLobby();
     }
 
     private void OnDestroy()
@@ -35,18 +37,35 @@ public class LobbyMenu : MonoBehaviour
 
     public void ClientHandleInfoUpdated()
     {
-        Debug.Log("Lobby menu info updated");
+        CheckForPlayersAndUpdateLobby();
+    }
 
+    private void AuthorityHandlePartyOwnerStateUpdated(bool state)
+    {
+        startGameButton.gameObject.SetActive(state);
+    }
+
+    private void CheckForPlayersAndUpdateLobby()
+    {
         List<RTSPlayer> players = ((RTSNetworkManager)NetworkManager.singleton).Players;
 
-        CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
-            MainMenu.LobbyId, 
-            players.Count
-        );
+        // CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
+        //                 MainMenu.LobbyId, 
+        //                 players.Count - 1
+        //             );
+
+        // string steamName = SteamFriends.GetFriendPersonaName(steamID);
 
         for(int i = 0; i < players.Count; i++)
-        {
-            playerNameTexts[i].text = players[i].GetDisplayName() == players[i].GetDisplayName() ? players[i].GetDisplayName() : "Computer AI" ;
+        {    
+            CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
+                            MainMenu.LobbyId, 
+                            players.Count - 1
+                        );
+
+            string steamName = SteamFriends.GetFriendPersonaName(steamID);
+
+            playerNameTexts[i].text = steamName;
         }
         for(int i = players.Count; i < playerNameTexts.Length; i++)
         {
@@ -54,11 +73,6 @@ public class LobbyMenu : MonoBehaviour
         }
 
         startGameButton.interactable = players.Count >= 1;
-    }
-
-    private void AuthorityHandlePartyOwnerStateUpdated(bool state)
-    {
-        startGameButton.gameObject.SetActive(state);
     }
 
     public void StartGame()

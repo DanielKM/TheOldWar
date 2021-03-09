@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         Cursor.SetCursor(gameObject.GetComponent<Cursors>().basic, new Vector2(0, 0), CursorMode.Auto);
+
         if(!useSteam) { return; }
 
         lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
@@ -34,7 +35,6 @@ public class MainMenu : MonoBehaviour
         if (useSteam)
         {
             SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 6);
-            return;
         }
 
         NetworkManager.singleton.StartHost();
@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
         }
 
         LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
-
+        
         SteamMatchmaking.SetLobbyData(
             LobbyId,
             hostAddressKey,
@@ -70,6 +70,7 @@ public class MainMenu : MonoBehaviour
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         if(NetworkServer.active) { return; }
+
 
         string hostAddress = SteamMatchmaking.GetLobbyData(
             new CSteamID(callback.m_ulSteamIDLobby),

@@ -42,15 +42,13 @@ public class PlayerInfoDisplay : NetworkBehaviour
     {
         var cSteamId = new CSteamID(newSteamId);
 
-        displayNameText.text = SteamFriends.GetFriendPersonaName(cSteamId);
-
         steamName = SteamFriends.GetFriendPersonaName(cSteamId);
 
         int imageId = SteamFriends.GetLargeFriendAvatar(cSteamId);
 
         if(imageId == -1) { return; }
 
-        profileImage.texture = GetSteamImageAsTexture(imageId);
+        // profileImage.texture = GetSteamImageAsTexture(imageId);
     }
 
     private void OnAvatarImageLoaded(AvatarImageLoaded_t callback)

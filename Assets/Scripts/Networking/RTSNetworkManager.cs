@@ -50,7 +50,6 @@ public class RTSNetworkManager : NetworkManager
 
         isGameInProgress = true;
 
-        // ServerChangeScene("Scene_Map_01");
         ServerChangeScene(sceneName);
     }
 
@@ -68,14 +67,18 @@ public class RTSNetworkManager : NetworkManager
 
         Players.Add(player);
 
-        // player.SetDisplayName($"Player {Players.Count}");
-        // player.SetDisplayName(player.getstea);
+        string steamName = SteamFriends.GetFriendPersonaName(steamId);
+
+        Debug.Log(steamName);
+
+        player.SetDisplayName(steamName);
 
         player.SetTeamColor(new Color(
             UnityEngine.Random.Range(0f, 1f),
             UnityEngine.Random.Range(0f, 1f),
             UnityEngine.Random.Range(0f, 1f)
         ));
+        Debug.Log(Players.Count);
 
         player.SetPartyOwner(Players.Count == 1);
     }
@@ -107,6 +110,7 @@ public class RTSNetworkManager : NetworkManager
                 player.spawnPoint = startTransform.gameObject;
 
                 NetworkServer.Spawn(baseInstance, player.connectionToClient);
+                
                 gameObjectLists.players.Add(player.gameObject);
             }
         }

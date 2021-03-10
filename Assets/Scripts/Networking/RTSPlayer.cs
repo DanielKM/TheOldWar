@@ -16,6 +16,7 @@ public class RTSPlayer : NetworkBehaviour
 
     [SerializeField] private AudioSource playerAudio;
     [SerializeField] public GameObject spawnPoint;
+    public Team team = null;
     
     [Header("Settings")]
     [SerializeField] private bool isComputerAI = false;
@@ -92,10 +93,11 @@ public class RTSPlayer : NetworkBehaviour
     public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
     private GameobjectLists gameObjectLists;
     private Color teamColor = new Color();
+
+    [Header("Lists")]
     public List<Building> myBuildings = new List<Building>();
     public List<Building> myActiveBuildings = new List<Building>();
 
-    [Header("Lists")]
     [SerializeField] private Building[] buildings = new Building[0];
     [SerializeField] private Unit[] units = new Unit[0];
     [SerializeField] private Spell[] spells = new Spell[0];

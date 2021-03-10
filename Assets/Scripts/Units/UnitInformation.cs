@@ -7,6 +7,7 @@ public class UnitInformation : NetworkBehaviour
 {
     [Header("References")]
     public RTSPlayer owner = null;
+    public Team team = null;
     RTSPlayer player = null;
     Cursors cursors = null;
     

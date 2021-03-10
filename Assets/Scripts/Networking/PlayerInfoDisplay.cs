@@ -13,6 +13,7 @@ public class PlayerInfoDisplay : NetworkBehaviour
 
     [SerializeField] private RawImage profileImage = null;
     [SerializeField] private Text displayNameText = null;
+    [SyncVar(hook = nameof(HandleSteamNameUpdated))]
     public string steamName = null;
 
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
@@ -44,12 +45,22 @@ public class PlayerInfoDisplay : NetworkBehaviour
 
         steamName = SteamFriends.GetFriendPersonaName(cSteamId);
 
+        displayNameText.text = steamName;
+
         int imageId = SteamFriends.GetLargeFriendAvatar(cSteamId);
 
         if(imageId == -1) { return; }
 
         // profileImage.texture = GetSteamImageAsTexture(imageId);
     }
+
+    private void HandleSteamNameUpdated(string oldSteamName, string newSteamName)
+    {
+        steamName = newSteamName;
+
+        displayNameText.text = steamName;
+    }
+
 
     private void OnAvatarImageLoaded(AvatarImageLoaded_t callback)
     {

@@ -69,8 +69,6 @@ public class RTSNetworkManager : NetworkManager
 
         string steamName = SteamFriends.GetFriendPersonaName(steamId);
 
-        Debug.Log(steamName);
-
         player.SetDisplayName(steamName);
 
         player.SetTeamColor(new Color(
@@ -78,7 +76,6 @@ public class RTSNetworkManager : NetworkManager
             UnityEngine.Random.Range(0f, 1f),
             UnityEngine.Random.Range(0f, 1f)
         ));
-        Debug.Log(Players.Count);
 
         player.SetPartyOwner(Players.Count == 1);
     }

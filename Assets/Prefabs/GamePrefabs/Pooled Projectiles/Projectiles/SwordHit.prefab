@@ -133,7 +133,7 @@ MonoBehaviour:
   rb: {fileID: 4962838191964357921}
   damageToDeal: 20
   savedDamage: 20
-  destroyAfterSeconds: 5
+  destroyAfterSeconds: 0.1
   launchForce: 20
   projectileFirer: {fileID: 0}
 --- !u!54 &4962838191964357921

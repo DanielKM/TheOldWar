@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Units\UnitInformation.cs" />
      <Compile Include="Assets\Scripts\Combat\Targeter.cs" />
      <Compile Include="Assets\Scripts\Networking\RTSPlayer.cs" />
+     <Compile Include="Assets\Scripts\Networking\SteamLobby.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\ExplodePartManager.cs" />
      <Compile Include="Assets\Scripts\Game\Testing.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\DomeShield.cs" />
@@ -162,6 +163,7 @@
      <Compile Include="Assets\Scripts\Units\Spells\SpellList.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\TreeSwinger.cs" />
      <Compile Include="Assets\Scripts\Inputs\Controls.cs" />
+     <Compile Include="Assets\Scripts\Networking\PlayerInfoDisplay.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\ExitButtonController.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\Healer.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
@@ -185,8 +187,7 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Networking\PlayerInfoDisplay.cs" />
-     <Compile Include="Assets\Scripts\Networking\SteamLobby.cs" />
+     <Compile Include="Assets\Scripts\Networking\Team.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

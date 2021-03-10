@@ -60,7 +60,7 @@ public class LobbyMenu : MonoBehaviour
         {    
             CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
                             MainMenu.LobbyId, 
-                            players.Count - 1
+                            i
                         );
 
             string steamName = SteamFriends.GetFriendPersonaName(steamID);

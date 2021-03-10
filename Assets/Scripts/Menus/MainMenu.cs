@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using Steamworks;
+using MedievalKingdomUI.Scripts.Window;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject landingPagePanel = null;
+    [SerializeField] private AnimatedWindowController animatedWindowController = null;
 
     [SerializeField] private bool useSteam = false;
+
     public static CSteamID LobbyId {get; private set;}
 
     protected Callback<LobbyCreated_t> lobbyCreated;
@@ -69,8 +72,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
-        if(NetworkServer.active) { return; }
-
+        if(NetworkServer.active) { return; } // if you are the server
 
         string hostAddress = SteamMatchmaking.GetLobbyData(
             new CSteamID(callback.m_ulSteamIDLobby),
@@ -79,6 +81,6 @@ public class MainMenu : MonoBehaviour
         NetworkManager.singleton.networkAddress = hostAddress;
         NetworkManager.singleton.StartClient();
 
-        landingPagePanel.SetActive(false);
+        animatedWindowController.OpenWindow(landingPagePanel);
     }
 }

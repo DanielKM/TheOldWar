@@ -15,6 +15,8 @@ public class LobbyMenu : NetworkBehaviour
     [SerializeField] private Text[] playerNameTexts = new Text[6];
     [SerializeField] private Team team = null;
 
+    [SerializeField] private Texture2D[] teamTextures = null;
+
     private void Start()
     {
         RTSNetworkManager.ClientOnConnected += HandleClientConnected;
@@ -60,7 +62,8 @@ public class LobbyMenu : NetworkBehaviour
         for(int i = 0; i < players.Count; i++)
         {    
             players[i].SetTeam(team);
-            
+            players[i].teamTexture = teamTextures[i];
+
             CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
                             MainMenu.LobbyId, 
                             i

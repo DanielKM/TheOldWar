@@ -17,6 +17,7 @@ public class RTSPlayer : NetworkBehaviour
     [SerializeField] private AudioSource playerAudio;
     [SerializeField] public GameObject spawnPoint;
     public Team team = null;
+    [SerializeField] public Texture2D teamTexture;
     
     [Header("Settings")]
     [SerializeField] private bool isComputerAI = false;

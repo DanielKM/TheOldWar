@@ -97,6 +97,7 @@ public class Necromancer : MonoBehaviour
         yield return new WaitForSeconds(10);
         
         RTSPlayer owner = gameObject.GetComponent<UnitInformation>().owner;
+        Team team = gameObject.GetComponent<UnitInformation>().team;
 
         GameObject closestPlayerSpawnPoint = GetClosestEnemyPlayer(owner, gameObject, gameobjectLists.GetAllActivePlayerGameobjects());
 
@@ -106,6 +107,7 @@ public class Necromancer : MonoBehaviour
             GameObject raisedSkeleton = Instantiate(skeleton, spawnPos, Quaternion.identity);  
 
             raisedSkeleton.GetComponent<UnitInformation>().owner = owner;
+            raisedSkeleton.GetComponent<UnitInformation>().team = team;
 
             NetworkServer.Spawn(raisedSkeleton);
 

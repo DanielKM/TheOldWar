@@ -17,6 +17,7 @@ public class UnitProjectile : NetworkBehaviour
     UnitType firerUnitType;
     ResourceGatherer resourceGatherer;
     RTSPlayer owner = null;
+    Team team = null;
 
     // void OnEnable()
     // {        
@@ -37,6 +38,7 @@ public class UnitProjectile : NetworkBehaviour
         }
 
         owner = projectileFirer.gameObject.GetComponent<UnitInformation>().owner;
+        team = projectileFirer.gameObject.GetComponent<UnitInformation>().team;
 
         Invoke(nameof(DestroySelf), destroyAfterSeconds);
     }
@@ -55,18 +57,23 @@ public class UnitProjectile : NetworkBehaviour
             };
 
             // FOR RESOURCES
-            if(firerUnitType == UnitType.Worker && other.TryGetComponent<Building>(out Building building)) 
-            { 
-                Health buildingHealth = other.GetComponent<Health>();
-                if(buildingHealth.currentHealth < buildingHealth.maxHealth)
-                {
-                    buildingHealth.CmdHealDamage(10);
-                }
+            if(other.TryGetComponent<ResourceNode>(out ResourceNode nodeCheck) && nodeCheck.enabled) {
 
-                return;
-            };
+            } else {
+                if(firerUnitType == UnitType.Worker && other.TryGetComponent<Building>(out Building building)) 
+                { 
+                    Health buildingHealth = other.GetComponent<Health>();
+                    if(buildingHealth.currentHealth < buildingHealth.maxHealth)
+                    {
+                        buildingHealth.CmdHealDamage(10);
+                    }
 
-            if(owner == other.gameObject.GetComponent<UnitInformation>().owner) { return; }
+                    return;
+                };
+            }
+
+
+            if(team == other.gameObject.GetComponent<UnitInformation>().team) { return; }
             // if(networkIdentity.connectionToClient == connectionToClient) { return; }
 
             if(other.TryGetComponent<Health>(out Health health)) 
@@ -75,6 +82,7 @@ public class UnitProjectile : NetworkBehaviour
                 if(firerUnitType == UnitType.Worker &&
                 other.TryGetComponent<ResourceNode>(out ResourceNode resourceNode) && resourceNode.enabled) 
                 { 
+                    Debug.Log(resourceNode.GetResourceType());
                     if(resourceGatherer.heldResourcesType != resourceNode.GetResourceType())
                     {
                         resourceGatherer.heldResources = 0;
@@ -86,6 +94,8 @@ public class UnitProjectile : NetworkBehaviour
 
                     return;
                 };
+
+                
 
                 // FOR RESOURCES
                 if(firerUnitType == UnitType.Worker &&

@@ -13,6 +13,7 @@ public class LobbyMenu : NetworkBehaviour
     [SerializeField] private GameObject lobbyUI = null;
     [SerializeField] private Button startGameButton = null;
     [SerializeField] private Text[] playerNameTexts = new Text[6];
+    [SerializeField] private Team team = null;
 
     private void Start()
     {
@@ -58,6 +59,8 @@ public class LobbyMenu : NetworkBehaviour
 
         for(int i = 0; i < players.Count; i++)
         {    
+            players[i].SetTeam(team);
+            
             CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
                             MainMenu.LobbyId, 
                             i

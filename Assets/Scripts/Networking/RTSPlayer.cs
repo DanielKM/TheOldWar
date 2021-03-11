@@ -289,6 +289,12 @@ public class RTSPlayer : NetworkBehaviour
     }
 
     [Server]
+    public void SetTeam(Team newTeam)
+    {
+        team = newTeam;
+    }
+
+    [Server]
     public void SetTeamColor(Color newTeamColor)
     {
         teamColor = newTeamColor;
@@ -398,6 +404,7 @@ public class RTSPlayer : NetworkBehaviour
         buildingToPlace.foundation.transform.position = point;
         buildingToPlace.foundation.transform.rotation = rotation;
         buildingToPlace.foundation.GetComponent<UnitInformation>().owner = this;
+        buildingToPlace.foundation.GetComponent<UnitInformation>().team = this.team;
 
         selectedBuilding = Instantiate(buildingToPlace.foundation);
         NetworkServer.Spawn(selectedBuilding, connectionToClient);
@@ -432,6 +439,7 @@ public class RTSPlayer : NetworkBehaviour
         objSpell.transform.position = point;
 
         objSpell.GetComponent<UnitInformation>().owner = connectionToClient.identity.GetComponent<RTSPlayer>();
+        objSpell.GetComponent<UnitInformation>().team = this.team;
 
         NetworkServer.Spawn(objSpell, connectionToClient);
     }

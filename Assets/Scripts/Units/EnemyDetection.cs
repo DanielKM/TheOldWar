@@ -54,7 +54,7 @@ public class EnemyDetection : MonoBehaviour
             {
                 if(colliders[i].gameObject.GetComponent<UnitInformation>() == null) { continue; }
 
-                if(colliders[i].gameObject.GetComponent<UnitInformation>().owner == unitInformation.owner) { continue; }
+                if(colliders[i].gameObject.GetComponent<UnitInformation>().team == unitInformation.team) { continue; }
 
                 if(colliders[i].TryGetComponent<Targetable>(out Targetable target))
                 {

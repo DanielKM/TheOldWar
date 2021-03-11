@@ -24,6 +24,7 @@ public class Healer : MonoBehaviour
     public LayerMask unitLayer;
 
     RTSPlayer owner = null;
+    Team team = null;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class Healer : MonoBehaviour
         unit = gameObject.GetComponent<Unit>();
 
         owner = gameObject.GetComponent<UnitInformation>().owner;
+        team = gameObject.GetComponent<UnitInformation>().team;
     }
 
     // Update is called once per frame
@@ -61,7 +63,7 @@ public class Healer : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            if(colliders[i].gameObject.GetComponent<UnitInformation>().owner != owner) { continue; }
+            if(colliders[i].gameObject.GetComponent<UnitInformation>().team != team) { continue; }
 
             float sqrDistanceToCenter = (center - colliders[i].transform.position).sqrMagnitude;
             

@@ -27,6 +27,7 @@ public class UnitInformation : NetworkBehaviour
         if(connectionToClient == null ) { return; }
         
         player = connectionToClient.identity.GetComponent<RTSPlayer>();
+        team = player.team;
     }
 
     public void Start()

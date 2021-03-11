@@ -101,6 +101,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         // unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().worker, unitSpawnPoint.position,unitSpawnPoint.rotation);
         
         unitInstance.GetComponent<UnitInformation>().owner = player;
+        unitInstance.GetComponent<UnitInformation>().team = player.team;
 
         NetworkServer.Spawn(unitInstance, connectionToClient);
 
@@ -128,6 +129,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         unitToSpawn.transform.position = unitSpawnPoint.position;
         unitToSpawn.transform.rotation = unitSpawnPoint.rotation;
         unitToSpawn.GetComponent<UnitInformation>().owner = player;
+        unitToSpawn.GetComponent<UnitInformation>().team = player.team;
         unitToSpawn.SetActive(true);
         unitToSpawn.GetComponent<UnitMovement>().ServerMove(unitSpawnPoint.position + spawnOffset);
     }

@@ -163,6 +163,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -339,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447331268037016435, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.241
+      value: -0.021
       objectReference: {fileID: 0}
     - target: {fileID: 2447331268037016435, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -347,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447331268037016435, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.221
+      value: 0.477
       objectReference: {fileID: 0}
     - target: {fileID: 2493916615118452864, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitTask

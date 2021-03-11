@@ -48,6 +48,7 @@ public class Foundation : NetworkBehaviour
         buildingToBuild = Instantiate(buildingPrefab, gameObject.transform.position, Quaternion.identity);
         buildingToBuild.transform.rotation = gameObject.transform.rotation;
         buildingToBuild.GetComponent<UnitInformation>().owner = gameObject.GetComponent<UnitInformation>().owner;
+        buildingToBuild.GetComponent<UnitInformation>().team = gameObject.GetComponent<UnitInformation>().team;
 
         NetworkServer.Spawn(buildingToBuild, connectionToClient);
     }

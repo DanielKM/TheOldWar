@@ -71,7 +71,6 @@ public class ResourceGenerator : NetworkBehaviour
         if(!player) 
         {
             player = gameObject.GetComponent<UnitInformation>().owner;
-
             
             if(onSpawnResource)
             {

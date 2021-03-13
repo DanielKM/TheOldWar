@@ -15,7 +15,7 @@ public class LobbyMenu : NetworkBehaviour
     [SerializeField] private Text[] playerNameTexts = new Text[6];
     [SerializeField] private Team team = null;
 
-    [SerializeField] private Texture2D[] teamTextures = null;
+    [SerializeField] private Material[] teamMaterials = null;
 
     private void Start()
     {
@@ -62,7 +62,7 @@ public class LobbyMenu : NetworkBehaviour
         for(int i = 0; i < players.Count; i++)
         {    
             players[i].SetTeam(team);
-            players[i].teamTexture = teamTextures[i];
+            players[i].teamMaterial = teamMaterials[i];
 
             CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
                             MainMenu.LobbyId, 
@@ -71,6 +71,7 @@ public class LobbyMenu : NetworkBehaviour
 
             string steamName = SteamFriends.GetFriendPersonaName(steamID);
 
+            players[i].SetDisplayName(steamName);
             playerNameTexts[i].text = steamName;
         }
         for(int i = players.Count; i < playerNameTexts.Length; i++)

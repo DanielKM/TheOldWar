@@ -289,6 +289,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -760,7 +761,7 @@ PrefabInstance:
       objectReference: {fileID: 7374978830152902262}
     - target: {fileID: 8926424030567479270, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8926424030567479270, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: m_Size.y
@@ -772,7 +773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8926424030567479270, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: m_Center.x
-      value: 0.25
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8926424030567479270, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: m_Center.y

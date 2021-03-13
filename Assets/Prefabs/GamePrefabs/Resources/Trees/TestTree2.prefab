@@ -230,6 +230,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -254,7 +255,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   resource: 5
-  heldResources: 1000
+  heldResources: 5000
   health: {fileID: -1065681080777312478}
 --- !u!1 &8357976704438198338
 GameObject:

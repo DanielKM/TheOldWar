@@ -27,7 +27,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 081ba68dcc04bf34d88ea9802aa6e4b4, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
@@ -403,6 +403,10 @@ PrefabInstance:
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 2412049349749583095}
+    - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitIcon
       value: 
       objectReference: {fileID: 21300000, guid: 1f0fa3795ead58949beec803ce5dd640, type: 3}
@@ -525,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: dropoffRange
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitAnimation
@@ -696,6 +700,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d47569920080c584a985eda410da35c4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdbe91a91060b1e4eb4bd0b52d578091, type: 3}
+--- !u!1 &2412049349749583095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8136913503570933307, guid: cdbe91a91060b1e4eb4bd0b52d578091, type: 3}
+  m_PrefabInstance: {fileID: 5878690250085472972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2412049349742190401 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8136913503580439949, guid: cdbe91a91060b1e4eb4bd0b52d578091, type: 3}

@@ -16,7 +16,6 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private UnitSelectionHandler unitSelection = null;
     GameObject EventHandler;
     EventCycle EventCycle;
-    
     private Camera mainCamera;
     private RTSPlayer player;
     private UIController UI = null;
@@ -67,11 +66,6 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             if(unit.gameObject.TryGetComponent<SpellCaster>(out SpellCaster caster)) 
             { 
                 player.CmdCastSpell(unit.gameObject.transform.position);
-                
-                if(EventCycle.instability <= 100) 
-                { 
-                    EventCycle.instability += 1;
-                }
             }
         }
     }

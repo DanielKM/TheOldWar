@@ -107,6 +107,8 @@
      <Compile Include="Assets\Scripts\Combat\Targetable.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\URP\FogOfWarURPPass.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarConversion.cs" />
+     <Compile Include="Assets\Scripts\Networking\TeamLetter.cs" />
+     <Compile Include="Assets\Scripts\Networking\Team.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\Legacy\FogOfWarTestLegacy.cs" />
      <Compile Include="Assets\Scripts\Buildings\BuildingButton.cs" />
      <Compile Include="Assets\Scripts\Combat\Spell.cs" />
@@ -118,6 +120,7 @@
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\Transform\TransformInRect.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test2D\FogOfWar2DSimpleAnimator.cs" />
      <Compile Include="Assets\Scripts\Cameras\FaceCamera.cs" />
+     <Compile Include="Assets\CameraRayDrawer.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\URP\FogOfWarURPFeature.cs" />
      <Compile Include="Assets\Scripts\Networking\RTSNetworkManager.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Global\bl_SceneLoaderUtils.cs" />
@@ -187,8 +190,7 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Networking\Team.cs" />
-     <Compile Include="Assets\Scripts\Networking\TeamLetter.cs" />
+     <Compile Include="Assets\Scripts\Cameras\MinimapController.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

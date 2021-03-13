@@ -35,12 +35,7 @@ public class MainMenu : MonoBehaviour
     {
         landingPagePanel.SetActive(false);
 
-        if (useSteam)
-        {
-            SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 6);
-        }
-
-        NetworkManager.singleton.StartHost();
+        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 6);
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
@@ -53,6 +48,8 @@ public class MainMenu : MonoBehaviour
         }
 
         LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
+
+        NetworkManager.singleton.StartHost();
         
         SteamMatchmaking.SetLobbyData(
             LobbyId,

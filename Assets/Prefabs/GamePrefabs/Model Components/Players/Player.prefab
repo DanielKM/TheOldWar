@@ -186,6 +186,8 @@ MonoBehaviour:
   UI: {fileID: 0}
   playerAudio: {fileID: -6281840144472239566}
   spawnPoint: {fileID: 0}
+  team: {fileID: 0}
+  teamMaterial: {fileID: 0}
   isComputerAI: 0
   buildingRangeLimit: 35
   maxAllowablePopulation: 400
@@ -254,8 +256,8 @@ MonoBehaviour:
   playerCameraTransform: {fileID: 2223779495634536670}
   speed: 25
   screenBorderThickness: 10
-  screenXLimits: {x: -150, y: 150}
-  screenZLimits: {x: -150, y: 150}
+  screenXLimits: {x: -200, y: 200}
+  screenZLimits: {x: -200, y: 200}
   panSpeed: 0.2
   minHeight: 10
   maxHeight: 60
@@ -474,5 +476,4 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   profileImage: {fileID: 0}
-  displayNameText: {fileID: 0}
   steamName: 

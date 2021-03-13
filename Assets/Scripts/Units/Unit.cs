@@ -18,6 +18,7 @@ public class Unit : NetworkBehaviour
     [SerializeField] public AudioClip unitReportingClip;
     [SerializeField] public AudioClip unitSelectedClip;
     [SerializeField] public GameObject corpseSkeleton;
+    [SerializeField] public GameObject model;
     [SerializeField] public Vector3 boxColliderSize;
     public Sprite unitIcon;
     
@@ -101,6 +102,16 @@ public class Unit : NetworkBehaviour
             x.GetComponent<GameobjectLists>().units.Add(this);
 
             unitInformation.owner.myActiveUnits.Add(this);
+        
+            Material[] materialArray = {unitInformation.owner.teamMaterial };
+
+            foreach (Transform child in model.transform)
+            {
+                if(child.TryGetComponent<SkinnedMeshRenderer>(out SkinnedMeshRenderer renderer))
+                {
+                    renderer.materials = materialArray;
+                }
+            }
         }
     }
 
@@ -241,8 +252,6 @@ public class Unit : NetworkBehaviour
         // { 
         //     unitHandlers.GetComponent<GameobjectLists>().units.Add(this);
         // }
-        
-        // if(unitInformation.owner == null ) { return; }
 
         // unitInformation.owner.myActiveUnits.Add(this);
     }

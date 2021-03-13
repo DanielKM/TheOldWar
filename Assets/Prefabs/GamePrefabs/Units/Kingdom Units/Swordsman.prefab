@@ -27,7 +27,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 73bc896cee4fe1c45a7471633317f470, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -389,6 +390,10 @@ PrefabInstance:
       propertyPath: iron
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 2184105862971780189}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: steel
       value: 0
@@ -736,6 +741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a56dfc257ad60804fa9870fefe4c41b8, type: 3}
+--- !u!1 &2184105862971780189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7918981313826021795, guid: a56dfc257ad60804fa9870fefe4c41b8, type: 3}
+  m_PrefabInstance: {fileID: 8334578761031323134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2184105862981132267 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7918981313818726933, guid: a56dfc257ad60804fa9870fefe4c41b8, type: 3}

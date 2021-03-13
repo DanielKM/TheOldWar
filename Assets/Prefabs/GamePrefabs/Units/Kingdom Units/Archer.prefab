@@ -143,6 +143,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -385,6 +386,10 @@ PrefabInstance:
       propertyPath: wood
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 5617740174445158106}
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitIcon
       value: 
@@ -749,6 +754,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: e19f1f37335165f4daa6f9514ce9b27e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24264fd5ed4c19e428f4ae7c1ad17f5c, type: 3}
+--- !u!1 &5617740174445158106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100054, guid: 24264fd5ed4c19e428f4ae7c1ad17f5c, type: 3}
+  m_PrefabInstance: {fileID: 5617740174445189132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &5617740174452583788 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 24264fd5ed4c19e428f4ae7c1ad17f5c, type: 3}

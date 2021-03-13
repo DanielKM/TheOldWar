@@ -8,8 +8,8 @@ using UnityEngine.InputSystem;
 public class Minimap : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
     [SerializeField] private RectTransform minimapRect = null;
-    [SerializeField] private float mapScale = 20f;
-    [SerializeField] private float offset = -6f;
+    [SerializeField] private float mapScale = 200f;
+    [SerializeField] private float offset = -40f;
     [SerializeField] private float xyOffset = -6f;
 
     private Transform playerCameraTransform;
@@ -23,8 +23,7 @@ public class Minimap : MonoBehaviour, IPointerDownHandler, IDragHandler
 
         if(NetworkClient.connection.identity == null) { return; }
 
-        playerCameraTransform = NetworkClient.connection.identity
-            .GetComponent<RTSPlayer>().GetCameraTransform();
+        playerCameraTransform = NetworkClient.connection.identity.GetComponent<RTSPlayer>().GetCameraTransform();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -49,7 +48,10 @@ public class Minimap : MonoBehaviour, IPointerDownHandler, IDragHandler
         )) { return; }
 
         Vector2 lerp = new Vector2(
-            (localPoint.x - minimapRect.rect.x - xyOffset) / minimapRect.rect.width,
+            (localPoint.x
+             - minimapRect.rect.x 
+            //  - xyOffset
+            ) / minimapRect.rect.width,
             (localPoint.y - minimapRect.rect.y) / minimapRect.rect.height);
 
         Vector3 newCameraPos = new Vector3(

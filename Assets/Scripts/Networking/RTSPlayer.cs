@@ -17,7 +17,8 @@ public class RTSPlayer : NetworkBehaviour
     [SerializeField] private AudioSource playerAudio;
     [SerializeField] public GameObject spawnPoint;
     public Team team = null;
-    [SerializeField] public Texture2D teamTexture;
+    [SerializeField] public Material teamMaterial;
+    EventCycle EventCycle;
     
     [Header("Settings")]
     [SerializeField] private bool isComputerAI = false;
@@ -433,14 +434,20 @@ public class RTSPlayer : NetworkBehaviour
     [Command]
     public void CmdCastSpell(Vector3 point)
     {
+        EventCycle = GameObject.Find("EventHandler").GetComponent<EventCycle>();
         // Pooled spells
-        
+        if(EventCycle.instability <= 100) 
+        { 
+            EventCycle.instability += 1;
+        }
+
         GameObject objSpell = (GameObject)Instantiate(spells[0].gameObject);
 
         objSpell.transform.position = point;
 
         objSpell.GetComponent<UnitInformation>().owner = connectionToClient.identity.GetComponent<RTSPlayer>();
         objSpell.GetComponent<UnitInformation>().team = this.team;
+                
 
         NetworkServer.Spawn(objSpell, connectionToClient);
     }
@@ -479,12 +486,16 @@ public class RTSPlayer : NetworkBehaviour
     {
         if(unit.connectionToClient == null ) { return; }
 
+        if(unit.connectionToClient != connectionToClient) { return; }
+
         myUnits.Add(unit);
     }
 
     private void ServerHandleUnitDespawned(Unit unit)
     {
         if(unit.connectionToClient == null ) { return; }
+
+        if(unit.connectionToClient != connectionToClient) { return; }
         
         myUnits.Remove(unit);
     }
@@ -492,6 +503,8 @@ public class RTSPlayer : NetworkBehaviour
     private void ServerHandleBuildingSpawned(Building building)
     {
         if(building.connectionToClient == null ) { return; }
+
+        if(building.connectionToClient != connectionToClient) { return; }
 
         myBuildings.Add(building);
 
@@ -501,6 +514,8 @@ public class RTSPlayer : NetworkBehaviour
     private void ServerHandleBuildingDespawned(Building building)
     {
         if(building.connectionToClient == null ) { return; }
+
+        if(building.connectionToClient != connectionToClient) { return; }
         
         myBuildings.Remove(building);
     }

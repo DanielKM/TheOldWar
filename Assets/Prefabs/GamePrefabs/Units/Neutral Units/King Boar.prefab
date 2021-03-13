@@ -37,7 +37,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 45
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -72,7 +72,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -170,6 +170,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -358,6 +359,10 @@ PrefabInstance:
       propertyPath: id
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 4907669975952035514}
     - target: {fileID: 6293200833163542637, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: unitIcon
       value: 
@@ -697,6 +702,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26653d88c05a84f4fb58428bdfc900d1, type: 3}
+--- !u!1 &4907669975952035514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1960965127817164, guid: 26653d88c05a84f4fb58428bdfc900d1, type: 3}
+  m_PrefabInstance: {fileID: 4908216245245233526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4992688848168509220 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95952891676169810, guid: 26653d88c05a84f4fb58428bdfc900d1, type: 3}

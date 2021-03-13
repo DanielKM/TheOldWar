@@ -27,7 +27,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2cd1583ed0ef09243b417a2aec5f57e8, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -230,7 +231,7 @@ MonoBehaviour:
   healCaster: {fileID: 1753200176847573973, guid: c899af82cde0d4244b6ea727faf9f471, type: 3}
   unitTask: {fileID: 3269931612645664802}
   unit: {fileID: 5775123849031141255}
-  healingInjured: 0
+  healing: 0
   period: 2
   detectionRadius: 10
   unitLayer:
@@ -419,6 +420,10 @@ PrefabInstance:
       propertyPath: gold
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 6567771317257360111}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitIcon
       value: 
@@ -704,6 +709,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 9accc45f3a5ac9c43a987693fdf6ceb6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11ebc15ce18dc3438bf8f3faa5d73d6, type: 3}
+--- !u!1 &6567771317257360111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4956073739007431384, guid: b11ebc15ce18dc3438bf8f3faa5d73d6, type: 3}
+  m_PrefabInstance: {fileID: 2297658216960606263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &6567771317264621913 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4956073739016954222, guid: b11ebc15ce18dc3438bf8f3faa5d73d6, type: 3}

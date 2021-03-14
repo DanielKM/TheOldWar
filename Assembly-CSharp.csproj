@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scripts\Inputs\CursorHit.cs" />
      <Compile Include="Assets\Scripts\Menus\Lobby\AddComputerPlayerButton.cs" />
      <Compile Include="Assets\Scripts\Combat\Health.cs" />
+     <Compile Include="Assets\Scripts\Game\Steam\SteamCloudPrefs.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\UI\bl_LoadingScreenUI.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarBlur.cs" />
      <Compile Include="Assets\Scripts\UI\Cursors.cs" />
@@ -86,6 +87,7 @@
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test3D\FogOfWar3DMinimapIcon.cs" />
      <Compile Include="Assets\Scripts\UI\UnitButton.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
+     <Compile Include="Assets\Scripts\Game\Steam\SaveLoadFile.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\EventTriggerInvoker.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitType.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\Champion.cs" />
@@ -94,6 +96,7 @@
      <Compile Include="Assets\Scripts\Menus\JoinLobbyMenu.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Runtime\Utils\bl_TriggerLoad.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarPostProcessManager.cs" />
+     <Compile Include="Assets\Scripts\Cameras\MinimapController.cs" />
      <Compile Include="Assets\Scripts\Buildings\UnitSpawner.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarEvents.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test2D\FogOfWar2DTest.cs" />
@@ -180,6 +183,7 @@
      <Compile Include="Assets\Scripts\Combat\Spells\SpellEffect.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Structures\bl_SceneLoaderInfo.cs" />
      <Compile Include="Assets\Scripts\Lighting\EventCycle.cs" />
+     <Compile Include="Assets\Scripts\Game\Steam\SteamHandler.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderPercentController.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\ResourceBarController.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarShape.cs" />
@@ -190,7 +194,7 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Cameras\MinimapController.cs" />
+     <Compile Include="Assets\MenuProfileInformation.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

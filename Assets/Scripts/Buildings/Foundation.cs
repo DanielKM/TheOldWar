@@ -24,7 +24,7 @@ public class Foundation : NetworkBehaviour
     public void SetProgress(int amount)
     {
         progress += amount;
-        if(progress >= 100) 
+        if(progress >= maxProgress) 
         {
             CreateStructure();
         }

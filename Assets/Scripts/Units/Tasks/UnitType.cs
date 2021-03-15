@@ -49,5 +49,7 @@ public enum UnitType
     KingBoar,
     Hospital,
     Healer,
-    HospitalFoundation
+    HospitalFoundation,
+    Caravan,
+    CaravanFoundation
 }

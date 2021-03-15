@@ -47,6 +47,7 @@ public class PooledGameobjects : NetworkBehaviour
     public GameObject woodWall;
     public GameObject wizardTower;
     public GameObject hospital;
+    public GameObject caravan;
 
     [Header("Projectiles")]
     [Header("Lists")]
@@ -81,6 +82,7 @@ public class PooledGameobjects : NetworkBehaviour
     public List<GameObject> woodWalls;
     public List<GameObject> wizardTowers;
     public List<GameObject> hospitals;
+    public List<GameObject> caravans;
 
     void Start() 
     {
@@ -163,6 +165,8 @@ public class PooledGameobjects : NetworkBehaviour
         ServerAddItemInHierarchy("Wizard Towers", pooledBuildings);
 
         ServerAddItemInHierarchy("Hospitals", pooledBuildings);
+
+        ServerAddItemInHierarchy("Caravans", pooledBuildings);
 
         #endregion
 
@@ -252,6 +256,8 @@ public class PooledGameobjects : NetworkBehaviour
                 SpawnGameObject(wizardTower, wizardTowers, "Wizard Towers");
 
                 SpawnGameObject(hospital, hospitals, "Hospitals");
+
+                SpawnGameObject(caravan, caravans, "Caravans");
             }
             
             #endregion

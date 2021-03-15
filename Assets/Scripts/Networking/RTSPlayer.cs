@@ -396,6 +396,12 @@ public class RTSPlayer : NetworkBehaviour
             case UnitType.WizardTower:
                 // pooledBuildings = gameObject.GetComponent<PooledGameobjects>().wizardTowers;
                 break;
+            case UnitType.Hospital:
+                // pooledBuildings = gameObject.GetComponent<PooledGameobjects>().wizardTowers;
+                break;
+            case UnitType.Caravan:
+                // pooledBuildings = gameObject.GetComponent<PooledGameobjects>().wizardTowers;
+                break;
             default: 
                 // pooledBuildings = gameObject.GetComponent<PooledGameobjects>().woodWalls;
                 break;

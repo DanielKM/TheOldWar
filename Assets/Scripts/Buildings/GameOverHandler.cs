@@ -27,23 +27,41 @@ public class GameOverHandler : NetworkBehaviour
     }
 
     [Server]
+    private void Start()
+    {
+        StartCoroutine(ReadyCaravan());
+    }
+
+    [Server]
+    IEnumerator ReadyCaravan()
+    {
+        // HERE DAN
+
+        yield return new WaitForSeconds(10);
+
+        RpcGameOver("You escaped unscathed!");
+
+        ServerOnGameOver?.Invoke();
+    }
+
+    [Server]
     private void ServerHandleBaseSpawned(UnitBase unitBase) 
     {
-        bases.Add(unitBase);
+        // bases.Add(unitBase);
     }
 
     [Server]
     private void ServerHandleBaseDespawned(UnitBase unitBase) 
     {
-        bases.Remove(unitBase);
+        // bases.Remove(unitBase);
 
-        if(bases.Count !=1) { return; }
+        // if(bases.Count !=1) { return; }
 
-        int playerId = bases[0].connectionToClient.connectionId;
+        // int playerId = bases[0].connectionToClient.connectionId;
 
-        RpcGameOver($"Player {playerId}");
+        // RpcGameOver($"Player {playerId}");
 
-        ServerOnGameOver?.Invoke();
+        // ServerOnGameOver?.Invoke();
     }
 
     #endregion
@@ -57,4 +75,6 @@ public class GameOverHandler : NetworkBehaviour
     }
 
     #endregion
+
+
 }

@@ -84,9 +84,9 @@ public class RTSNetworkManager : NetworkManager
     {
         if(SceneManager.GetActiveScene().name.StartsWith("Scene_Map"))
         {
-            GameOverHandler gameOverHandlerInstance = Instantiate(gameOverHandlerPrefab);
+            // GameOverHandler gameOverHandlerInstance = Instantiate(gameOverHandlerPrefab);
 
-            NetworkServer.Spawn(gameOverHandlerInstance.gameObject);
+            // NetworkServer.Spawn(gameOverHandlerInstance.gameObject); Dan Here
 
             gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
 

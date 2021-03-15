@@ -189,7 +189,7 @@ MonoBehaviour:
   team: {fileID: 0}
   teamMaterial: {fileID: 0}
   isComputerAI: 0
-  buildingRangeLimit: 35
+  buildingRangeLimit: 25
   maxAllowablePopulation: 400
   numberOfPlayers: 4
   gold: 100000
@@ -226,6 +226,7 @@ MonoBehaviour:
   - {fileID: 4750378815598376602, guid: c773bc219d914004eb9d4e979b06dc3b, type: 3}
   - {fileID: 4935380239225447750, guid: 8a18acafb19e43246849087886f14c7a, type: 3}
   - {fileID: 4935380239225447750, guid: fe68e7938096e754b9700af1cd19cfde, type: 3}
+  - {fileID: 2042867125702451865, guid: c9945c3ad3ec93e46ae0bd63e42b814a, type: 3}
   units:
   - {fileID: 5775123849031141255, guid: 70e4f6a3ccec78a4da8661fd11c9c3b7, type: 3}
   - {fileID: 5775123849031141255, guid: 25f87b013e079da40888d0c5bf64785a, type: 3}
@@ -436,6 +437,7 @@ MonoBehaviour:
   woodWall: {fileID: 6205032801623238530, guid: c773bc219d914004eb9d4e979b06dc3b, type: 3}
   wizardTower: {fileID: 6020738782002525278, guid: 8a18acafb19e43246849087886f14c7a, type: 3}
   hospital: {fileID: 6020738782002525278, guid: fe68e7938096e754b9700af1cd19cfde, type: 3}
+  caravan: {fileID: 840397401372963713, guid: c9945c3ad3ec93e46ae0bd63e42b814a, type: 3}
   arrows: []
   pickaxes: []
   swords: []
@@ -461,6 +463,7 @@ MonoBehaviour:
   woodWalls: []
   wizardTowers: []
   hospitals: []
+  caravans: []
 --- !u!114 &3040260929134780032
 MonoBehaviour:
   m_ObjectHideFlags: 0

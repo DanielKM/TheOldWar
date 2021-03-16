@@ -28,43 +28,43 @@ public class RTSPlayer : NetworkBehaviour
     public int numberOfPlayers = 4;
 
     [SyncVar(hook = nameof(ClientHandleGoldUpdated))]
-    [SerializeField] private int gold = 1000;
+    [SerializeField] public int gold = 1000;
 
     [SyncVar(hook = nameof(ClientHandleMaxGoldUpdated))]
     [SerializeField] private int maxGold = 1000;
     
     [SyncVar(hook = nameof(ClientHandleIronUpdated))]
-    [SerializeField] private int iron = 0;
+    [SerializeField] public int iron = 0;
     [SyncVar(hook = nameof(ClientHandleMaxIronUpdated))]
     [SerializeField] private int maxIron = 1000;
 
     [SyncVar(hook = nameof(ClientHandleSteelUpdated))]
-    [SerializeField] private int steel = 0;
+    [SerializeField] public int steel = 0;
     [SyncVar(hook = nameof(ClientHandleMaxSteelUpdated))]
     [SerializeField] private int maxSteel = 1000;
 
     [SyncVar(hook = nameof(ClientHandleSkymetalUpdated))]
-    [SerializeField] private int skymetal = 0;
+    [SerializeField] public int skymetal = 0;
     [SyncVar(hook = nameof(ClientHandleMaxSkymetalUpdated))]
     [SerializeField] private int maxSkymetal = 1000;
 
     [SyncVar(hook = nameof(ClientHandleWoodUpdated))]
-    [SerializeField] private int wood = 0;
+    [SerializeField] public int wood = 0;
     [SyncVar(hook = nameof(ClientHandleMaxWoodUpdated))]
     [SerializeField] private int maxWood = 1000;
 
     [SyncVar(hook = nameof(ClientHandleStoneUpdated))]
-    [SerializeField] private int stone = 0;
+    [SerializeField] public int stone = 0;
     [SyncVar(hook = nameof(ClientHandleMaxStoneUpdated))]
     [SerializeField] private int maxStone = 1000;
 
     [SyncVar(hook = nameof(ClientHandleFoodUpdated))]
-    [SerializeField] private int food = 0;
+    [SerializeField] public int food = 0;
     [SyncVar(hook = nameof(ClientHandleMaxFoodUpdated))]
     [SerializeField] private int maxFood = 1000;
 
     [SyncVar(hook = nameof(ClientHandlePopulationUpdated))]
-    [SerializeField] private int population = 0;
+    [SerializeField] public int population = 0;
     [SyncVar(hook = nameof(ClientHandleMaxPopulationUpdated))]
     [SerializeField] private int maxPopulation = 0;
 

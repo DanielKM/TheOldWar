@@ -5,14 +5,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverDisplay : MonoBehaviour
+public class GameOverDisplay : NetworkBehaviour
 {
     [SerializeField] private GameObject gameOverDisplayParent = null;
     [SerializeField] private TMP_Text winnerNameText = null;
+    private RTSPlayer player = null;
 
     private void Start()
     {
         GameOverHandler.ClientOnGameOver += ClientHandleGameOver;
+
+        if(connectionToClient == null ) { return; }
+        
+        player = connectionToClient.identity.GetComponent<RTSPlayer>();
     }
 
     private void OnDestroy()
@@ -42,39 +47,17 @@ public class GameOverDisplay : MonoBehaviour
         {
             SteamCloudPrefs SteamStorage = GameObject.Find("NetworkManager").GetComponent<SteamHandler>().SteamStorage;
 
-            // SteamStorage = SaveLoadFile.Load();
-
-            SteamStorage.gold += 34;
-            SteamStorage.iron += 34;
-            SteamStorage.steel += 34;
-            SteamStorage.skymetal += 34;
-            SteamStorage.wood += 34;
-            SteamStorage.stone += 34;
-            SteamStorage.food += 34;
-            SteamStorage.armySize += 34;
+            SteamStorage.gold += player.gold;
+            SteamStorage.iron += player.iron;
+            SteamStorage.steel += player.steel;
+            SteamStorage.skymetal += player.skymetal;
+            SteamStorage.wood += player.wood;
+            SteamStorage.stone += player.stone;
+            SteamStorage.food += player.food;
+            SteamStorage.armySize += player.population;
 
             SteamStorage.wins += 1;
-            SteamStorage.kills += 34;
-
-            // PlayerPrefs.SetString ("name", SteamStorage.name);
-            // PlayerPrefs.SetInt ("wins", SteamStorage.wins);
-            // PlayerPrefs.SetInt ("losses", SteamStorage.losses);
-            // PlayerPrefs.SetInt ("kills", SteamStorage.kills);
-
-            // PlayerPrefs.SetInt ("gold", SteamStorage.gold);
-            // PlayerPrefs.SetInt ("iron", SteamStorage.iron);
-            // PlayerPrefs.SetInt ("steel", SteamStorage.steel);
-            // PlayerPrefs.SetInt ("skymetal", SteamStorage.skymetal);
-            // PlayerPrefs.SetInt ("wood", SteamStorage.wood);
-            // PlayerPrefs.SetInt ("stone", SteamStorage.stone);
-            // PlayerPrefs.SetInt ("food", SteamStorage.food);
-            // PlayerPrefs.SetInt ("armySize", SteamStorage.armySize);
-
-            // PlayerPrefs.SetString ("relics", SteamStorage.relics);
-            // PlayerPrefs.SetString ("unlocks", SteamStorage.unlocks);
-            // PlayerPrefs.SetString ("rank", SteamStorage.rank);
-
-            // PlayerPrefs.Save();
+            // SteamStorage.kills += 34;
 
             SaveLoadFile.Save(SteamStorage);
         }
@@ -82,6 +65,6 @@ public class GameOverDisplay : MonoBehaviour
 
     private void ClientHandleGameOver(string winner)
     {
-        gameOverDisplayParent.SetActive(true);
+        // gameOverDisplayParent.SetActive(true);
     }
 }

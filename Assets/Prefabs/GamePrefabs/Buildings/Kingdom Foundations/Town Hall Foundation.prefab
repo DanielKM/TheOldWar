@@ -160,6 +160,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   owner: {fileID: 0}
+  team: {fileID: 0}
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
@@ -438,19 +439,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.631134
+      value: -77.064514
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.9999981
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -151.5586
+      value: -156.0665
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9659258
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalRotation.x
@@ -458,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.25881916
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6753869089997109086, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_LocalRotation.z

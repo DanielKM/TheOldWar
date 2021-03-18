@@ -52,7 +52,7 @@ MonoBehaviour:
   detectionRadius: 10
   unitLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1025
 --- !u!135 &7412666883222851681
 SphereCollider:
   m_ObjectHideFlags: 0

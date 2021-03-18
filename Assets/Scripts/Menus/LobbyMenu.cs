@@ -96,8 +96,6 @@ public class LobbyMenu : NetworkBehaviour
         else 
         {
             NetworkManager.singleton.StopClient();
-
-            SceneManager.LoadScene(0);
         }
     }
 }

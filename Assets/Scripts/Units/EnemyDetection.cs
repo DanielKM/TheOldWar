@@ -46,7 +46,7 @@ public class EnemyDetection : MonoBehaviour
 
             Vector3 center = unit.gameObject.transform.position;
 
-            Collider[] colliders = Physics.OverlapSphere(center, detectionRadius,  1 << 10);
+            Collider[] colliders = Physics.OverlapSphere(center, detectionRadius, unitLayer);
             
             Collider nearestCollider = null;
             float minSqrDistance = Mathf.Infinity;

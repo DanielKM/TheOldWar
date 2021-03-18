@@ -44,7 +44,7 @@ public class BuildingPlacementHandler : MonoBehaviour
             } 
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || Mouse.current.rightButton.wasPressedThisFrame)
         {
             Destroy(buildingPreviewInstance);
 

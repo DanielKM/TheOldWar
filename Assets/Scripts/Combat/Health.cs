@@ -6,6 +6,7 @@ public class Health : NetworkBehaviour
 {
     [Header("References")]
     private UnitSelectionHandler unitSelection = null;
+    [SerializeField] private GameObject damageEffect = null;
 
     [Header("Settings")]
     [SerializeField] public int maxHealth = 100;
@@ -56,9 +57,15 @@ public class Health : NetworkBehaviour
     {
         float armourModifier = CheckArmourModifiers();
 
-        // if(currentHealth == 0) { return; }
-
         currentHealth = Mathf.Max(currentHealth - (int)Math.Ceiling(damageAmount/armourModifier), 0);
+
+        if(currentHealth <= maxHealth/2) 
+        { 
+            if(damageEffect) 
+            {
+                damageEffect.SetActive(true);
+            }
+        }
 
         if(currentHealth > 0) { return; }
 
@@ -81,7 +88,13 @@ public class Health : NetworkBehaviour
 
         if (currentHealth > maxHealth) { currentHealth = maxHealth; }
 
-        // if(currentHealth > 0) { return; }
+        if(currentHealth >= maxHealth/2) 
+        { 
+            if(damageEffect) 
+            {
+                damageEffect.SetActive(true);
+            }
+        }
 
         if(gameObject.TryGetComponent<Unit>(out Unit unit)) 
         {

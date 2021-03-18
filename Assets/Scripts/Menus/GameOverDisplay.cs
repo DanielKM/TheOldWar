@@ -17,7 +17,7 @@ public class GameOverDisplay : NetworkBehaviour
 
         if(connectionToClient == null ) { return; }
         
-        player = connectionToClient.identity.GetComponent<RTSPlayer>();
+        // player = connectionToClient.identity.GetComponent<RTSPlayer>();
     }
 
     private void OnDestroy()
@@ -37,7 +37,7 @@ public class GameOverDisplay : NetworkBehaviour
         {
             NetworkManager.singleton.StopClient();
 
-            SceneManager.LoadScene("Scene_Menu_Import");
+            Application.Quit();
         }
     }
 
@@ -47,14 +47,16 @@ public class GameOverDisplay : NetworkBehaviour
         {
             SteamCloudPrefs SteamStorage = GameObject.Find("NetworkManager").GetComponent<SteamHandler>().SteamStorage;
 
-            SteamStorage.gold += player.gold;
-            SteamStorage.iron += player.iron;
-            SteamStorage.steel += player.steel;
-            SteamStorage.skymetal += player.skymetal;
-            SteamStorage.wood += player.wood;
-            SteamStorage.stone += player.stone;
-            SteamStorage.food += player.food;
-            SteamStorage.armySize += player.population;
+            // player = connectionToClient.identity.GetComponent<RTSPlayer>();
+
+            SteamStorage.gold += 200;
+            SteamStorage.iron += 200;
+            SteamStorage.steel += 200;
+            SteamStorage.skymetal += 200;
+            SteamStorage.wood += 200;
+            SteamStorage.stone += 200;
+            SteamStorage.food += 200;
+            SteamStorage.armySize += 200;
 
             SteamStorage.wins += 1;
             // SteamStorage.kills += 34;
@@ -65,6 +67,6 @@ public class GameOverDisplay : NetworkBehaviour
 
     private void ClientHandleGameOver(string winner)
     {
-        // gameOverDisplayParent.SetActive(true);
+        gameOverDisplayParent.SetActive(true);
     }
 }

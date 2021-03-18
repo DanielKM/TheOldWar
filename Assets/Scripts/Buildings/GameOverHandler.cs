@@ -14,17 +14,17 @@ public class GameOverHandler : NetworkBehaviour
 
     #region Server
 
-    public override void OnStartServer()
-    {
-        UnitBase.ServerOnBaseSpawned += ServerHandleBaseSpawned;
-        UnitBase.ServerOnBaseDespawned += ServerHandleBaseDespawned;
-    }
+    // public override void OnStartServer()
+    // {
+    //     UnitBase.ServerOnBaseSpawned += ServerHandleBaseSpawned;
+    //     UnitBase.ServerOnBaseDespawned += ServerHandleBaseDespawned;
+    // }
 
-    public override void OnStopServer()
-    {
-        UnitBase.ServerOnBaseSpawned -= ServerHandleBaseSpawned;
-        UnitBase.ServerOnBaseDespawned -= ServerHandleBaseDespawned;
-    }
+    // public override void OnStopServer()
+    // {
+    //     UnitBase.ServerOnBaseSpawned -= ServerHandleBaseSpawned;
+    //     UnitBase.ServerOnBaseDespawned -= ServerHandleBaseDespawned;
+    // }
 
     [Server]
     private void Start()
@@ -44,25 +44,25 @@ public class GameOverHandler : NetworkBehaviour
         ServerOnGameOver?.Invoke();
     }
 
-    [Server]
-    private void ServerHandleBaseSpawned(UnitBase unitBase) 
-    {
-        // bases.Add(unitBase);
-    }
+    // [Server]
+    // private void ServerHandleBaseSpawned(UnitBase unitBase) 
+    // {
+    //     bases.Add(unitBase);
+    // }
 
-    [Server]
-    private void ServerHandleBaseDespawned(UnitBase unitBase) 
-    {
-        // bases.Remove(unitBase);
+    // [Server]
+    // private void ServerHandleBaseDespawned(UnitBase unitBase) 
+    // {
+    //     bases.Remove(unitBase);
 
-        // if(bases.Count !=1) { return; }
+    //     if(bases.Count !=1) { return; }
 
-        // int playerId = bases[0].connectionToClient.connectionId;
+    //     int playerId = bases[0].connectionToClient.connectionId;
 
-        // RpcGameOver($"Player {playerId}");
+    //     RpcGameOver($"Player {playerId}");
 
-        // ServerOnGameOver?.Invoke();
-    }
+    //     ServerOnGameOver?.Invoke();
+    // }
 
     #endregion
 

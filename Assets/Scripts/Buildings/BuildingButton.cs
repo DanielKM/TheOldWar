@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Building building = null;
+    [SerializeField] private Material greenMaterial = null;
+    [SerializeField] private Material redMaterial = null;
     [SerializeField] private Image iconImage = null;
     [SerializeField] private LayerMask floorMask = new LayerMask();
 
@@ -17,7 +19,7 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
     private BoxCollider buildingCollider;
     private RTSPlayer player;
     private GameObject buildingPreviewInstance;
-    private Renderer buildingRendererInstance;
+    private MeshRenderer buildingRendererInstance;
     BuildingPlacementHandler buildingPlacementHandler;
 
     private 
@@ -85,8 +87,6 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
             // Add pooled buildings here
             buildingPreviewInstance = Instantiate(building.GetBuildingPreview());
 
-            buildingRendererInstance = buildingPreviewInstance.GetComponentInChildren<Renderer>();
-
             buildingPreviewInstance.SetActive(false);
             
             buildingPlacementHandler.placingBuilding = true;
@@ -110,8 +110,22 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
             buildingPreviewInstance.SetActive(true);
         }
 
-        Color color = player.CanPlaceBuilding(buildingCollider, hit.point) ? Color.green : Color.red;
+        Material mat = player.CanPlaceBuilding(buildingCollider, hit.point) ? greenMaterial : redMaterial;
 
-        buildingRendererInstance.material.SetColor("_BaseColor", color);
+        foreach (Transform child in buildingPreviewInstance.transform) 
+        {
+            if(child.gameObject.GetComponent<MeshRenderer>() != null)
+            {
+                MeshRenderer renderers = child.gameObject.GetComponent<MeshRenderer>();
+
+                Material[] mats = new Material[renderers.materials.Length];
+                for(int i=0; i<renderers.materials.Length; i++)
+                {
+                    mats[i] = mat;
+                }
+
+                renderers.materials = mats;
+            }
+        }
     }
 }

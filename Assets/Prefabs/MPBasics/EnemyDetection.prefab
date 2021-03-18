@@ -48,6 +48,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   unit: {fileID: 0}
+  period: 2
+  detectionRadius: 10
+  unitLayer:
+    serializedVersion: 2
+    m_Bits: 1025
 --- !u!135 &6809647315601482266
 SphereCollider:
   m_ObjectHideFlags: 0

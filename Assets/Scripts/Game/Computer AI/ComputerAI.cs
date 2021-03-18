@@ -28,6 +28,13 @@ public class ComputerAI : MonoBehaviour
     void Start()
     {
         InvokeRepeating("RunAI", 0.0f, checkRate);
+
+        GameOverHandler.ServerOnGameOver += ServerOnGameOver;
+    }
+
+    void OnDestroy()
+    {        
+        GameOverHandler.ServerOnGameOver -= ServerOnGameOver;
     }
 
     public void RunAI()
@@ -217,6 +224,13 @@ public class ComputerAI : MonoBehaviour
             default:
             return;
         }
+    }
+
+    public void ServerOnGameOver()
+    {
+        enabled = false;
+        
+        CancelInvoke (); 
     }
 
     private void SendAppropriateTroops()

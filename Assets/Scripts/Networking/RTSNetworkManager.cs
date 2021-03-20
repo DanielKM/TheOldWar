@@ -10,6 +10,7 @@ public class RTSNetworkManager : NetworkManager
 {
     [SerializeField] private GameObject unitBasePrefab = null;
     [SerializeField] private GameOverHandler gameOverHandlerPrefab = null;
+    [SerializeField] public string selectedLevel = "Scene_Map_01";
     public GameobjectLists gameObjectLists;
 
     public static event Action ClientOnConnected;
@@ -134,6 +135,11 @@ public class RTSNetworkManager : NetworkManager
     public override void OnStopClient()
     {
         Players.Clear();
+    }
+
+    public void SelectLevel(string level)
+    {
+        selectedLevel = level;
     }
 
     #endregion

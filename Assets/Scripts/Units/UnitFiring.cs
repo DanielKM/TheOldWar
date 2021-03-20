@@ -9,7 +9,7 @@ public class UnitFiring : NetworkBehaviour
     [Header("References")]
     [SerializeField] private Targeter targeter = null;
     [SerializeField] private Animator animator = null;
-    [SerializeField] private GameObject projectilePrefab = null;
+    [SerializeField] public GameObject projectilePrefab = null;
     [SerializeField] private Transform projectileSpawnPoint = null;
     [SerializeField] AudioClip attackSound;
     [SerializeField] AudioSource unitAudioSource;
@@ -17,7 +17,7 @@ public class UnitFiring : NetworkBehaviour
 
     [Header("Settings")]
     [SerializeField] private float fireRange = 5f;
-    [SerializeField] private float fireRate = 1f;
+    [SerializeField] public float fireRate = 1f;
     [SerializeField] private float rotationSpeed = 20f;
 
     private UnitInformation unitInformation;

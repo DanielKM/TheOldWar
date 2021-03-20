@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mirror;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RTSPlayer : NetworkBehaviour
 {
@@ -68,6 +69,9 @@ public class RTSPlayer : NetworkBehaviour
     [SyncVar(hook = nameof(ClientHandleMaxPopulationUpdated))]
     [SerializeField] private int maxPopulation = 0;
 
+    [SyncVar(hook = nameof(ClientHandleArmySizeUpdated))]
+    [SerializeField] private int armySize = 0;
+
     [SyncVar(hook = nameof(AuthorityHandlePartyOwnerStateUpdated))]
     private bool isPartyOwner = false;
     [SyncVar(hook = nameof(ClientHandleDisplayNameUpdated))]
@@ -90,6 +94,7 @@ public class RTSPlayer : NetworkBehaviour
     public event Action<int> ClientOnMaxStoneUpdated;
     public event Action<int> ClientOnMaxFoodUpdated;
     public event Action<int> ClientOnMaxPopulationUpdated;
+    public event Action<int> ClientOnArmySizeUpdated;
 
     public static event Action ClientOnInfoUpdated;
     public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
@@ -232,6 +237,10 @@ public class RTSPlayer : NetworkBehaviour
 
         foreach(Unit startingUnit in startingUnits)
         {
+            startingUnit.GetComponent<Health>().currentHealth = startingUnit.GetComponent<Health>().currentHealth * numberOfPlayers;
+            startingUnit.GetComponent<Health>().maxHealth = startingUnit.GetComponent<Health>().maxHealth * numberOfPlayers;
+            startingUnit.GetComponent<NavMeshAgent>().speed = startingUnit.GetComponent<NavMeshAgent>().speed * numberOfPlayers;
+            startingUnit.GetComponent<UnitFiring>().fireRate = startingUnit.GetComponent<UnitFiring>().fireRate * numberOfPlayers;
             myActiveUnits.Add(startingUnit);
         }
 
@@ -642,6 +651,11 @@ public class RTSPlayer : NetworkBehaviour
     private void ClientHandleMaxPopulationUpdated(int oldResources, int newResources)
     {
         ClientOnMaxPopulationUpdated?.Invoke(newResources);
+    }
+
+    private void ClientHandleArmySizeUpdated(int oldArmySize, int newArmySize)
+    {
+        ClientOnArmySizeUpdated?.Invoke(newArmySize);
     }
 
     #endregion

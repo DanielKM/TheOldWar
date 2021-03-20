@@ -182,7 +182,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 2223779495634536670}
   buildingBlockLayer:
     serializedVersion: 2
-    m_Bits: 1281
+    m_Bits: 17681
   UI: {fileID: 0}
   playerAudio: {fileID: -6281840144472239566}
   spawnPoint: {fileID: 0}
@@ -192,22 +192,23 @@ MonoBehaviour:
   buildingRangeLimit: 25
   maxAllowablePopulation: 400
   numberOfPlayers: 4
-  gold: 100000
+  gold: 1500
   maxGold: 100000
-  iron: 100000
+  iron: 0
   maxIron: 100000
-  steel: 100000
+  steel: 0
   maxSteel: 100000
-  skymetal: 100000
+  skymetal: 0
   maxSkymetal: 100000
-  wood: 100000
+  wood: 0
   maxWood: 100000
-  stone: 100000
+  stone: 0
   maxStone: 100000
-  food: 100000
+  food: 500
   maxFood: 100000
   population: 0
   maxPopulation: 0
+  armySize: 0
   displayName: 
   myBuildings: []
   myActiveBuildings: []

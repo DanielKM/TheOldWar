@@ -73,9 +73,12 @@ public class UnitSelectionHandler : MonoBehaviour
 
         PointerEventData mouse1 = EventSystem.current.gameObject.GetComponent<CustomStandaloneInputModule>().GetLastPointerEventDataPublic(-1);
 
-        if(mouse1.pointerPress) 
+        if(mouse1 != null)
         {
-            if (mouse1.pointerPress.CompareTag( "UI" )) { return; }
+            if(mouse1.pointerPress) 
+            {
+                if (mouse1.pointerPress.CompareTag( "UI" )) { return; }
+            }
         }
 
         if(Mouse.current.leftButton.wasPressedThisFrame) 

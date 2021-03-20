@@ -91,11 +91,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   building: {fileID: 0}
+  greenMaterial: {fileID: 2100000, guid: c39933e60e73205419d1f79a2af1fdac, type: 2}
+  redMaterial: {fileID: 2100000, guid: 463052f3f7389124f9e7b34b0b931d0d, type: 2}
   iconImage: {fileID: 229218309012248523}
-  priceText: {fileID: 3898395765879209088}
   floorMask:
     serializedVersion: 2
     m_Bits: 4096
+  testing: 0
 --- !u!1 &5299003270545880201
 GameObject:
   m_ObjectHideFlags: 0

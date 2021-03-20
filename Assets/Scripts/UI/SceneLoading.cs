@@ -13,6 +13,8 @@ public class SceneLoading : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ((RTSNetworkManager)NetworkManager.singleton).StartGame("Scene_Map_01");
+        string level = GameObject.Find("NetworkManager").GetComponent<RTSNetworkManager>().selectedLevel;
+
+        ((RTSNetworkManager)NetworkManager.singleton).StartGame(level);
     }
 }

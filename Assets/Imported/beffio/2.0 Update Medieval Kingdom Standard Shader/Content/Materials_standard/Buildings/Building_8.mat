@@ -134,19 +134,19 @@ Material:
     - _SmoothnessshiftRedChannel: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TilingAlpha: 10
-    - _TilingBlack: 10
-    - _TilingGreen: 10
-    - _TilingRed: 10
+    - _TilingAlpha: 92.3
+    - _TilingBlack: 24.9
+    - _TilingGreen: 59.9
+    - _TilingRed: 51.4
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorshiftAlphaChannel: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorshiftBlackChannel: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorshiftGreenChannel0: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorshiftRedChannel: {r: 1, g: 1, b: 1, a: 0}
+    - _ColorshiftAlphaChannel: {r: 0.3962264, g: 0.22797143, b: 0, a: 0}
+    - _ColorshiftBlackChannel: {r: 0.6132076, g: 0.112807065, b: 0.112807065, a: 1}
+    - _ColorshiftGreenChannel0: {r: 0.5339979, g: 0.9056604, b: 0.5397092, a: 0}
+    - _ColorshiftRedChannel: {r: 0.5566038, g: 0.118147045, b: 0.118147045, a: 1}
     - _EmissionColor: {r: 1.8979702, g: 4.8971257, b: 5.492, a: 1}
     - _Wetness_color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

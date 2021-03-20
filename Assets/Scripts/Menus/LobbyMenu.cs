@@ -14,8 +14,9 @@ public class LobbyMenu : NetworkBehaviour
     [SerializeField] private Button startGameButton = null;
     [SerializeField] private Text[] playerNameTexts = new Text[6];
     [SerializeField] private Team team = null;
-
     [SerializeField] private Material[] teamMaterials = null;
+
+    [SerializeField] private string levelSelected = null;
 
     private void Start()
     {
@@ -97,5 +98,20 @@ public class LobbyMenu : NetworkBehaviour
         {
             NetworkManager.singleton.StopClient();
         }
+    }
+
+    public void SelectLevel(string level)
+    {
+        switch (level)
+        {
+            case "Hindegarde":
+                levelSelected = "Scene_Map_01";
+                break;
+            case "Frozen Tundra":
+                levelSelected = "Scene_Map_01";
+                break;
+        }
+
+        GameObject.Find("NetworkManager").GetComponent<RTSNetworkManager>().SelectLevel(levelSelected);
     }
 }

@@ -71,6 +71,7 @@ public class UIController : MonoBehaviour
     public CanvasGroup BarracksActionPanel;
     public CanvasGroup WizardTowerActionPanel;
     public CanvasGroup HospitalActionPanel;
+    public CanvasGroup FoundationActionPanel;
 
     [Header("Building Fields")]
     public GameObject buildingIcon;
@@ -140,6 +141,7 @@ public class UIController : MonoBehaviour
         BarracksActionPanel = GameObject.Find("BarracksActionPanel").GetComponent<CanvasGroup>();
         WizardTowerActionPanel = GameObject.Find("WizardTowerActionPanel").GetComponent<CanvasGroup>();
         HospitalActionPanel = GameObject.Find("HospitalActionPanel").GetComponent<CanvasGroup>();
+        FoundationActionPanel = GameObject.Find("FoundationActionPanel").GetComponent<CanvasGroup>();
 
         BuildingActionPanel = GameObject.Find("BuildingActions").GetComponent<CanvasGroup>();
     }
@@ -166,20 +168,25 @@ public class UIController : MonoBehaviour
             case UnitType.Barracks:
                 BarracksSelect();
                 break;
-            case UnitType.GoldMine:
-                HouseSelect();
-                break;
-            case UnitType.Market:
-                HouseSelect();
-                break;
-            case UnitType.House:
-                HouseSelect();
-                break;
             case UnitType.WizardTower:
                 WizardTowerSelect();
                 break;
             case UnitType.Hospital:
                 HospitalSelect();
+                break;
+            case UnitType.HouseFoundation:
+            case UnitType.FarmFoundation:
+            case UnitType.TownHallFoundation:
+            case UnitType.BlacksmithFoundation:
+            case UnitType.LumberYardFoundation:
+            case UnitType.StablesFoundation:
+            case UnitType.BarracksFoundation:
+            case UnitType.WatchTowerFoundation:
+            case UnitType.WoodWallFoundation:
+            case UnitType.HospitalFoundation:
+            case UnitType.WizardTowerFoundation:
+            case UnitType.CaravanFoundation:
+                FoundationSelect();
                 break;
             default:
                 HouseSelect();
@@ -394,6 +401,11 @@ public class UIController : MonoBehaviour
         HospitalActionPanel.alpha = 0;
         HospitalActionPanel.blocksRaycasts = false;
         HospitalActionPanel.interactable = false;
+
+        // Foundation panel
+        FoundationActionPanel.alpha = 0;
+        FoundationActionPanel.blocksRaycasts = false;
+        FoundationActionPanel.interactable = false;
 
         // NOTIFICATIONS/TOOLTIPS
         CloseUnitCostPanel();
@@ -725,6 +737,10 @@ public class UIController : MonoBehaviour
         BuildingPanel.alpha = 1;
         BuildingPanel.blocksRaycasts = true;
         BuildingPanel.interactable = true;
+
+        FoundationActionPanel.alpha = 1;
+        FoundationActionPanel.blocksRaycasts = true;
+        FoundationActionPanel.interactable = true;
 
         panelOpen = 2;
     }

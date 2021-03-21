@@ -13,14 +13,14 @@ public class Building : NetworkBehaviour, IPointerClickHandler
     [SerializeField] private Sprite icon = null;
     [SerializeField] private int id = -1;
     
-    [SerializeField] private int gold = 0;
-    [SerializeField] private int iron = 0;
-    [SerializeField] private int steel = 0;
-    [SerializeField] private int skymetal = 0;
-    [SerializeField] private int wood = 0;
-    [SerializeField] private int stone = 0;
-    [SerializeField] private int food = 0;
-    [SerializeField] private int population = 0;
+    [SerializeField] public int gold = 0;
+    [SerializeField] public int iron = 0;
+    [SerializeField] public int steel = 0;
+    [SerializeField] public int skymetal = 0;
+    [SerializeField] public int wood = 0;
+    [SerializeField] public int stone = 0;
+    [SerializeField] public int food = 0;
+    [SerializeField] public int population = 0;
 
     BuildingPlacementHandler buildingPlacementHandler;
 

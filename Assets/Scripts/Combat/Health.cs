@@ -72,11 +72,9 @@ public class Health : NetworkBehaviour
         if(gameObject.TryGetComponent<Unit>(out Unit unit)) 
         {
             // For units
-            Debug.Log("Unit injured");
             ServerOnInjured?.Invoke();
         } else {
             // For buildings
-            Debug.Log("Unit died");
             ServerDie();
         }
     }
@@ -99,9 +97,14 @@ public class Health : NetworkBehaviour
         if(gameObject.TryGetComponent<Unit>(out Unit unit)) 
         {
             // For units
-            Debug.Log("Unit Healed");
             ServerOnHealed?.Invoke();
         }
+    }
+
+    [Command(ignoreAuthority = true)]
+    public void CmdServerDie()
+    {
+        ServerDie();
     }
 
     [Server]

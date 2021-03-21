@@ -31,7 +31,6 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
 
     private void Start()
     {
-
         UI = GameObject.Find("UI").GetComponent<UIController>();
         testing = GameObject.Find("Testing").GetComponent<Testing>().testing;
 

@@ -17,6 +17,7 @@ public class RTSPlayer : NetworkBehaviour
 
     [SerializeField] private AudioSource playerAudio;
     [SerializeField] public GameObject spawnPoint;
+    [SerializeField] public TechTree techTree;
     public Team team = null;
     [SerializeField] public Material teamMaterial;
     EventCycle EventCycle;
@@ -74,6 +75,7 @@ public class RTSPlayer : NetworkBehaviour
 
     [SyncVar(hook = nameof(AuthorityHandlePartyOwnerStateUpdated))]
     private bool isPartyOwner = false;
+    
     [SyncVar(hook = nameof(ClientHandleDisplayNameUpdated))]
     public string displayName;
 
@@ -520,10 +522,10 @@ public class RTSPlayer : NetworkBehaviour
         if(building.connectionToClient == null ) { return; }
 
         if(building.connectionToClient != connectionToClient) { return; }
-
+        
         myBuildings.Add(building);
 
-        gameObject.GetComponent<TechTree>().UpdateUnlocks(building);
+        techTree.UpdateUnlocks(building);
     }
 
     private void ServerHandleBuildingDespawned(Building building)
@@ -533,6 +535,8 @@ public class RTSPlayer : NetworkBehaviour
         if(building.connectionToClient != connectionToClient) { return; }
         
         myBuildings.Remove(building);
+        
+        techTree.UpdateUnlocks(building);
     }
 
     #endregion
@@ -562,9 +566,12 @@ public class RTSPlayer : NetworkBehaviour
     {
         ClientOnInfoUpdated?.Invoke();
 
-        if(!isClientOnly || !hasAuthority) { return; }
+        // if(!isClientOnly || !hasAuthority) { return; } change trial
+        if(!isClientOnly) { return; }
 
         ((RTSNetworkManager)NetworkManager.singleton).Players.Remove(this);
+        
+        if(!hasAuthority) { return; } // added change trial
 
         Unit.AuthorityOnUnitSpawned -= AuthorityHandleUnitSpawned;
         Unit.AuthorityOnUnitDespawned -= AuthorityHandleUnitDespawned;

@@ -8,9 +8,10 @@ using UnityEngine.InputSystem;
 public class Minimap : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
     [SerializeField] private RectTransform minimapRect = null;
-    [SerializeField] private float mapScale = 200f;
-    [SerializeField] private float offset = -40f;
-    [SerializeField] private float xyOffset = -6f;
+    [SerializeField] private float mapScaleX = 250f;
+    [SerializeField] private float mapScaleY = 300f;
+    [SerializeField] private float offsetY = -40f;
+    [SerializeField] private float offsetX = -40f;
 
     private Transform playerCameraTransform;
     
@@ -48,17 +49,14 @@ public class Minimap : MonoBehaviour, IPointerDownHandler, IDragHandler
         )) { return; }
 
         Vector2 lerp = new Vector2(
-            (localPoint.x
-             - minimapRect.rect.x 
-            //  - xyOffset
-            ) / minimapRect.rect.width,
+            (localPoint.x - minimapRect.rect.x) / minimapRect.rect.width,
             (localPoint.y - minimapRect.rect.y) / minimapRect.rect.height);
 
         Vector3 newCameraPos = new Vector3(
-            Mathf.Lerp(-mapScale, mapScale, lerp.x),
-            playerCameraTransform.position.y,
-            Mathf.Lerp(-mapScale, mapScale, lerp.y));
+            Mathf.Lerp(-mapScaleX, mapScaleX, lerp.x),
+            playerCameraTransform.position.y, // 0
+            Mathf.Lerp(-mapScaleY, mapScaleY, lerp.y));
 
-        playerCameraTransform.position = newCameraPos + new Vector3(0, 0, offset);
+        playerCameraTransform.position = newCameraPos + new Vector3(offsetX, 0, offsetY);
     }
 }

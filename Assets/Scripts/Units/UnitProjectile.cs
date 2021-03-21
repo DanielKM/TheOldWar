@@ -67,11 +67,9 @@ public class UnitProjectile : NetworkBehaviour
                     {
                         buildingHealth.CmdHealDamage(10);
                     }
-
                     return;
                 };
             }
-
 
             if(team == other.gameObject.GetComponent<UnitInformation>().team) { return; }
             // if(networkIdentity.connectionToClient == connectionToClient) { return; }

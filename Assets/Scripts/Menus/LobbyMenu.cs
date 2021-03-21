@@ -72,9 +72,12 @@ public class LobbyMenu : NetworkBehaviour
 
             string steamName = SteamFriends.GetFriendPersonaName(steamID);
 
-            players[i].SetDisplayName(steamName);
-            playerNameTexts[i].text = steamName;
+            // players[i].SetDisplayName(steamName); change
+
+            // playerNameTexts[i].text = steamName; change 
+            playerNameTexts[i].text = players[i].GetDisplayName(); 
         }
+        
         for(int i = players.Count; i < playerNameTexts.Length; i++)
         {
             playerNameTexts[i].text = "Waiting For Player...";

@@ -186,6 +186,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   playerAudio: {fileID: -6281840144472239566}
   spawnPoint: {fileID: 0}
+  techTree: {fileID: 9108281440562823343}
   team: {fileID: 0}
   teamMaterial: {fileID: 0}
   isComputerAI: 0

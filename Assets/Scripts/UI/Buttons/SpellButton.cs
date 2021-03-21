@@ -14,8 +14,6 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private Image iconImage = null;
     private SpellHandler spellHandler = null;
     private UnitSelectionHandler unitSelection = null;
-    GameObject EventHandler;
-    EventCycle EventCycle;
     private Camera mainCamera;
     private RTSPlayer player;
     private UIController UI = null;
@@ -27,13 +25,6 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
         
         mainCamera = Camera.main;
-
-        EventHandler = GameObject.Find("EventHandler");
-
-        EventCycle = EventHandler.GetComponent<EventCycle>();
-        // iconImage.sprite = spell.GetIcon();
-
-        // buildingCollider = building.GetComponent<BoxCollider>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

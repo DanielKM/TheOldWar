@@ -71,6 +71,7 @@ public class RTSNetworkManager : NetworkManager
         string steamName = SteamFriends.GetFriendPersonaName(steamId);
 
         player.SetDisplayName(steamName);
+        // player.SetDisplayName($"Player {Players.Count}");
 
         player.SetTeamColor(new Color(
             UnityEngine.Random.Range(0f, 1f),

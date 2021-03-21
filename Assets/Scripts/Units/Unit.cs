@@ -103,7 +103,7 @@ public class Unit : NetworkBehaviour
 
             unitInformation.owner.myActiveUnits.Add(this);
         
-            Material[] materialArray = {unitInformation.owner.teamMaterial };
+            Material[] materialArray = { unitInformation.owner.teamMaterial };
 
             foreach (Transform child in model.transform)
             {

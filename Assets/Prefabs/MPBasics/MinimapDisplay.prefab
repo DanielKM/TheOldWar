@@ -185,9 +185,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimapRect: {fileID: 340753017}
-  mapScale: 10
-  offset: -6
-  xyOffset: -6
+  mapScaleX: 250
+  mapScaleY: 250
+  offsetY: -20
+  offsetX: 20
   testing: 0
 --- !u!1 &3413235233910248221
 GameObject:
@@ -249,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693258795724709415, guid: 0b80c36a043c1ce48ab8cd9364e7f866, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.2
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 4693258795724709415, guid: 0b80c36a043c1ce48ab8cd9364e7f866, type: 3}
       propertyPath: m_AnchorMax.y

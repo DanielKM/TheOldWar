@@ -15,8 +15,6 @@ public class SceneLoading : MonoBehaviour
     {
         string level = GameObject.Find("NetworkManager").GetComponent<RTSNetworkManager>().selectedLevel;
 
-        Debug.Log(level);
-        
         ((RTSNetworkManager)NetworkManager.singleton).StartGame(level);
     }
 }

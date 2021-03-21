@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1802643545501853162, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_StoppingDistance
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1802643545501853162, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_ObstacleAvoidanceType

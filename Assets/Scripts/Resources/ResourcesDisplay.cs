@@ -159,12 +159,12 @@ public class ResourcesDisplay : MonoBehaviour
 
     private void ClientHandleSteelUpdated(int resources)
     {
-        steelText.GetComponent<Text>().text = resources + "/" + player.GetResources()[Resource.Steel];
+        steelText.GetComponent<Text>().text = resources + "/" + player.GetMaxResources()[Resource.Steel];
     }
     
     private void ClientHandleMaxSteelUpdated(int resources)
     {
-        steelText.GetComponent<Text>().text = player.GetMaxResources()[Resource.Steel] + "/" + resources;
+        steelText.GetComponent<Text>().text = player.GetResources()[Resource.Steel] + "/" + resources;
     }
     
     private void ClientHandleSkymetalUpdated(int resources)

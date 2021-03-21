@@ -272,8 +272,11 @@ public class UnitSelectionHandler : MonoBehaviour
     private void AddSelectedUnit (Unit unit)
     { 
         UI.UnitSelect(unit.gameObject.GetComponent<UnitInformation>().unitType);
+
         UpdateUnitPanel(unit);
+
         SelectedUnits.Add(unit);
+
         unit.Select();
     }
 
@@ -281,6 +284,7 @@ public class UnitSelectionHandler : MonoBehaviour
     {
         // UI.CloseAllPanels();
         SelectedUnits.Remove(unit);
+        
         unit.Deselect();
     }
 

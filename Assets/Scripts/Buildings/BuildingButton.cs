@@ -47,13 +47,13 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
     }
 
     private void Update() {
-        if(testing)
-        {
-            if(player == null)
-            {
-                player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
-            }
-        }
+        // if(testing)
+        // {
+        //     if(player == null)
+        //     {
+        //         player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+        //     }
+        // }
 
         if(buildingPreviewInstance == null) { return; }
 

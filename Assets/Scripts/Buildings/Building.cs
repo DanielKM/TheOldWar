@@ -39,8 +39,6 @@ public class Building : NetworkBehaviour, IPointerClickHandler
 
     public void Start()
     {
-        UIGameObject = GameObject.Find("UI");
-        UI = UIGameObject.GetComponent<UIController>();
         buildingPlacementHandler = GameObject.Find("UnitHandlers").GetComponent<BuildingPlacementHandler>();
     }
 
@@ -137,6 +135,8 @@ public class Building : NetworkBehaviour, IPointerClickHandler
 
     public void SelectBuilding()
     {
+        UIGameObject = GameObject.Find("UI");
+        UI = UIGameObject.GetComponent<UIController>();
         UIGameObject.GetComponent<Buttons>().building = gameObject.GetComponent<Building>();
         UpdateBuildingPanel(gameObject.GetComponent<Building>());
         UnitType unitType = gameObject.GetComponent<UnitInformation>().unitType;
@@ -145,6 +145,8 @@ public class Building : NetworkBehaviour, IPointerClickHandler
 
     public void UpdateBuildingPanel(Building building)
     {
+        UIGameObject = GameObject.Find("UI");
+        UI = UIGameObject.GetComponent<UIController>();
         UI.buildingIcon.GetComponent<Image>().sprite = building.GetComponent<Building>().icon;
         UI.buildingHealthBar.maxValue = building.gameObject.GetComponent<Health>().maxHealth;
         UI.buildingHealthBar.value = building.gameObject.GetComponent<Health>().currentHealth;

@@ -99,6 +99,17 @@ public class UnitMovement : NetworkBehaviour
             return;
         } 
 
+        if(!agent.hasPath) // clears path on same frame as calculating
+        { 
+            if(unitTask.GetTask() != ActionList.Idle && unitTask.GetTask() != ActionList.CastingAOE)
+            {
+                unitTask.SetUnitTask(ActionList.Idle);
+            }
+
+            return; 
+        }
+        
+
         if(unitTask.GetTask() == ActionList.Building || unitTask.GetTask() == ActionList.Construction) 
         {
             unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.Construction);    
@@ -113,16 +124,6 @@ public class UnitMovement : NetworkBehaviour
             unit.GetTargeter().CmdSetCorpseTarget();
         }
 
-        if(!agent.hasPath) 
-        { 
-            if(unitTask.GetTask() != ActionList.Idle && unitTask.GetTask() != ActionList.CastingAOE)
-            {
-                unitTask.SetUnitTask(ActionList.Idle);
-            }
-
-            return; 
-        }
-        
         if(unitTask.GetTask() != ActionList.Moving) 
         {
             unitTask.SetUnitTask(ActionList.Moving);

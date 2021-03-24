@@ -227,6 +227,21 @@ public class RTSPlayer : NetworkBehaviour
     {
         if(isComputerAI) 
         {   
+
+            GameObject teamParent = GameObject.Find("Teams");
+
+            int teamParentChildCount = teamParent.transform.childCount;
+
+            foreach ( Transform child in teamParent.transform)
+            {
+                if(child.TryGetComponent<Team>(out Team childTeam))
+                {
+                    if(childTeam.teamName == "Enemy")
+                    {
+                        team = childTeam;
+                    }
+                }
+            }
             GetAllMyActiveUnits();
         }
     }
@@ -239,24 +254,15 @@ public class RTSPlayer : NetworkBehaviour
 
         foreach(Unit startingUnit in startingUnits)
         {
-            startingUnit.GetComponent<Health>().currentHealth = startingUnit.GetComponent<Health>().currentHealth * numberOfPlayers;
-            startingUnit.GetComponent<Health>().maxHealth = startingUnit.GetComponent<Health>().maxHealth * numberOfPlayers;
-            startingUnit.GetComponent<NavMeshAgent>().speed = startingUnit.GetComponent<NavMeshAgent>().speed * numberOfPlayers;
-            startingUnit.GetComponent<UnitFiring>().fireRate = startingUnit.GetComponent<UnitFiring>().fireRate * numberOfPlayers;
+            startingUnit.GetComponent<Health>().currentHealth = startingUnit.GetComponent<Health>().currentHealth;
+            startingUnit.GetComponent<Health>().maxHealth = startingUnit.GetComponent<Health>().maxHealth;
+            startingUnit.GetComponent<NavMeshAgent>().speed = startingUnit.GetComponent<NavMeshAgent>().speed;
+            startingUnit.GetComponent<UnitFiring>().fireRate = startingUnit.GetComponent<UnitFiring>().fireRate;
+            startingUnit.GetComponent<UnitInformation>().team = team;
             myActiveUnits.Add(startingUnit);
         }
 
         gameObjectLists.players.Add(this.gameObject);
-                        
-        // List<Unit> allUnits = gameObjectLists.GetAllActiveUnitGameobjects();
-
-        // foreach(Unit unit in allUnits)
-        // {
-        //     if(unit.GetComponent<UnitInformation>().owner == this)
-        //     {
-        //         myActiveUnits.Add(unit);
-        //     }
-        // }
     }
 
     #endregion

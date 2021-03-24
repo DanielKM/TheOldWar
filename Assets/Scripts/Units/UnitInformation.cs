@@ -24,9 +24,13 @@ public class UnitInformation : NetworkBehaviour
     
     private void Awake()
     {
-        if(connectionToClient == null ) { return; }
+        if(connectionToClient == null ) 
+        { 
+            return; 
+        }
         
         player = connectionToClient.identity.GetComponent<RTSPlayer>();
+
         team = player.team;
     }
 

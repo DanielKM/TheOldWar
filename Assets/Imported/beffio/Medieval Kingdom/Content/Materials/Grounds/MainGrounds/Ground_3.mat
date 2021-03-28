@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Ground_3
   m_Shader: {fileID: 4800000, guid: 129ded3ea3ab2c740a0bf0b2173713e2, type: 3}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP
@@ -151,3 +152,4 @@ Material:
     - _ColorshiftRedChannel: {r: 1, g: 0.894929, b: 0.45588237, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Wetness_color: {r: 1, g: 1, b: 1, a: 0}
+  m_BuildTextureStacks: []

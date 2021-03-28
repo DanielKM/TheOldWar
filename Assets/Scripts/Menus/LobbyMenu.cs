@@ -17,6 +17,7 @@ public class LobbyMenu : NetworkBehaviour
     [SerializeField] private Material[] teamMaterials = null;
 
     [SerializeField] private string levelSelected = null;
+    [SerializeField] private Text levelText = null;
 
     private void Start()
     {
@@ -114,6 +115,7 @@ public class LobbyMenu : NetworkBehaviour
                 levelSelected = "Scene_Map_01";
                 break;
         }
+        levelText.text = level;
 
         GameObject.Find("NetworkManager").GetComponent<RTSNetworkManager>().SelectLevel(levelSelected);
     }

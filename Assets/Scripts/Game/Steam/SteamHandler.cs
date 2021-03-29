@@ -27,6 +27,7 @@ public class SteamHandler : MonoBehaviour
             PlayerPrefs.SetInt ("wood", SteamStorage.wood);
             PlayerPrefs.SetInt ("stone", SteamStorage.stone);
             PlayerPrefs.SetInt ("food", SteamStorage.food);
+            PlayerPrefs.SetInt ("population", SteamStorage.population);
             PlayerPrefs.SetInt ("armySize", SteamStorage.armySize);
 
             PlayerPrefs.SetString ("relics", SteamStorage.relics);

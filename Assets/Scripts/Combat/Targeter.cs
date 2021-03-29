@@ -9,7 +9,7 @@ public class Targeter : NetworkBehaviour
 {
     public Targetable target;
     public Targetable resourceTarget;
-    RTSPlayer player = null;
+    public RTSPlayer player = null;
     private GameobjectLists gameObjectLists;
 
     public void Start()

@@ -21,6 +21,7 @@ public class Building : NetworkBehaviour, IPointerClickHandler
     [SerializeField] public int stone = 0;
     [SerializeField] public int food = 0;
     [SerializeField] public int population = 0;
+    [SerializeField] public int armySize = 0;
 
     BuildingPlacementHandler buildingPlacementHandler;
 
@@ -68,6 +69,7 @@ public class Building : NetworkBehaviour, IPointerClickHandler
             {Resource.Stone, stone}, 
             {Resource.Food, food}, 
             {Resource.Population, population}, 
+            {Resource.ArmySize, armySize}
         }; 
         return buildingPrice;
     }

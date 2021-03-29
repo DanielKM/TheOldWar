@@ -71,7 +71,9 @@ public class RTSPlayer : NetworkBehaviour
     [SerializeField] private int maxPopulation = 0;
 
     [SyncVar(hook = nameof(ClientHandleArmySizeUpdated))]
-    [SerializeField] private int armySize = 0;
+    [SerializeField] public int armySize = 0;
+    [SyncVar(hook = nameof(ClientHandleMaxArmySizeUpdated))]
+    [SerializeField] private int maxArmySize = 0;
 
     [SyncVar(hook = nameof(AuthorityHandlePartyOwnerStateUpdated))]
     private bool isPartyOwner = false;
@@ -87,6 +89,7 @@ public class RTSPlayer : NetworkBehaviour
     public event Action<int> ClientOnStoneUpdated;
     public event Action<int> ClientOnFoodUpdated;
     public event Action<int> ClientOnPopulationUpdated;
+    public event Action<int> ClientOnArmySizeUpdated;
     
     public event Action<int> ClientOnMaxGoldUpdated;
     public event Action<int> ClientOnMaxIronUpdated;
@@ -96,7 +99,7 @@ public class RTSPlayer : NetworkBehaviour
     public event Action<int> ClientOnMaxStoneUpdated;
     public event Action<int> ClientOnMaxFoodUpdated;
     public event Action<int> ClientOnMaxPopulationUpdated;
-    public event Action<int> ClientOnArmySizeUpdated;
+    public event Action<int> ClientOnMaxArmySizeUpdated;
 
     public static event Action ClientOnInfoUpdated;
     public static event Action<bool> AuthorityOnPartyOwnerStateUpdated;
@@ -148,6 +151,7 @@ public class RTSPlayer : NetworkBehaviour
             {Resource.Stone, stone}, 
             {Resource.Food, food}, 
             {Resource.Population, population}, 
+            {Resource.ArmySize, armySize}
         }; 
         return resources;
     }
@@ -163,6 +167,7 @@ public class RTSPlayer : NetworkBehaviour
             {Resource.Stone, maxStone}, 
             {Resource.Food, maxFood}, 
             {Resource.Population, maxPopulation}, 
+            {Resource.ArmySize, armySize}
         }; 
         return resources;
     }
@@ -330,6 +335,7 @@ public class RTSPlayer : NetworkBehaviour
         stone = newResources[Resource.Stone] > maxStone ? maxStone : newResources[Resource.Stone];
         food = newResources[Resource.Food] > maxFood ? maxFood : newResources[Resource.Food];
         population = newResources[Resource.Population] > maxPopulation ? maxPopulation : newResources[Resource.Population];
+        armySize = newResources[Resource.ArmySize] > maxArmySize ? maxArmySize : newResources[Resource.ArmySize];
     }
 
     [Server]
@@ -343,6 +349,7 @@ public class RTSPlayer : NetworkBehaviour
         maxStone = newResources[Resource.Stone];
         maxFood = newResources[Resource.Food];
         maxPopulation = newResources[Resource.Population] > (maxAllowablePopulation/numberOfPlayers) ? (maxAllowablePopulation/numberOfPlayers) : newResources[Resource.Population];
+        maxArmySize = newResources[Resource.ArmySize];
     }   
 
     [Command]
@@ -366,6 +373,8 @@ public class RTSPlayer : NetworkBehaviour
                 break;
             }
         }
+
+        // HERE DAN
 
         if(buildingToPlace == null) { return; }
 
@@ -666,9 +675,14 @@ public class RTSPlayer : NetworkBehaviour
         ClientOnMaxPopulationUpdated?.Invoke(newResources);
     }
 
-    private void ClientHandleArmySizeUpdated(int oldArmySize, int newArmySize)
+    private void ClientHandleArmySizeUpdated(int oldResources, int newResources)
     {
-        ClientOnArmySizeUpdated?.Invoke(newArmySize);
+        ClientOnArmySizeUpdated?.Invoke(newResources);
+    }
+
+    private void ClientHandleMaxArmySizeUpdated(int oldResources, int newResources)
+    {
+        ClientOnMaxArmySizeUpdated?.Invoke(newResources);
     }
 
     #endregion

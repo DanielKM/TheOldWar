@@ -209,7 +209,8 @@ MonoBehaviour:
   maxFood: 100000
   population: 0
   maxPopulation: 0
-  armySize: 0
+  armySize: 100
+  maxArmySize: 100000
   displayName: 
   myBuildings: []
   myActiveBuildings: []

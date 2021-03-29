@@ -232,6 +232,7 @@
      <Compile Include="Assets\Imported\LeanTween\Framework\LTDescr.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
      <Compile Include="Assets\ScaleTween.cs" />
+     <Compile Include="Assets\Scripts\Units\Type AddOns\Rescuable.cs" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

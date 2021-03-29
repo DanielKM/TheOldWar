@@ -16,6 +16,7 @@ public class ResourcesDisplay : MonoBehaviour
     [SerializeField] private GameObject stoneText = null;
     [SerializeField] private GameObject foodText = null;
     [SerializeField] private GameObject populationText = null;
+    [SerializeField] private GameObject armySizeText = null;
 
     private RTSPlayer player;
     
@@ -38,6 +39,7 @@ public class ResourcesDisplay : MonoBehaviour
             ClientHandleStoneUpdated(player.GetResources()[Resource.Stone]);
             ClientHandleFoodUpdated(player.GetResources()[Resource.Food]);
             ClientHandlePopulationUpdated(player.GetResources()[Resource.Population]);
+            ClientHandleArmySizeUpdated(player.GetResources()[Resource.ArmySize]);
 
             ClientHandleMaxGoldUpdated(player.GetMaxResources()[Resource.Gold]);
             ClientHandleMaxIronUpdated(player.GetMaxResources()[Resource.Iron]);
@@ -47,6 +49,7 @@ public class ResourcesDisplay : MonoBehaviour
             ClientHandleMaxStoneUpdated(player.GetMaxResources()[Resource.Stone]);
             ClientHandleMaxFoodUpdated(player.GetMaxResources()[Resource.Food]);
             ClientHandleMaxPopulationUpdated(player.GetMaxResources()[Resource.Population]);
+            ClientHandleMaxArmySizeUpdated(player.GetMaxResources()[Resource.ArmySize]);
 
 
             player.ClientOnGoldUpdated += ClientHandleGoldUpdated;
@@ -57,6 +60,7 @@ public class ResourcesDisplay : MonoBehaviour
             player.ClientOnStoneUpdated += ClientHandleStoneUpdated;
             player.ClientOnFoodUpdated += ClientHandleFoodUpdated;
             player.ClientOnPopulationUpdated += ClientHandlePopulationUpdated;
+            player.ClientOnArmySizeUpdated += ClientHandleArmySizeUpdated;
         
             player.ClientOnMaxGoldUpdated += ClientHandleMaxGoldUpdated;
             player.ClientOnMaxIronUpdated += ClientHandleMaxIronUpdated;
@@ -66,6 +70,7 @@ public class ResourcesDisplay : MonoBehaviour
             player.ClientOnMaxStoneUpdated += ClientHandleMaxStoneUpdated;
             player.ClientOnMaxFoodUpdated += ClientHandleMaxFoodUpdated;
             player.ClientOnMaxPopulationUpdated += ClientHandleMaxPopulationUpdated;
+            player.ClientOnMaxArmySizeUpdated += ClientHandleMaxArmySizeUpdated;
         }
     }
 
@@ -85,6 +90,7 @@ public class ResourcesDisplay : MonoBehaviour
                 ClientHandleStoneUpdated(player.GetResources()[Resource.Stone]);
                 ClientHandleFoodUpdated(player.GetResources()[Resource.Food]);
                 ClientHandlePopulationUpdated(player.GetResources()[Resource.Population]);
+                ClientHandleArmySizeUpdated(player.GetResources()[Resource.ArmySize]);
 
                 ClientHandleMaxGoldUpdated(player.GetMaxResources()[Resource.Gold]);
                 ClientHandleMaxIronUpdated(player.GetMaxResources()[Resource.Iron]);
@@ -94,6 +100,7 @@ public class ResourcesDisplay : MonoBehaviour
                 ClientHandleMaxStoneUpdated(player.GetMaxResources()[Resource.Stone]);
                 ClientHandleMaxFoodUpdated(player.GetMaxResources()[Resource.Food]);
                 ClientHandleMaxPopulationUpdated(player.GetMaxResources()[Resource.Population]);
+                ClientHandleMaxArmySizeUpdated(player.GetMaxResources()[Resource.ArmySize]);
 
                 player.ClientOnGoldUpdated += ClientHandleGoldUpdated;
                 player.ClientOnIronUpdated += ClientHandleIronUpdated;
@@ -103,6 +110,7 @@ public class ResourcesDisplay : MonoBehaviour
                 player.ClientOnStoneUpdated += ClientHandleStoneUpdated;
                 player.ClientOnFoodUpdated += ClientHandleFoodUpdated;
                 player.ClientOnPopulationUpdated += ClientHandlePopulationUpdated;
+                player.ClientOnArmySizeUpdated += ClientHandleArmySizeUpdated;
                 
                 player.ClientOnMaxGoldUpdated += ClientHandleMaxGoldUpdated;
                 player.ClientOnMaxIronUpdated += ClientHandleMaxIronUpdated;
@@ -112,6 +120,7 @@ public class ResourcesDisplay : MonoBehaviour
                 player.ClientOnMaxStoneUpdated += ClientHandleMaxStoneUpdated;
                 player.ClientOnMaxFoodUpdated += ClientHandleMaxFoodUpdated;
                 player.ClientOnMaxPopulationUpdated += ClientHandleMaxPopulationUpdated;
+                player.ClientOnMaxArmySizeUpdated += ClientHandleMaxArmySizeUpdated;
             }
         }
     }
@@ -126,6 +135,7 @@ public class ResourcesDisplay : MonoBehaviour
         player.ClientOnStoneUpdated -= ClientHandleStoneUpdated;
         player.ClientOnFoodUpdated -= ClientHandleFoodUpdated;
         player.ClientOnPopulationUpdated -= ClientHandlePopulationUpdated;
+        player.ClientOnArmySizeUpdated -= ClientHandleArmySizeUpdated;
         
         player.ClientOnMaxGoldUpdated -= ClientHandleMaxGoldUpdated;
         player.ClientOnMaxIronUpdated -= ClientHandleMaxIronUpdated;
@@ -135,6 +145,7 @@ public class ResourcesDisplay : MonoBehaviour
         player.ClientOnMaxStoneUpdated -= ClientHandleMaxStoneUpdated;
         player.ClientOnMaxFoodUpdated -= ClientHandleMaxFoodUpdated;
         player.ClientOnMaxPopulationUpdated -= ClientHandleMaxPopulationUpdated;
+        player.ClientOnMaxArmySizeUpdated -= ClientHandleMaxArmySizeUpdated;
     }
 
     private void ClientHandleGoldUpdated(int resources)
@@ -215,5 +226,15 @@ public class ResourcesDisplay : MonoBehaviour
     private void ClientHandleMaxPopulationUpdated(int resources)
     {
         populationText.GetComponent<Text>().text = player.GetResources()[Resource.Population] + "/" + resources;
+    }
+    
+    private void ClientHandleArmySizeUpdated(int resources)
+    {
+        armySizeText.GetComponent<Text>().text = resources + "/" + player.GetMaxResources()[Resource.ArmySize];
+    }
+
+    private void ClientHandleMaxArmySizeUpdated(int resources)
+    {
+        armySizeText.GetComponent<Text>().text = player.GetResources()[Resource.ArmySize] + "/" + resources;
     }
 }

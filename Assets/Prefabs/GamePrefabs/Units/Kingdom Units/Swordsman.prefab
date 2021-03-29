@@ -399,6 +399,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: armySize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitIcon
       value: 
       objectReference: {fileID: 21300000, guid: fa5d9d26a887fce44ac88d80d1487715, type: 3}

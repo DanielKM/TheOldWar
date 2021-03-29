@@ -107,7 +107,18 @@ public class RTSNetworkManager : NetworkManager
                 Vector3 baseOffset = new Vector3(0.0f, 0.0f, 20f);
                 player.gameObject.transform.position = startPos - baseOffset;
                 player.spawnPoint = startTransform.gameObject;
+                
 
+                Dictionary<Resource, int> newResourceDictionary = player.GetResources();
+
+                ResourceGatherer gatherer = gameObject.GetComponent<ResourceGatherer>();
+
+                SteamCloudPrefs SteamStorage = gameObject.GetComponent<SteamHandler>().SteamStorage;
+                // PULL FROM PREFS
+                newResourceDictionary[Resource.ArmySize] += SteamStorage.armySize;
+                
+                player.SetResources(newResourceDictionary);
+                
                 NetworkServer.Spawn(baseInstance, player.connectionToClient);
                 
                 gameObjectLists.players.Add(player.gameObject);

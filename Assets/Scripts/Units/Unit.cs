@@ -32,6 +32,7 @@ public class Unit : NetworkBehaviour
     [SerializeField] private int stone = 0;
     [SerializeField] private int food = 0;
     [SerializeField] private int population = 0;
+    [SerializeField] private int armySize = 0;
 
     [Header("Events")]
     [SerializeField] private UnityEvent onSelected = null;
@@ -57,6 +58,7 @@ public class Unit : NetworkBehaviour
             {Resource.Stone, stone}, 
             {Resource.Food, food}, 
             {Resource.Population, population}, 
+            {Resource.ArmySize, armySize}
         }; 
         return unitPrice;
     }
@@ -138,6 +140,7 @@ public class Unit : NetworkBehaviour
             {Resource.Stone, 0}, 
             {Resource.Food, 0}, 
             {Resource.Population, -population}, 
+            {Resource.ArmySize, 0}
         }; 
         
         GameObject unitHandlers = GameObject.Find("UnitHandlers");

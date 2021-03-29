@@ -17,6 +17,7 @@ public class SteamCloudPrefs
     public int wood = 0;
     public int stone = 0;
     public int food = 0;
+    public int population = 0;
     public int armySize = 0;
 
     public string relics = "None";

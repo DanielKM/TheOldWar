@@ -22,7 +22,7 @@ public class UnitMovement : NetworkBehaviour
     [SerializeField] private float dropoffRange = 5;
 
     // private Animator anim;
-    RTSPlayer player = null;
+    public RTSPlayer player = null;
 
     #region Server
 

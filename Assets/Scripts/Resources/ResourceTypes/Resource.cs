@@ -12,5 +12,6 @@ public enum Resource
     Wood,
     Stone,
     Food,
-    Population
+    Population,
+    ArmySize
 }

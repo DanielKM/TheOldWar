@@ -18,6 +18,10 @@ public class LobbyMenu : NetworkBehaviour
 
     [SerializeField] private string levelSelected = null;
     [SerializeField] private Text levelText = null;
+    
+    [SerializeField] private Button hindegardeStartButton = null;
+    [SerializeField] private Button mavisButton = null;
+    [SerializeField] private Button hindegardeDefenceButton = null;
 
     private void Start()
     {
@@ -85,6 +89,8 @@ public class LobbyMenu : NetworkBehaviour
         }
 
         startGameButton.interactable = players.Count >= 1;
+
+        // CHECK UNLOCKS
     }
 
     public void StartGame()
@@ -109,10 +115,10 @@ public class LobbyMenu : NetworkBehaviour
         switch (level)
         {
             case "Hindegarde":
-                levelSelected = "Scene_Map_01";
+                levelSelected = "Scene_Map_Starting";
                 break;
             case "Frozen Tundra":
-                levelSelected = "Scene_Map_01";
+                levelSelected = "Scene_Map_Hindegarde";
                 break;
         }
         levelText.text = level;

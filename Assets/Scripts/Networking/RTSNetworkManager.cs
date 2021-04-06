@@ -10,7 +10,7 @@ public class RTSNetworkManager : NetworkManager
 {
     [SerializeField] private GameObject unitBasePrefab = null;
     [SerializeField] private GameOverHandler gameOverHandlerPrefab = null;
-    [SerializeField] public string selectedLevel = "Scene_Map_01";
+    [SerializeField] public string selectedLevel = "Scene_Map_Starting";
     public GameobjectLists gameObjectLists;
 
     public static event Action ClientOnConnected;

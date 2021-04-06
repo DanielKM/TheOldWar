@@ -40,12 +40,12 @@
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\bl_LoadingScreenStartUp.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\bl_SceneLoaderEditor.cs" />
      <Compile Include="Assets\Editor\ExplodePartEditor.cs" />
+     <Compile Include="Assets\Imported\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\bl_LoadingScreenWelcome.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\ReorderableList\Editor\ReorderableList.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\Editor\FogOfWarChunkManagerEditor.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Editor\LoadingScreenDocumentation.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\Editor\FogOfWarTeamEditor.cs" />
-     <Compile Include="Assets\Imported\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

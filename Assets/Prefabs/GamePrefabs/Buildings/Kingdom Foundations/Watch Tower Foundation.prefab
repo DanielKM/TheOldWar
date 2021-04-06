@@ -203,6 +203,7 @@ MonoBehaviour:
   stone: 0
   food: 0
   population: 0
+  armySize: 0
   description: The Watch Towers bind the Kingdom together. They are cheap and durable
     and light the way across the countryside.
   foundation: {fileID: 0}
@@ -278,7 +279,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -37,13 +37,16 @@ public class GameOverDisplay : NetworkBehaviour
         {
             NetworkManager.singleton.StopClient();
         }
-        Application.Quit();
+        SceneManager.LoadScene(0);
+        // Application.Quit();
     }
 
     public void SteamSave()
     {
         if (SaveLoadFile.Load() != null)
         {
+            string currentScene = SceneManager.GetActiveScene().name;
+
             SteamCloudPrefs SteamStorage = GameObject.Find("NetworkManager").GetComponent<SteamHandler>().SteamStorage;
 
             player = new List<RTSPlayer>(GameObject.FindObjectsOfType<RTSPlayer>()).Find(player => player.isLocalPlayer);
@@ -55,7 +58,22 @@ public class GameOverDisplay : NetworkBehaviour
             SteamStorage.wood += player.wood;
             SteamStorage.stone += player.stone;
             SteamStorage.food += player.food;
-            SteamStorage.armySize += player.population;
+            SteamStorage.armySize += player.population + player.armySize;
+
+            switch(currentScene)
+            {
+                case "Scene_Map_Starting":
+                    SteamStorage.hindegardeStart = true;
+                    break;
+                case "Scene_Map_Mavis":
+                    SteamStorage.mavis = true;
+                    break;
+                case "Scene_Map_Hindegarde":
+                    SteamStorage.hindegardeDefence = true;
+                    break;
+                default:
+                    break;
+            }
 
             SteamStorage.wins += 1;
             // SteamStorage.kills += 34;

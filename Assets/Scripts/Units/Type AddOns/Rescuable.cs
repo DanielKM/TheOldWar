@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FoW;
 using Mirror;
 using UnityEngine;
 
@@ -77,6 +78,8 @@ public class Rescuable : MonoBehaviour
                     gameObject.GetComponent<Targeter>().player = targetPlayer;
 
                     gameObject.GetComponent<UnitMovement>().player = targetPlayer;
+
+                    gameObject.GetComponent<FogOfWarUnit>().enabled = true;
 
                     targetPlayer.myUnits.Add(gameObject.GetComponent<Unit>());
                     rescued = true;

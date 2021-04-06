@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class SteamCloudPrefs
 {
     // Game Data //
-    public string name = "Dan";
+    public string name = "N/A";
+    public HeroClass unitClass = HeroClass.Builder;
 
     public int wins = 0;
     public int losses = 0;
@@ -23,5 +25,10 @@ public class SteamCloudPrefs
     public string relics = "None";
     public string unlocks = "None";
     public string rank = "None";
+
+    // LEVEL UNLOCKS;
+    public bool hindegardeStart = false;
+    public bool mavis = false;
+    public bool hindegardeDefence = false;
 
 }  

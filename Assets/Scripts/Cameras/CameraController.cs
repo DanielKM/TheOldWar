@@ -88,8 +88,8 @@ public class CameraController : NetworkBehaviour
         
         if(!buildingPlacementHandler.placingBuilding) { pos.y = Mathf.Clamp(moveY, minHeight, maxHeight); }
 
-        pos.x = Mathf.Clamp(pos.x, screenXLimits.x - 20, screenZLimits.y);
-        pos.z = Mathf.Clamp(pos.z, screenXLimits.x - 20, screenZLimits.y);
+        pos.x = Mathf.Clamp(pos.x, screenXLimits.x - 20, screenZLimits.y + 30); // here
+        pos.z = Mathf.Clamp(pos.z, screenXLimits.x - 20, screenZLimits.y + 30);
 
         playerCameraTransform.position = pos;
     }

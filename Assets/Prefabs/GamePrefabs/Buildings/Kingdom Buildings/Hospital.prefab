@@ -313,7 +313,7 @@ MonoBehaviour:
   remainingUnitsText: {fileID: 7700312395122087874}
   unitProgressImage: {fileID: 1472479028565596434}
   maxUnitQueue: 10
-  spawnMoveRange: 7
+  spawnMoveRange: 3
   unitSpawnDuration: 5
 --- !u!1 &6721311973992672655
 GameObject:

@@ -702,6 +702,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5791604877373787076}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
+      propertyPath: period
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: detectionRadius
       value: 15
       objectReference: {fileID: 0}

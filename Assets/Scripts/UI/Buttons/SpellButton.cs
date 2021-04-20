@@ -11,7 +11,7 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 {
     [SerializeField] private SpellList spellList;
     [SerializeField] private Spell spell;
-    private Image iconImage = null;
+    // private Image iconImage = null;
     private SpellHandler spellHandler = null;
     private UnitSelectionHandler unitSelection = null;
     private Camera mainCamera;

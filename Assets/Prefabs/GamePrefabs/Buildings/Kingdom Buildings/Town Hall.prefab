@@ -296,6 +296,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 167166297369798326, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 1287499953458683785, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: m_SizeDelta.x
       value: 2
@@ -317,8 +321,12 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1715437119102856764, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
+      propertyPath: spawnMoveRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715437119102856764, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: unitSpawnDuration
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1715437119102856764, guid: 315f2a20a05a15641bd98725cd3c3329, type: 3}
       propertyPath: unitPrefabs.Array.size

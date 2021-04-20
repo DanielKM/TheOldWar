@@ -260,8 +260,8 @@ MonoBehaviour:
   playerCameraTransform: {fileID: 2223779495634536670}
   speed: 25
   screenBorderThickness: 10
-  screenXLimits: {x: -200, y: 200}
-  screenZLimits: {x: -200, y: 200}
+  screenXLimits: {x: -500, y: 500}
+  screenZLimits: {x: -500, y: 500}
   panSpeed: 0.2
   minHeight: 10
   maxHeight: 60

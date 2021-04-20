@@ -30,5 +30,6 @@ public class SteamCloudPrefs
     public bool hindegardeStart = false;
     public bool mavis = false;
     public bool hindegardeDefence = false;
-
+    public bool ruunCity = false;
+    public bool swampRun = false;
 }  

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class RTSNetworkManager : NetworkManager
 {
     [SerializeField] private GameObject unitBasePrefab = null;
-    [SerializeField] private GameOverHandler gameOverHandlerPrefab = null;
+    // [SerializeField] private GameOverHandler gameOverHandlerPrefab = null;
     [SerializeField] public string selectedLevel = "Scene_Map_Starting";
     public GameobjectLists gameObjectLists;
 

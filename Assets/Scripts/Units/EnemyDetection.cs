@@ -42,6 +42,7 @@ public class EnemyDetection : MonoBehaviour
         if(Time.time > checkTime) 
         {
             checkTime = Time.time + period;
+            
             // if(targeter.target != null) { return; }
 
             Vector3 center = unit.gameObject.transform.position;
@@ -62,7 +63,7 @@ public class EnemyDetection : MonoBehaviour
                     {
                         if(colliders[i].gameObject.GetComponent<Health>().currentHealth <= 0) { continue; }
 
-                        if(colliders[i].TryGetComponent<Rescuable>(out Rescuable rescuable)) { continue; }
+                        if(colliders[i].TryGetComponent<Rescuable>(out Rescuable rescuable) && rescuable.rescued == false) { continue; }
 
                         float sqrDistanceToCenter = (center - colliders[i].transform.position).sqrMagnitude;
                         

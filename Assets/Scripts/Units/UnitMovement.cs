@@ -156,6 +156,7 @@ public class UnitMovement : NetworkBehaviour
 
         if(!agent.enabled) { return; }
         
+        Debug.Log("Moving to: " +hit.position );
         agent.SetDestination(hit.position);
     }
 

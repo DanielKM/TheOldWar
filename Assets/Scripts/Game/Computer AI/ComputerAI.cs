@@ -17,6 +17,7 @@ public class ComputerAI : MonoBehaviour
     public float closeDistance = 50.0f;
     public float farDistance = 100.0f;
 
+    public bool activated = false;
 
     void Awake()
     {
@@ -39,6 +40,8 @@ public class ComputerAI : MonoBehaviour
 
     public void RunAI()
     {
+        if(!activated) { return; }
+
         string enemyInformation = CheckEnemyInformation(); // 0-9 + 0-9
         // 0-1 = no info
         // 2-5 = enemy far
@@ -55,21 +58,21 @@ public class ComputerAI : MonoBehaviour
 
         return;
         // Get all buildings - next steps
-        int baseInformation = CheckBaseSize(); // 0-9
-        // 0-1 = weak
-        // 2-5 = moderate
-        // 6-9 = strong
+        // int baseInformation = CheckBaseSize(); // 0-9
+        // // 0-1 = weak
+        // // 2-5 = moderate
+        // // 6-9 = strong
 
-        int resourceInformation = CheckResources(); // 0-9
-        // 0-1 = weak
-        // 2-5 = moderate
-        // 6-9 = strong
+        // int resourceInformation = CheckResources(); // 0-9
+        // // 0-1 = weak
+        // // 2-5 = moderate
+        // // 6-9 = strong
 
-        string inputData = enemyInformation + armyInformation + baseInformation + resourceInformation;
+        // string inputData = enemyInformation + armyInformation + baseInformation + resourceInformation;
 
-        string strategy = SelectOverallStrategy(inputData);
+        // string strategy = SelectOverallStrategy(inputData);
        
-        AssignTasks(strategy);
+        // AssignTasks(strategy);
     }
 
     private int CheckResources()

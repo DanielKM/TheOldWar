@@ -9,7 +9,7 @@ public class JoinLobbyMenu : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject landingPagePanel = null;
-    [SerializeField] private GameObject lobby = null;
+    // [SerializeField] private GameObject lobby = null;
     [SerializeField] private InputField addressInput = null;
     [SerializeField] private Button joinButton = null;
 

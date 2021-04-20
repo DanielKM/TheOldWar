@@ -8,6 +8,8 @@ using UnityEngine;
 public class Rescuable : MonoBehaviour
 {
     UnitInformation unitInformation = null;
+    Targeter targeter = null;
+
 
     public float period = 2f;
     private float checkTime = 0f;
@@ -18,14 +20,15 @@ public class Rescuable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Add(this.gameObject.GetComponent<Unit>());
+        // GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Add(this.gameObject.GetComponent<Unit>());
 
         unitInformation = gameObject.GetComponent<UnitInformation>();
+        targeter = gameObject.GetComponent<Targeter>();
     }
 
     void OnDestroy()
     {
-        GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Remove(this.gameObject.GetComponent<Unit>());
+        // GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Remove(this.gameObject.GetComponent<Unit>());
     }
 
     public void Update()
@@ -82,7 +85,12 @@ public class Rescuable : MonoBehaviour
                     gameObject.GetComponent<FogOfWarUnit>().enabled = true;
 
                     targetPlayer.myUnits.Add(gameObject.GetComponent<Unit>());
+
                     rescued = true;
+                   
+                   targeter.ClearTarget();
+
+                   this.enabled = false;
                 }
             }
         }

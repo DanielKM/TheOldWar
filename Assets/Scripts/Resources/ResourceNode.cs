@@ -48,4 +48,11 @@ public class ResourceNode : NetworkBehaviour
 
         Destroy(gameObject);
     }
+
+    // public void OnDestroy()
+    // {
+    //     unitHandlers = GameObject.Find("UnitHandlers");
+        
+    //     unitHandlers.GetComponent<GameobjectLists>().resourceNodes.Remove(this);
+    // }
 }

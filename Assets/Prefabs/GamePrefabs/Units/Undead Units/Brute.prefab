@@ -725,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7078012252591135021, guid: b19e9b7e1afe0964590d52154def77d0, type: 3}
       propertyPath: detectionRadius
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7078012252591135021, guid: b19e9b7e1afe0964590d52154def77d0, type: 3}
       propertyPath: unitLayer.m_Bits

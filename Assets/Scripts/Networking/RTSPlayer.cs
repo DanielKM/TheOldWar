@@ -494,6 +494,7 @@ public class RTSPlayer : NetworkBehaviour
     public bool CannotAfford (Dictionary<Resource, int> currentResources, Dictionary <Resource, int> resourcePrice)
     {
         UI = GameObject.Find("UI").GetComponent<UIController>();
+
         for(int i = 0; i<currentResources.Count; i++)
         {
             if(currentResources.ElementAt(i).Value < resourcePrice.ElementAt(i).Value) 
@@ -510,7 +511,17 @@ public class RTSPlayer : NetworkBehaviour
                     return true; 
                 }
             }
+
+            if(currentResources.ElementAt(i).Key == Resource.ArmySize) 
+            { 
+                if(resourcePrice.ElementAt(i).Value < 0 && currentResources[Resource.ArmySize] == GetMaxResources()[Resource.ArmySize]) 
+                { 
+                    // UI.ShowNotEnoughResources(currentResources.ElementAt(i).Key);
+                    return true; 
+                }
+            }
         }
+
         return false;
     }
 

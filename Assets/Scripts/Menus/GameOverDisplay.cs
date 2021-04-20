@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameOverDisplay : NetworkBehaviour
 {
     [SerializeField] private GameObject gameOverDisplayParent = null;
-    [SerializeField] private TMP_Text winnerNameText = null;
+    // [SerializeField] private TMP_Text winnerNameText = null;
     private RTSPlayer player = null;
 
     private void Start()
@@ -70,6 +70,12 @@ public class GameOverDisplay : NetworkBehaviour
                     break;
                 case "Scene_Map_Hindegarde":
                     SteamStorage.hindegardeDefence = true;
+                    break;
+                case "Scene_Map_Ruun":
+                    SteamStorage.ruunCity = true;
+                    break;
+                case "Scene_Map_Swamp_Run":
+                    SteamStorage.swampRun = true;
                     break;
                 default:
                     break;

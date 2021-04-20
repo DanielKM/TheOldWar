@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Corpse : MonoBehaviour
 {
+    GameobjectLists goLists = null;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Add(this.gameObject.GetComponent<Unit>());
+        goLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
+        goLists.units.Add(this.gameObject.GetComponent<Unit>());
     }
 
     void OnDestroy()
     {
-        GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Remove(this.gameObject.GetComponent<Unit>());
+        goLists.units.Remove(this.gameObject.GetComponent<Unit>());
     }
 }

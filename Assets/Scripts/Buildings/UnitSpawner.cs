@@ -55,7 +55,12 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         if(unitTimer < unitSpawnDuration) { return; }
 
         Vector3 spawnOffset = Random.insideUnitSphere * spawnMoveRange;
-        spawnOffset.y = unitSpawnPoint.position.y;
+        spawnOffset.y = 0;
+
+        Debug.Log("spwn off OFFSET: " + spawnOffset);
+        
+        Debug.Log("spwnpnt OFFSET: " + unitSpawnPoint.position);
+        
         
         GameObject unitInstance = null;
         player = connectionToClient.identity.GetComponent<RTSPlayer>();
@@ -63,7 +68,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         switch(unitsToTrain[0].gameObject.GetComponent<UnitInformation>().unitType) 
         {
             case UnitType.Worker:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().worker, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().worker, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().workers;
                 break;
             case UnitType.Swordsman:
@@ -104,6 +109,8 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         unitInstance.GetComponent<UnitInformation>().team = player.team;
 
         NetworkServer.Spawn(unitInstance, connectionToClient);
+
+        Debug.Log(unitSpawnPoint.position + spawnOffset);
 
         unitInstance.GetComponent<UnitMovement>().ServerMove(unitSpawnPoint.position + spawnOffset);
 

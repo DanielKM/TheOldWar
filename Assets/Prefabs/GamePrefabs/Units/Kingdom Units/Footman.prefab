@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471965552520372449, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: animator
@@ -665,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 5775123849031141255}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: detectionRadius
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6513763905051568982, guid: d361d3f3b7339bf44ab8044f75c2a4d9, type: 3}
       propertyPath: unitLayer.m_Bits

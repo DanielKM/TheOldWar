@@ -225,6 +225,7 @@ public class UnitFiring : NetworkBehaviour
 
             projectileAttributes.damageToDeal = projectileAttributes.savedDamage;
             projectileAttributes.damageToDeal = projectileAttributes.damageToDeal * damageModifier;
+
             projectileAttributes.projectileFirer = this;
 
             unitAudioSource.clip = attackSound;

@@ -213,8 +213,6 @@ public class Unit : NetworkBehaviour
     [Server]
     public void ServerHandleUnitHealed()
     {
-        Debug.Log("Healed!");
-
         unitTask.SetTask(ActionList.Idle);
 
         gameObject.GetComponent<UnitFiring>().enabled = true;

@@ -65,6 +65,8 @@ public class UnitCommandGiver : NetworkBehaviour
 
     private void TryMove(RaycastHit hit)
     {
+        if(unitSelectionHandler.SelectedUnits.Count <= 0) { return; }
+
         UnitMovement firstUnitMovement = unitSelectionHandler.SelectedUnits[0].gameObject.GetComponent<UnitMovement>();
         
         firstUnitMovement.unitAudio.clip = firstUnitMovement.unitMovingClip;

@@ -14,20 +14,17 @@ public class GameOverHandler : NetworkBehaviour
 
     #region Server
 
-    // public override void OnStartServer()
-    // {
-    //     UnitBase.ServerOnBaseSpawned += ServerHandleBaseSpawned;
-    //     UnitBase.ServerOnBaseDespawned += ServerHandleBaseDespawned;
-    // }
-
-    // public override void OnStopServer()
-    // {
-    //     UnitBase.ServerOnBaseSpawned -= ServerHandleBaseSpawned;
-    //     UnitBase.ServerOnBaseDespawned -= ServerHandleBaseDespawned;
-    // }
-
     [Server]
     private void Start()
+    {
+        // if(gameObject.GetComponent<UnitInformation>().unitType == UnitType.CaravanFoundation)
+        // {
+        //     ServerGameOver();
+        // }
+    }
+
+    [Server]
+    public void ServerGameOver()
     {
         StartCoroutine(ReadyCaravan());
     }
@@ -39,6 +36,14 @@ public class GameOverHandler : NetworkBehaviour
 
         yield return new WaitForSeconds(10);
 
+        RpcGameOver("You escaped unscathed!");
+
+        ServerOnGameOver?.Invoke();
+    }
+
+    [Server]
+    public void GameOver()
+    {
         RpcGameOver("You escaped unscathed!");
 
         ServerOnGameOver?.Invoke();
@@ -72,6 +77,12 @@ public class GameOverHandler : NetworkBehaviour
     private void RpcGameOver(string winner)
     {
         ClientOnGameOver?.Invoke(winner);
+    }
+
+    [Command(ignoreAuthority = true)]
+    public void CmdGameOver()
+    {
+        ServerGameOver();
     }
 
     #endregion

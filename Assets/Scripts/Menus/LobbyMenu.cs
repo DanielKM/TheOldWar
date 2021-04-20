@@ -20,16 +20,24 @@ public class LobbyMenu : NetworkBehaviour
     [SerializeField] private Text levelText = null;
     
     [SerializeField] private Button hindegardeStartButton = null;
-    [SerializeField] private Button mavisButton = null;
     [SerializeField] private Button hindegardeDefenceButton = null;
+    [SerializeField] private Button mavisButton = null;
+    [SerializeField] private Button ruunCityButton = null;
+    [SerializeField] private Button swampRunButton = null;
+
+    [SerializeField] private Button[] allButtons = null;
+
+    SteamCloudPrefs steamStorage = null;
 
     private void Start()
     {
+        steamStorage = GameObject.Find("NetworkManager").GetComponent<SteamHandler>().SteamStorage;
         RTSNetworkManager.ClientOnConnected += HandleClientConnected;
         RTSPlayer.AuthorityOnPartyOwnerStateUpdated += AuthorityHandlePartyOwnerStateUpdated;
         RTSPlayer.ClientOnInfoUpdated += ClientHandleInfoUpdated;
 
         CheckForPlayersAndUpdateLobby();
+        CheckForMapUnlocks();
     }
 
     private void OnDestroy()
@@ -58,13 +66,6 @@ public class LobbyMenu : NetworkBehaviour
     {
         List<RTSPlayer> players = ((RTSNetworkManager)NetworkManager.singleton).Players;
 
-        // CSteamID steamID = SteamMatchmaking.GetLobbyMemberByIndex(
-        //                 MainMenu.LobbyId, 
-        //                 players.Count - 1
-        //             );
-
-        // string steamName = SteamFriends.GetFriendPersonaName(steamID);
-
         for(int i = 0; i < players.Count; i++)
         {    
             players[i].SetTeam(team);
@@ -77,9 +78,6 @@ public class LobbyMenu : NetworkBehaviour
 
             string steamName = SteamFriends.GetFriendPersonaName(steamID);
 
-            // players[i].SetDisplayName(steamName); change
-
-            // playerNameTexts[i].text = steamName; change 
             playerNameTexts[i].text = players[i].GetDisplayName(); 
         }
         
@@ -91,6 +89,50 @@ public class LobbyMenu : NetworkBehaviour
         startGameButton.interactable = players.Count >= 1;
 
         // CHECK UNLOCKS
+    }
+
+    private void CheckForMapUnlocks()
+    {
+        foreach(Button button in allButtons)
+        {
+            button.interactable = false;
+        }
+        
+        hindegardeStartButton.interactable = true;
+
+        if(steamStorage.hindegardeStart)
+        {
+            hindegardeStartButton.interactable = true;
+            mavisButton.interactable = true;
+        }
+        if(steamStorage.mavis)
+        {
+            hindegardeStartButton.interactable = false;
+            mavisButton.interactable = true;
+            hindegardeDefenceButton.interactable = true;
+        }
+        if(steamStorage.hindegardeDefence)
+        {
+            hindegardeStartButton.interactable = true;
+            hindegardeDefenceButton.interactable = false;
+            hindegardeDefenceButton.gameObject.SetActive(false);
+            mavisButton.interactable = true;
+            ruunCityButton.interactable = true;
+        }
+        if(steamStorage.ruunCity)
+        {
+            hindegardeStartButton.interactable = true;
+            mavisButton.interactable = true;
+            ruunCityButton.interactable = true;
+            swampRunButton.interactable = true;
+        }
+        if(steamStorage.swampRun)
+        {
+            hindegardeStartButton.interactable = true;
+            mavisButton.interactable = true;
+            ruunCityButton.interactable = true;
+            swampRunButton.interactable = true;
+        }
     }
 
     public void StartGame()
@@ -117,8 +159,14 @@ public class LobbyMenu : NetworkBehaviour
             case "Hindegarde":
                 levelSelected = "Scene_Map_Starting";
                 break;
-            case "Frozen Tundra":
+            case "HindegardeDefence":
                 levelSelected = "Scene_Map_Hindegarde";
+                break;
+            case "Mavis":
+                levelSelected = "Scene_Map_Mavis";
+                break;
+            case "Ruun":
+                levelSelected = "Scene_Map_Ruun";
                 break;
         }
         levelText.text = level;

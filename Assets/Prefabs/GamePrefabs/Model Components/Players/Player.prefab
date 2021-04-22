@@ -193,7 +193,7 @@ MonoBehaviour:
   buildingRangeLimit: 25
   maxAllowablePopulation: 400
   numberOfPlayers: 4
-  gold: 1500
+  gold: 2000
   maxGold: 100000
   iron: 0
   maxIron: 100000

@@ -419,7 +419,7 @@ MonoBehaviour:
   pickaxe: {fileID: 9000752032217256737, guid: 26db4eeb16d3cb64ca3956c782b76b04, type: 3}
   sword: {fileID: 9000752032217256737, guid: 43f73f030d5ac5c449108cc647442aaf, type: 3}
   fireball: {fileID: 9000752032217256737, guid: aa7a18c1417df174d848de745ace8210, type: 3}
-  click: {fileID: 174694338955601326, guid: 5ee0c76d88457714da374c1207930206, type: 3}
+  click: {fileID: 3886399102789799718, guid: 2eaba0976c4d7104c92d53472f9d705f, type: 3}
   worker: {fileID: 2865781408668503874, guid: 70e4f6a3ccec78a4da8661fd11c9c3b7, type: 3}
   swordsman: {fileID: 2865781408668503874, guid: 25f87b013e079da40888d0c5bf64785a, type: 3}
   footman: {fileID: 2865781408668503874, guid: 87c11ed24f697084181201f50569af23, type: 3}

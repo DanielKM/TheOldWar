@@ -62,6 +62,8 @@ public class UnitMovement : NetworkBehaviour
             {
                 agent.SetDestination(target.transform.position);
 
+                // ADD IF GATHERER
+
                 if(target.TryGetComponent<ResourceDropOff>(out ResourceDropOff resourceDropOff))
                 {
                     if(unitTask.GetTask() != ActionList.Delivering && gameObject.GetComponent<ResourceGatherer>() != null) 
@@ -156,7 +158,6 @@ public class UnitMovement : NetworkBehaviour
 
         if(!agent.enabled) { return; }
         
-        Debug.Log("Moving to: " +hit.position );
         agent.SetDestination(hit.position);
     }
 

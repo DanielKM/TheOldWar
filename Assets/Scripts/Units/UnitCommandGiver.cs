@@ -187,7 +187,6 @@ public class UnitCommandGiver : NetworkBehaviour
 
     [Command]
     public void CmdCreateBoxFormation(Vector3 rayCastPoint) {
-        Debug.Log(rayCastPoint);
         float row = 0.0f;
         float rowOffset = 1.2f;
         int counter = 0;
@@ -196,9 +195,6 @@ public class UnitCommandGiver : NetworkBehaviour
 
         List<Unit> formationList = unitSelectionHandler.SelectedUnits;
 
-        Debug.Log(formationList.Count);
-
-        Debug.Log(rayCastPoint);
         if(formationList.Count == 1) { 
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
                 formationList[iteration].GetUnitMovement().ServerMove(new Vector3(rayCastPoint.x, rayCastPoint.y, rayCastPoint.z));           

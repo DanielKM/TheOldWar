@@ -319,7 +319,7 @@ public class PooledGameobjects : NetworkBehaviour
 
     void CreateInstantiatedClick(RaycastHit hit) 
     {
-        GameObject instantiatedClick = Instantiate(click, new Vector3(hit.point.x + 0f, hit.point.y + 1f, hit.point.z), click.transform.rotation);
+        GameObject instantiatedClick = Instantiate(click, new Vector3(hit.point.x + 0f, hit.point.y + 0.1f, hit.point.z), click.transform.rotation);
 
         // not sure if necessary to be networked
         // NetworkServer.Spawn(instantiatedClick, connectionToClient);

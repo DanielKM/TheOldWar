@@ -50,6 +50,8 @@ public class Rescuable : MonoBehaviour
             
             for (int i = 0; i < colliders.Length; i++)
             {
+                if(rescued) { return; }
+                
                 if(colliders[i].gameObject.GetComponent<UnitInformation>() == null) { continue; }
 
                 UnitInformation targetUnitInformation = colliders[i].gameObject.GetComponent<UnitInformation>();
@@ -88,9 +90,9 @@ public class Rescuable : MonoBehaviour
 
                     rescued = true;
                    
-                   targeter.ClearTarget();
+                    targeter.ClearTarget();
 
-                   this.enabled = false;
+                    this.enabled = false;
                 }
             }
         }

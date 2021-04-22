@@ -55,12 +55,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         if(unitTimer < unitSpawnDuration) { return; }
 
         Vector3 spawnOffset = Random.insideUnitSphere * spawnMoveRange;
-        spawnOffset.y = 0;
-
-        Debug.Log("spwn off OFFSET: " + spawnOffset);
-        
-        Debug.Log("spwnpnt OFFSET: " + unitSpawnPoint.position);
-        
+        spawnOffset.y = 0;        
         
         GameObject unitInstance = null;
         player = connectionToClient.identity.GetComponent<RTSPlayer>();
@@ -109,8 +104,6 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         unitInstance.GetComponent<UnitInformation>().team = player.team;
 
         NetworkServer.Spawn(unitInstance, connectionToClient);
-
-        Debug.Log(unitSpawnPoint.position + spawnOffset);
 
         unitInstance.GetComponent<UnitMovement>().ServerMove(unitSpawnPoint.position + spawnOffset);
 

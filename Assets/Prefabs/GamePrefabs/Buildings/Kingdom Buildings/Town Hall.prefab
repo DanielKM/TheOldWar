@@ -754,6 +754,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1437252279171930, guid: 0996016f32a96f24d8a91374ca810e84, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1807918796233882, guid: 0996016f32a96f24d8a91374ca810e84, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -813,6 +817,14 @@ PrefabInstance:
     - target: {fileID: 4688726028614064, guid: 0996016f32a96f24d8a91374ca810e84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23384984750219732, guid: 0996016f32a96f24d8a91374ca810e84, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23384984750219732, guid: 0996016f32a96f24d8a91374ca810e84, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 64577764728881042, guid: 0996016f32a96f24d8a91374ca810e84, type: 3}
       propertyPath: m_Enabled

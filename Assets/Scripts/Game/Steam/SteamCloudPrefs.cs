@@ -28,7 +28,7 @@ public class SteamCloudPrefs
 
     // LEVEL UNLOCKS;
     public bool hindegardeStart = false;
-    public bool mavis = false;
+    public bool hadrigal = false;
     public bool hindegardeDefence = false;
     public bool ruunCity = false;
     public bool swampRun = false;

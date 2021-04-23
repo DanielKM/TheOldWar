@@ -182,7 +182,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 2223779495634536670}
   buildingBlockLayer:
     serializedVersion: 2
-    m_Bits: 17681
+    m_Bits: 50449
   UI: {fileID: 0}
   playerAudio: {fileID: -6281840144472239566}
   spawnPoint: {fileID: 0}

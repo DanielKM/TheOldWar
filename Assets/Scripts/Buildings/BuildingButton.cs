@@ -108,14 +108,28 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         {
             buildingPreviewInstance.SetActive(true);
         }
-
+        
         Material mat = player.CanPlaceBuilding(buildingCollider, hit.point) ? greenMaterial : redMaterial;
-
-        foreach (Transform child in buildingPreviewInstance.transform) 
-        {
-            if(child.gameObject.GetComponent<MeshRenderer>() != null)
+        if(buildingPreviewInstance.transform.childCount > 0) {
+            foreach (Transform child in buildingPreviewInstance.transform) 
             {
-                MeshRenderer renderers = child.gameObject.GetComponent<MeshRenderer>();
+                if(child.gameObject.GetComponent<MeshRenderer>() != null)
+                {
+                    MeshRenderer renderers = child.gameObject.GetComponent<MeshRenderer>();
+
+                    Material[] mats = new Material[renderers.materials.Length];
+                    for(int i=0; i<renderers.materials.Length; i++)
+                    {
+                        mats[i] = mat;
+                    }
+
+                    renderers.materials = mats;
+                }
+            }
+        } else {
+           if(buildingPreviewInstance.GetComponent<MeshRenderer>() != null)
+           {
+                MeshRenderer renderers = buildingPreviewInstance.GetComponent<MeshRenderer>();
 
                 Material[] mats = new Material[renderers.materials.Length];
                 for(int i=0; i<renderers.materials.Length; i++)
@@ -124,7 +138,7 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
                 }
 
                 renderers.materials = mats;
-            }
+           } 
         }
     }
 }

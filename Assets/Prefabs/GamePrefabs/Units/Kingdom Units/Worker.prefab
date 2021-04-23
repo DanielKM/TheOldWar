@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6232723648943949554, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: id
@@ -549,11 +549,11 @@ PrefabInstance:
       objectReference: {fileID: -7908261325409360190}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: chaseRange
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: dropoffRange
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitAnimation

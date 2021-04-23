@@ -65,8 +65,8 @@ public class GameOverDisplay : NetworkBehaviour
                 case "Scene_Map_Starting":
                     SteamStorage.hindegardeStart = true;
                     break;
-                case "Scene_Map_Mavis":
-                    SteamStorage.mavis = true;
+                case "Scene_Map_Hadrigal":
+                    SteamStorage.hadrigal = true;
                     break;
                 case "Scene_Map_Hindegarde":
                     SteamStorage.hindegardeDefence = true;

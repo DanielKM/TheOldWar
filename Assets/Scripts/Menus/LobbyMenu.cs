@@ -106,7 +106,7 @@ public class LobbyMenu : NetworkBehaviour
             hindegardeStartButton.interactable = true;
             mavisButton.interactable = true;
         }
-        if(steamStorage.mavis)
+        if(steamStorage.hadrigal)
         {
             hindegardeStartButton.interactable = false;
             mavisButton.interactable = true;
@@ -162,9 +162,9 @@ public class LobbyMenu : NetworkBehaviour
                 levelSelected = "Scene_Map_Starting";
                 levelExplanation = "Hindegarde is the last lonely town between Ruun and the World Spine. Bolster your forces by gathering allies around town. Also, rid the town of Gavrol, the man-eating boar that has been terrorizing the citizens.";
                 break;
-            case "Mavis":
-                levelSelected = "Scene_Map_Mavis";
-                levelExplanation = "There have been rumours of magic users in Mavis, the town nearest to Hindegarde. They may have something to do with the risen dead that attacked our town. Go investigate and find out if the rumours are true";
+            case "Hadrigal":
+                levelSelected = "Scene_Map_Hadrigal";
+                levelExplanation = "There have been rumours of magic users in Hadrgial, the town nearest to Hindegarde. They may have something to do with the risen dead that attacked our town. Go talk to Mavis, their town elder and find out if the rumours are true";
                 break;
             case "HindegardeDefence":
                 levelSelected = "Scene_Map_Hindegarde";

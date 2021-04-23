@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 4212278499377503323}
   m_Layer: 0
   m_Name: Watch Tower
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +73,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4, z: 2}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!208 &4914556776207325221
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -689,6 +689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5707285884443372328}
     m_Modifications:
+    - target: {fileID: 6365732612612149749, guid: 1cbc07082a7e73b449ba071d192778fc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8653975330825108040, guid: 1cbc07082a7e73b449ba071d192778fc, type: 3}
       propertyPath: m_RootOrder
       value: 1

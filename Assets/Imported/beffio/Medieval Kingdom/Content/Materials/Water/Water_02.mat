@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Water_02
   m_Shader: {fileID: 4800000, guid: 95f0676ff4f92e540b5db91fcf476f02, type: 3}
   m_ShaderKeywords: 
@@ -138,6 +139,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PerlinNoise6:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Small_noise_map:
         m_Texture: {fileID: 2800000, guid: ef11cdaa9fb31f2489c4359977149e7b, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -226,11 +231,19 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2365b5ad6a2357c42b9d8efadc9d73bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _a710fa1f1165b699bccefec099930acf:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _curvature_blur:
         m_Texture: {fileID: 2800000, guid: 675d9ecbe9cbb72459297a466ffd486c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _water_caustic:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -240,11 +253,14 @@ Material:
     - _Aberacja: 0.663
     - _Alpha_cutout_level: 1
     - _BumpScale: 1
+    - _Caustic_intensity: 1.54
+    - _Caustic_parallax: 0.091
     - _ChromaticAberration: 0.3
     - _Cracks_map_intensity: 4.235294
     - _Cutoff: 0
+    - _Depth_Intensity: 0.514
     - _Depth_intensity: 1
-    - _Depth_multiply: 0.1
+    - _Depth_multiply: 0.163
     - _Depth_shift: 1
     - _Depthintensity: 1
     - _Depthshift: 1.072
@@ -257,6 +273,8 @@ Material:
     - _DstBlend: 0
     - _EdgeLength: 15
     - _Edge_: 1
+    - _Edge_Foam_Tiling: 34.7
+    - _Edge_fade: 1.37
     - _Edge_wear: 0.223
     - _Emmisive_Frequency: 0.5366361
     - _Emmisive_intensity: 0
@@ -266,6 +284,8 @@ Material:
     - _Float1: 0.073
     - _Float2: 0.577
     - _Float3: 0.587
+    - _Foam_Amount: 1.28
+    - _Foam_contrast: 0.962
     - _Fresnel_bias: 0.1
     - _Fresnel_level: 1
     - _Fresnel_power: 2.28
@@ -281,10 +301,10 @@ Material:
     - _Mettallic_shift: 0
     - _Mode: 0
     - _Normal1_float: 2
-    - _Normal1_intensity: 2
+    - _Normal1_intensity: 0.53
     - _Normal2_float: 2
-    - _Normal2_intensity: 2
-    - _Normal_blend: 0.5
+    - _Normal2_intensity: 0.35
+    - _Normal_blend: 0.154
     - _Normal_level: 7.79
     - _OcclusionStrength: 1
     - _Opacity: 0.898
@@ -292,12 +312,13 @@ Material:
     - _Paint_Smoothness: 0.577
     - _Paint_level: 0
     - _Parallax: 0.02
+    - _Reflection_power: 0.236
     - _Refract: 1
     - _Small_noise_shift: 1
     - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _Smoothness_Shift: 1
-    - _Smoothness_level: 0.95
+    - _Smoothness_level: 0.485
     - _SpecularHighlights: 1
     - _Speed: 0.094
     - _Speed_textiure1: 0.001
@@ -308,29 +329,34 @@ Material:
     - _Tiling: 1
     - _Tiling_texture1: 2
     - _Tiling_texture2: 1
-    - _UV1_tiling: 0.08
-    - _UV2_tiling: 0.14
+    - _UV1_tiling: 1.25
+    - _UV2_tiling: 0.65
     - _UVSec: 0
     - _UV_1_tiling: 0
     - _UV_2_tiling: 0
-    - _Underwater_Distortion: 0.84
+    - _Underwater_Distortion: 0.514
     - _Underwater_Distortion2: 1.5
     - _Vertex_dicplacement_level: 0.1
     - _Vertex_offset_level: 0.378
-    - _Vertexdicplacementlevel: 0.1
+    - _Vertexdicplacementlevel: 1.07
     - _Water_speed: 0.013
     - _Water_top_mask: 0.1
     - _Water_transparency: 0.98
-    - _Watertopmasklevel: 0.041
+    - _Watertopmasklevel: 0.311
     - _Watertransparencylevel: 0.77
+    - _Wavesintensity: 0.035
+    - _Wavesnoisecutout: 0.375
+    - _Waveswidth: 0.0334
     - _Wood_Smoothness: 0.6
     - _World_position: 1
     - _ZWrite: 1
     - __dirty: 0
+    - _caustic_tilling: 21.7
     - _depth: 1.025
     m_Colors:
     - _Base_Color: {r: 0.42745098, g: 0.22745097, b: 0.13725486, a: 0}
     - _Base_color: {r: 0.20604457, g: 0.26932725, b: 0.27205884, a: 0}
+    - _Caustic_speed: {r: -0.9, g: -0.15, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 1, b: 1, a: 0}
     - _Color1: {r: 1, g: 1, b: 1, a: 1}
@@ -339,14 +365,16 @@ Material:
     - _Cracks_map_color: {r: 1, g: 0.35172406, b: 0, a: 0}
     - _Deep_color: {r: 0.081531115, g: 0.1641868, b: 0.21323529, a: 0}
     - _Deepwatercolor: {r: 0.2004758, g: 0.2647059, b: 0.21952334, a: 0}
-    - _Depth_Top_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Depth_bottom_color: {r: 0.5019608, g: 0.72156864, b: 0.7019608, a: 0}
+    - _Depth_Top_Color: {r: 0.3337487, g: 0.5660378, b: 0.54832995, a: 0}
+    - _Depth_bottom_color: {r: 0.41282406, g: 0.1372549, b: 0.6431373, a: 0}
     - _Depth_color: {r: 0.50735295, g: 0.50735295, b: 0.50735295, a: 0}
     - _Detail_2_color: {r: 0, g: 0.9779412, b: 0.7756083, a: 0}
     - _Detail_color: {r: 0.19162765, g: 0.27205884, b: 0.1660359, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emmisive_color: {r: 1, g: 0.35294116, b: 0, a: 0}
     - _Emmsivie_color: {r: 0.9779412, g: 0.9210103, b: 0.68312067, a: 0}
+    - _Fakereflectionscolor: {r: 0.5307659, g: 0.9254902, b: 0.372549, a: 0.3764706}
+    - _Foamcolor: {r: 0.06341223, g: 0.7075472, b: 0.41536638, a: 0}
     - _Fresnel_Color: {r: 0.03595371, g: 0.5340289, b: 0.6985294, a: 0}
     - _Fresnel_Color2: {r: 1, g: 1, b: 1, a: 0}
     - _Fresnel_color1: {r: 0.23405059, g: 0.27367702, b: 0.28676468, a: 0}
@@ -354,8 +382,10 @@ Material:
     - _Material_Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _Paint_color: {r: 0, g: 0.9779412, b: 0.7756083, a: 0}
     - _Shallowwatercolor: {r: 0.4528006, g: 0.46956357, b: 0.49264705, a: 0}
+    - _Shorecolor: {r: 0, g: 0.735849, b: 0.70580596, a: 0.48235294}
     - _Small_noise_color: {r: 1, g: 0.35172406, b: 0, a: 0}
     - _Top_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Top_mask_color_shift: {r: 0.4885378, g: 0.019579919, b: 0.8301887, a: 0}
     - _UV1_Animator: {r: 0, g: 0, b: 0, a: 0}
     - _UV1_speed: {r: 0.01, g: 0, b: 0, a: 0}
     - _UV2_Animator: {r: 0, g: 0, b: 0, a: 0}
@@ -364,6 +394,8 @@ Material:
     - _Water_color: {r: 0.3341263, g: 0.4234578, b: 0.44117647, a: 0}
     - _Water_seed2: {r: 0.15, g: 0, b: 0, a: 0}
     - _Water_speed2: {r: 0.01, g: 0, b: 0, a: 0}
+    - _Wavescolor: {r: 0, g: 0, b: 0, a: 0}
     - _Wood_Color: {r: 0.42745098, g: 0.22745097, b: 0.13725486, a: 0}
     - _Wood_base_color: {r: 0.39999998, g: 0.25098035, b: 0.20392153, a: 0}
     - _Wood_tiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

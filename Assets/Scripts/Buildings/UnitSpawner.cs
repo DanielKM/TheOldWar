@@ -26,12 +26,29 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
     private float progressImageVelocity;
 
     private RTSPlayer player = null;
+    UnitInformation unitInformation = null;
+
+    public Vector3 rallyPoint;
+    public GameObject rallyPointGameObject = null;
+    public bool rallyPointSet = false;
+
+    public void Start()
+    {
+        rallyPoint = gameObject.transform.position;
+        
+        unitInformation = gameObject.GetComponent<UnitInformation>();
+    }
 
     private void Update()
     {
         if(player == null) 
         {
             // player = connectionToClient.identity.GetComponent<RTSPlayer>();
+        }
+
+        if (Input.GetMouseButtonDown(1) && unitInformation.selected == true)
+        {
+            BuildingRightClick();
         }
 
         if(isServer)
@@ -42,6 +59,28 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         {
             UpdateTimerDisplay();
         }
+    }
+
+    public void BuildingRightClick()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 350))
+        {   
+            rallyPoint = hit.point;
+            rallyPointGameObject.transform.position = rallyPoint;
+            rallyPointSet = true;
+        }
+    }
+
+    public void ShowRallyPoint()
+    {
+        // DestroyRallyPoint();
+        if(!rallyPointSet) { return; }
+
+        rallyPointGameObject.transform.position = rallyPoint;
+        rallyPointGameObject.SetActive(true);
     }
 
     #region Server
@@ -105,7 +144,11 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
 
         NetworkServer.Spawn(unitInstance, connectionToClient);
 
-        unitInstance.GetComponent<UnitMovement>().ServerMove(unitSpawnPoint.position + spawnOffset);
+        if(gameObject.transform.position != rallyPoint) {
+            unitInstance.GetComponent<UnitMovement>().ServerMove(rallyPoint);
+        } else {
+            unitInstance.GetComponent<UnitMovement>().ServerMove(unitSpawnPoint.position + spawnOffset);
+        }
 
         // Pooled Projectiles
         // for(int i = 0; i<pooledUnits.Count; i++)

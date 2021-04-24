@@ -15,6 +15,7 @@ public class BuildingPlacementHandler : MonoBehaviour
     public RTSPlayer player;
     public LayerMask floorMask;
     public GameObject buildingPreviewInstance;
+    public List<GameObject> selectionCircles = new List<GameObject>();
     private Camera mainCamera;
 
     private void Start()

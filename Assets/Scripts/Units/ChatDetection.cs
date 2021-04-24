@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ChatDetection : MonoBehaviour
 {      
@@ -84,6 +85,7 @@ public class ChatDetection : MonoBehaviour
         chatBubble.SetActive(true);
         messageSent = true;
         yield return new WaitForSeconds(messageLength);
+        gameObject.transform.parent.GetComponent<NavMeshAgent>().ResetPath();
         chatBubble.SetActive(false);
     }
     #region Server

@@ -254,6 +254,14 @@ PrefabInstance:
       propertyPath: colorRenderers.Array.data[5]
       value: 
       objectReference: {fileID: 2184105862976987469}
+    - target: {fileID: 311740723450335782, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311740723461584524, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: m_OrthographicSize
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 402625050352038964, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: syncMode
       value: 0

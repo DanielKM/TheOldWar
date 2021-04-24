@@ -8,8 +8,11 @@ using UnityEngine.UI;
 
 public class Building : NetworkBehaviour, IPointerClickHandler
 {
+    // REFERENCES
+
     [SerializeField] private Health health = null;
     [SerializeField] private GameObject buildingPreview = null;
+    [SerializeField] private GameObject selectionCircle = null;
     [SerializeField] private Sprite icon = null;
     [SerializeField] private int id = -1;
     
@@ -23,7 +26,10 @@ public class Building : NetworkBehaviour, IPointerClickHandler
     [SerializeField] public int population = 0;
     [SerializeField] public int armySize = 0;
 
+    // SETTINGS
+
     BuildingPlacementHandler buildingPlacementHandler;
+    UnitInformation thisUnitInformation;
 
     [TextArea]
     public string description;
@@ -31,6 +37,8 @@ public class Building : NetworkBehaviour, IPointerClickHandler
     [SerializeField] public GameObject foundation = null;
     [SerializeField] private UIController UI = null;
     private GameObject UIGameObject = null;
+
+    // ACTIONS
     
     public static event Action<Building> ServerOnBuildingSpawned;
     public static event Action<Building> ServerOnBuildingDespawned;
@@ -41,6 +49,7 @@ public class Building : NetworkBehaviour, IPointerClickHandler
     public void Start()
     {
         buildingPlacementHandler = GameObject.Find("UnitHandlers").GetComponent<BuildingPlacementHandler>();
+        thisUnitInformation = gameObject.GetComponent<UnitInformation>();
     }
 
     public GameObject GetBuildingPreview()
@@ -98,7 +107,7 @@ public class Building : NetworkBehaviour, IPointerClickHandler
     [Server]
     private void ServerHandleDie()
     {
-        if(gameObject.GetComponent<UnitInformation>().owner == null) 
+        if(thisUnitInformation.owner == null) 
         { 
             Destroy(gameObject);
             
@@ -141,7 +150,16 @@ public class Building : NetworkBehaviour, IPointerClickHandler
         UI = UIGameObject.GetComponent<UIController>();
         UIGameObject.GetComponent<Buttons>().building = gameObject.GetComponent<Building>();
         UpdateBuildingPanel(gameObject.GetComponent<Building>());
-        UnitType unitType = gameObject.GetComponent<UnitInformation>().unitType;
+        UnitType unitType = thisUnitInformation.unitType;
+        selectionCircle.SetActive(true);
+
+        buildingPlacementHandler.selectionCircles.Add(selectionCircle);
+        thisUnitInformation.selected = true;
+        if(gameObject.TryGetComponent<UnitSpawner>(out UnitSpawner spawner))
+        {
+            spawner.ShowRallyPoint();
+        }
+
         UI.BuildingSelect(unitType);
     }
 

@@ -19,6 +19,7 @@ public class UnitSelectionHandler : MonoBehaviour
     private Camera mainCamera;
 
     public List<Unit> SelectedUnits { get; set; } = new List<Unit>();
+    public BuildingPlacementHandler BuildingPlacementHandler = null;
 
     // Control groups
     public List<Unit> controlGroup1;
@@ -44,6 +45,7 @@ public class UnitSelectionHandler : MonoBehaviour
     {
         testing = GameObject.Find("Testing").GetComponent<Testing>().testing;
         UI = GameObject.Find("UI").GetComponent<UIController>();
+        BuildingPlacementHandler = gameObject.GetComponent<BuildingPlacementHandler>();
 
         if(!testing) 
         {
@@ -169,6 +171,23 @@ public class UnitSelectionHandler : MonoBehaviour
 
     private void StartSelectionArea() 
     {    
+        // DESELECT BUILDINGS
+        foreach(GameObject circle in BuildingPlacementHandler.selectionCircles)
+        {
+            if(circle)
+            {
+                GameObject parentBuildingGameObject = circle.transform.parent.gameObject;
+                if(parentBuildingGameObject) {
+                    if(parentBuildingGameObject.TryGetComponent<UnitSpawner>(out UnitSpawner spawner))
+                    {
+                        spawner.rallyPointGameObject.SetActive(false);
+                    }
+                    circle.transform.parent.GetComponent<UnitInformation>().selected = false;
+                    circle.SetActive(false);
+                }
+            }
+        }
+
         if(!Keyboard.current.leftShiftKey.isPressed) 
         {
             foreach(Unit selectedUnit in SelectedUnits) 
@@ -226,6 +245,7 @@ public class UnitSelectionHandler : MonoBehaviour
 
             if(timeSinceLastClick <= DOUBLE_CLICK_TIME) 
             {
+                Debug.Log("Double!");
                 SelectVisibleUnitsOfSameType(unit);
             }
             lastclickTime = Time.time;

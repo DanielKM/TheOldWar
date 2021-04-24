@@ -590,6 +590,22 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 9000752032217256737, guid: 43f73f030d5ac5c449108cc647442aaf, type: 3}
+    - target: {fileID: 7212310020671775422, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212310020672019166, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212310020679138932, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: m_AspectRatio
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212310020679138932, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
+      propertyPath: m_OrthographicSize
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7269614472074241819, guid: 44ba9c0adfab11145a5d304d2d9a7376, type: 3}
       propertyPath: m_Enabled
       value: 0

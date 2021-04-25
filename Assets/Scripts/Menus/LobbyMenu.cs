@@ -22,7 +22,7 @@ public class LobbyMenu : NetworkBehaviour
     
     [SerializeField] private Button hindegardeStartButton = null;
     [SerializeField] private Button hindegardeDefenceButton = null;
-    [SerializeField] private Button mavisButton = null;
+    [SerializeField] private Button hadrigalButton = null;
     [SerializeField] private Button ruunCityButton = null;
     [SerializeField] private Button swampRunButton = null;
 
@@ -104,12 +104,12 @@ public class LobbyMenu : NetworkBehaviour
         if(steamStorage.hindegardeStart)
         {
             hindegardeStartButton.interactable = true;
-            mavisButton.interactable = true;
+            hadrigalButton.interactable = true;
         }
         if(steamStorage.hadrigal)
         {
             hindegardeStartButton.interactable = false;
-            mavisButton.interactable = true;
+            hadrigalButton.interactable = true;
             hindegardeDefenceButton.interactable = true;
         }
         if(steamStorage.hindegardeDefence)
@@ -117,20 +117,20 @@ public class LobbyMenu : NetworkBehaviour
             hindegardeStartButton.interactable = true;
             hindegardeDefenceButton.interactable = false;
             hindegardeDefenceButton.gameObject.SetActive(false);
-            mavisButton.interactable = true;
+            hadrigalButton.interactable = true;
             ruunCityButton.interactable = true;
         }
         if(steamStorage.ruunCity)
         {
             hindegardeStartButton.interactable = true;
-            mavisButton.interactable = true;
+            hadrigalButton.interactable = true;
             ruunCityButton.interactable = true;
             swampRunButton.interactable = true;
         }
         if(steamStorage.swampRun)
         {
             hindegardeStartButton.interactable = true;
-            mavisButton.interactable = true;
+            hadrigalButton.interactable = true;
             ruunCityButton.interactable = true;
             swampRunButton.interactable = true;
         }
@@ -164,7 +164,7 @@ public class LobbyMenu : NetworkBehaviour
                 break;
             case "Hadrigal":
                 levelSelected = "Scene_Map_Hadrigal";
-                levelExplanation = "There have been rumours of magic users in Hadrgial, the town nearest to Hindegarde. They may have something to do with the risen dead that attacked our town. Go talk to Mavis, their town elder and find out if the rumours are true";
+                levelExplanation = "There have been rumours of magic users in Hadrigal, the town nearest to Hindegarde. They may have something to do with the risen dead that attacked our town. Go talk to Mavis, their town elder and find out if the rumours are true";
                 break;
             case "HindegardeDefence":
                 levelSelected = "Scene_Map_Hindegarde";

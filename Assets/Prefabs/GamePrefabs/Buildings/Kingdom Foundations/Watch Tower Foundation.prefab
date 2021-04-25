@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2586664664986295977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.133728, y: 6.995056, z: -0.4736023}
+  m_LocalPosition: {x: 3.8415222, y: 2.007141, z: 94.0589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 238923877841961983}
@@ -206,7 +206,6 @@ MonoBehaviour:
   food: 0
   population: 0
   armySize: 0
-  rallyPoint: {x: 0, y: 0, z: 0}
   description: The Watch Towers bind the Kingdom together. They are cheap and durable
     and light the way across the countryside.
   foundation: {fileID: 0}

@@ -51,5 +51,6 @@ public enum UnitType
     Healer,
     HospitalFoundation,
     Caravan,
-    CaravanFoundation
+    CaravanFoundation,
+    None
 }

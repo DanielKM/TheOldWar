@@ -251,6 +251,7 @@
      <Compile Include="Assets\Scripts\Resources\ResourceDropOff.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources\ResourceManager.cs" />
+     <Compile Include="Assets\DisplayText.cs" />
      <None Include="Assets\Imported\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imported\MedievalKingdomUI\Shaders\Fluid.shader" />

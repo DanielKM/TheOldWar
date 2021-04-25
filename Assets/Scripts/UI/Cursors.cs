@@ -9,4 +9,5 @@ public class Cursors : MonoBehaviour
     public Texture2D doorway;
     public Texture2D sword;
     public Texture2D mine;
+    public Texture2D book;
 }

@@ -110,6 +110,7 @@ public class BuildingButton : MonoBehaviour, IPointerDownHandler, IPointerEnterH
         }
         
         Material mat = player.CanPlaceBuilding(buildingCollider, hit.point) ? greenMaterial : redMaterial;
+        
         if(buildingPreviewInstance.transform.childCount > 0) {
             foreach (Transform child in buildingPreviewInstance.transform) 
             {

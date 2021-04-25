@@ -44,6 +44,9 @@ public class UnitInformation : NetworkBehaviour
         if(gameObject.layer == 14) 
         { 
             Cursor.SetCursor(cursors.mine, new Vector2(0, 0), CursorMode.Auto);
+        } else if(gameObject.layer == 17) 
+        { 
+            Cursor.SetCursor(cursors.book, new Vector2(0, 0), CursorMode.Auto);
         } else if (hasAuthority && gameObject.GetComponent<Foundation>() != null) {
             Cursor.SetCursor(cursors.mine, new Vector2(0, 0), CursorMode.Auto);
         }

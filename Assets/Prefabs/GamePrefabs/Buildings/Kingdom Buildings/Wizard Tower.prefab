@@ -661,6 +661,10 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4636535365497632322, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
+      propertyPath: progressIcon
+      value: 
+      objectReference: {fileID: 4548814991681163721}
     - target: {fileID: 5007836854473853384, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 2
@@ -850,6 +854,26 @@ PrefabInstance:
     - target: {fileID: 1019979582840380, guid: 6493c68bda0d54641abac74500182c28, type: 3}
       propertyPath: m_Name
       value: Wizard Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019979582840380, guid: 6493c68bda0d54641abac74500182c28, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075865714265176, guid: 6493c68bda0d54641abac74500182c28, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547675199087686, guid: 6493c68bda0d54641abac74500182c28, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984156627581162, guid: 6493c68bda0d54641abac74500182c28, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991978669150234, guid: 6493c68bda0d54641abac74500182c28, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4042731644719722, guid: 6493c68bda0d54641abac74500182c28, type: 3}
       propertyPath: m_RootOrder

@@ -1,0 +1,109 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel Paint
+//#pragma kernel GetHeightAverages
+
+Texture2D<float> _InputDisplacement;
+Texture2D<float> _BrushTexture;
+RWTexture2D<float> _OutputDisplacement;
+RWTexture2D<float> _OutputSolidDisplacement;
+//RWStructuredBuffer<float> _HeightAverages;
+
+int effectType = 0; // 0 = Raise, 1 = Lower, 2 = Flatten, 3 = Clear, 4 = Smooth, 5 = Paint
+float strength;
+float flattenHeight = 0.0f;
+float2 _iResolution = 513.0f;
+
+// Mathf.MoveTowards
+float MoveTowards(float current, float target, float maxDelta)
+{
+    if (abs(target - current) <= maxDelta)
+        return target;
+    return current + sign(target - current) * maxDelta;
+}
+
+// float GetAverage(uint2 coord, int x, int y)
+// {
+//     int xOffset = coord.x + x;
+//     int zOffset = coord.y + y;
+//     if (xOffset < 0 || xOffset >= _iResolution.x ||
+//         zOffset < 0 || zOffset >= _iResolution.y)
+//         return -1.0f;
+//     uint2 index = uint2(xOffset, zOffset);
+//     return Result[index];
+// }
+
+[numthreads(32,32,1)]
+void Paint(uint3 id : SV_DispatchThreadID)
+{
+    uint2 coord = id.xy;
+    //---------------
+    float height = _InputDisplacement[coord];    
+    float brush = _BrushTexture[coord];
+    float displacement = brush * (strength * 0.1f);
+    switch (effectType)
+    {
+    case 0: // Raise
+    case 3: // Clear
+        height += displacement;
+        break;
+    case 1: // Lower
+        height -= displacement;
+        break;
+    case 2: // Flatten
+        //height = MoveTowards(height, flattenHeight * .5f, brush * strength);
+        float delta = clamp(brush * strength, 0.f, 1.f);
+        height = lerp(height, flattenHeight * .5f, delta);
+        break;
+    case 4: // Smooth
+        // uint coordinate = Translate2DTo1D(id.x, id.y, _iResolution);
+        // float avg = _HeightAverages[coordinate];
+        // height = MoveTowards(height, avg, brush * strength);
+        break;
+    case 5: // Paint
+        break;
+    }
+
+    _OutputDisplacement[coord] = height;
+    _OutputSolidDisplacement[coord] = round(brush * strength);
+}
+
+//
+// [numthreads(32,32,1)]
+// void GetHeightAverages(uint3 id : SV_DispatchThreadID)
+// {
+//     uint2 coord = id.xy;
+//     //---------------
+//     float height = Result[coord];
+//     float value = height; // this will temporarily hold the value at each point
+//     float avg = height; // we will add all the heights to this and divide by int num bellow to get the average height
+//     float num = 1.0f;
+//
+//     value = GetAverage(coord, 1, 0);
+//     if (value > 0.0f)
+//     {
+//         num++; // keeps track of how many iterations were successful  
+//         avg += value;
+//     }
+//     value = GetAverage(coord, 0, 1);
+//     if (value > 0.0f)
+//     {
+//         num++; // keeps track of how many iterations were successful  
+//         avg += value;
+//     }
+//     value = GetAverage(coord, -1, 0);
+//     if (value > 0.0f)
+//     {
+//         num++; // keeps track of how many iterations were successful  
+//         avg += value;
+//     }
+//     value = GetAverage(coord, 0, -1);
+//     if (value > 0.0f)
+//     {
+//         num++; // keeps track of how many iterations were successful  
+//         avg += value;
+//     }
+//
+//     avg /= num;
+//     uint index = Translate2DTo1D(id.x, id.y, _iResolution);
+//     _HeightAverages[index] = avg;
+// }

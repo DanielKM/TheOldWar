@@ -984,6 +984,10 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4636535365497632322, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
+      propertyPath: progressIcon
+      value: 
+      objectReference: {fileID: 4395827944462698468}
     - target: {fileID: 5007836854473853384, guid: d1a64f768631b6c4eb5d6fb43624777e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 2

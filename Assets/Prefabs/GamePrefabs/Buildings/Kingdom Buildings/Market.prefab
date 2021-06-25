@@ -569,6 +569,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MarketModel
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a9db1631384b44345986d7f9f99e7108, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a9db1631384b44345986d7f9f99e7108, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: a9db1631384b44345986d7f9f99e7108, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: a9db1631384b44345986d7f9f99e7108, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: a9db1631384b44345986d7f9f99e7108, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a9db1631384b44345986d7f9f99e7108, type: 3}
       propertyPath: m_RootOrder
       value: 4

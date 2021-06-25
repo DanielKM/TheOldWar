@@ -1,0 +1,516 @@
+﻿#include "Includes/Math.cginc"
+#include "Includes/Common.cginc"
+#include "Includes/Fractal.cginc"
+
+#pragma kernel CSMain
+#define kMaxShapesPerRay   (16)
+#define kAabbTreeStackSize (16)
+#define kCheckTestSize (16)
+
+int fractalType;
+float seed = 0.0f;
+int octaves = 8.0f;
+float persistence = 0.65f;
+float frequency = 0.05f;
+float lacunarity = 1.5f;
+float XOffset = 0.0f;
+float ZOffset = 0.0f;
+float YOffset = 0.0f;
+
+StructuredBuffer<SdfShape> aSdfShape;
+int numSdfShapes;
+float4 rayMarchParams; // maxSteps, hitDist, maxDist, time
+float blendDist;
+int maxCountBudget;
+StructuredBuffer<AabbNode> aabbTree;
+int aabbTreeRoot;
+RWStructuredBuffer<AabbTest> successBuffer;
+
+// Spawner-Specific Values
+int spawnRangeShape; // 0 = Circle, 1 = Square
+float3 spawnOriginBoundsMin;
+float3 spawnOriginBoundsMax;
+float3 spawnOriginLocation;
+float spawnRange;
+bool checkRange;
+float4 spawnOriginRotation;
+float4x4 rotationMatrix;
+
+// ---- Spawn Criteria -----
+bool forceSpawn;
+
+// Check Collisions
+int collisionLayer;
+int virginCheckType; // 0 = None, 1 = Point, 2 = Bounds
+float boundsBorder;
+float rayExtents;
+
+// Check Slope
+int checkSlopeType; // 0 = None, 1 = Range, 2 = MinMax, 3 = Mixed
+float minSlope;
+float maxSlope;
+float minSpawnSlope;
+float maxSpawnSlope;
+
+// Check Height
+int checkHeightType; // 0 = None, 1 = Range, 2 = MinMax, 3 = Mixed
+float minHeight;
+float maxHeight;
+float minSpawnHeight; // = -20
+float maxSpawnHeight; // = 5000
+
+// Terrain Data
+float3 terrainPosition;
+float3 terrainSize;
+int alphamapResolution;
+
+// Check Textures
+//The splat maps
+int splatmapCount = 4;
+int splatmapDimensions = 1025;
+StructuredBuffer<float> splatmaps;
+bool checkTextures;
+float textureStrength; // = 0
+float minTextureStrength; // = 0
+float maxTextureStrength; // = 0
+float textureVariance; // = 0
+int selectedTextureIdx;
+
+// Check Mask
+float2 maskResolution = 1024.0;
+StructuredBuffer<float> maskImageData;
+StructuredBuffer<float> maskAlphaData;
+
+bool checkMask;
+int checkMaskType; // 0 = Perlin, 1 = Billow, 2 = Ridged, 3 = Image
+float minMaskFractal; // = 0
+float maxMaskFractal; // = 0
+float midMaskFractal; // = .5
+float maskFractalRange; // = .5
+bool maskInvert; // = false
+
+float4 imageFilterColor;
+float imageFilterFuzzyMatch;
+bool constrainWithinMaskedBounds;
+bool invertMaskedAlpha;
+bool successOnMaskedAlpha;
+bool scaleOnMaskedAlpha;
+float minScaleOnMaskedAlpha;
+float maxScaleOnMaskedAlpha;
+
+/// <summary>
+/// Rotate the m_point around the pivot - used to handle parentRotation
+/// </summary>
+/// <param name="position">Point to move</param>
+/// <param name="pivot">Pivot</param>
+/// <returns>New location</returns>
+float3 RotatePointAroundPivot(float3 position = float3(0.0f, 0.0f, 0.0f), float3 pivot = float3(0.0f, 0.0f, 0.0f))
+{
+    position -= pivot;
+    position = mul((float3x3)rotationMatrix, position);
+    position += pivot;
+    return position;
+}
+
+uint GetSplatAddress(uint2 address2d = uint2(0, 0), uint splatIdx = (0))
+{
+    return (address2d.y * splatmapDimensions + address2d.x) * splatmapCount + splatIdx;
+}
+
+bool CheckRange(float3 location = float3(0.0f, 0.0f, 0.0f))
+{
+    bool success = true;
+    if (checkRange)
+    {
+        float3 inverseLocation = RotatePointAroundPivot(location, spawnOriginLocation);
+        if (spawnRangeShape == 0)
+        {
+            // Circle
+            float xDistance = spawnOriginLocation.x - inverseLocation.x;
+            float zDistance = spawnOriginLocation.z - inverseLocation.z;
+            float spawnRadius = spawnRange * .5f;
+            float sqrDistance = xDistance * xDistance + zDistance * zDistance;
+            float sqrSpawnRadius = spawnRadius * spawnRadius;
+            if (sqrDistance >= sqrSpawnRadius)
+                success = false; // Failure!
+        }
+        else
+        {
+            float3 min = spawnOriginBoundsMin;
+            float3 max = spawnOriginBoundsMax;
+            // Square
+            if (inverseLocation.x < min.x || inverseLocation.x > max.x ||
+                inverseLocation.z < min.z || inverseLocation.z > max.z)
+                success = false; // Failure!
+        }
+    }
+    // Success
+    return success;
+}
+
+bool CheckSlope(float3 normal = float3(0.0f, 0.0f, 0.0f))
+{
+    bool success = true;
+    // Check Slope?
+    if (checkSlopeType != 0)
+    {
+        float3 up = float3(0.0f, 1.0f, 0.0f);
+        float slope = angle(up, normal);
+        if (checkSlopeType >= 3) // Mixed
+        {
+            if (slope < minSlope || slope > maxSlope)
+                success = false; // Failure!
+        }
+        if (slope < minSpawnSlope || slope > maxSpawnSlope)
+            success = false; // Failure!
+    }
+    return success;
+}
+
+bool CheckHeight(float3 position = float3(0.0f, 0.0f, 0.0f))
+{
+    bool success = true;
+    if (checkHeightType != 0)
+    {
+        if (checkHeightType >= 3) // Mixed
+            if (position.y < minHeight || position.y > maxHeight)
+                success = false; // Failure!
+        if (position.y < minSpawnHeight || position.y > maxSpawnHeight)
+            success = false; // Failure!
+    }
+    return success;
+}
+
+bool CheckCollisions(float3 position = float3(0.0f, 0.0f, 0.0f))
+{
+    bool result = true;
+    // Check Collisions?
+    if (virginCheckType != 0)
+    {
+        // params
+        int maxSteps = int(rayMarchParams.x);
+        float hitDist = rayMarchParams.y;
+        float radius = rayMarchParams.z;
+        Aabb rayBounds;
+        rayBounds.boundsMin = float4(position, 0.0);
+        rayBounds.boundsMax = float4(position, 0.0);
+        rayBounds = aabb_expand(rayBounds, radius);
+        // gather shapes around ray by casting it against AABB tree
+        int aiNearShape[kMaxShapesPerRay];
+        int numNearShapes = 0;
+        aabb_tree_query(aabbTree, aabbTreeRoot, rayBounds, boundsBorder, kAabbTreeStackSize,
+                        numNearShapes = min(numNearShapes + 1, kMaxShapesPerRay);
+                        aiNearShape[numNearShapes - 1] = shapeIndex;
+        );
+        for (int i_step = 0; i_step < maxSteps; ++i_step)
+        {
+            float3 p = position;
+            float d;
+            int layer = collisionLayer;
+            SDF_NEAR_SHAPES(d, p, radius, aiNearShape, numNearShapes, layer);
+            // hit shape?
+            if (d < hitDist)
+            {
+                // Failure
+                result = false;
+                break;
+            }
+        }
+    }
+    // Success
+    return result;
+}
+
+float inverseLerp(float a = 0.0f, float b = 0.0f, float v = 0.0f)
+{
+    return (v - a) / (b - a);
+}
+
+float2 WorldToTerrainPosition(float3 worldPos = float3(0.0f, 0.0f, 0.0f))
+{
+    worldPos = worldPos - terrainPosition;
+    // Calculate & Return normalized local pos 
+    return float2(
+        inverseLerp(0.f, terrainSize.x, worldPos.x),
+        inverseLerp(0.f, terrainSize.z, worldPos.z));
+}
+
+uint2 WorldToTerrainCoordinates(float3 worldPos = float3(0.0f, 0.0f, 0.0f), int resolution = 512)
+{
+    float2 terrainPos = WorldToTerrainPosition(worldPos);
+    int terrainWidth = resolution - 1;
+    int terrainHeight = resolution - 1;
+    int locationX = (int)round(terrainPos.x * terrainWidth);
+    int locationY = (int)round(terrainPos.y * terrainHeight);
+    return uint2(locationX, locationY);
+}
+
+bool CheckTexture(float3 position = float3(0.0f, 0.0f, 0.0f))
+{
+    bool success = true;
+    if (checkTextures)
+    {
+        // float2 uv = WorldToTerrainCoordinates(position, alphamapResolution);
+        uint2 uv = WorldToTerrainCoordinates(position, alphamapResolution);
+        float color = splatmaps[GetSplatAddress(uv, selectedTextureIdx)];
+        //color = max(color.r, max(color.g, max(color.b, color.a)));
+        if (color < minTextureStrength || color > maxTextureStrength)
+            success = false; // Failure!
+    }
+    return success;
+}
+
+bool ApproximatelyEqual(float a = 0.0f, float b = 0.0f, float delta = 1.401298E-45f)
+{
+    return a == b || abs(a - b) < delta;
+}
+
+float3 RGBtoXYZ(float4 c = float4(0.0f, 0.0f, 0.0f, 0.0f))
+{
+    // Based on http://www.easyrgb.com/index.php?X=MATH&H=02
+    float r = abs(c.r);
+    float g = abs(c.g);
+    float b = abs(c.b);
+    if (r > 0.04045f)
+        r = pow(((r + 0.055f) / 1.055f), 2.4f);
+    else
+        r /= 12.92f;
+    if (g > 0.04045f)
+        g = pow(((g + 0.055f) / 1.055f), 2.4f);
+    else
+        g /= 12.92f;
+    if (b > 0.04045f)
+        b = pow(((b + 0.055f) / 1.055f), 2.4f);
+    else
+        b /= 12.92f;
+    r *= 100.0f;
+    g *= 100.0f;
+    b *= 100.0f;
+    // Observer. = 2°, Illuminant = D65
+    float x = r * 0.4124f + g * 0.3576f + b * 0.1805f;
+    float y = r * 0.2126f + g * 0.7152f + b * 0.0722f;
+    float z = r * 0.0193f + g * 0.1192f + b * 0.9505f;
+    return float3(x, y, z);
+}
+
+float3 XYZtoLAB(float3 c = float3(0.0f, 0.0f, 0.0f))
+{
+    // Based on http://www.easyrgb.com/index.php?X=MATH&H=07
+    float ref_y = 100.0f;
+    float ref_z = 108.883f;
+    float ref_x = 95.047f; // Observer= 2°, Illuminant= D65
+    float y = abs(c.y / ref_y);
+    float z = abs(c.z / ref_z);
+    float x = abs(c.x / ref_x);
+    if (x > 0.008856f)
+        x = pow(x, 1.0f / 3.0f);
+    else
+        x = (7.787f * x) + (16.0f / 116.0f);
+    if (y > 0.008856f)
+        y = pow(y, 1.0f / 3.0f);
+    else
+        y = (7.787f * y) + (16.0f / 116.0f);
+    if (z > 0.008856f)
+        z = pow(z, 1.0f / 3.0f);
+    else
+        z = (7.787f * z) + (16.0f / 116.0f);
+    float L = (116.0f * y) - 16.0f;
+    float a = 500.0f * (x - y);
+    float b = 200.0f * (y - z);
+    return float3(L, a, b);
+}
+
+float3 RGBtoLAB(float4 c = float4(0.0f, 0.0f, 0.0f, 0.0f))
+{
+    return XYZtoLAB(RGBtoXYZ(c));
+}
+
+float RGBDifference(float4 c1 = float4(0.0f, 0.0f, 0.0f, 0.0f), float4 c2 = float4(0.0f, 0.0f, 0.0f, 0.0f))
+{
+    float result = 0.0f;
+    bool allEqual = ApproximatelyEqual(c1.r, c2.r) &&
+        ApproximatelyEqual(c1.g, c2.g) &&
+        ApproximatelyEqual(c1.b, c2.b);
+    if (!allEqual)
+    {
+        float3 l1 = RGBtoLAB(c1);
+        float3 l2 = RGBtoLAB(c2);
+        float sum = 0.0f;
+        sum += pow(l1.x - l2.x, 2.0f);
+        sum += pow(l1.y - l2.y, 2.0f);
+        sum += pow(l1.z - l2.z, 2.0f);
+        result = max(min(sqrt(sum), 100.0f), 0.0f);
+    }
+    return result;
+}
+
+bool CheckMask(float3 position = float3(0.0f, 0.0f, 0.0f))
+{
+    bool success = true;
+    if (!checkMask)
+    {
+        success = true;
+    }
+    // Image Check
+    else if (checkMaskType == 3)
+    {
+        // Need to rotate the image mask to remain consistent with overall spawm parentRotation
+        //var newLocation = GeNaUtility.RotatePointAroundPivot(location, SpawnOriginLocation, new Vector3(0f, 180f - rotationY, 0f));
+        float xN = (spawnOriginLocation.x - position.x) / spawnRange;
+        float zN = (spawnOriginLocation.z - position.z) / spawnRange;
+        // Offset by half a unit
+        xN += .5f;
+        zN += .5f;
+        // Drop out if out of bounds
+        if (xN < 0.0f || xN >= 1.0f || zN < 0.0f || zN > 1.0f)
+            success = false; // Failure!
+        else
+        {
+            xN *= maskResolution.x;
+            zN *= maskResolution.y;
+            int xR = (int)(xN);
+            if (xR == maskResolution.x)
+                xR = maskResolution.x - 1;
+            int zR = (int)(zN);
+            if (zR == maskResolution.y)
+                zR = maskResolution.y - 1;
+            uint coordinate = Translate2DTo1D(xR, zR, maskResolution);
+            float hitAlpha = maskAlphaData[coordinate];
+            float v = maskImageData[coordinate];
+            float4 c;
+            c.a = 0.0f;
+            c.b = mod(v, 1000.0f).x;
+            v -= c.b;
+            v /= 1000.0f;
+            c.b /= 255.0f;
+            c.g = mod(v, 1000.0f).x;
+            v -= c.g;
+            v /= 1000.0f;
+            c.g /= 255.0f;
+            c.r = v;
+            c.r /= 255.0f;
+            if (RGBDifference(c, imageFilterColor) < (1.0f - imageFilterFuzzyMatch) * 100.0f)
+            {
+                if (successOnMaskedAlpha)
+                {
+                    if (invertMaskedAlpha)
+                    {
+                        if (ApproximatelyEqual(1.0f - hitAlpha, 0.0f))
+                            success = false; // Failure!
+                    }
+                    else
+                    {
+                        if (ApproximatelyEqual(hitAlpha, 0.0f))
+                            success = false; // Failure!
+                    }
+                }
+            }
+            else
+                success = false; // Failure!
+        }
+    }
+    else
+    {
+        Fractal fractal;
+        fractal.type = fractalType;
+        fractal.octaves = octaves;
+        fractal.seed = seed;
+        fractal.xOffset = XOffset;
+        fractal.yOffset = YOffset;
+        fractal.zOffset = ZOffset;
+        fractal.frequency = frequency;
+        fractal.persistence = persistence;
+        fractal.lacunarity = lacunarity;
+        float value = Fractal_GetNormalisedValue(fractal, 100000.0f + position.x, 100000.0f + position.z);
+        if (maskInvert)
+        {
+            if (value >= minMaskFractal && value <= maxMaskFractal)
+                // Failure!
+                success = false;
+        }
+        else
+        {
+            if (value < minMaskFractal || value > maxMaskFractal)
+                // Failure!
+                success = false;
+        }
+    }
+    // Success!
+    return success;
+}
+// 0 = Successful, 1 = Check Range, 2 = Force Spawn
+// 3 = Check Height, 4 = Check Slope, 5 = Check Collisions, 6 = Check Texture, 7 = Check Mask 
+AabbTest CHECK_LOCATION_FOR_SPAWN(AabbTest test)   
+{
+    
+    if (!CheckRange(test.position))                                     
+    {                                                              
+        test.message = 1;                                               
+        test.hit = -1.0f;                                               
+    }                                                              
+    else if (forceSpawn)                                           
+    {                                                              
+        test.message = 2;                                               
+        test.hit = 1.0f;                                                
+    }                                                              
+    else if (!CheckHeight(test.position))                               
+    {                                                              
+        test.message = 3;                                               
+        test.hit = -1.0f;                                               
+    }                                                              
+    else if (!CheckSlope(test.normal))                                  
+    {                                                              
+        test.message = 4;                                               
+        test.hit = -1.0f;                                               
+    }                                                              
+    else if (!CheckCollisions(test.position))                           
+    {                                                              
+        test.message = 5;                                               
+        test.hit = -1.0f;                                               
+    }                                                              
+    else if (!CheckTexture(test.position))                              
+    {                                                              
+        test.message = 6;                                               
+        test.hit = -1.0f;                                               
+    }                                                              
+    else if (!CheckMask(test.position))                                 
+    {                                                              
+        test.message = 7;                                               
+        test.hit = -1.0f;                                               
+    }                                                              
+    else                                                           
+    {                                                              
+        test.message = 0;                                               
+        test.hit = 1.0f;                                                
+    }
+    
+    return test;
+}
+
+//-----------------------------------------------------------------------------
+// end: ray marching
+
+
+// kernels
+//-----------------------------------------------------------------------------
+
+[numthreads(kCheckTestSize, kCheckTestSize, 1)]
+void CSMain(int3 id : SV_DispatchThreadID)
+{
+    uint index = id.x;
+    AabbTest aabbTest = successBuffer[index];
+    successBuffer[index] = CHECK_LOCATION_FOR_SPAWN(aabbTest);
+}
+
+//
+// [numthreads(32,32,1)]
+// void ProcessMask(uint3 id : SV_DispatchThreadID)
+// {
+//     uint address = Translate2DTo1D(id.x, id.y, _MaskResolution);
+//     float4 color = _MaskImagePixels[address];
+//     _MaskImageData[address] = (color.r * 255000000.0f) + (color.g * 255000.0f) + (color.b * 255.0f);
+//     _MaskAlphaData[address] = color.a;
+// }
+
+//-----------------------------------------------------------------------------
+// end: kernels

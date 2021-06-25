@@ -1,0 +1,19 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+#include "Includes/Common.cginc"
+
+float2 maskResolution = 1024.0;
+StructuredBuffer<float4> maskImagePixels;
+RWStructuredBuffer<float> maskImageData;
+RWStructuredBuffer<float> maskAlphaData;
+
+//-----------------------------------------------------------------------------
+
+[numthreads(32,32,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint address = Translate2DTo1D(id.x, id.y, maskResolution);
+    float4 color = maskImagePixels[address];
+    maskImageData[address] = (color.r * 255000000.0f) + (color.g * 255000.0f) + (color.b * 255.0f);
+    maskAlphaData[address] = color.a;
+}

@@ -1,0 +1,76 @@
+﻿using System;
+using UnityEngine;
+using GeNa.Core;
+
+namespace GeNa.Extensions
+{
+    [CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "Procedural Worlds/GeNa/Custom Extensions/#SCRIPTNAME#", order = 1)]
+    public class #SCRIPTNAME# : GeNaSplineExtension
+    {
+        // Execute is called when Updating the Spline.
+        public override void Execute()
+        {
+        }
+        
+        // Called when the user 'Bakes' the Spline.
+        protected override GameObject OnBake(GeNaSpline spline)
+        {
+            return null;
+        }
+        
+        // Called when OnDrawGizmos is called on the Spline.
+        protected override void OnDrawGizmos()
+        {
+        }
+        
+        // Called when OnDrawGizmosSelected is called on the Spline.
+        protected override void OnDrawGizmosSelected()
+        {
+        }
+        
+        // Called when the Spline is Marked as Dirty
+        protected override void OnSplineDirty()
+        {
+        }
+        
+        // Called when the user Activates the Extension on the Spline.
+        protected override void OnActivate()
+        {
+        }
+        
+        // Called when the user Deactivates the Extension on the Spline.
+        protected override void OnDeactivate()
+        {
+        }
+        
+        // Called when the Extension is Attached to a Spline.
+        protected override void OnAttach(GeNaSpline spline)
+        {
+        }
+        
+        // Called when the Extension is Detatched from a Spline
+        protected override void OnDetach(GeNaSpline spline)
+        {
+        }
+        
+        // Called when the Extension is Selected in the Editor.
+        protected override void OnSelect()
+        {
+        }
+        
+        // Called when the Extension is Deselected in the Editor.
+        protected override void OnDeselect()
+        {
+        }
+        
+        // Called just before Destroying the ScriptableObject.
+        protected override void OnDelete()
+        {
+        }
+        
+        // Called when the OnSceneGUI method in the Editor gets called on the Spline.
+        protected override void OnSceneGUI()
+        {
+        }
+    }
+}

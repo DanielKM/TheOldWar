@@ -152,7 +152,6 @@ MonoBehaviour:
   food: 0
   population: 0
   armySize: 0
-  rallyPoint: {x: 0, y: 0, z: 0}
   description: The Watch Towers bind the Kingdom together. They are cheap and durable
     and light the way across the countryside.
   foundation: {fileID: 2586664664986295977, guid: 8e460d9249e6aa04fbff26aeca872b3d, type: 3}
@@ -866,6 +865,10 @@ PrefabInstance:
     - target: {fileID: 9102417435042139153, guid: 1cbc07082a7e73b449ba071d192778fc, type: 3}
       propertyPath: m_Name
       value: WatchTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102417435042139153, guid: 1cbc07082a7e73b449ba071d192778fc, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cbc07082a7e73b449ba071d192778fc, type: 3}

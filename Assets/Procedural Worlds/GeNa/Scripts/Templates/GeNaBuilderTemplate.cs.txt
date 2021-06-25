@@ -1,0 +1,17 @@
+//Copyright(c)2021 Procedural Worlds Pty Limited 
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace GeNa.Core
+{
+    [CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "Procedural Worlds/GeNa/Custom Builders/#SCRIPTNAME#", order = 1)]
+    public class #SCRIPTNAME# : AreaBuilder
+    {
+        // Builds any form of Town or City in a given area.
+        public override List<GeNaNode> BuildArea(Vector2 axis, AreaFinder.AreaPoly area, float lotSize, List<GeNaSpawner> buildingSpawners, List<GameObject> buildingPrefabs, GeNaSpline roadSpline)
+        {
+            throw new InvalidOperationException("Build Area in #SCRIPTNAME# must return a list of Nodes!");
+        }
+    }
+}

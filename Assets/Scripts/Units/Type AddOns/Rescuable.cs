@@ -10,14 +10,13 @@ public class Rescuable : MonoBehaviour
     UnitInformation unitInformation = null;
     Targeter targeter = null;
 
-
     public float period = 2f;
     private float checkTime = 0f;
     public float detectionRadius = 5;
     public LayerMask unitLayer;
 
     public bool rescued = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
         // GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>().units.Add(this.gameObject.GetComponent<Unit>());

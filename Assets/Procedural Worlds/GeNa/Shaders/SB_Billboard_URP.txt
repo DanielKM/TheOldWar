@@ -1,0 +1,46 @@
+﻿Shader "Procedural Worlds/SB_Billboard"
+{
+	//BEGIN STORM EDIT
+	CGINCLUDE
+	#pragma multi_compile_instancing
+	#pragma instancing_options procedural:storm_setup
+	#include "GeNaIndirectBase.cginc"
+	ENDCG
+	//END STORM EDIT
+
+	Properties
+	{
+		_TintA("TintA", Color) = (0,1,0,1)
+		_TintB("TintB", Color) = (0,1,1,0.5)
+		_BaseMap("Input Texture", 2D) = "white" {}
+		_Cutoff("Cutoff", Range( 0 , 1)) = 0.5
+        [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
+        [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
+        [HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
+	}
+	
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType" = "Transparent"
+            "UniversalMaterialType" = "Unlit"
+            "Queue" = "Transparent"
+        }
+
+        UsePass "Shader Graphs/SB_Billboard_URP_SRC/Pass"
+    }
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "RenderType" = "Transparent"
+            "UniversalMaterialType" = "Unlit"
+            "Queue" = "Transparent"
+        }
+
+        UsePass "Shader Graphs/SB_Billboard_URP_SRC/Pass"
+    }
+}

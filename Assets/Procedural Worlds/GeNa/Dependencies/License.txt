@@ -1,0 +1,6 @@
+geometry3Sharp
+--------------
+
+geometry3Sharp is an open source C# library for geometric computing and is available at https://github.com/gradientspace/geometry3Sharp. 
+
+We have supplied a compiled binary version of it as a convenience here. It's usage is subject to the Boost Software License v 1.0. More information about this licence is available at https://github.com/gradientspace/geometry3Sharp/blob/master/LICENSE

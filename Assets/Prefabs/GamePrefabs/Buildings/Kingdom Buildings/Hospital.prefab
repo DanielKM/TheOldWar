@@ -968,9 +968,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4565525834913579487}
     m_Modifications:
+    - target: {fileID: 1257448621760086, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473962759619216, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539085185181260, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1587588793651426, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
       propertyPath: m_Name
       value: Hospital
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587588793651426, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698004894029768, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4708677147462798, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
       propertyPath: m_RootOrder
@@ -1039,6 +1059,14 @@ PrefabInstance:
     - target: {fileID: 3981720887403823278, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009341514019746548, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010123447121333896, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dcf0b1302992284d965abe5518f670c, type: 3}

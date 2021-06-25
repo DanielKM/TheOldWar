@@ -39,9 +39,8 @@ public class Healer : MonoBehaviour
     void Update()
     {
         if(Time.time > checkTime) {
-            if(unitTask.GetTask() == ActionList.Dead || unitTask.GetTask() == ActionList.Injured) { return; }
 
-            Debug.Log("Detect");
+            if(unitTask.GetTask() == ActionList.Dead || unitTask.GetTask() == ActionList.Injured) { return; }
 
             AttemptToDetectInjured();
         }
@@ -67,7 +66,8 @@ public class Healer : MonoBehaviour
 
             float sqrDistanceToCenter = (center - colliders[i].transform.position).sqrMagnitude;
             
-            if(colliders[i].gameObject.GetComponent<UnitTask>().GetTask() == ActionList.Injured) { 
+            if(colliders[i].gameObject.GetComponent<UnitTask>().GetTask() == ActionList.Injured) 
+            { 
                 if (sqrDistanceToCenter < minSqrDistance)
                 {
                     minSqrDistance = sqrDistanceToCenter;
@@ -113,7 +113,8 @@ public class Healer : MonoBehaviour
 
         unitTask.SetTask(ActionList.CastingAOE);
 
-        if(injured != gameObject) { 
+        if(injured != gameObject) 
+        { 
             GameObject spellToCast = Instantiate(healProjectile, injured.transform.position, injured.transform.rotation);
 
             NetworkServer.Spawn(spellToCast);

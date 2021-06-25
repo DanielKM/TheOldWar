@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 11afdfa48e1806e44b58c44b8eb83906
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _PW_VFX_Stars: {fileID: 2800000, guid: cd709d6c8c3e44549bdd784629dffdd1, type: 3}
+  - _PW_VFX_Nebulas: {fileID: 2800000, guid: 7dc0b3f4e1536c14e967a8bde29a9626, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

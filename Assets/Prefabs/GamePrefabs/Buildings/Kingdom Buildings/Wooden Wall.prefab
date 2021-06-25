@@ -459,6 +459,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8664136655547846536, guid: ee27e157ae7e5b048961d903a7c7f369, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664136655547846538, guid: ee27e157ae7e5b048961d903a7c7f369, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664136655547846540, guid: ee27e157ae7e5b048961d903a7c7f369, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664136655547846542, guid: ee27e157ae7e5b048961d903a7c7f369, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee27e157ae7e5b048961d903a7c7f369, type: 3}
 --- !u!1 &5303135765055877444 stripped

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -49,9 +49,11 @@ public class ChatDetection : MonoBehaviour
             float minSqrDistance = Mathf.Infinity;
             for (int i = 0; i < colliders.Length; i++)
             {
-                if(colliders[i].gameObject.GetComponent<UnitInformation>() == null) { continue; }
+                UnitInformation colliderUnitInformation = colliders[i].gameObject.GetComponent<UnitInformation>();
 
-                if(colliders[i].gameObject.GetComponent<UnitInformation>().team == unitInformation.team) { continue; }
+                if(colliderUnitInformation == null) { continue; }
+
+                if(colliderUnitInformation.team == unitInformation.team) { continue; }
 
                 if(colliders[i].TryGetComponent<Targetable>(out Targetable target))
                 {

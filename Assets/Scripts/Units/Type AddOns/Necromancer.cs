@@ -8,6 +8,7 @@ public class Necromancer : MonoBehaviour
 {
     [Header("References")]
     GameObject EventHandler;
+    GameObject UnitHandler;
     EventCycle EventCycle;
     UnitTask unitTask;
     GameobjectLists gameobjectLists;
@@ -42,9 +43,11 @@ public class Necromancer : MonoBehaviour
 
         EventCycle = EventHandler.GetComponent<EventCycle>();
 
+        UnitHandler = GameObject.Find("UnitHandlers");
+
         unitTask = gameObject.GetComponent<UnitTask>();
 
-        gameobjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();  
+        gameobjectLists = UnitHandler.GetComponent<GameobjectLists>();  
 
         unit = gameObject.GetComponent<Unit>();
 
@@ -54,7 +57,7 @@ public class Necromancer : MonoBehaviour
 
         necromancer = gameObject.GetComponent<Necromancer>();
 
-        unitCommandGiver = GameObject.Find("UnitHandlers").GetComponent<UnitCommandGiver>();
+        unitCommandGiver = UnitHandler.GetComponent<UnitCommandGiver>();
     }
 
     // Update is called once per frame
@@ -62,8 +65,10 @@ public class Necromancer : MonoBehaviour
     {
         if(unitTask.GetTask() == ActionList.Dead || unitTask.GetTask() == ActionList.Injured) { return; }
 
-        if(EventCycle.time >= 14400 && EventCycle.time <= 16000 ) {
-            if(unitTask.GetTask() != ActionList.Dead) {
+        if(EventCycle.time >= 14400 && EventCycle.time <= 16000 ) 
+        {
+            if(unitTask.GetTask() != ActionList.Dead) 
+            {
                 TryRaiseDead(EventCycle.days + 1, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z - 5f), gameObject);    
             }
         }
@@ -73,21 +78,25 @@ public class Necromancer : MonoBehaviour
 
     public void TryRaiseDead(int count, Vector3 spawnPos, GameObject corpse)
     {
-        if(!raisingDead) {
+        if(!raisingDead) 
+        {
             StartCoroutine(RaiseDead(count, spawnPos, corpse));
         }      
     }
 
-    IEnumerator RaiseDead(int number, Vector3 spawnPos, GameObject corpse) {
+    IEnumerator RaiseDead(int number, Vector3 spawnPos, GameObject corpse) 
+    {
         raisingDead = true;
 
         unitTask.SetTask(ActionList.CastingAOE);
 
-        if(corpse != gameObject) { 
+        if(corpse != gameObject) 
+        { 
             GameObject spellToCast = Instantiate(raiseDeadSpell, corpse.transform.position, corpse.transform.rotation);
 
             NetworkServer.Spawn(spellToCast);
         }
+
         GameObject casterEffects = Instantiate(raiseDeadCaster, gameObject.transform.position, gameObject.transform.rotation);
 
         casterEffects.transform.parent = gameObject.transform;
@@ -101,19 +110,22 @@ public class Necromancer : MonoBehaviour
 
         GameObject closestPlayerSpawnPoint = GetClosestEnemyPlayer(owner, gameObject, gameobjectLists.GetAllActivePlayerGameobjects());
 
-        // loadedTransforms[0] = TownCenter;
-        for(int i=0; i<number; i++) {
-            // skeleton.GetComponent<NPCController>().waypoints = loadedTransforms;
+        for(int i=0; i<number; i++) 
+        {
             GameObject raisedSkeleton = Instantiate(skeleton, spawnPos, Quaternion.identity);  
 
-            raisedSkeleton.GetComponent<UnitInformation>().owner = owner;
-            raisedSkeleton.GetComponent<UnitInformation>().team = team;
+            UnitInformation raisedSkeletonUnitInformation = raisedSkeleton.GetComponent<UnitInformation>();
+
+            raisedSkeletonUnitInformation.owner = owner;
+
+            raisedSkeletonUnitInformation.team = team;
 
             NetworkServer.Spawn(raisedSkeleton);
 
             raisedSkeleton.GetComponent<NavMeshAgent>().SetDestination(closestPlayerSpawnPoint.transform.position);
 
-            if(corpse != gameObject) { 
+            if(corpse != gameObject) 
+            { 
                 NetworkServer.Destroy(corpse);
 
                 Destroy(corpse);
@@ -134,7 +146,8 @@ public class Necromancer : MonoBehaviour
 
             if(enemyPlayer == player) { continue; }
 
-            if(enemyPlayer.spawnPoint) {
+            if(enemyPlayer.spawnPoint) 
+            {
                 float dist = Vector3.Distance(enemyPlayer.spawnPoint.transform.position, currentPos);
                 if (dist < minDist)
                 {

@@ -1,0 +1,7 @@
+The inspiration for the AABB & SDF collision techniques used in GeNa were inspired by and adapted from the works of Ming-Lun "Allen" Chou.
+
+https://github.com/TheAllenChou/unity-ray-marching
+
+and this was in turn inspired by Erin Catto from Box 2D:
+
+https://github.com/erincatto/box2d

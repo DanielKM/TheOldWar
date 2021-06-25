@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 8d95c1aab3feb98439280f318bf30307
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _PW_VFX_Rain_SnowMask: {fileID: 2800000, guid: cb3cd1f6be145ff408bf2887e1f60aae,
+      type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

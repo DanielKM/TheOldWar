@@ -156,15 +156,6 @@ public class Unit : NetworkBehaviour
 
         unitInformation.owner.SetResources(unitInformation.owner.SubtractPrice(refundPrice));
         
-        // if(unitInformation.owner == null) 
-        // { 
-        //     gameObject.SetActive(false);
-            
-        //     return;
-        // }
-
-        // gameObject.SetActive(false);
-
         if(corpseSkeleton)
         {
             GameObject skeleton = Instantiate(corpseSkeleton, this.transform.position, this.transform.rotation);

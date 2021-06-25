@@ -207,7 +207,7 @@ public class RTSPlayer : NetworkBehaviour
     #region Local Functions
 
     public bool CanPlaceBuilding(BoxCollider buildingCollider, Vector3 point)
-    {        
+    {    
         if(Physics.CheckBox(
             point + buildingCollider.center, 
             buildingCollider.size / 2, 

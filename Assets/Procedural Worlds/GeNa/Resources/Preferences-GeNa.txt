@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<GeNaPreferences xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <m_undoSteps>50</m_undoSteps>
+  <m_undoPurgeTime>60</m_undoPurgeTime>
+  <m_undoGroupingTime>3</m_undoGroupingTime>
+  <m_undoExpiredMessages>true</m_undoExpiredMessages>
+  <m_defSpawnToTarget>true</m_defSpawnToTarget>
+</GeNaPreferences>

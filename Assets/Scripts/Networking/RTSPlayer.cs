@@ -300,31 +300,27 @@ public class RTSPlayer : NetworkBehaviour
         Building.ServerOnBuildingDespawned -= ServerHandleBuildingDespawned;
     }
 
-    [Server]
     public void SetDisplayName(string displayName)
     {
         this.displayName = displayName;
     }
 
-    [Server]
     public void SetPartyOwner(bool state)
     {
         isPartyOwner = state;
     }
 
-    [Server]
     public void SetTeam(Team newTeam)
     {
         team = newTeam;
     }
 
-    [Server]
     public void SetTeamColor(Color newTeamColor)
     {
         teamColor = newTeamColor;
     }
 
-    [Server]
+    // [Server]
     public void SetResources(Dictionary<Resource, int> newResources)
     {
         gold = newResources[Resource.Gold] > maxGold ? maxGold : newResources[Resource.Gold];
@@ -338,7 +334,7 @@ public class RTSPlayer : NetworkBehaviour
         armySize = newResources[Resource.ArmySize] > maxArmySize ? maxArmySize : newResources[Resource.ArmySize];
     }
 
-    [Server]
+    // [Server]
     public void SetMaxResources(Dictionary<Resource, int> newResources)
     {
         maxGold = newResources[Resource.Gold];

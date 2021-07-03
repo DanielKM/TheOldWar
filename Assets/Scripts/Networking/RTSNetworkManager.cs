@@ -54,6 +54,7 @@ public class RTSNetworkManager : NetworkManager
         ServerChangeScene(sceneName);
     }
 
+    // [Server]
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
         base.OnServerAddPlayer(conn);

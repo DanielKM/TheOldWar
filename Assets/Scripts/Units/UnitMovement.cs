@@ -149,7 +149,7 @@ public class UnitMovement : NetworkBehaviour
         ServerMove(position);
     }
 
-    [Server]
+    // [Server]
     public void ServerMove(Vector3 position) 
     {
         targeter.ClearTarget();

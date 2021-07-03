@@ -198,7 +198,7 @@ public class EventCycle : NetworkBehaviour
 
     #endregion
 
-    [Server]
+    // [Server]
     IEnumerator Instability()
     {
         if(instability > 0) { 

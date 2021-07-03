@@ -247,7 +247,7 @@ public class Targeter : NetworkBehaviour
         return 0;
     }
 
-    [Server]
+    // [Server]
     public void ClearTarget() 
     {
         target = null;

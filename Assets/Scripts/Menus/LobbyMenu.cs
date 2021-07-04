@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using Steamworks;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LobbyMenu : NetworkBehaviour
@@ -50,7 +48,7 @@ public class LobbyMenu : NetworkBehaviour
 
     private void HandleClientConnected()
     {
-        lobbyUI.SetActive(true);
+        // lobbyUI.SetActive(true);
     }
 
     public void ClientHandleInfoUpdated()

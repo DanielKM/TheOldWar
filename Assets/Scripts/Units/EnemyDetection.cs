@@ -72,14 +72,13 @@ public class EnemyDetection : MonoBehaviour
                             minSqrDistance = sqrDistanceToCenter;
 
                             nearestCollider = colliders[i];
-
                         }
                     } 
                 }
             }
             if(nearestCollider) 
             {
-                targeter.CmdSetTarget(nearestCollider.gameObject);
+                targeter.ServerSetTarget(nearestCollider.gameObject);
             }
         }
     }

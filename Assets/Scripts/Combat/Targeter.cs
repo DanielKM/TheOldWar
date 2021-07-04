@@ -283,43 +283,50 @@ public class Targeter : NetworkBehaviour
         target = newTarget;
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetCorpseTarget() 
     {
         TargetClosestCorpse();
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetFoundationTarget() 
     {
         TargetClosestFoundation();
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetRepairTarget() 
     {
         TargetClosestRepairBuilding();
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetClosestResourceTarget(int targetResource) 
     {
         TargetClosestResource(targetResource);
     }
 
-    [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetTarget(GameObject targetGameObject) 
     {
         ServerSetTarget(targetGameObject);
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetResourceTarget(GameObject targetGameObject) 
     {
         ServerSetResourceTarget(targetGameObject);
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdSetResourceDropOffTarget(GameObject targetGameObject) 
     {
         ServerSetResourceResourceDropOffTarget(targetGameObject);

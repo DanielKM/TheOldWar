@@ -33,7 +33,9 @@ public class MainMenu : MonoBehaviour
 
     public void HostLobby()
     {
-        landingPagePanel.SetActive(false);
+        // landingPagePanel.SetActive(false);
+
+        // NetworkManager.singleton.StartHost();
 
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 6);
     }

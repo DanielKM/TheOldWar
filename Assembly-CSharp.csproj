@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_3_13;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;MIRROR;MIRROR_1726_OR_NEWER;MIRROR_3_0_OR_NEWER;MIRROR_3_12_OR_NEWER;MIRROR_4_0_OR_NEWER;MIRROR_5_0_OR_NEWER;MIRROR_6_0_OR_NEWER;MIRROR_7_0_OR_NEWER;MIRROR_8_0_OR_NEWER;MIRROR_9_0_OR_NEWER;MIRROR_10_0_OR_NEWER;MIRROR_11_0_OR_NEWER;MIRROR_12_0_OR_NEWER;MIRROR_13_0_OR_NEWER;MIRROR_14_0_OR_NEWER;MIRROR_15_0_OR_NEWER;MIRROR_16_0_OR_NEWER;MIRROR_17_0_OR_NEWER;MIRROR_18_0_OR_NEWER;MIRROR_24_0_OR_NEWER;MIRROR_26_0_OR_NEWER;GAIA_2_PRESENT;GAIA_PRO_PRESENT;CROSS_PLATFORM_INPUT;GENA_PRO;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_3_13;UNITY_2020_3;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;MIRROR;MIRROR_1726_OR_NEWER;MIRROR_3_0_OR_NEWER;MIRROR_3_12_OR_NEWER;MIRROR_4_0_OR_NEWER;MIRROR_5_0_OR_NEWER;MIRROR_6_0_OR_NEWER;MIRROR_7_0_OR_NEWER;MIRROR_8_0_OR_NEWER;MIRROR_9_0_OR_NEWER;MIRROR_10_0_OR_NEWER;MIRROR_11_0_OR_NEWER;MIRROR_12_0_OR_NEWER;MIRROR_13_0_OR_NEWER;MIRROR_14_0_OR_NEWER;MIRROR_15_0_OR_NEWER;MIRROR_16_0_OR_NEWER;MIRROR_17_0_OR_NEWER;MIRROR_18_0_OR_NEWER;MIRROR_24_0_OR_NEWER;MIRROR_26_0_OR_NEWER;GAIA_2_PRESENT;GAIA_PRO_PRESENT;CROSS_PLATFORM_INPUT;GENA_PRO;MIRROR_27_0_OR_NEWER;MIRROR_28_0_OR_NEWER;MIRROR_29_0_OR_NEWER;MIRROR_30_0_OR_NEWER;MIRROR_30_5_2_OR_NEWER;MIRROR_32_1_2_OR_NEWER;MIRROR_32_1_4_OR_NEWER;MIRROR_35_0_OR_NEWER;MIRROR_35_1_OR_NEWER;MIRROR_37_0_OR_NEWER;MIRROR_38_0_OR_NEWER;MIRROR_39_0_OR_NEWER;MIRROR_40_0_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -72,10 +72,10 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\ProgressBar.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarUnit.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarConversion.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderStepController.cs" />
      <Compile Include="Assets\Scripts\Units\UnitCommandGiver.cs" />
      <Compile Include="Assets\Imported\LeanTween\Framework\LTSeq.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\EventTriggerInvoker.cs" />
-     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderStepController.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\API\NoiseType.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\GaiaHDRPRuntimeUtils.cs" />
@@ -219,8 +219,8 @@
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarThreadPool.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Window\PopupWindowController.cs" />
      <Compile Include="Assets\Scripts\Networking\SteamLobby.cs" />
-     <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\MathD.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SpawningSystem\WorldDesigner.cs" />
+     <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\MathD.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Scripts\Utils\FloatingPointFix.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\Experimental\GizmosExtension.cs" />
      <Compile Include="Assets\Scripts\Game\Testing.cs" />
@@ -483,9 +483,9 @@
      <Compile Include="Assets\Creep.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Water System\DisableUnderwaterFXTrigger.cs" />
      <Compile Include="Assets\Scripts\Combat\Spells\SpellEffect.cs" />
+     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\HighlightToggle.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\Decorators\GeNaAnimatorDecorator.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoGameObjectSO.cs" />
-     <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\HighlightToggle.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\GaiaStopwatch.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\ScrollController.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\NoiseComponentEditor.cs" />
@@ -521,11 +521,12 @@
      <Compile Include="Assets\Scripts\Cameras\Minimap.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\ConstructionDuty.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\MultiTerrainSystem\TerrainSceneStorage.cs" />
-     <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\OrthographicBake.cs" />
      <Compile Include="Assets\Scripts\Profile\HeroClass.cs" />
+     <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\OrthographicBake.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoDetailSO.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\Following.cs" />
+     <Compile Include="Assets\Scripts\Menus\RevampedMainMenu.cs" />
      <None Include="Assets\Procedural Worlds\GeNa\Dependencies\License.txt" />
      <None Include="Assets\Imported\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -547,6 +548,7 @@
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Terrain Operations\GetTerrainHeights.compute" />
      <None Include="Assets\Imported\LeanTween\ReadMe.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Asset Samples\README.txt" />
+     <None Include="Assets\ScriptTemplates\51-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Ground_Blending.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Procedural Worlds\GeNa\Shaders\PW_Greyscale.shader" />
@@ -564,6 +566,7 @@
      <None Include="Assets\Procedural Worlds\GeNa\Shaders\SB_Billboard_URP.txt" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Compute\Includes\Common.cginc" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Terrain Tools\NoiseLib\None\Voronoi.hlsl" />
+     <None Include="Assets\ScriptTemplates\53-Mirror__Network Observer-NewNetworkObserver.cs.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Terrain Tools\Generated\NoiseFillFbm.shader" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Shaders\StampPreview.shader" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Trees.shader" />
@@ -572,6 +575,7 @@
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\Imported\LeanTween\License.txt" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Compute\Includes\NoiseGenerator.cginc" />
+     <None Include="Assets\ScriptTemplates\56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Scripts\Unity\Terrain Tools\license.txt" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Standard Shaders\StampPreview.shader" />
@@ -596,10 +600,10 @@
      <None Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Shaders\Unity\Terrain Tools\SimpleHeightBlend.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Terrain Operations\FilterImageMask.shader" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Preferences-GeNa.txt" />
-     <None Include="Assets\Mirror\Version.txt" />
+     <None Include="Assets\Imported\Mirror\Version.txt" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Compute\Mask.compute" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Terrain Operations\FilterStrengthTransform.shader" />
-     <None Include="Assets\Mirror\Readme.txt" />
+     <None Include="Assets\Imported\Mirror\Readme.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Terrain Tools\NoiseLib\FBM\Ridge.hlsl" />
      <None Include="Assets\Procedural Worlds\Gaia\Asset Samples\3DForge\Documents\Village Exteriors Kit v1.2.1 - user guide.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpecTransp.shader" />
@@ -627,6 +631,7 @@
      <None Include="Assets\Procedural Worlds\GeNa\Asset Samples\Content Packs\Readme.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Terrain Tools\SmoothHeight.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\PW General\PW_GeneralVars.cginc" />
+     <None Include="Assets\ScriptTemplates\52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Terrain Tools\Generated\NoiseBlitNone.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\PW General\PW_GeneralWind.cginc" />
@@ -635,7 +640,7 @@
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Terrain Operations\FilterSlopeMask.shader" />
      <None Include="Assets\Imported\Toon_RTS\WesternKingdoms\Toon RTS Units - Latest update.txt" />
-     <None Include="Assets\Mirror\Notice.txt" />
+     <None Include="Assets\Imported\Mirror\Notice.txt" />
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\MobileShader\beffio_Water_Mobile.shader" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Shaders\SpawnerPreview.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Scripts\ExtensionSystem\GaiaXtnHeader.txt" />
@@ -656,10 +661,11 @@
      <None Include="Assets\Imported\beffio\Medieval Kingdom\Content\Shaders\beffio_Shafts.shader" />
      <None Include="Assets\Imported\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Terrain Operations\SimulateSpawnResult.compute" />
-     <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
+     <None Include="Assets\Imported\Mirror\Plugins\Mono.Cecil\License.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Scripts\Unity\Terrain Tools\Resources\Diffusion.compute" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Terrain Operations\CombineCollisionMasks.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Weather\VFX\Shaders\PW_SkydomeCloudsHight.shader" />
+     <None Include="Assets\ScriptTemplates\55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Shaders\RiverShader.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\Unity\Terrain Tools\NoiseLib\Preview.shader" />
      <None Include="Assets\Imported\FogOfWar\Core\URP\FogOfWarURP.shader" />
@@ -688,9 +694,11 @@
      <None Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Weather\VFX\Shaders\PW_VFX_Rain.shader" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\PW General\PW_SkyboxProcedural.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\ScriptTemplates\50-Mirror__Network Manager-NewNetworkManager.cs.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Shaders\PW General\PW_ChannelCombine.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Procedural Worlds\GeNa\Resources\Compute\TerrainTools\GeNaPaint.compute" />
+     <None Include="Assets\ScriptTemplates\54-Mirror__Network Room Manager-NewNetworkRoomManager.cs.txt" />
      <None Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Weather\VFX\Shaders\PW_VFX_SnowFall_Middle.shader" />
      <None Include="Assets\Imported\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\Imported\FogOfWar\Samples\CustomFogShader.shader" />
@@ -940,13 +948,13 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Mono.CecilX.Rocks">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="Mono.CecilX.Pdb">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Mono.CecilX">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
     </Reference>
     <Reference Include="PWCommon5DLL">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Procedural Worlds/Frameworks/Common5/PWCommon5DLL.dll</HintPath>
@@ -955,7 +963,7 @@
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Procedural Worlds/GeNa/Scripts/Core/GeNa.Scripts.Core.dll</HintPath>
     </Reference>
     <Reference Include="Mono.CecilX.Mdb">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Imported/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="geometry3Sharp">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Assets/Procedural Worlds/GeNa/Dependencies/geometry3Sharp.dll</HintPath>
@@ -1308,6 +1316,9 @@
     <Reference Include="System.Xml.XPath.XDocument">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
@@ -1317,11 +1328,23 @@
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="PsdPlugin">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
@@ -1329,8 +1352,20 @@
     <Reference Include="Unity.2D.IK.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -1341,8 +1376,17 @@
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Runtime">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
@@ -1356,14 +1400,29 @@
     <Reference Include="com.unity.cinemachine.editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
@@ -1371,69 +1430,26 @@
     <Reference Include="Unity.2D.Common.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Editor">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-        <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
         <HintPath>C:/Users/danie/Desktop/Coding/Unity Projects/MP Basics/RealTimeStrategy/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Mirror.csproj">
+      <Project>{3973ae81-3417-d801-02d2-0fce80f2df20}</Project>
+      <Name>Mirror</Name>
+    </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{7706245f-c4ca-3c3a-0aec-5a941fa1e6b6}</Project>
       <Name>kcp2k</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.example.RigidbodyPhysics.csproj">
-      <Project>{93edfc65-5612-91c1-e680-758c2c2069b8}</Project>
-      <Name>Mirror.example.RigidbodyPhysics</Name>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{2a797ad9-2c45-7d01-0a7d-2d1c2cad8ed2}</Project>
+      <Name>Mirror.Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="LoadingScreen.Misc.csproj">
+      <Project>{d45e29ba-1e9f-555d-d3b0-307fed3f14cb}</Project>
+      <Name>LoadingScreen.Misc</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Weaver.csproj">
       <Project>{b460aeac-a295-7efa-4fa7-c491ccc36c45}</Project>
@@ -1447,10 +1463,6 @@
       <Project>{c8008d7b-4db1-3c2c-e157-0a38dbd1363f}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
-    <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{4ec84b1e-13b5-87e3-0fd9-b71859f3d859}</Project>
-      <Name>NavMeshComponentsEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
       <Project>{440f588a-b43f-a71a-6fdf-b4485daffa61}</Project>
       <Name>Mirror.CompilerSymbols</Name>
@@ -1459,41 +1471,21 @@
       <Project>{8f08c81f-14b7-5768-f956-7fe1ba8cd4f8}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{4ec84b1e-13b5-87e3-0fd9-b71859f3d859}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Telepathy.csproj">
       <Project>{25b5b00c-de71-ba6c-6f80-9ebf92166224}</Project>
       <Name>Telepathy</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.Cloud.GUI.csproj">
-      <Project>{486ca402-f06f-9d07-8a77-a758216f3647}</Project>
-      <Name>Mirror.Examples.Cloud.GUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{6f3ebebc-f103-7562-2c29-122ebbaa790c}</Project>
-      <Name>Mirror.Components</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{3973ae81-3417-d801-02d2-0fce80f2df20}</Project>
-      <Name>Mirror</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{2a797ad9-2c45-7d01-0a7d-2d1c2cad8ed2}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
-    <ProjectReference Include="LoadingScreen.Misc.csproj">
-      <Project>{d45e29ba-1e9f-555d-d3b0-307fed3f14cb}</Project>
-      <Name>LoadingScreen.Misc</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Cloud.csproj">
-      <Project>{2d9441ff-596d-a81e-db45-fdeb8cff6c3b}</Project>
-      <Name>Mirror.Cloud</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{9a4c3a67-56ec-7fd1-1abd-7fc266133176}</Project>
       <Name>SimpleWebTransport</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.Cloud.Pong.csproj">
-      <Project>{83907a47-9a84-d9eb-a6ee-ccbec43d9a12}</Project>
-      <Name>Mirror.Examples.Cloud.Pong</Name>
+    <ProjectReference Include="Mirror.Components.csproj">
+      <Project>{6f3ebebc-f103-7562-2c29-122ebbaa790c}</Project>
+      <Name>Mirror.Components</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

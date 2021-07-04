@@ -79,7 +79,8 @@ public class GameOverHandler : NetworkBehaviour
         ClientOnGameOver?.Invoke(winner);
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdGameOver()
     {
         ServerGameOver();

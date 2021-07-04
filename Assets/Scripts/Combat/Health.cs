@@ -101,7 +101,8 @@ public class Health : NetworkBehaviour
         }
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdServerDie()
     {
         ServerDie();

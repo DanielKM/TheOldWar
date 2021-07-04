@@ -90,15 +90,16 @@ public class PooledGameobjects : NetworkBehaviour
 
         if(isComputerAI == false) { return; }
 
-        CmdLoadAllPooledObjects();
+        // CmdLoadAllPooledObjects();
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        CmdLoadAllPooledObjects();
+        // CmdLoadAllPooledObjects();
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     public void CmdLoadAllPooledObjects() 
     {
         // ServerLoadAllPooledObjects();

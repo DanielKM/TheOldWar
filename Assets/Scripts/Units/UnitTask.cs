@@ -50,7 +50,8 @@ public class UnitTask : NetworkBehaviour
         unitSelection.UpdateUnitPanel(unit);
     }
 
-    [Command(ignoreAuthority = true)]
+    // [Command(ignoreAuthority = true)]
+    [Command]
     private void CmdSetTask(ActionList newTask)
     {
         SetTask(newTask);
@@ -63,7 +64,7 @@ public class UnitTask : NetworkBehaviour
     [ClientRpc]
     public void SetUnitTask(ActionList newTask)
     {   
-        CmdSetTask(newTask);
+        SetTask(newTask);
     }
 
     public void HandleDisplayTaskUpdated(ActionList oldTask, ActionList newTask)

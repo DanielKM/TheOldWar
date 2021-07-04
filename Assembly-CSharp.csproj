@@ -102,7 +102,6 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\API\HlslDescriptions.cs" />
      <Compile Include="Assets\Imported\SpecialSkillsEffectsPack\Scripts\ForEffects\ObjectMoveDestroy.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ValueAdds\Growth.cs" />
-     <Compile Include="Assets\Scripts\State\IState.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\GeNaAPI.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\SliderPercentController.cs" />
      <Compile Include="Assets\Scripts\Menus\OptionsMenu.cs" />
@@ -226,7 +225,6 @@
      <Compile Include="Assets\Scripts\Game\Testing.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SpawningSystem\SpawnExtensionInfo.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ExtensionSystem\Compatible\DesktopGroundCoverPackage.cs" />
-     <Compile Include="Assets\Scripts\State\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Units\Tasks\UnitRank.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\Extensions\GeNaRiverExtension.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Weather\VFX\Scripts\PW_Terrain_Grass_Manager.cs" />
@@ -527,6 +525,18 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoDetailSO.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\Following.cs" />
      <Compile Include="Assets\Scripts\Menus\RevampedMainMenu.cs" />
+     <Compile Include="Assets\Scripts\State\Actions\Movement.cs" />
+     <Compile Include="Assets\Scripts\State\Gatherer.cs" />
+     <Compile Include="Assets\Scripts\State\States\HarvestResource.cs" />
+     <Compile Include="Assets\Scripts\State\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\State\States\SearchForClosestResource.cs" />
+     <Compile Include="Assets\Scripts\State\States\PlaceResourcesInStockpile.cs" />
+     <Compile Include="Assets\Scripts\State\States\Flee.cs" />
+     <Compile Include="Assets\Scripts\State\States\ReturnToStockpile.cs" />
+     <Compile Include="Assets\Scripts\State\States\RightClickMove.cs" />
+     <Compile Include="Assets\Scripts\State\IState.cs" />
+     <Compile Include="Assets\Scripts\State\States\MoveToSelectedResource.cs" />
+     <Compile Include="Assets\Scripts\State\States\Idle.cs" />
      <None Include="Assets\Procedural Worlds\GeNa\Dependencies\License.txt" />
      <None Include="Assets\Imported\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

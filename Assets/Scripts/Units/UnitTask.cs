@@ -41,7 +41,7 @@ public class UnitTask : NetworkBehaviour
         
         task = newTask;        
 
-        unitAnimation.SetAnimation(newTask);
+        // unitAnimation.SetAnimation(newTask);
 
         if(unit.GetComponent<UnitInformation>().selected == false) { return; }
 

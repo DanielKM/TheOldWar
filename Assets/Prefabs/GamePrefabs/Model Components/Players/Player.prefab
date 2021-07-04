@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneId: 0
   serverOnly: 0
+  visible: 0
   m_AssetId: 
   hasSpawned: 0
 --- !u!114 &1687622601434996809
@@ -231,7 +232,7 @@ MonoBehaviour:
   - {fileID: 4935380239225447750, guid: fe68e7938096e754b9700af1cd19cfde, type: 3}
   - {fileID: 2042867125702451865, guid: c9945c3ad3ec93e46ae0bd63e42b814a, type: 3}
   units:
-  - {fileID: 5775123849031141255, guid: 70e4f6a3ccec78a4da8661fd11c9c3b7, type: 3}
+  - {fileID: 5775123849031141255, guid: fd4adefe66e488d4682a45404f9058f5, type: 3}
   - {fileID: 5775123849031141255, guid: 25f87b013e079da40888d0c5bf64785a, type: 3}
   - {fileID: 5775123849031141255, guid: 87c11ed24f697084181201f50569af23, type: 3}
   - {fileID: 5791604877373787076, guid: f1d6a2ac8ed6d2f4fb6b9c24c9c7fede, type: 3}
@@ -421,7 +422,7 @@ MonoBehaviour:
   sword: {fileID: 9000752032217256737, guid: 43f73f030d5ac5c449108cc647442aaf, type: 3}
   fireball: {fileID: 9000752032217256737, guid: aa7a18c1417df174d848de745ace8210, type: 3}
   click: {fileID: 3886399102789799718, guid: 2eaba0976c4d7104c92d53472f9d705f, type: 3}
-  worker: {fileID: 2865781408668503874, guid: 70e4f6a3ccec78a4da8661fd11c9c3b7, type: 3}
+  worker: {fileID: 2865781408668503874, guid: fd4adefe66e488d4682a45404f9058f5, type: 3}
   swordsman: {fileID: 2865781408668503874, guid: 25f87b013e079da40888d0c5bf64785a, type: 3}
   footman: {fileID: 2865781408668503874, guid: 87c11ed24f697084181201f50569af23, type: 3}
   archer: {fileID: 2864281083983250177, guid: f1d6a2ac8ed6d2f4fb6b9c24c9c7fede, type: 3}

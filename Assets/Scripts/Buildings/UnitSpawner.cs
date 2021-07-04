@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Mirror;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -106,37 +107,40 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().workers;
                 break;
             case UnitType.Swordsman:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().swordsman, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().swordsman, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().swordsmen;
                 break;
             case UnitType.Footman:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().footman, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().footman, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().footmen;
                 break;
             case UnitType.Archer:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().archer, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().archer, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().archers;
                 break;
             case UnitType.Outrider:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().outrider, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().outrider, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().outriders;
                 break;
             case UnitType.Knight:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().knight, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().knight, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().knights;
                 break;
             case UnitType.Wizard:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().wizard, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().wizard, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().wizards;
                 break;
             case UnitType.Healer:
-                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().healer, unitSpawnPoint.position,unitSpawnPoint.rotation);
+                unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().healer, unitSpawnPoint.position, unitSpawnPoint.rotation);
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().wizards;
                 break;
             default: 
                 // pooledUnits = player.gameObject.GetComponent<PooledGameobjects>().workers;
                 break;
         }
+        NavMeshAgent agent = unitInstance.GetComponent<NavMeshAgent>();
+        agent.Warp(unitInstance.transform.position);
+        agent.enabled = true;
         // unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().worker, unitSpawnPoint.position,unitSpawnPoint.rotation);
         
         unitInstance.GetComponent<UnitInformation>().owner = player;
@@ -144,10 +148,11 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
 
         NetworkServer.Spawn(unitInstance, connectionToClient);
 
-        if(gameObject.transform.position != rallyPoint) {
-            unitInstance.GetComponent<UnitMovement>().ServerMove(rallyPoint);
+        if(gameObject.transform.position != rallyPoint)
+        {
+            agent.SetDestination(rallyPoint);
         } else {
-            unitInstance.GetComponent<UnitMovement>().ServerMove(unitSpawnPoint.position + spawnOffset);
+            agent.SetDestination(unitSpawnPoint.position + spawnOffset);
         }
 
         // Pooled Projectiles

@@ -104,6 +104,7 @@ public class RTSNetworkManager : NetworkManager
                     Quaternion.identity);
 
                 baseInstance.GetComponent<UnitInformation>().owner = player;
+                baseInstance.GetComponent<UnitInformation>().team = player.team;
                 
                 Vector3 baseOffset = new Vector3(0.0f, 0.0f, 20f);
                 player.gameObject.transform.position = startPos - baseOffset;

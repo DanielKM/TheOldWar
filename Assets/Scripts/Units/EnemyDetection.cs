@@ -8,6 +8,8 @@ using UnityEngine.Events;
 public class EnemyDetection : MonoBehaviour
 {
     public LayerMask layerMask;
+    public GameObject closestEnemy = null;
+    public bool enemyDetected = false;
     
     [SerializeField]
     Unit unit = null;
@@ -79,6 +81,16 @@ public class EnemyDetection : MonoBehaviour
             if(nearestCollider) 
             {
                 targeter.ServerSetTarget(nearestCollider.gameObject);
+
+                if(nearestCollider.gameObject.GetComponent<UnitInformation>().team == unitInformation.team) { return; }
+
+                enemyDetected = true;
+
+                closestEnemy = nearestCollider.gameObject;
+            } else {
+                enemyDetected = false;
+
+                closestEnemy = null;
             }
         }
     }

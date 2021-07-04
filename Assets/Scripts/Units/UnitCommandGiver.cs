@@ -67,11 +67,11 @@ public class UnitCommandGiver : NetworkBehaviour
     {
         if(unitSelectionHandler.SelectedUnits.Count <= 0) { return; }
 
-        UnitMovement firstUnitMovement = unitSelectionHandler.SelectedUnits[0].gameObject.GetComponent<UnitMovement>();
+        // UnitMovement firstUnitMovement = unitSelectionHandler.SelectedUnits[0].gameObject.GetComponent<UnitMovement>();
         
-        firstUnitMovement.unitAudio.clip = firstUnitMovement.unitMovingClip;
+        // firstUnitMovement.unitAudio.clip = firstUnitMovement.unitMovingClip;
 
-        firstUnitMovement.unitAudio.Play();
+        // firstUnitMovement.unitAudio.Play();
 
         CreateBoxFormation(hit, unitSelectionHandler.SelectedUnits);
     }
@@ -111,10 +111,12 @@ public class UnitCommandGiver : NetworkBehaviour
         int counter = 0;
         if(formationList.Count == 1) { 
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
-                formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x, hit.point.y, hit.point.z));           
+                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
+                formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x, hit.point.y, hit.point.z));           
             }
         } else if(formationList.Count <= 4) {
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
+                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
                 if(iteration <= 1) {
                     if(iteration % 2 == 0) {
                         counter = 0;
@@ -131,13 +133,14 @@ public class UnitCommandGiver : NetworkBehaviour
                 }
 
                 if(iteration % 2 == 0) {
-                    formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 } else {
-                    formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 }
             }
         } else if(formationList.Count > 4 && formationList.Count <= 16) {
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
+                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
                 if(iteration <= 1) {
                     if(iteration % 4 == 0) {
                         counter = 0;
@@ -154,13 +157,14 @@ public class UnitCommandGiver : NetworkBehaviour
                 }
 
                 if(iteration % 2 == 0) {
-                    formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 } else {
-                    formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 }
             }
         } else if(formationList.Count >= 16) {
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
+                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
                 if(iteration <= 1) {
                     if(iteration % 8 == 0) {
                         counter = 0;
@@ -177,9 +181,9 @@ public class UnitCommandGiver : NetworkBehaviour
                 }
 
                 if(iteration % 2 == 0) {
-                    formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 } else {
-                    formationList[iteration].GetUnitMovement().CmdMove(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 }
             }
         } 		

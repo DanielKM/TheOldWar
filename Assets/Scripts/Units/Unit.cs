@@ -47,6 +47,11 @@ public class Unit : NetworkBehaviour
     public static event Action<Unit> AuthorityOnUnitSpawned;
     public static event Action<Unit> AuthorityOnUnitDespawned;
 
+    private static readonly int Speed = Animator.StringToHash("Speed");
+
+    public bool forceMove = false;
+    public Vector3 selectedDestination;
+
     public Dictionary<Resource, int> GetPrice()
     {
         Dictionary<Resource, int> unitPrice = new Dictionary<Resource, int>(){ 
@@ -285,6 +290,15 @@ public class Unit : NetworkBehaviour
     //     unitInformation.owner.myActiveUnits.Remove(this);
 
     // }
+
+    public void Move(Vector3 location)
+    {
+        forceMove = true;
+        
+        unitTask.SetTask(ActionList.Moving);
+
+        selectedDestination = location;
+    }
 
     public override void OnStopClient()
     {

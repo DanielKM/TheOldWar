@@ -259,10 +259,12 @@ MonoBehaviour:
   resourceGatherer: {fileID: -4302257850294133824}
   unitInformation: {fileID: 8479750376460113647}
   unitTask: {fileID: 3269931612645664802}
+  unit: {fileID: 5775123849031141255}
   fleeAudio: {fileID: 8300000, guid: ac18c6e506f5524478ef49ebf07c9d03, type: 3}
   moveAudio: {fileID: 8300000, guid: ac18c6e506f5524478ef49ebf07c9d03, type: 3}
   audioSource: {fileID: -7908261325409360190}
   harvestClip: {fileID: 8300000, guid: 3a2c9cd2d6a3f374fb003b0b4fc32e05, type: 3}
+  currentState: idle
 --- !u!1001 &536117859605317610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: description
       value: The Worker is the backbone of every settlement in the Old World. He
-        is a builder, miner, farmer, and if needed a fighter.
+        is a builder, miner, farmer, and if needed, a fighter.
       objectReference: {fileID: 0}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: resourceCost
@@ -697,6 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6957308045157887166, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+    - {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
 --- !u!1 &2865781408668503874 stripped
 GameObject:

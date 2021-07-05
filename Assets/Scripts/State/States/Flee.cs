@@ -13,7 +13,7 @@ public class Flee : IState
     private static readonly int FleeHash = Animator.StringToHash("Flee");
 
     private float _initialSpeed;
-    private const float FLEE_SPEED = 6f;
+    private const float FLEE_SPEED = 4f;
     private const float FLEE_DISTANCE = 5f;
 
     public Flee(Gatherer gatherer, NavMeshAgent navMeshAgent, EnemyDetection enemyDetection, Animator animator, AudioClip audioClip)

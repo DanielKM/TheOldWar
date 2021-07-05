@@ -14,6 +14,7 @@ public class Gatherer : MonoBehaviour
     [SerializeField] ResourceGatherer resourceGatherer;
     [SerializeField] UnitInformation unitInformation;
     [SerializeField] UnitTask unitTask;
+    [SerializeField] public Unit unit;
 
     [SerializeField] AudioClip fleeAudio;
     [SerializeField] AudioClip moveAudio;
@@ -68,14 +69,18 @@ public class Gatherer : MonoBehaviour
         At(placeResourcesInStockpile, search, () => resourceGatherer.heldResources == 0);
 
         // AddAnyTransition breaks up the normal flow
-        // _stateMachine.AddAnyTransition(forceMove, () => navMeshAgent.hasPath);
+        _stateMachine.AddAnyTransition(forceMove, () => unit.forceMove);
+        At(forceMove, idle, ArrivedAtMoveDestination());
+
         _stateMachine.AddAnyTransition(flee, () => enemyDetector.enemyDetected);
         At(flee, idle, () => !enemyDetector.enemyDetected);
+
         _stateMachine.SetState(idle);
 
         // METHODS
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
+        Func<bool> ArrivedAtMoveDestination() => () => Vector3.Distance(transform.position, unit.selectedDestination) < 1;    
         Func<bool> WasGatherCommandGiven() => () => unitTask.GetTask() == ActionList.Gathering;    
         Func<bool> HasTarget() => () => targeter.GetTarget() != null;
         Func<bool> StuckForOverASecond() => () => moveToSelectedResource.TimeStuck > 1f;

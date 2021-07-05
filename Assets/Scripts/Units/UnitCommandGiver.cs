@@ -111,12 +111,10 @@ public class UnitCommandGiver : NetworkBehaviour
         int counter = 0;
         if(formationList.Count == 1) { 
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
-                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
-                formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x, hit.point.y, hit.point.z));           
+                formationList[iteration].Move(new Vector3(hit.point.x, hit.point.y, hit.point.z));           
             }
         } else if(formationList.Count <= 4) {
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
-                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
                 if(iteration <= 1) {
                     if(iteration % 2 == 0) {
                         counter = 0;
@@ -133,14 +131,13 @@ public class UnitCommandGiver : NetworkBehaviour
                 }
 
                 if(iteration % 2 == 0) {
-                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].Move(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 } else {
-                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].Move(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 }
             }
         } else if(formationList.Count > 4 && formationList.Count <= 16) {
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
-                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
                 if(iteration <= 1) {
                     if(iteration % 4 == 0) {
                         counter = 0;
@@ -157,14 +154,13 @@ public class UnitCommandGiver : NetworkBehaviour
                 }
 
                 if(iteration % 2 == 0) {
-                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].Move(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 } else {
-                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].Move(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 }
             }
         } else if(formationList.Count >= 16) {
             for(int iteration = 0; iteration < formationList.Count; iteration++) {
-                formationList[iteration].GetComponent<NavMeshAgent>().enabled = true;
                 if(iteration <= 1) {
                     if(iteration % 8 == 0) {
                         counter = 0;
@@ -181,9 +177,9 @@ public class UnitCommandGiver : NetworkBehaviour
                 }
 
                 if(iteration % 2 == 0) {
-                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].Move(new Vector3(hit.point.x + rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 } else {
-                    formationList[iteration].GetComponent<NavMeshAgent>().SetDestination(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
+                    formationList[iteration].Move(new Vector3(hit.point.x - rowOffset/2 * counter, hit.point.y, hit.point.z + row)); 
                 }
             }
         } 		

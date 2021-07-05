@@ -34,7 +34,7 @@ public class MoveToSelectedResource : IState
 
     public void OnEnter()
     {
-        _gatherer.currentState = "MOVE";
+        _gatherer.currentState = "FLEE";
         TimeStuck = 0f;
         _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(_targeter.target.transform.position);

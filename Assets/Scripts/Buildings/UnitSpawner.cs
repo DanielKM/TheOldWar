@@ -139,8 +139,10 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
                 break;
         }
         NavMeshAgent agent = unitInstance.GetComponent<NavMeshAgent>();
+        Unit unit = unitInstance.GetComponent<Unit>();
         agent.Warp(unitInstance.transform.position);
-        agent.enabled = true;
+
+
         // unitInstance = Instantiate(player.gameObject.GetComponent<PooledGameobjects>().worker, unitSpawnPoint.position,unitSpawnPoint.rotation);
         
         unitInstance.GetComponent<UnitInformation>().owner = player;
@@ -150,9 +152,9 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
 
         if(gameObject.transform.position != rallyPoint)
         {
-            agent.SetDestination(rallyPoint);
+            unit.Move(rallyPoint);
         } else {
-            agent.SetDestination(unitSpawnPoint.position + spawnOffset);
+            unit.Move(unitSpawnPoint.position + spawnOffset);
         }
 
         // Pooled Projectiles

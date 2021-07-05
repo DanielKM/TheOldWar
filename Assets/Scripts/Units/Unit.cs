@@ -88,6 +88,14 @@ public class Unit : NetworkBehaviour
         return id;
     }
 
+    public void Update()
+    {
+        if(Vector3.Distance(transform.position, selectedDestination) < 0.2f) 
+        {
+            forceMove = false;
+        }
+    }
+
     #region Server
 
     public override void OnStartServer()

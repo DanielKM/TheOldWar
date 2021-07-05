@@ -46,5 +46,4 @@ public class MoveToSelectedResource : IState
         _navMeshAgent.enabled = false;
         _animator.SetFloat(Speed, 0f);
     }
-
 }

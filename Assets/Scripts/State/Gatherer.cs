@@ -70,7 +70,7 @@ public class Gatherer : MonoBehaviour
 
         // AddAnyTransition breaks up the normal flow
         _stateMachine.AddAnyTransition(forceMove, () => unit.forceMove);
-        At(forceMove, idle, ArrivedAtMoveDestination());
+        At(forceMove, idle, () => !unit.forceMove);
 
         _stateMachine.AddAnyTransition(flee, () => enemyDetector.enemyDetected);
         At(flee, idle, () => !enemyDetector.enemyDetected);
@@ -80,7 +80,7 @@ public class Gatherer : MonoBehaviour
         // METHODS
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
-        Func<bool> ArrivedAtMoveDestination() => () => Vector3.Distance(transform.position, unit.selectedDestination) < 1;    
+        Func<bool> ArrivedAtMoveDestination() => () => Vector3.Distance(transform.position, unit.selectedDestination) < 0.2f;    
         Func<bool> WasGatherCommandGiven() => () => unitTask.GetTask() == ActionList.Gathering;    
         Func<bool> HasTarget() => () => targeter.GetTarget() != null;
         Func<bool> StuckForOverASecond() => () => moveToSelectedResource.TimeStuck > 1f;

@@ -80,7 +80,7 @@ public class Gatherer : MonoBehaviour
         // METHODS
         void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
 
-        Func<bool> ArrivedAtMoveDestination() => () => Vector3.Distance(transform.position, unit.selectedDestination) < 0.2f;    
+        // Func<bool> ArrivedAtMoveDestination() => () => Vector3.Distance(transform.position, unit.selectedDestination) < 0.25f;    
         Func<bool> WasGatherCommandGiven() => () => unitTask.GetTask() == ActionList.Gathering;    
         Func<bool> HasTarget() => () => targeter.GetTarget() != null;
         Func<bool> StuckForOverASecond() => () => moveToSelectedResource.TimeStuck > 1f;

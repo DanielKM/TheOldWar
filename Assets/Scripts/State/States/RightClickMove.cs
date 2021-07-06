@@ -26,9 +26,14 @@ public class RightClickMove : IState
 
     public void Tick()
     {
-        if(_navMeshAgent.remainingDistance < 0.2f)
-        { 
-            // _gatherer.unit.forceMove = false;
+        if(_gatherer.unit.selectedDestination != _navMeshAgent.destination) 
+        {
+            _navMeshAgent.SetDestination(_gatherer.unit.selectedDestination);
+        }
+
+        if(Vector3.Distance(_gatherer.unit.transform.position, _gatherer.unit.selectedDestination) < 0.2f) 
+        {
+            _gatherer.unit.forceMove = false;
         }
 
         if(Vector3.Distance(_gatherer.transform.position, _lastPosition) <= 0f)

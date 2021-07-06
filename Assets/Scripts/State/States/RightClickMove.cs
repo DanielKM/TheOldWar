@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class RightClickMove : IState
 {
     private readonly Gatherer _gatherer;
+    private Targeter _targeter;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private readonly AudioClip _audioClip;
@@ -16,9 +17,10 @@ public class RightClickMove : IState
 
     public float TimeStuck;
 
-    public RightClickMove(Gatherer gatherer, NavMeshAgent navMeshAgent, Animator animator, AudioClip audioClip)
+    public RightClickMove(Gatherer gatherer, Targeter targeter, NavMeshAgent navMeshAgent, Animator animator, AudioClip audioClip)
     {
         _gatherer = gatherer;
+        _targeter = targeter;
         _navMeshAgent = navMeshAgent;
         _animator = animator;
         _audioClip = audioClip;

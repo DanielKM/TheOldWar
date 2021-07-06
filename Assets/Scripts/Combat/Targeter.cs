@@ -273,6 +273,8 @@ public class Targeter : NetworkBehaviour
         if(!targetGameObject.TryGetComponent<Targetable>(out Targetable newTarget)) { return; }
 
         target = newTarget;
+
+        gameObject.GetComponent<UnitTask>().SetTask(ActionList.Gathering);
     }
 
     [Server]

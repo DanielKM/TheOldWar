@@ -293,6 +293,8 @@ public class Unit : NetworkBehaviour
 
     public void Move(Vector3 location)
     {
+        targeter.ClearTarget();
+
         forceMove = true;
         
         unitTask.SetTask(ActionList.Moving);

@@ -56,7 +56,7 @@ public class Gatherer : MonoBehaviour
 
         // BREAK STATES
         var flee = new Flee(this, navMeshAgent, enemyDetector, animator, fleeAudio);
-        var forceMove = new RightClickMove(this, navMeshAgent, animator, moveAudio);
+        var forceMove = new RightClickMove(this, targeter, navMeshAgent, animator, moveAudio);
 
         // TRANSITIONS
         At(idle, search, WasGatherCommandGiven());

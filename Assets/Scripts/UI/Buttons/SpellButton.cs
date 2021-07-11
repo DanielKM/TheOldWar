@@ -18,12 +18,17 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     private RTSPlayer player;
     private UIController UI = null;
 
+    public bool testing;
+
     private void Start()
     {
         UI = GameObject.Find("UI").GetComponent<UIController>();
 
-        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
-        
+        testing = GameObject.Find("Testing").GetComponent<Testing>().testing;
+        if(!testing) 
+        {
+            player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+        }
         mainCamera = Camera.main;
     }
 

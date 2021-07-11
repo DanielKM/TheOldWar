@@ -5,6 +5,7 @@ using System.Linq;
 using Mirror;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class RTSPlayer : NetworkBehaviour
 {
@@ -249,6 +250,12 @@ public class RTSPlayer : NetworkBehaviour
             }
             GetAllMyActiveUnits();
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UI = GameObject.Find("UI").GetComponent<UIController>();
     }
 
     public void GetAllMyActiveUnits() 
@@ -489,8 +496,6 @@ public class RTSPlayer : NetworkBehaviour
 
     public bool CannotAfford (Dictionary<Resource, int> currentResources, Dictionary <Resource, int> resourcePrice)
     {
-        UI = GameObject.Find("UI").GetComponent<UIController>();
-
         for(int i = 0; i<currentResources.Count; i++)
         {
             if(currentResources.ElementAt(i).Value < resourcePrice.ElementAt(i).Value) 

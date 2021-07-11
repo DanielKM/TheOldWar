@@ -22,19 +22,30 @@ public class Minimap : MonoBehaviour, IPointerDownHandler, IDragHandler
     {
         if(playerCameraTransform != null) { return; }
 
-        if(NetworkClient.connection.identity == null) { return; }
+        testing = GameObject.Find("Testing").GetComponent<Testing>().testing;
 
-        playerCameraTransform = NetworkClient.connection.identity.GetComponent<RTSPlayer>().GetCameraTransform();
+        if(!testing) 
+        {
+            if(NetworkClient.connection.identity == null) { return; }
+
+            playerCameraTransform = NetworkClient.connection.identity.GetComponent<RTSPlayer>().GetCameraTransform();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        MoveCamera();
+        if(!testing) 
+        {
+            MoveCamera();   
+        }
     }
                 
     public void OnDrag(PointerEventData eventData)
     {
-        MoveCamera();
+        if(!testing) 
+        {
+            MoveCamera();
+        }
     }
 
     private void MoveCamera()

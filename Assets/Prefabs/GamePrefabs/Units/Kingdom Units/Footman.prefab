@@ -219,6 +219,18 @@ MonoBehaviour:
   syncInterval: 0.1
   unitAnimation: {fileID: 2267158405068367372}
   task: 0
+--- !u!114 &8554020508503044281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892446446833478359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c592d956214e543b21f463e273619b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5273090969581783527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,18 +251,6 @@ MonoBehaviour:
   unitLayer:
     serializedVersion: 2
     m_Bits: 1024
---- !u!114 &8554020508503044281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2892446446833478359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c592d956214e543b21f463e273619b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &536117859605317610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: unitMovingSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 8d25a6c1a53d194418a15fc04d197f9d, type: 3}
+    - target: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: unitType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8736742897906309491, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_RootOrder
       value: 0

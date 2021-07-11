@@ -545,6 +545,10 @@ PrefabInstance:
       propertyPath: unitMovingSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 8d25a6c1a53d194418a15fc04d197f9d, type: 3}
+    - target: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: unitType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8736742897906309491, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_RootOrder
       value: 0

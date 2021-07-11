@@ -21,7 +21,11 @@ public class GathererDuty : MonoBehaviour, IPointerDownHandler
             {
                 unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.Gathering);    
                 
-                unit.GetTargeter().CmdSetClosestResourceTarget(resourceID);
+                // unit.GetTargeter().CmdSetClosestResourceTarget(resourceID);
+
+                //Drop current resource
+
+                unit.gameObject.GetComponent<ResourceGatherer>().heldResourcesType = resource;
             }
         }
     }

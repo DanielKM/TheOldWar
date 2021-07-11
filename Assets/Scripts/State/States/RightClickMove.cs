@@ -46,7 +46,6 @@ public class RightClickMove : IState
 
     public void OnEnter()
     {
-        Debug.Log("ENTERED");
         _gatherer.currentState = "MOVING";
         TimeStuck = 0f;
         _navMeshAgent.enabled = true;
@@ -56,7 +55,6 @@ public class RightClickMove : IState
 
     public void OnExit()
     {
-        Debug.Log("EXITED");
         // _gatherer.unit.selectedDestination = selectedDestination; // maybe change to same destination?
         _navMeshAgent.enabled = false;
         _animator.SetFloat(Speed, 0f);

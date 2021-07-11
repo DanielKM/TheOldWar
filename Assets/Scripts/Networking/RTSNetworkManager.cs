@@ -72,6 +72,7 @@ public class RTSNetworkManager : NetworkManager
         string steamName = SteamFriends.GetFriendPersonaName(steamId);
 
         player.SetDisplayName(steamName);
+
         // player.SetDisplayName($"Player {Players.Count}");
 
         player.SetTeamColor(new Color(
@@ -81,50 +82,59 @@ public class RTSNetworkManager : NetworkManager
         ));
 
         player.SetPartyOwner(Players.Count == 1);
+
+        if(SceneManager.GetActiveScene().name.StartsWith("Scene_Map"))
+        {
+            CreateBaseInstanceForPlayer();
+        }
     }
 
     public override void OnServerSceneChanged(string sceneName)
     {
         if(SceneManager.GetActiveScene().name.StartsWith("Scene_Map"))
         {
-            // GameOverHandler gameOverHandlerInstance = Instantiate(gameOverHandlerPrefab);
+            CreateBaseInstanceForPlayer();
+        }
+    }
 
-            // NetworkServer.Spawn(gameOverHandlerInstance.gameObject); Dan Here
+    void CreateBaseInstanceForPlayer()
+    {
+        // GameOverHandler gameOverHandlerInstance = Instantiate(gameOverHandlerPrefab);
 
-            gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
+        // NetworkServer.Spawn(gameOverHandlerInstance.gameObject); Dan Here
 
-            foreach(RTSPlayer player in Players) 
-            {
-                Transform startTransform = GetStartPosition();
-                Vector3 startPos = startTransform.position;
+        gameObjectLists = GameObject.Find("UnitHandlers").GetComponent<GameobjectLists>();
 
-                GameObject baseInstance = Instantiate(
-                    unitBasePrefab, 
-                    startPos, 
-                    Quaternion.identity);
+        foreach(RTSPlayer player in Players) 
+        {
+            Transform startTransform = GetStartPosition();
+            Vector3 startPos = startTransform.position;
 
-                baseInstance.GetComponent<UnitInformation>().owner = player;
-                baseInstance.GetComponent<UnitInformation>().team = player.team;
-                
-                Vector3 baseOffset = new Vector3(0.0f, 0.0f, 20f);
-                player.gameObject.transform.position = startPos - baseOffset;
-                player.spawnPoint = startTransform.gameObject;
-                
+            GameObject baseInstance = Instantiate(
+                unitBasePrefab, 
+                startPos, 
+                Quaternion.identity);
 
-                Dictionary<Resource, int> newResourceDictionary = player.GetResources();
+            baseInstance.GetComponent<UnitInformation>().owner = player;
+            baseInstance.GetComponent<UnitInformation>().team = player.team;
+            
+            Vector3 baseOffset = new Vector3(0.0f, 0.0f, 20f);
+            player.gameObject.transform.position = startPos - baseOffset;
+            player.spawnPoint = startTransform.gameObject;
+            
+            Dictionary<Resource, int> newResourceDictionary = player.GetResources();
 
-                ResourceGatherer gatherer = gameObject.GetComponent<ResourceGatherer>();
+            ResourceGatherer gatherer = gameObject.GetComponent<ResourceGatherer>();
 
-                SteamCloudPrefs SteamStorage = gameObject.GetComponent<SteamHandler>().SteamStorage;
-                // PULL FROM PREFS
-                newResourceDictionary[Resource.ArmySize] += SteamStorage.armySize;
-                
-                player.SetResources(newResourceDictionary);
-                
-                NetworkServer.Spawn(baseInstance, player.connectionToClient);
-                
-                gameObjectLists.players.Add(player.gameObject);
-            }
+            SteamCloudPrefs SteamStorage = gameObject.GetComponent<SteamHandler>().SteamStorage;
+            // PULL FROM PREFS
+            newResourceDictionary[Resource.ArmySize] += SteamStorage.armySize;
+            
+            player.SetResources(newResourceDictionary);
+            
+            NetworkServer.Spawn(baseInstance, player.connectionToClient);
+            
+            gameObjectLists.players.Add(player.gameObject);
         }
     }
 

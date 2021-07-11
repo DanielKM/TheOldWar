@@ -9,11 +9,18 @@ public class UnitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private RTSPlayer player;
     UIController UI = null;
 
+    public bool testing;
+
     private void Start()
     {
         UI = GameObject.Find("UI").GetComponent<UIController>();
 
-        player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+        testing = GameObject.Find("Testing").GetComponent<Testing>().testing;
+
+        if(!testing) 
+        {
+            player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -28,5 +35,16 @@ public class UnitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         UI.pointerExitedButton = true;
 
         UI.CloseUnitCostPanel();
+    }
+
+    public void Update()
+    {
+        if(testing)
+        {
+            if(player == null)
+            {
+                player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
+            }
+        }
     }
 }

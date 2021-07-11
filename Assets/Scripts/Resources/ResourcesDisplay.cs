@@ -76,7 +76,7 @@ public class ResourcesDisplay : MonoBehaviour
 
     private void Update()
     {
-        if(testing)
+        if(!testing)
         {
             if(player == null)
             {
@@ -127,6 +127,8 @@ public class ResourcesDisplay : MonoBehaviour
 
     private void OnDestroy()
     {
+        if(player == null) { return; }
+        
         player.ClientOnGoldUpdated -= ClientHandleGoldUpdated;
         player.ClientOnIronUpdated -= ClientHandleIronUpdated;
         player.ClientOnSteelUpdated -= ClientHandleSteelUpdated;

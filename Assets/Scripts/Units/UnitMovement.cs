@@ -101,6 +101,21 @@ public class UnitMovement : NetworkBehaviour
             return;
         } 
 
+        if(unitTask.GetTask() == ActionList.Building || unitTask.GetTask() == ActionList.Construction) 
+        {
+            unitTask.SetTask(ActionList.Construction);    
+
+            unit.GetTargeter().CmdSetFoundationTarget();
+        }
+
+        if(unitTask.GetTask() == ActionList.Destroying || unitTask.GetTask() == ActionList.ClearingDead) 
+        {
+            unitTask.SetTask(ActionList.ClearingDead);    
+
+            unit.GetTargeter().CmdSetCorpseTarget();
+        }
+
+        // Debug.Log(!agent.hasPath);
         if(!agent.hasPath) // clears path on same frame as calculating
         { 
             if(unitTask.GetTask() != ActionList.Idle && unitTask.GetTask() != ActionList.CastingAOE)
@@ -111,26 +126,11 @@ public class UnitMovement : NetworkBehaviour
             return; 
         }
         
-
-        if(unitTask.GetTask() == ActionList.Building || unitTask.GetTask() == ActionList.Construction) 
-        {
-            unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.Construction);    
-
-            unit.GetTargeter().CmdSetFoundationTarget();
-        }
-
-        if(unitTask.GetTask() == ActionList.Destroying || unitTask.GetTask() == ActionList.ClearingDead) 
-        {
-            unit.gameObject.GetComponent<UnitTask>().SetTask(ActionList.ClearingDead);    
-
-            unit.GetTargeter().CmdSetCorpseTarget();
-        }
-
         if(unitTask.GetTask() != ActionList.Moving) 
         {
             unitTask.SetUnitTask(ActionList.Moving);
         }
-        
+
         // float velocity = agent.velocity.magnitude/agent.speed;
 
         if(agent.remainingDistance > agent.stoppingDistance) { return; }

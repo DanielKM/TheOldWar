@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class LobbyMenu : NetworkBehaviour
 {
-    [SerializeField] private GameObject lobbyUI = null;
     [SerializeField] private Button startGameButton = null;
     [SerializeField] private Text[] playerNameTexts = new Text[6];
     [SerializeField] private Team team = null;

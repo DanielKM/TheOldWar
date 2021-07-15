@@ -510,6 +510,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1230049726976666955, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230049726976666955, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230049726976666955, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230049726976666955, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230049726976666955, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230049726976666955, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
     - target: {fileID: 2452542087011110359, guid: 835e0732b70e0214e80b994fb3eba206, type: 3}
       propertyPath: m_Name
       value: Blacksmith

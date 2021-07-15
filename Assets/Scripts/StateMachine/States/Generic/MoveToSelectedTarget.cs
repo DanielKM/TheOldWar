@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MoveToSelectedResource : IState
+public class MoveToSelectedTarget : IState
 {
-    private readonly Gatherer _gatherer;
+    private readonly Unit _unit;
     private readonly Targeter _targeter;
     private readonly NavMeshAgent _navMeshAgent;
     private readonly Animator _animator;
@@ -16,9 +16,9 @@ public class MoveToSelectedResource : IState
 
     public float TimeStuck;
 
-    public MoveToSelectedResource(Gatherer gatherer, Targeter targeter, NavMeshAgent navMeshAgent, Animator animator) 
+    public MoveToSelectedTarget(Unit unit, Targeter targeter, NavMeshAgent navMeshAgent, Animator animator) 
     {
-        _gatherer = gatherer;
+        _unit = unit;
         _targeter = targeter;
         _navMeshAgent = navMeshAgent;
         _animator = animator;
@@ -26,24 +26,23 @@ public class MoveToSelectedResource : IState
 
     public void Tick()
     {
-        if(Vector3.Distance(_gatherer.transform.position, _lastPosition) <= 0f)
+        if(Vector3.Distance(_unit.transform.position, _lastPosition) <= 0f)
             TimeStuck += Time.deltaTime;
 
-        _lastPosition = _gatherer.transform.position;
+        _lastPosition = _unit.transform.position;
     }
 
     public void OnEnter()
     {
-        _gatherer.currentState = "FLEE";
         TimeStuck = 0f;
-        _navMeshAgent.enabled = true;
+        // _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(_targeter.target.transform.position);
         _animator.SetFloat(Speed, 1f);
     }
 
     public void OnExit()
     {
-        _navMeshAgent.enabled = false;
+        // _navMeshAgent.enabled = false;
         _animator.SetFloat(Speed, 0f);
     }
 }

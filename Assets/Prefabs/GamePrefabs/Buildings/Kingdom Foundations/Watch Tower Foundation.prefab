@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2586664664986295977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -80.630936, y: 0.5, z: -150.24574}
+  m_LocalPosition: {x: 84.524345, y: 0.5, z: -141.52785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 238923877841961983}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneId: 0
   serverOnly: 0
+  visible: 0
   m_AssetId: 
   hasSpawned: 0
 --- !u!65 &4453701912656297425
@@ -177,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 2914691053213285914}
   healthBarParent: {fileID: 6347239633505839913}
+  progressIcon: {fileID: 0}
   healthBarImage: {fileID: 7406220203201383005}
 --- !u!114 &3753088275934236593
 MonoBehaviour:

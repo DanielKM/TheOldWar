@@ -181,10 +181,10 @@ public class Unit : NetworkBehaviour
         unitTask.SetTask(ActionList.Injured);
 
         gameObject.GetComponent<UnitFiring>().enabled = false;
-        gameObject.GetComponent<Targeter>().enabled = false;
+        targeter.enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        gameObject.GetComponent<UnitMovement>().enabled = false;
-        gameObject.GetComponent<Targeter>().ClearTarget();
+        unitMovement.enabled = false;
+        targeter.ClearTarget();
 
         if(gameObject.TryGetComponent<Huntable>(out Huntable huntable))  
         {
@@ -212,12 +212,10 @@ public class Unit : NetworkBehaviour
         unitTask.SetTask(ActionList.Idle);
 
         gameObject.GetComponent<UnitFiring>().enabled = true;
-        gameObject.GetComponent<Targeter>().enabled = true;
+        targeter.enabled = true;
         gameObject.GetComponent<NavMeshAgent>().enabled = true;
-        gameObject.GetComponent<UnitMovement>().enabled = true;
+        unitMovement.enabled = true;
         gameObject.GetComponent<BoxCollider>().size = new Vector3(boxColliderSize.x, boxColliderSize.y, boxColliderSize.z);
-
-        gameObject.GetComponent<UnitFiring>().enabled = true;
     }
 
     [Server]
@@ -293,13 +291,15 @@ public class Unit : NetworkBehaviour
 
     public void Move(Vector3 location)
     {
-        targeter.ClearTarget();
+        unitMovement.CmdMove(location);
 
-        forceMove = true;
+        // targeter.ClearTarget();
+
+        // forceMove = true;
         
-        unitTask.SetTask(ActionList.Moving);
+        // unitTask.SetTask(ActionList.Moving);
 
-        selectedDestination = location;
+        // selectedDestination = location;
     }
 
     public override void OnStopClient()
@@ -314,9 +314,10 @@ public class Unit : NetworkBehaviour
     {
         if(!hasAuthority) { return; }
 
+        unitInformation.selected = true;
+
         onSelected?.Invoke();
         
-        unitInformation.selected = true;
     }
 
     [Client]
@@ -324,9 +325,9 @@ public class Unit : NetworkBehaviour
     {
         if(!hasAuthority) { return; }
 
-        onDeselected?.Invoke();
-        
         unitInformation.selected = false;
+
+        onDeselected?.Invoke();
     }
 
     #endregion

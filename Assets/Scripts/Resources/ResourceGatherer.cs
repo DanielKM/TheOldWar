@@ -39,7 +39,9 @@ public class ResourceGatherer : NetworkBehaviour
 
         if(gameObject.GetComponent<UnitInformation>().selected == false) { return; }
 
-        if(unit != unitSelection.SelectedUnits[0]) { return; }
+        // if(unitSelection.SelectedUnits.Count <= 0) { return; }
+
+        // if(unit != unitSelection.SelectedUnits[0]) { return; }
         
         unitSelection.UpdateUnitPanel(gameObject.GetComponent<Unit>());
     }
@@ -48,5 +50,16 @@ public class ResourceGatherer : NetworkBehaviour
     public int ReturnResources() 
     {
         return heldResources;
+    }
+    
+    [Server]
+    public void DropCurrentlyHeldResources() 
+    {
+        if(heldResources <= 0) { return; }
+
+        // CreateResourcePrefab(heldResources, heldResourcesType, transform.position);
+        Debug.Log("Dropped Resources");
+
+        heldResources = 0;
     }
 }

@@ -1605,6 +1605,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5799104995505561833, guid: eb50b47201d890f44800a37db14dda35, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799104995505561833, guid: eb50b47201d890f44800a37db14dda35, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799104995505561833, guid: eb50b47201d890f44800a37db14dda35, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6313726
+      objectReference: {fileID: 0}
     - target: {fileID: 5880975034859192369, guid: eb50b47201d890f44800a37db14dda35, type: 3}
       propertyPath: m_Layer
       value: 2

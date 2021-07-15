@@ -134,6 +134,8 @@ public class Healer : MonoBehaviour
         }
         
         healing = false;
+
+        unitTask.SetTask(ActionList.Idle);
     }
     
     IEnumerator HealWounded(int number, Vector3 spawnPos, GameObject injured) {
@@ -161,5 +163,7 @@ public class Healer : MonoBehaviour
         }
         
         healing = false;
+        
+        unitTask.SetTask(ActionList.Idle);
     }
 }

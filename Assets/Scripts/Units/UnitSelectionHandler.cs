@@ -75,7 +75,6 @@ public class UnitSelectionHandler : MonoBehaviour
 
         PointerEventData mouse1 = EventSystem.current.gameObject.GetComponent<CustomStandaloneInputModule>().GetLastPointerEventDataPublic(-1);
 
-
         if(mouse1 != null)
         {
             if(mouse1.pointerPress) 
@@ -108,30 +107,33 @@ public class UnitSelectionHandler : MonoBehaviour
         
     private void SelectVisibleUnitsOfSameType(Unit unit)
     {
+        UnitType unitType = unit.GetComponent<UnitInformation>().unitType;
+
         Renderer[] sceneRenderers = FindObjectsOfType<Renderer>();
+
         visibleRenderers.Clear();
         // ADD OWNERS/TEAMS
         for(int i = 0; i < sceneRenderers.Length; i++) {
             if(IsVisible(sceneRenderers[i])) {
                 Transform parent = sceneRenderers[i].transform.parent;
-                if (parent) {
+
+                if(parent && parent.transform.parent)
+                {
+                    parent = parent.transform.parent;
+                }
+
+                if (parent) 
+                {
                     GameObject parentGameObject = parent.gameObject;
                     if (parentGameObject) {
-                        if(parentGameObject.GetComponent<UnitInformation>()) {
-                            if(parentGameObject.GetComponent<UnitInformation>().owner == player) {
-                                visibleRenderers.Add(sceneRenderers[i]);
+                        if(parentGameObject.GetComponent<UnitInformation>()) 
+                        {
+                            if(parentGameObject.GetComponent<UnitInformation>().owner == player && parentGameObject.GetComponent<UnitInformation>().unitType == unitType) 
+                            {
+                                AddSelectedUnit(parentGameObject.GetComponent<Unit>());
                             }
                         }
                     }
-                }
-            }
-        }
-
-        foreach( Renderer renderer in visibleRenderers) {
-            GameObject doubleClickSelection = renderer.transform.parent.gameObject;
-            if (doubleClickSelection.GetComponent<Unit>()) {
-                if(unit.gameObject.GetComponent<UnitInformation>().unitType == doubleClickSelection.GetComponent<UnitInformation>().unitType) {
-                    AddSelectedUnit(doubleClickSelection.GetComponent<Unit>());
                 }
             }
         }
@@ -245,7 +247,6 @@ public class UnitSelectionHandler : MonoBehaviour
 
             if(timeSinceLastClick <= DOUBLE_CLICK_TIME) 
             {
-                Debug.Log("Double!");
                 SelectVisibleUnitsOfSameType(unit);
             }
             lastclickTime = Time.time;
@@ -296,7 +297,10 @@ public class UnitSelectionHandler : MonoBehaviour
 
         UpdateUnitPanel(unit);
 
-        SelectedUnits.Add(unit);
+        if(!SelectedUnits.Contains(unit)) 
+        {
+            SelectedUnits.Add(unit);
+        } 
 
         unit.Select();
     }

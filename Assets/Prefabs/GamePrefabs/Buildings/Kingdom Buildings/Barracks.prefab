@@ -1174,6 +1174,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barracks
       objectReference: {fileID: 0}
+    - target: {fileID: 8499936336977951227, guid: 039f4f9f02e43134c8aced04ee33d135, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499936336977951227, guid: 039f4f9f02e43134c8aced04ee33d135, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499936336977951227, guid: 039f4f9f02e43134c8aced04ee33d135, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039f4f9f02e43134c8aced04ee33d135, type: 3}
 --- !u!23 &1739547020645172150 stripped

@@ -128,31 +128,6 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 6716621389527491855}
---- !u!114 &1746202488355153229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2865781408668503874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24435783c2a6c9a4db628b3ab3ab60bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  owner: {fileID: 0}
-  team: {fileID: 0}
-  selected: 0
-  unitEnergy: 100
-  MaxUnitEnergy: 100
-  unitName: Dorn Swordarm
-  unitType: 2
-  unitRank: 1
-  unitKills: 0
-  unitWeapon: 3
-  unitArmour: 3
 --- !u!114 &1794094662747993528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 
-      objectReference: {fileID: 1746202488355153229}
+      objectReference: {fileID: 8479750376460113647}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitSelectedClip
       value: 
@@ -566,7 +541,7 @@ PrefabInstance:
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 
-      objectReference: {fileID: 1746202488355153229}
+      objectReference: {fileID: 8479750376460113647}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitMovingSoundClip
       value: 
@@ -574,6 +549,14 @@ PrefabInstance:
     - target: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: unitArmour
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+      propertyPath: unitWeapon
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8736742897906309491, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: m_RootOrder
@@ -640,6 +623,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4144c4e4234f9f24c9f5b25acbf674e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8479750376460113647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+  m_PrefabInstance: {fileID: 536117859605317610}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2865781408668503874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24435783c2a6c9a4db628b3ab3ab60bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4288646889373323229 stripped

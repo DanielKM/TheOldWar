@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8ca18058-35c0-bf35-da09-eb88cb6ada03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror", "Mirror.csproj", "{3973ae81-3417-d801-02d2-0fce80f2df20}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebTransport", "SimpleWebTransport.csproj", "{9a4c3a67-56ec-7fd1-1abd-7fc266133176}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Examples", "Mirror.Examples.csproj", "{2a797ad9-2c45-7d01-0a7d-2d1c2cad8ed2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror", "Mirror.csproj", "{3973ae81-3417-d801-02d2-0fce80f2df20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Components", "Mirror.Components.csproj", "{6f3ebebc-f103-7562-2c29-122ebbaa790c}"
 EndProject
@@ -38,12 +38,12 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8ca18058-35c0-bf35-da09-eb88cb6ada03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8ca18058-35c0-bf35-da09-eb88cb6ada03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3973ae81-3417-d801-02d2-0fce80f2df20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3973ae81-3417-d801-02d2-0fce80f2df20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9a4c3a67-56ec-7fd1-1abd-7fc266133176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9a4c3a67-56ec-7fd1-1abd-7fc266133176}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2a797ad9-2c45-7d01-0a7d-2d1c2cad8ed2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2a797ad9-2c45-7d01-0a7d-2d1c2cad8ed2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3973ae81-3417-d801-02d2-0fce80f2df20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3973ae81-3417-d801-02d2-0fce80f2df20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6f3ebebc-f103-7562-2c29-122ebbaa790c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6f3ebebc-f103-7562-2c29-122ebbaa790c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25b5b00c-de71-ba6c-6f80-9ebf92166224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

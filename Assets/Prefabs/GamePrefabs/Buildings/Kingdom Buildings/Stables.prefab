@@ -474,6 +474,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2423851744626650388, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423851744626650388, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423851744626650388, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012092921976468929, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012092921976468929, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012092921976468929, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.64705884
+      objectReference: {fileID: 0}
     - target: {fileID: 8938927526898063070, guid: 6a8c3a8b8034723408f95adeca08b402, type: 3}
       propertyPath: m_Layer
       value: 2

@@ -146,31 +146,6 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 8747188378908908196}
---- !u!114 &1746202488170043785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9212216835331115687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24435783c2a6c9a4db628b3ab3ab60bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  owner: {fileID: 0}
-  team: {fileID: 0}
-  selected: 0
-  unitEnergy: 100
-  MaxUnitEnergy: 100
-  unitName: Harold Barkeye
-  unitType: 0
-  unitRank: 0
-  unitKills: 0
-  unitWeapon: 1
-  unitArmour: 0
 --- !u!114 &2267158404716600008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,7 +629,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 
-      objectReference: {fileID: 1746202488170043785}
+      objectReference: {fileID: 3293032295257199370}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitSelectedClip
       value: 
@@ -738,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 
-      objectReference: {fileID: 1746202488170043785}
+      objectReference: {fileID: 3293032295257199370}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitMovingSoundClip
       value: 
@@ -808,6 +783,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4144c4e4234f9f24c9f5b25acbf674e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3293032295257199370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8277207442516300037, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
+  m_PrefabInstance: {fileID: 6876362473165193743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9212216835331115687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24435783c2a6c9a4db628b3ab3ab60bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &7176845518138264120 stripped

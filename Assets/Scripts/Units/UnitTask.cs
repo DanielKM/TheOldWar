@@ -8,14 +8,12 @@ public class UnitTask : NetworkBehaviour
 {
     // [SerializeField]
     // private Animator anim;
-    // [SerializeField]
     // private NetworkAnimator networkAnimator;
-    // private UnitAnimation unitAnimation;
+    
+    [Header("References")]
+    [SerializeField] private UnitAnimation unitAnimation;
 
     private UnitSelectionHandler unitSelection = null;
-    [Header("References")]
-    [SerializeField]
-    private UnitAnimation unitAnimation = null;
     
     [Header("Settings")]
     [SyncVar(hook=nameof(HandleDisplayTaskUpdated))]
@@ -41,11 +39,13 @@ public class UnitTask : NetworkBehaviour
         
         task = newTask;        
 
-        // unitAnimation.SetAnimation(newTask);
+        unitAnimation.SetAnimation(newTask);
 
         if(unit.GetComponent<UnitInformation>().selected == false) { return; }
 
-        if(unit != unitSelection.SelectedUnits[0]) { return; }
+        // if(unitSelection.SelectedUnits.Count <= 0) { return; }
+
+        // if(unit != unitSelection.SelectedUnits[0]) { return; }
 
         unitSelection.UpdateUnitPanel(unit);
     }

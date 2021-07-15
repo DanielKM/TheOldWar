@@ -67,11 +67,11 @@ public class UnitCommandGiver : NetworkBehaviour
     {
         if(unitSelectionHandler.SelectedUnits.Count <= 0) { return; }
 
-        // UnitMovement firstUnitMovement = unitSelectionHandler.SelectedUnits[0].gameObject.GetComponent<UnitMovement>();
+        UnitMovement firstUnitMovement = unitSelectionHandler.SelectedUnits[0].gameObject.GetComponent<UnitMovement>();
         
-        // firstUnitMovement.unitAudio.clip = firstUnitMovement.unitMovingClip;
+        firstUnitMovement.unitAudio.clip = firstUnitMovement.unitMovingClip;
 
-        // firstUnitMovement.unitAudio.Play();
+        firstUnitMovement.unitAudio.Play();
 
         CreateBoxFormation(hit, unitSelectionHandler.SelectedUnits);
     }

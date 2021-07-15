@@ -164,31 +164,6 @@ MonoBehaviour:
   maxHeldResources: 100
   heldResources: 0
   gatherSpeed: 1
---- !u!114 &1746202488355153229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2865781408668503874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24435783c2a6c9a4db628b3ab3ab60bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  owner: {fileID: 0}
-  team: {fileID: 0}
-  selected: 0
-  unitEnergy: 100
-  MaxUnitEnergy: 100
-  unitName: Harold Barkeye
-  unitType: 0
-  unitRank: 0
-  unitKills: 0
-  unitWeapon: 1
-  unitArmour: 0
 --- !u!114 &3269931612645664802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea32a4820ccfd141a460552d3750a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxCarried: 20
   animator: {fileID: 2412049349742190401}
   enemyDetector: {fileID: 3829723700495355794}
   targeter: {fileID: 3750238620590747301}
@@ -264,6 +238,7 @@ MonoBehaviour:
   moveAudio: {fileID: 8300000, guid: ac18c6e506f5524478ef49ebf07c9d03, type: 3}
   audioSource: {fileID: -7908261325409360190}
   harvestClip: {fileID: 8300000, guid: 3a2c9cd2d6a3f374fb003b0b4fc32e05, type: 3}
+  buildClip: {fileID: 0}
   currentState: idle
 --- !u!1001 &536117859605317610
 PrefabInstance:
@@ -512,7 +487,7 @@ PrefabInstance:
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 
-      objectReference: {fileID: 1746202488355153229}
+      objectReference: {fileID: 0}
     - target: {fileID: 6293200833163542637, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitSelectedClip
       value: 
@@ -644,7 +619,7 @@ PrefabInstance:
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitInformation
       value: 
-      objectReference: {fileID: 1746202488355153229}
+      objectReference: {fileID: 0}
     - target: {fileID: 8223338813761973548, guid: 76774a95b266b1447a2597e11a8162e3, type: 3}
       propertyPath: unitMovingSoundClip
       value: 

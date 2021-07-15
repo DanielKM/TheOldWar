@@ -90,7 +90,7 @@ public class Health : NetworkBehaviour
         { 
             if(damageEffect) 
             {
-                damageEffect.SetActive(true);
+                damageEffect.SetActive(false);
             }
         }
 

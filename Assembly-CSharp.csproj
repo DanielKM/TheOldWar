@@ -68,7 +68,6 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Water System\PW_Camera_Refraction.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Global\bl_SceneLoaderUtils.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\Legacy\FogOfWarLegacy.cs" />
-     <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\ProgressBar.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarUnit.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarConversion.cs" />
@@ -76,6 +75,7 @@
      <Compile Include="Assets\Scripts\Units\UnitCommandGiver.cs" />
      <Compile Include="Assets\Imported\LeanTween\Framework\LTSeq.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\EventTriggerInvoker.cs" />
+     <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\API\NoiseType.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\GaiaHDRPRuntimeUtils.cs" />
@@ -108,6 +108,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\Vehicles\Car\Scripts\BrakeLight.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\PPSv2\FogOfWarTestPPSv2.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\IState.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\RiverFlow2.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\Vector3Double.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SpawningSystem\WorldBiomeMasks.cs" />
@@ -126,6 +127,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SpawningSystem\SpawnCriteria.cs" />
      <Compile Include="Assets\Scripts\Game\Computer AI\PlayerAI.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Weather\VFX\Scripts\RandomMaterialSelector.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Build\ConstructFoundation.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\ExportTerrainSettings.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\Assets\Test3D\FogOfWar3DMinimapIcon.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SpawningSystem\SpawnRule.cs" />
@@ -148,6 +150,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Scene Managment\GaiaSceneWater.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Asset Samples\Script Examples\Scripts\RaceTrackMaker.cs" />
      <Compile Include="Assets\Scripts\Combat\Spell.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Generic\Idle.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SpawningSystem\Spawner.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\Vehicles\Car\Scripts\CarAIControl.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\MaskSystem\GaiaNoiseSettings.cs" />
@@ -166,6 +169,7 @@
      <Compile Include="Assets\Scripts\Networking\RTSPlayer.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SessionSystem\SpawnOperationSettings.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ValueAdds\Post Processing Converter\PostProcessingConverter.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Gather\ReturnToStockpile.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\GeNaMapBuilder.cs" />
      <Compile Include="Assets\Scripts\Units\UnitMovement.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\CommandBufferManager.cs" />
@@ -241,6 +245,7 @@
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\PathBezier2d.cs" />
      <Compile Include="Assets\Scripts\Units\UnitFiring.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ExtensionSystem\Compatible\DesktopTreesPackage.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Gather\SearchForClosestResource.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\ExitButtonController.cs" />
      <Compile Include="Assets\Imported\SpecialSkillsEffectsPack\Scripts\ChangeSizeColor.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\Decorators\GeNaPrefabUnpackerDecorator.cs" />
@@ -260,6 +265,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\MaskSystem\ImageMask.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\NoneFractalType.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Scripts\MultiTerrainSystem\TerrainLoader.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Gather\PlaceResourcesInStockpile.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoGameObject.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\Rescuable.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\WaterFlowMap.cs" />
@@ -301,6 +307,7 @@
      <Compile Include="Assets\Scripts\Units\Unit.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\Corpse.cs" />
      <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Generic\Flee.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\FogOfWarMap.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\ValueNoise.cs" />
      <Compile Include="Assets\Scripts\UI\Buttons.cs" />
@@ -322,6 +329,7 @@
      <Compile Include="Assets\Imported\FogOfWar\Core\URP\FogOfWarURPPass.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ExtensionSystem\GaiaCompatiblePublisher.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Domain\Nation.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Gather\HarvestResource.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\MaskSystem\CollisionMask.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\GaiaMaintenanceProfile.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Archived\TestingPunch.cs" />
@@ -333,6 +341,7 @@
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\Decorators\GeNaTerrainTreeDecorator.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Domain\NationProperties.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Scripts\Utils\ReflectionProbeCuller.cs" />
+     <Compile Include="Assets\Scripts\Menus\RevampedMainMenu.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\GaiaStopwatchControl.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\MaskSystem\MaskMapExportSettings.cs" />
@@ -348,11 +357,14 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ValueAdds\Location System\LocationSystem.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoProbe.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\Singleton.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\Actions\Movement.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\API\NoiseTemplateImporter.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Lighting System\GaiaGlobal.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ExtensionSystem\Compatible\VillageExteriorsKit.cs" />
      <Compile Include="Assets\Scripts\Units\UnitAnimation.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\Vector2Double.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Generic\Pursue.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\ClearDead\ClearDead.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\SessionSystem\UndoRedoOperationSettings.cs" />
      <Compile Include="Assets\Scripts\Menus\Lobby\RemoveComputerPlayerButton.cs" />
      <Compile Include="Assets\Scripts\Networking\TeamColorSetter.cs" />
@@ -364,6 +376,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\GaiaHierarchyUtils.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Samples\URP\FogOfWarTestURP.cs" />
      <Compile Include="Assets\Scripts\Menus\JoinLobbyMenu.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Generic\RightClickMove.cs" />
      <Compile Include="Assets\Imported\FogOfWar\Core\URP\FogOfWarURP.cs" />
      <Compile Include="Assets\Scripts\Lighting\EventCycle.cs" />
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Window\AnimatedWindowController.cs" />
@@ -378,6 +391,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Scripts\MultiTerrainSystem\RigidbodyWaitForTerrainLoad.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\NoiseSettingsGUI.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\PathSpline.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Gatherer.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Shaders\Scripts\ShaderUtility.cs" />
      <Compile Include="Assets\Scripts\Buildings\UnitBase.cs" />
      <Compile Include="Assets\MenuProfileInformation.cs" />
@@ -411,6 +425,7 @@
      <Compile Include="Assets\Scripts\Combat\Targetable.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Erosion\IBrushUIGroup.cs" />
      <Compile Include="Assets\Imported\Loading Screen\Content\Scripts\Internal\Enum\bl_SceneLoaderSkip.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\ClearDead\SearchForClosestCorpse.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\ExplodePartManager.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Utils\GaiaStopwatchDataset.cs" />
@@ -429,9 +444,11 @@
      <Compile Include="Assets\Scripts\UI\SceneLoading.cs" />
      <Compile Include="Assets\Scripts\UI\Cursors.cs" />
      <Compile Include="Assets\Imported\SpecialSkillsEffectsPack\Scripts\VariousEffectsScene.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Units\Unit Assignments\RepairDuty.cs" />
      <Compile Include="Assets\Scripts\Units\Type AddOns\SpellCaster.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\NoiseSettingsAssetEditor.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Gatherer\Build\SearchForClosestFoundation.cs" />
      <Compile Include="Assets\Scripts\Buildings\BuildingPlacementHandler.cs" />
      <Compile Include="Assets\Scripts\Buildings\Building.cs" />
      <Compile Include="Assets\Procedural Worlds\GeNa\Scripts\External\Extensions\GeNaClearDetailsExtension.cs" />
@@ -439,6 +456,7 @@
      <Compile Include="Assets\Procedural Worlds\Gaia\Gaia Pro\Weather\VFX\Scripts\PW_VFX_Clouds.cs" />
      <Compile Include="Assets\Imported\SpecialSkillsEffectsPack\Scripts\DelayActive.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ExtensionSystem\Template.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Generic\MoveToSelectedTarget.cs" />
      <Compile Include="Assets\Imported\beffio\Medieval Kingdom\Content\Scripts\Reflection_pass.cs" />
      <Compile Include="Assets\Imported\SpecialSkillsEffectsPack\Scripts\VariousMouseOrbit.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoTree.cs" />
@@ -488,6 +506,7 @@
      <Compile Include="Assets\Imported\MedievalKingdomUI\Scripts\Controls\ScrollController.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\Unity\Terrain Tools\Noise\NoiseComponentEditor.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ScanningSystem\BinaryReaderMac.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\Fighter\Fighter.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Asset Samples\Standard Assets\Vehicles\Car\Scripts\CarUserControl.cs" />
      <Compile Include="Assets\Scripts\Cameras\FaceCamera.cs" />
      <Compile Include="Assets\Scripts\Buildings\Foundation.cs" />
@@ -524,19 +543,7 @@
      <Compile Include="Assets\Imported\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
      <Compile Include="Assets\Procedural Worlds\Gaia\Scripts\ResourcesSystem\ResourceProtoDetailSO.cs" />
      <Compile Include="Assets\Imported\LeanTween\Examples\Scripts\Following.cs" />
-     <Compile Include="Assets\Scripts\Menus\RevampedMainMenu.cs" />
-     <Compile Include="Assets\Scripts\State\Actions\Movement.cs" />
-     <Compile Include="Assets\Scripts\State\Gatherer.cs" />
-     <Compile Include="Assets\Scripts\State\States\HarvestResource.cs" />
-     <Compile Include="Assets\Scripts\State\StateMachine.cs" />
-     <Compile Include="Assets\Scripts\State\States\SearchForClosestResource.cs" />
-     <Compile Include="Assets\Scripts\State\States\PlaceResourcesInStockpile.cs" />
-     <Compile Include="Assets\Scripts\State\States\Flee.cs" />
-     <Compile Include="Assets\Scripts\State\States\ReturnToStockpile.cs" />
-     <Compile Include="Assets\Scripts\State\States\RightClickMove.cs" />
-     <Compile Include="Assets\Scripts\State\IState.cs" />
-     <Compile Include="Assets\Scripts\State\States\MoveToSelectedResource.cs" />
-     <Compile Include="Assets\Scripts\State\States\Idle.cs" />
+     <Compile Include="Assets\Scripts\StateMachine\States\MeleeAttack.cs" />
      <None Include="Assets\Procedural Worlds\GeNa\Dependencies\License.txt" />
      <None Include="Assets\Imported\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
      <None Include="Assets\Imported\TextMesh Pro\Shaders\TMPro.cginc" />

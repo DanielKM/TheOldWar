@@ -29,7 +29,7 @@ public class ReturnToStockpile : IState
     {
         _gatherer.currentState = "RETURN";
         _targeter.TargetClosestDropOff();
-        _navMeshAgent.enabled = true;
+        // _navMeshAgent.enabled = true;
         _navMeshAgent.SetDestination(_targeter.GetTarget().transform.position);
         _gatherer.Stockpile = _targeter.GetTarget().GetComponent<ResourceDropOff>();
         _animator.SetFloat(Speed, 1f);
@@ -37,7 +37,7 @@ public class ReturnToStockpile : IState
 
     public void OnExit()
     {
-        _navMeshAgent.enabled = false;
+        // _navMeshAgent.enabled = false;
         _animator.SetFloat(Speed, 0f);
     }
 }

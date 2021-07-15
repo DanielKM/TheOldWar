@@ -25,6 +25,7 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
         UI = GameObject.Find("UI").GetComponent<UIController>();
 
         testing = GameObject.Find("Testing").GetComponent<Testing>().testing;
+
         if(!testing) 
         {
             player = NetworkClient.connection.identity.GetComponent<RTSPlayer>();
@@ -49,6 +50,7 @@ public class SpellButton : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     public void OnPointerDown(PointerEventData eventData)
     {
         if(eventData.button != PointerEventData.InputButton.Left) { return; }
+
         spellHandler = GameObject.Find("UnitHandlers").GetComponent<SpellHandler>();
 
         unitSelection = GameObject.Find("UnitHandlers").GetComponent<UnitSelectionHandler>();

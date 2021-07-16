@@ -84,6 +84,10 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         rallyPointGameObject.SetActive(true);
     }
 
+    string[] unitFirstNames = {"Aron", "Aston", "Arslan", "Aiden", "Damon", "Varyn", "Nordas", "Harald", "Gavan", "Davyd", "Kevan", "Steven", "Rian"};
+    string[] unitSecondNamesStart = {"Stone", "Fire", "Grass", "North", "South", "East", "West", "White", "Black", "Red", "Green", "Gold", "Swift", "Keen"};
+    string[] unitSecondNamesEnd = {"heart", "axe", "hammer", "stone", "spear", "herder", "watcher", "arm", "legs", "tree", "path", "guide", "shield", "sword", "bow", "banner"};
+
     #region Server
 
     private void ProduceUnits()
@@ -100,6 +104,13 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         GameObject unitInstance = null;
         player = connectionToClient.identity.GetComponent<RTSPlayer>();
         // List<GameObject> pooledUnits;
+
+        int firstNameNumber = Random.Range(0, unitFirstNames.Length);
+        int secondNamesStartNumber = Random.Range(0, unitSecondNamesStart.Length);
+        int secondNamesEndNumber = Random.Range(0, unitSecondNamesEnd.Length);
+       
+        string unitName = unitFirstNames[firstNameNumber] + " " + unitSecondNamesStart[secondNamesStartNumber] + unitSecondNamesEnd[secondNamesEndNumber];
+
         switch(unitsToTrain[0].gameObject.GetComponent<UnitInformation>().unitType) 
         {
             case UnitType.Worker:
@@ -147,6 +158,7 @@ public class UnitSpawner : NetworkBehaviour, IPointerClickHandler
         
         unitInstance.GetComponent<UnitInformation>().owner = player;
         unitInstance.GetComponent<UnitInformation>().team = player.team;
+        unitInstance.GetComponent<UnitInformation>().unitName = unitName;
 
         NetworkServer.Spawn(unitInstance, connectionToClient);
 

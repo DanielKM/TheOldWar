@@ -383,18 +383,19 @@ public class UnitSelectionHandler : MonoBehaviour
             currentList = controlGroup0;
         }
         currentList.Clear();
-        foreach (Unit unit in SelectedUnits) {
+        foreach (Unit unit in SelectedUnits) 
+        {
             currentList.Add(unit);
         }
     }
 
     void LoadControlGroup(int number) {
-        if(!Input.GetKey(KeyCode.LeftShift)) {
+        // if(!Input.GetKey(KeyCode.LeftShift)) {
             foreach(Unit unit in SelectedUnits) 
             {
                 RemoveSelectedUnit(unit);
             }
-        }
+        // }
         List<Unit> currentList = new List<Unit>();
         if(number == 1) {
             currentList = controlGroup1;
@@ -418,7 +419,8 @@ public class UnitSelectionHandler : MonoBehaviour
             currentList = controlGroup0;
         }
         
-        foreach (Unit unit in currentList) {
+        foreach (Unit unit in currentList) 
+        {
             AddSelectedUnit(unit);
         }
     }

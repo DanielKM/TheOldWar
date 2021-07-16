@@ -68,6 +68,7 @@ public class Healer : MonoBehaviour
             
             if(colliders[i].gameObject.GetComponent<UnitTask>().GetTask() == ActionList.Injured) 
             { 
+                // RESSURECTING
                 if (sqrDistanceToCenter < minSqrDistance)
                 {
                     minSqrDistance = sqrDistanceToCenter;
@@ -76,6 +77,7 @@ public class Healer : MonoBehaviour
                 }
             } else if(colliders[i].gameObject.GetComponent<Health>().currentHealth < colliders[i].gameObject.GetComponent<Health>().maxHealth) 
             {
+                // HEALING
                 if (sqrDistanceToCenter < minSqrDistance)
                 {
                     minSqrWoundedDistance = sqrDistanceToCenter;

@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneId: 0
   serverOnly: 0
+  visible: 0
   m_AssetId: 
   hasSpawned: 0
 --- !u!114 &4834918310148372896
@@ -401,7 +402,7 @@ MonoBehaviour:
   selected: 0
   unitEnergy: 100
   MaxUnitEnergy: 100
-  unitName: Harold Barkeye
+  unitName: Stone
   unitType: 41
   unitRank: 0
   unitKills: 0
